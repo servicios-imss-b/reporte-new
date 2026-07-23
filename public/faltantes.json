@@ -2089,6 +2089,46 @@
   },
   {
     "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB001526",
+    "nombre_de_la_unidad": "CENTRO DE SALUD MORELIA (DR. JUAN MANUEL GONZÁLEZ URUEÑA)",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "estetoscopio_pinard_o_doppler_fetal_portatil, lampara_de_examinacion_de_pie_rodable"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB001526",
+    "nombre_de_la_unidad": "CENTRO DE SALUD MORELIA (DR. JUAN MANUEL GONZÁLEZ URUEÑA)",
+    "consultorio": 3,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "espejos_vaginales, guarda_de_medicamentos_materiales_o_instrumental, guardarropa_con_perchero"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB001526",
+    "nombre_de_la_unidad": "CENTRO DE SALUD MORELIA (DR. JUAN MANUEL GONZÁLEZ URUEÑA)",
+    "consultorio": 5,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "estetoscopio_pinard_o_doppler_fetal_portatil, guardarropa_con_perchero"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB001526",
+    "nombre_de_la_unidad": "CENTRO DE SALUD MORELIA (DR. JUAN MANUEL GONZÁLEZ URUEÑA)",
+    "consultorio": 6,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "guarda_de_medicamentos_materiales_o_instrumental, guardarropa_con_perchero, sillon_giratorio_de_respaldo_bajo"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB001526",
+    "nombre_de_la_unidad": "CENTRO DE SALUD MORELIA (DR. JUAN MANUEL GONZÁLEZ URUEÑA)",
+    "consultorio": 7,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "bascula_pesabebes_electronica, estetoscopio_pinard_o_doppler_fetal_portatil, guarda_de_medicamentos_materiales_o_instrumental, oximetro_de_pulso"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
     "clues_imb": "MNIMB001531",
     "nombre_de_la_unidad": "CENTRO DE SALUD TENENCIA MORELOS",
     "consultorio": 2,
@@ -2190,6 +2230,22 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "cubeta_de_acero_inoxidable_y_bolsa"
+  },
+  {
+    "entidad": "NAYARIT",
+    "clues_imb": "NTIMB001461",
+    "nombre_de_la_unidad": "SAN LUIS DE LOZADA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "cinta_metrica"
+  },
+  {
+    "entidad": "NAYARIT",
+    "clues_imb": "NTIMB001601",
+    "nombre_de_la_unidad": "LA CRUZ DE HUANACAXTLE",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "sillon_giratorio_de_respaldo_bajo"
   },
   {
     "entidad": "OAXACA",

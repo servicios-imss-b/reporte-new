@@ -40,6 +40,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "BSIMB000351",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN JOSÉ DEL CABO",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 23.0608316813794,
+    "lng": -109.701759600338,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 91.7
+  },
+  {
     "clues_imb": "CCIMB000184",
     "nombre_de_la_unidad": "CENTRO DE SALUD PUERTO RICO",
     "entidad": "CAMPECHE",
@@ -4730,6 +4740,16 @@
     "pct_llenado": 90.6
   },
   {
+    "clues_imb": "MNIMB004010",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ZAMORA VALENCIA",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 20.0028913,
+    "lng": -102.2928805,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "MSIMB000321",
     "nombre_de_la_unidad": "CENTRO DE SALUD HERMENEGILDO GALEANA",
     "entidad": "MORELOS",
@@ -5160,6 +5180,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "NTIMB001461",
+    "nombre_de_la_unidad": "SAN LUIS DE LOZADA",
+    "entidad": "NAYARIT",
+    "lat": 21.501756,
+    "lng": -104.705247,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
     "clues_imb": "NTIMB001473",
     "nombre_de_la_unidad": "SALVADOR ALLENDE",
     "entidad": "NAYARIT",
@@ -5176,6 +5206,16 @@
     "lat": 20.903656,
     "lng": -105.12652,
     "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "NTIMB001601",
+    "nombre_de_la_unidad": "LA CRUZ DE HUANACAXTLE",
+    "entidad": "NAYARIT",
+    "lat": 20.754244,
+    "lng": -105.380508,
+    "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
   },
@@ -7228,6 +7268,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TSIMB003232",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LA MESA DEL SEÑOR",
+    "entidad": "TAMAULIPAS",
+    "lat": 23.736395,
+    "lng": -99.114392,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 90.6
   },
   {
     "clues_imb": "TSIMB003314",
