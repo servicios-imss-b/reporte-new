@@ -40,6 +40,56 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "BSIMB000054",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LA POZA GRANDE",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 25.7694292981839,
+    "lng": -112.024870361685,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "BSIMB000153",
+    "nombre_de_la_unidad": "CENTRO DE SALUD GUSTAVO DÍAZ ORDAZ",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 27.6492180381727,
+    "lng": -113.442005779167,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "BSIMB000165",
+    "nombre_de_la_unidad": "CENTRO DE SALUD HEROICA MULEGÉ",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 26.8913708474888,
+    "lng": -111.981520427962,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "BSIMB000310",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN BARTOLO",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 23.7376845178853,
+    "lng": -109.845740568301,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "BSIMB000334",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CALAFIA",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 24.0224800528455,
+    "lng": -110.279257897742,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
     "clues_imb": "BSIMB000351",
     "nombre_de_la_unidad": "CENTRO DE SALUD SAN JOSÉ DEL CABO",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -48,6 +98,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "BSIMB000515",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL CARIBE, CABO SAN LUCAS",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 22.9380642514855,
+    "lng": -109.930617786064,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "CCIMB000184",
@@ -230,11 +290,31 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "CMIMB001025",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO VILLA DE ÁLVAREZ TRADICIONAL",
+    "entidad": "COLIMA",
+    "lat": 19.2615,
+    "lng": -103.7321,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "CMIMB001042",
     "nombre_de_la_unidad": "CENTRO DE SALUD MIXCOATE",
     "entidad": "COLIMA",
     "lat": 19.3162,
     "lng": -103.9341,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "CMIMB001054",
+    "nombre_de_la_unidad": "CENTRO DE SALUD PUEBLO NUEVO",
+    "entidad": "COLIMA",
+    "lat": 19.3187,
+    "lng": -103.9221,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
@@ -3320,6 +3400,16 @@
     "pct_llenado": 91.7
   },
   {
+    "clues_imb": "HGIMB002321",
+    "nombre_de_la_unidad": "COLONIA BUENOS AIRES",
+    "entidad": "HIDALGO",
+    "lat": 20.122355,
+    "lng": -98.720882,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 96.9
+  },
+  {
     "clues_imb": "HGIMB003016",
     "nombre_de_la_unidad": "SAN MIGUEL ALLENDE",
     "entidad": "HIDALGO",
@@ -3338,6 +3428,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "HGIMB004276",
+    "nombre_de_la_unidad": "DOS CARLOS PUEBLO NUEVO",
+    "entidad": "HIDALGO",
+    "lat": 20.114889,
+    "lng": -98.703778,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "MCIMB000214",
@@ -3428,6 +3528,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "MCIMB001276",
+    "nombre_de_la_unidad": "SAN LORENZO CUAUHTENCO",
+    "entidad": "MEXICO",
+    "lat": 19.200101,
+    "lng": -99.630442,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "MCIMB001334",
@@ -4738,16 +4848,6 @@
     "internet": false,
     "consultorios": 2.0,
     "pct_llenado": 90.6
-  },
-  {
-    "clues_imb": "MNIMB004010",
-    "nombre_de_la_unidad": "CENTRO DE SALUD ZAMORA VALENCIA",
-    "entidad": "MICHOACAN DE OCAMPO",
-    "lat": 20.0028913,
-    "lng": -102.2928805,
-    "internet": true,
-    "consultorios": 1.0,
-    "pct_llenado": 95.8
   },
   {
     "clues_imb": "MSIMB000321",
@@ -6130,6 +6230,16 @@
     "pct_llenado": 94.4
   },
   {
+    "clues_imb": "QRIMB001442",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO 02 PLAYA DEL CARMEN",
+    "entidad": "QUINTANA ROO",
+    "lat": 20.6407196859534,
+    "lng": -87.0699019983043,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "QRIMB001466",
     "nombre_de_la_unidad": "CENTRO DE SALUD RURAL COBÁ",
     "entidad": "QUINTANA ROO",
@@ -6400,11 +6510,31 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "SLIMB002283",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL DORADO",
+    "entidad": "SINALOA",
+    "lat": 24.3114897539708,
+    "lng": -107.364377049629,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "SLIMB002300",
     "nombre_de_la_unidad": "CENTRO DE SALUD CULIACAN (COL. LA AMISTAD)",
     "entidad": "SINALOA",
     "lat": 24.7965710385105,
     "lng": -107.351629351211,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "SLIMB002353",
+    "nombre_de_la_unidad": "CENTRO DE SALUD FRANCISCO VILLA",
+    "entidad": "SINALOA",
+    "lat": 23.2595159730693,
+    "lng": -106.434322189532,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
@@ -6425,6 +6555,16 @@
     "entidad": "SINALOA",
     "lat": 24.8575336149817,
     "lng": -107.216764376002,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "SLIMB002662",
+    "nombre_de_la_unidad": "NUEVE DE DICIEMBRE",
+    "entidad": "SINALOA",
+    "lat": 25.7522177554699,
+    "lng": -109.028329166087,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
@@ -6548,6 +6688,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 94.8
+  },
+  {
+    "clues_imb": "SPIMB002253",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ROTARIOS",
+    "entidad": "SAN LUIS POTOSI",
+    "lat": 21.973729,
+    "lng": -99.011577,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 95.1
   },
   {
     "clues_imb": "SPIMB002340",
@@ -7158,6 +7308,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "TSIMB002030",
+    "nombre_de_la_unidad": "CENTRO DE SALUD COL. ENRIQUE CÁRDENAS GONZÁLEZ",
+    "entidad": "TAMAULIPAS",
+    "lat": 23.761987,
+    "lng": -99.163172,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "TSIMB002100",

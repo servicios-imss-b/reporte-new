@@ -1,5 +1,37 @@
 [
   {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000054",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LA POZA GRANDE",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "espejo_vestidor"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000170",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN IGNACIO",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores, carta_snellen_con_marco, cubeta_de_acero_inoxidable_y_bolsa, espejo_vestidor"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000334",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CALAFIA",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "banco_de_altura, banco_giratorio, porta_rollo_para_papel_kraft_o_sabanas"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000515",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL CARIBE, CABO SAN LUCAS",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "tijera_recta"
+  },
+  {
     "entidad": "CAMPECHE",
     "clues_imb": "CCIMB000225",
     "nombre_de_la_unidad": "CENTRO DE SALUD ISLA AGUADA",
@@ -59,6 +91,14 @@
     "entidad": "COLIMA",
     "clues_imb": "CMIMB000115",
     "nombre_de_la_unidad": "CENTRO DE SALUD ZONA ORIENTE (LA VIRGENCITA)",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "porta_cubeta_rodable_con_protector_de_hule, silla_para_el_acompanante, termometro_de_vastago, termometro_digital"
+  },
+  {
+    "entidad": "COLIMA",
+    "clues_imb": "CMIMB000115",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ZONA ORIENTE (LA VIRGENCITA)",
     "consultorio": 2,
     "n_faltantes": 3,
     "preguntas_faltantes": "contenedor_de_jabon_liquido, martillo_percusor, termometro_digital"
@@ -68,8 +108,8 @@
     "clues_imb": "CMIMB000115",
     "nombre_de_la_unidad": "CENTRO DE SALUD ZONA ORIENTE (LA VIRGENCITA)",
     "consultorio": 3,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "mesa_para_colocar_bascula_pesabebes, otoscopio"
+    "n_faltantes": 1,
+    "preguntas_faltantes": "otoscopio"
   },
   {
     "entidad": "COLIMA",
@@ -97,11 +137,11 @@
   },
   {
     "entidad": "COLIMA",
-    "clues_imb": "CMIMB001054",
-    "nombre_de_la_unidad": "CENTRO DE SALUD PUEBLO NUEVO",
+    "clues_imb": "CMIMB001025",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO VILLA DE ÁLVAREZ TRADICIONAL",
     "consultorio": 1,
-    "n_faltantes": 4,
-    "preguntas_faltantes": "charola_de_mayo_de_acero_inoxidable, contenedor_de_jabon_liquido, silla_para_el_acompanante, termometro_de_vastago"
+    "n_faltantes": 1,
+    "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores"
   },
   {
     "entidad": "CHIAPAS",
@@ -1102,6 +1142,14 @@
     "consultorio": 1,
     "n_faltantes": 2,
     "preguntas_faltantes": "oximetro_de_pulso, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
+  },
+  {
+    "entidad": "HIDALGO",
+    "clues_imb": "HGIMB002321",
+    "nombre_de_la_unidad": "COLONIA BUENOS AIRES",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "estetoscopio_capsula_doble"
   },
   {
     "entidad": "MEXICO",
@@ -2176,6 +2224,38 @@
     "preguntas_faltantes": "martillo_percusor, mesa_pasteur"
   },
   {
+    "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB004010",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ZAMORA VALENCIA",
+    "consultorio": 2,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "sillon_giratorio_de_respaldo_bajo, tijera_recta, vaso_contenedor_de_vacunas"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB004010",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ZAMORA VALENCIA",
+    "consultorio": 3,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "banco_de_altura, banco_giratorio, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB004010",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ZAMORA VALENCIA",
+    "consultorio": 4,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "escritorio_medico, oximetro_de_pulso, porta_rollo_para_papel_kraft_o_sabanas, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB004010",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ZAMORA VALENCIA",
+    "consultorio": 5,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
+  },
+  {
     "entidad": "MORELOS",
     "clues_imb": "MSIMB001091",
     "nombre_de_la_unidad": "CENTRO DE SALUD TEMIXCO",
@@ -2576,6 +2656,14 @@
     "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores"
   },
   {
+    "entidad": "SINALOA",
+    "clues_imb": "SLIMB003012",
+    "nombre_de_la_unidad": "CENTRO DE SALUD MOCHIS II",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "tijera_recta, torundera_con_tapa_de_acero_inoxidable, vaso_contenedor_de_vacunas"
+  },
+  {
     "entidad": "SAN LUIS POTOSI",
     "clues_imb": "SPIMB000445",
     "nombre_de_la_unidad": "AURELIO MANRIQUE",
@@ -2590,6 +2678,14 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "tijera_recta"
+  },
+  {
+    "entidad": "SAN LUIS POTOSI",
+    "clues_imb": "SPIMB002253",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ROTARIOS",
+    "consultorio": 3,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "banco_giratorio, bascula_electronica_con_estadimetro"
   },
   {
     "entidad": "SAN LUIS POTOSI",
