@@ -214,6 +214,8 @@ export default function App() {
       'consultorios_habilitados',
       'consultorio',
       'turno_consultorio',
+      'latitud',
+      'longitud',
     ]);
 
     if (!resultado.length) return [];
