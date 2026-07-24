@@ -9,6 +9,14 @@
   },
   {
     "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000071",
+    "nombre_de_la_unidad": "CENTRO DE SALUD PUERTO SAN CARLOS",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "equipo_de_computo"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
     "clues_imb": "BSIMB000170",
     "nombre_de_la_unidad": "CENTRO DE SALUD SAN IGNACIO",
     "consultorio": 1,
@@ -86,30 +94,6 @@
     "consultorio": 1,
     "n_faltantes": 2,
     "preguntas_faltantes": "lavabo, mesa_de_mayo_de_acero_inoxidable"
-  },
-  {
-    "entidad": "COLIMA",
-    "clues_imb": "CMIMB000115",
-    "nombre_de_la_unidad": "CENTRO DE SALUD ZONA ORIENTE (LA VIRGENCITA)",
-    "consultorio": 1,
-    "n_faltantes": 4,
-    "preguntas_faltantes": "porta_cubeta_rodable_con_protector_de_hule, silla_para_el_acompanante, termometro_de_vastago, termometro_digital"
-  },
-  {
-    "entidad": "COLIMA",
-    "clues_imb": "CMIMB000115",
-    "nombre_de_la_unidad": "CENTRO DE SALUD ZONA ORIENTE (LA VIRGENCITA)",
-    "consultorio": 2,
-    "n_faltantes": 3,
-    "preguntas_faltantes": "contenedor_de_jabon_liquido, martillo_percusor, termometro_digital"
-  },
-  {
-    "entidad": "COLIMA",
-    "clues_imb": "CMIMB000115",
-    "nombre_de_la_unidad": "CENTRO DE SALUD ZONA ORIENTE (LA VIRGENCITA)",
-    "consultorio": 3,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "otoscopio"
   },
   {
     "entidad": "COLIMA",
@@ -1145,11 +1129,75 @@
   },
   {
     "entidad": "HIDALGO",
+    "clues_imb": "HGIMB002316",
+    "nombre_de_la_unidad": "AQUILES SERDÁN",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "bote_sanitario_con_pedal, escritorio_medico, mesa_de_mayo_de_acero_inoxidable"
+  },
+  {
+    "entidad": "HIDALGO",
+    "clues_imb": "HGIMB002316",
+    "nombre_de_la_unidad": "AQUILES SERDÁN",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "sillon_giratorio_de_respaldo_bajo"
+  },
+  {
+    "entidad": "HIDALGO",
+    "clues_imb": "HGIMB002316",
+    "nombre_de_la_unidad": "AQUILES SERDÁN",
+    "consultorio": 3,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "espejos_vaginales"
+  },
+  {
+    "entidad": "HIDALGO",
     "clues_imb": "HGIMB002321",
     "nombre_de_la_unidad": "COLONIA BUENOS AIRES",
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "estetoscopio_capsula_doble"
+  },
+  {
+    "entidad": "HIDALGO",
+    "clues_imb": "HGIMB002386",
+    "nombre_de_la_unidad": "COLONIA LA RAZA",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "bascula_electronica_con_estadimetro, espejo_vestidor, porta_rollo_para_papel_kraft_o_sabanas"
+  },
+  {
+    "entidad": "HIDALGO",
+    "clues_imb": "HGIMB002386",
+    "nombre_de_la_unidad": "COLONIA LA RAZA",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "espejo_vestidor"
+  },
+  {
+    "entidad": "HIDALGO",
+    "clues_imb": "HGIMB003173",
+    "nombre_de_la_unidad": "SAN IGNACIO NOPALA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "bote_sanitario_con_pedal"
+  },
+  {
+    "entidad": "HIDALGO",
+    "clues_imb": "HGIMB004783",
+    "nombre_de_la_unidad": "LUZ DEL CARMEN",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "bote_sanitario_con_pedal, caja_portalaminilla_de_plastico_con_separadores"
+  },
+  {
+    "entidad": "HIDALGO",
+    "clues_imb": "HGIMB004783",
+    "nombre_de_la_unidad": "LUZ DEL CARMEN",
+    "consultorio": 3,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "mesa_universal_para_exploracion"
   },
   {
     "entidad": "MEXICO",
@@ -2617,6 +2665,14 @@
   },
   {
     "entidad": "SINALOA",
+    "clues_imb": "SLIMB000586",
+    "nombre_de_la_unidad": "LA ILAMA",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "lampara_de_examinacion_de_pie_rodable, paquetes_refrigerantes_para_termo, porta_cubeta_rodable_con_protector_de_hule, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
+  },
+  {
+    "entidad": "SINALOA",
     "clues_imb": "SLIMB000690",
     "nombre_de_la_unidad": "CULIACÁN",
     "consultorio": 1,
@@ -2713,6 +2769,22 @@
   },
   {
     "entidad": "TABASCO",
+    "clues_imb": "TCIMB000045",
+    "nombre_de_la_unidad": "C.S. SAN PEDRO",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "banco_de_altura"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB000173",
+    "nombre_de_la_unidad": "C.S. LÓPEZ MATEOS",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas, tijera_recta, torundera_con_tapa_de_acero_inoxidable"
+  },
+  {
+    "entidad": "TABASCO",
     "clues_imb": "TCIMB001853",
     "nombre_de_la_unidad": "CENTRO DE SALUD CON DOS NUCLEOS BASICOS CHABLE, EMILIANO ZAPATA, TABASCO",
     "consultorio": 1,
@@ -2774,6 +2846,22 @@
     "consultorio": 2,
     "n_faltantes": 4,
     "preguntas_faltantes": "banco_de_altura, bote_sanitario_con_pedal, martillo_percusor, oximetro_de_pulso"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB003603",
+    "nombre_de_la_unidad": "C.S. BENITO JUÁREZ 1RA. SECCIÓN",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "bascula_electronica_con_estadimetro, equipo_de_computo, termometro_digital"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB003813",
+    "nombre_de_la_unidad": "C.S. FRANCISCO VILLA",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "charola_de_mayo_de_acero_inoxidable, mesa_pasteur"
   },
   {
     "entidad": "TAMAULIPAS",

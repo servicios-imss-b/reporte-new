@@ -40,11 +40,31 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "BSIMB000025",
+    "nombre_de_la_unidad": "CENTRO DE SALUD PUERTO ADOLFO LÓPEZ MATEOS",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 25.1929057919954,
+    "lng": -112.118054295027,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "BSIMB000054",
     "nombre_de_la_unidad": "CENTRO DE SALUD LA POZA GRANDE",
     "entidad": "BAJA CALIFORNIA SUR",
     "lat": 25.7694292981839,
     "lng": -112.024870361685,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "BSIMB000071",
+    "nombre_de_la_unidad": "CENTRO DE SALUD PUERTO SAN CARLOS",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 24.7924867778483,
+    "lng": -112.110542290367,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 93.8
@@ -178,6 +198,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "CMIMB000214",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TEPAMES",
+    "entidad": "COLIMA",
+    "lat": 19.0923,
+    "lng": -103.6241,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 96.5
   },
   {
     "clues_imb": "CMIMB000226",
@@ -3400,6 +3430,16 @@
     "pct_llenado": 91.7
   },
   {
+    "clues_imb": "HGIMB002316",
+    "nombre_de_la_unidad": "AQUILES SERDÁN",
+    "entidad": "HIDALGO",
+    "lat": 20.12963,
+    "lng": -98.757852,
+    "internet": true,
+    "consultorios": 4.0,
+    "pct_llenado": 93.8
+  },
+  {
     "clues_imb": "HGIMB002321",
     "nombre_de_la_unidad": "COLONIA BUENOS AIRES",
     "entidad": "HIDALGO",
@@ -3408,6 +3448,36 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 96.9
+  },
+  {
+    "clues_imb": "HGIMB002345",
+    "nombre_de_la_unidad": "COLONIA ROJO GÓMEZ",
+    "entidad": "HIDALGO",
+    "lat": 20.120619,
+    "lng": -98.751589,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "HGIMB002374",
+    "nombre_de_la_unidad": "COLONIA CUBITOS",
+    "entidad": "HIDALGO",
+    "lat": 20.111132,
+    "lng": -98.73362,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 96.9
+  },
+  {
+    "clues_imb": "HGIMB002386",
+    "nombre_de_la_unidad": "COLONIA LA RAZA",
+    "entidad": "HIDALGO",
+    "lat": 20.106353,
+    "lng": -98.733576,
+    "internet": false,
+    "consultorios": 2.0,
+    "pct_llenado": 92.7
   },
   {
     "clues_imb": "HGIMB003016",
@@ -3430,6 +3500,46 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "HGIMB003173",
+    "nombre_de_la_unidad": "SAN IGNACIO NOPALA",
+    "entidad": "HIDALGO",
+    "lat": 19.830291,
+    "lng": -99.34469,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "HGIMB003190",
+    "nombre_de_la_unidad": "SANTA MARÍA QUELITES",
+    "entidad": "HIDALGO",
+    "lat": 19.855748,
+    "lng": -99.348071,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "HGIMB003400",
+    "nombre_de_la_unidad": "HUITZILA",
+    "entidad": "HIDALGO",
+    "lat": 19.816223,
+    "lng": -98.956679,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "HGIMB003762",
+    "nombre_de_la_unidad": "BOMINTZHA",
+    "entidad": "HIDALGO",
+    "lat": 20.011989,
+    "lng": -99.269667,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "HGIMB004276",
     "nombre_de_la_unidad": "DOS CARLOS PUEBLO NUEVO",
     "entidad": "HIDALGO",
@@ -3438,6 +3548,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "HGIMB004783",
+    "nombre_de_la_unidad": "LUZ DEL CARMEN",
+    "entidad": "HIDALGO",
+    "lat": 20.13266,
+    "lng": -98.77381,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 94.4
   },
   {
     "clues_imb": "MCIMB000214",
@@ -6480,6 +6600,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "SLIMB000813",
+    "nombre_de_la_unidad": "SAN LORENZO",
+    "entidad": "SINALOA",
+    "lat": 24.4351015747071,
+    "lng": -107.124114928166,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "SLIMB000883",
     "nombre_de_la_unidad": "VALLE ESCONDIDO",
     "entidad": "SINALOA",
@@ -6820,6 +6950,46 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "TCIMB000045",
+    "nombre_de_la_unidad": "C.S. SAN PEDRO",
+    "entidad": "TABASCO",
+    "lat": 17.7717,
+    "lng": -91.1464,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB000074",
+    "nombre_de_la_unidad": "C.S. MACTUN",
+    "entidad": "TABASCO",
+    "lat": 17.5903,
+    "lng": -91.2915,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB000161",
+    "nombre_de_la_unidad": "C.S. EL PICHI",
+    "entidad": "TABASCO",
+    "lat": 17.917642,
+    "lng": -91.018277,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "TCIMB000185",
+    "nombre_de_la_unidad": "C.S. EL CHAMIZAL",
+    "entidad": "TABASCO",
+    "lat": 17.497767,
+    "lng": -91.054916,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "TCIMB001853",
     "nombre_de_la_unidad": "CENTRO DE SALUD CON DOS NUCLEOS BASICOS CHABLE, EMILIANO ZAPATA, TABASCO",
     "entidad": "TABASCO",
@@ -6895,6 +7065,126 @@
     "entidad": "TABASCO",
     "lat": 17.9464,
     "lng": -92.00204,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB003620",
+    "nombre_de_la_unidad": "C.S. CORREGIDORA ORTIZ",
+    "entidad": "TABASCO",
+    "lat": 17.2564,
+    "lng": -91.3618,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB003661",
+    "nombre_de_la_unidad": "C.S. GUAYACAN",
+    "entidad": "TABASCO",
+    "lat": 17.6326,
+    "lng": -91.5021,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "TCIMB003690",
+    "nombre_de_la_unidad": "C.S. NUEVO MÉXICO",
+    "entidad": "TABASCO",
+    "lat": 17.5231,
+    "lng": -91.2302,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "TCIMB003702",
+    "nombre_de_la_unidad": "C.S. LA PALMA",
+    "entidad": "TABASCO",
+    "lat": 17.4435,
+    "lng": -91.1355,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB003714",
+    "nombre_de_la_unidad": "C.S. RANCHO GRANDE",
+    "entidad": "TABASCO",
+    "lat": 17.4208,
+    "lng": -91.4051,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB003760",
+    "nombre_de_la_unidad": "C.S.  REFORMA (PROVINCIA)",
+    "entidad": "TABASCO",
+    "lat": 17.757105,
+    "lng": -91.263924,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "TCIMB003813",
+    "nombre_de_la_unidad": "C.S. FRANCISCO VILLA",
+    "entidad": "TABASCO",
+    "lat": 17.2872,
+    "lng": -91.2111,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "TCIMB003825",
+    "nombre_de_la_unidad": "C.S. BENITO JUÁREZ",
+    "entidad": "TABASCO",
+    "lat": 17.3997,
+    "lng": -91.0591,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "TCIMB004320",
+    "nombre_de_la_unidad": "C.S. EJIDO MIGUEL HIDALGO Y COSTILLA",
+    "entidad": "TABASCO",
+    "lat": 18.046682,
+    "lng": -91.578825,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "TCIMB004694",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON UN NÚCLEO BÁSICO EJ. PARAÍSO EL TINTO, BALANCÁN , TABASCO",
+    "entidad": "TABASCO",
+    "lat": 17.585258,
+    "lng": -91.142638,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB004752",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON UN NÚCLEO BÁSICO COL. LA HULERÍA, BALANCAN, TABASCO",
+    "entidad": "TABASCO",
+    "lat": 17.991378,
+    "lng": -91.387829,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "TCIMB004846",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON DOS NUCLEOS BASICOS POB.REDENCION DEL CAMPESINO, TENOSIQUE,TABASCO",
+    "entidad": "TABASCO",
+    "lat": 17.328012,
+    "lng": -91.283198,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
