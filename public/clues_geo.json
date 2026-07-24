@@ -40,6 +40,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "BSIMB000013",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CIUDAD CONSTITUCIÓN",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 25.0340312829029,
+    "lng": -111.646848881243,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 94.4
+  },
+  {
     "clues_imb": "BSIMB000025",
     "nombre_de_la_unidad": "CENTRO DE SALUD PUERTO ADOLFO LÓPEZ MATEOS",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -177,7 +187,17 @@
     "lng": -111.83392279132,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "BSIMB000771",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS TODOS SANTOS",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 23.4472647749524,
+    "lng": -110.226701008397,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 92.7
   },
   {
     "clues_imb": "CCIMB000184",
@@ -5150,6 +5170,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "MCIMB008906",
+    "nombre_de_la_unidad": "COL. TEJALPA",
+    "entidad": "MEXICO",
+    "lat": 19.5652,
+    "lng": -99.0586,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 94.8
+  },
+  {
     "clues_imb": "MCIMB008935",
     "nombre_de_la_unidad": "SAN AGUSTÍN ATLAPULCO",
     "entidad": "MEXICO",
@@ -5280,6 +5310,16 @@
     "pct_llenado": 94.3
   },
   {
+    "clues_imb": "MNIMB001205",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL AHIJADERO",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 19.35711,
+    "lng": -101.004545,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "MNIMB001316",
     "nombre_de_la_unidad": "CENTRO DE SALUD ACALPICAN",
     "entidad": "MICHOACAN DE OCAMPO",
@@ -5375,6 +5415,26 @@
     "entidad": "MICHOACAN DE OCAMPO",
     "lat": 19.77308,
     "lng": -101.33134,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "MNIMB002482",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL LLANO",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 19.152251,
+    "lng": -100.90007,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "MNIMB002914",
+    "nombre_de_la_unidad": "CENTRO DE SALUD COL. ERÉNDIRA",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 19.8218346,
+    "lng": -101.8729356,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
@@ -5480,11 +5540,31 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "MSIMB000555",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SATÉLITE",
+    "entidad": "MORELOS",
+    "lat": 18.91827,
+    "lng": -99.20757,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "MSIMB000601",
     "nombre_de_la_unidad": "CENTRO DE SALUD TETECALITA",
     "entidad": "MORELOS",
     "lat": 18.768679,
     "lng": -99.180146,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MSIMB000712",
+    "nombre_de_la_unidad": "CENTRO DE SALUD JOSÉ LÓPEZ PORTILLO",
+    "entidad": "MORELOS",
+    "lat": 18.88924,
+    "lng": -99.1304,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
@@ -5700,6 +5780,26 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "NTIMB000493",
+    "nombre_de_la_unidad": "TRIGOMIL",
+    "entidad": "NAYARIT",
+    "lat": 21.393414,
+    "lng": -104.791801,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "NTIMB000505",
+    "nombre_de_la_unidad": "SAN ANTONIO",
+    "entidad": "NAYARIT",
+    "lat": 21.371219,
+    "lng": -105.065051,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "NTIMB000522",
     "nombre_de_la_unidad": "MESA DEL NAYAR",
     "entidad": "NAYARIT",
@@ -5837,7 +5937,7 @@
     "lng": -104.705247,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "NTIMB001473",
@@ -6070,14 +6170,24 @@
     "pct_llenado": 94.4
   },
   {
+    "clues_imb": "OCIMB003220",
+    "nombre_de_la_unidad": "SAN PEDRO COMITÁNCILLO",
+    "entidad": "OAXACA",
+    "lat": 16.4901,
+    "lng": -95.16,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "OCIMB003751",
     "nombre_de_la_unidad": "SAN SEBASTIÁN TUTLA",
     "entidad": "OAXACA",
     "lat": 17.0593,
     "lng": -96.6723,
     "internet": true,
-    "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "consultorios": 2.0,
+    "pct_llenado": 94.8
   },
   {
     "clues_imb": "OCIMB003763",
@@ -7440,6 +7550,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "TCIMB000062",
+    "nombre_de_la_unidad": "C.S. VILLA QUETZALCOATL",
+    "entidad": "TABASCO",
+    "lat": 17.82841,
+    "lng": -91.05749,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 91.7
+  },
+  {
     "clues_imb": "TCIMB000074",
     "nombre_de_la_unidad": "C.S. MACTUN",
     "entidad": "TABASCO",
@@ -7625,6 +7745,16 @@
     "entidad": "TABASCO",
     "lat": 17.4208,
     "lng": -91.4051,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB003726",
+    "nombre_de_la_unidad": "C.S. SANTO TOMAS",
+    "entidad": "TABASCO",
+    "lat": 17.3041,
+    "lng": -91.3535,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8

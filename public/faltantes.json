@@ -1,6 +1,22 @@
 [
   {
     "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000013",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CIUDAD CONSTITUCIÓN",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "charola_de_mayo_de_acero_inoxidable, contenedor_rigido_para_rpbi, escritorio_medico"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000013",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CIUDAD CONSTITUCIÓN",
+    "consultorio": 3,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "banco_giratorio"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
     "clues_imb": "BSIMB000030",
     "nombre_de_la_unidad": "CENTRO DE SALUD BENITO JUÁREZ",
     "consultorio": 1,
@@ -49,11 +65,19 @@
   },
   {
     "entidad": "BAJA CALIFORNIA SUR",
-    "clues_imb": "BSIMB000532",
-    "nombre_de_la_unidad": "CENTRO DE SALUD SAN MIGUEL DE COMONDÚ",
+    "clues_imb": "BSIMB000771",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS TODOS SANTOS",
     "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "tijera_recta, torundera_con_tapa_de_acero_inoxidable"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000771",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS TODOS SANTOS",
+    "consultorio": 2,
     "n_faltantes": 1,
-    "preguntas_faltantes": "mesa_de_mayo_de_acero_inoxidable"
+    "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
   },
   {
     "entidad": "CAMPECHE",
@@ -1705,6 +1729,14 @@
   },
   {
     "entidad": "MEXICO",
+    "clues_imb": "MCIMB003854",
+    "nombre_de_la_unidad": "OLIMPIADA 68",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "contenedor_rigido_para_rpbi, termometro_de_vastago, torundera_con_tapa_de_acero_inoxidable"
+  },
+  {
+    "entidad": "MEXICO",
     "clues_imb": "MCIMB003900",
     "nombre_de_la_unidad": "ESTADO DE MÉXICO NEZAHUALCOYOTL",
     "consultorio": 1,
@@ -2385,6 +2417,22 @@
   },
   {
     "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB000131",
+    "nombre_de_la_unidad": "CENTRO DE SALUD APATZINGÁN",
+    "consultorio": 3,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "esfigmomanometro, estadimetro_pediatrico"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB000580",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN AGUSTÍN DEL PULQUE",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "banco_de_altura, bascula_electronica_con_estadimetro, mesa_de_mayo_de_acero_inoxidable, torundera_con_tapa_de_acero_inoxidable"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
     "clues_imb": "MNIMB001350",
     "nombre_de_la_unidad": "CENTRO DE SALUD LOS COYOTES",
     "consultorio": 1,
@@ -2545,6 +2593,14 @@
   },
   {
     "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB002482",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL LLANO",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "bote_sanitario_con_pedal"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
     "clues_imb": "MNIMB003071",
     "nombre_de_la_unidad": "CENTRO DE SALUD VALLE DE LOS MANANTIALES",
     "consultorio": 1,
@@ -2654,14 +2710,6 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "cubeta_de_acero_inoxidable_y_bolsa"
-  },
-  {
-    "entidad": "NAYARIT",
-    "clues_imb": "NTIMB001461",
-    "nombre_de_la_unidad": "SAN LUIS DE LOZADA",
-    "consultorio": 1,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "cinta_metrica"
   },
   {
     "entidad": "NAYARIT",
@@ -2790,14 +2838,6 @@
     "consultorio": 12,
     "n_faltantes": 1,
     "preguntas_faltantes": "tijera_recta"
-  },
-  {
-    "entidad": "OAXACA",
-    "clues_imb": "OCIMB003220",
-    "nombre_de_la_unidad": "SAN PEDRO COMITÁNCILLO",
-    "consultorio": 1,
-    "n_faltantes": 3,
-    "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores, carta_snellen_con_marco, porta_cubeta_rodable_con_protector_de_hule"
   },
   {
     "entidad": "OAXACA",
@@ -3076,8 +3116,8 @@
     "clues_imb": "TCIMB000062",
     "nombre_de_la_unidad": "C.S. VILLA QUETZALCOATL",
     "consultorio": 1,
-    "n_faltantes": 3,
-    "preguntas_faltantes": "silla_para_el_acompanante, sillon_giratorio_de_respaldo_bajo, torundera_con_tapa_de_acero_inoxidable"
+    "n_faltantes": 2,
+    "preguntas_faltantes": "silla_para_el_acompanante, sillon_giratorio_de_respaldo_bajo"
   },
   {
     "entidad": "TABASCO",
