@@ -1,6 +1,14 @@
 [
   {
     "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000030",
+    "nombre_de_la_unidad": "CENTRO DE SALUD BENITO JUÁREZ",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "bote_sanitario_con_pedal, caja_portalaminilla_de_plastico_con_separadores"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
     "clues_imb": "BSIMB000054",
     "nombre_de_la_unidad": "CENTRO DE SALUD LA POZA GRANDE",
     "consultorio": 1,
@@ -38,6 +46,14 @@
     "consultorio": 2,
     "n_faltantes": 1,
     "preguntas_faltantes": "tijera_recta"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000532",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN MIGUEL DE COMONDÚ",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "mesa_de_mayo_de_acero_inoxidable"
   },
   {
     "entidad": "CAMPECHE",
@@ -105,11 +121,51 @@
   },
   {
     "entidad": "COLIMA",
-    "clues_imb": "CMIMB000646",
-    "nombre_de_la_unidad": "CENTRO DE SALUD EL CHAVARÍN",
+    "clues_imb": "CMIMB000540",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TAPEIXTLES",
     "consultorio": 1,
-    "n_faltantes": 3,
-    "preguntas_faltantes": "cubeta_de_acero_inoxidable_y_bolsa, otoscopio, paquetes_refrigerantes_para_termo"
+    "n_faltantes": 1,
+    "preguntas_faltantes": "mesa_universal_para_exploracion"
+  },
+  {
+    "entidad": "COLIMA",
+    "clues_imb": "CMIMB000721",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN BUENAVENTURA",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "cinta_metrica"
+  },
+  {
+    "entidad": "COLIMA",
+    "clues_imb": "CMIMB000733",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SANTA RITA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido"
+  },
+  {
+    "entidad": "COLIMA",
+    "clues_imb": "CMIMB000762",
+    "nombre_de_la_unidad": "CENTRO DE SALUD VENUSTIANO CARRANZA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "otoscopio"
+  },
+  {
+    "entidad": "COLIMA",
+    "clues_imb": "CMIMB000774",
+    "nombre_de_la_unidad": "CENTRO DE SALUD NUEVO CUYUTLÁN",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores"
+  },
+  {
+    "entidad": "COLIMA",
+    "clues_imb": "CMIMB000774",
+    "nombre_de_la_unidad": "CENTRO DE SALUD NUEVO CUYUTLÁN",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "estadimetro_pediatrico"
   },
   {
     "entidad": "COLIMA",
@@ -126,6 +182,14 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores"
+  },
+  {
+    "entidad": "COLIMA",
+    "clues_imb": "CMIMB001095",
+    "nombre_de_la_unidad": "CENTRO DE SALUD  COL. RUIZ CORTINEZ",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "silla_para_el_acompanante"
   },
   {
     "entidad": "CHIAPAS",
@@ -1049,6 +1113,14 @@
   },
   {
     "entidad": "GUERRERO",
+    "clues_imb": "GRIMB008062",
+    "nombre_de_la_unidad": "R-01 LA LAGUNA",
+    "consultorio": 2,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "mesa_pasteur, oximetro_de_pulso, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
+  },
+  {
+    "entidad": "GUERRERO",
     "clues_imb": "GRIMB008296",
     "nombre_de_la_unidad": "R-01 DURAZNO DEL ROSARÍO",
     "consultorio": 1,
@@ -1161,19 +1233,27 @@
   },
   {
     "entidad": "HIDALGO",
-    "clues_imb": "HGIMB002386",
-    "nombre_de_la_unidad": "COLONIA LA RAZA",
-    "consultorio": 1,
+    "clues_imb": "HGIMB002403",
+    "nombre_de_la_unidad": "PACHUCA (DR. JESÚS DEL ROSAL)",
+    "consultorio": 2,
     "n_faltantes": 3,
-    "preguntas_faltantes": "bascula_electronica_con_estadimetro, espejo_vestidor, porta_rollo_para_papel_kraft_o_sabanas"
+    "preguntas_faltantes": "mesa_para_colocar_bascula_pesabebes, mesa_pasteur, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
   },
   {
     "entidad": "HIDALGO",
-    "clues_imb": "HGIMB002386",
-    "nombre_de_la_unidad": "COLONIA LA RAZA",
-    "consultorio": 2,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "espejo_vestidor"
+    "clues_imb": "HGIMB002403",
+    "nombre_de_la_unidad": "PACHUCA (DR. JESÚS DEL ROSAL)",
+    "consultorio": 3,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "guarda_de_medicamentos_materiales_o_instrumental, mesa_pasteur, termometro_digital"
+  },
+  {
+    "entidad": "HIDALGO",
+    "clues_imb": "HGIMB002456",
+    "nombre_de_la_unidad": "GUAYABOS",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "mesa_universal_para_exploracion, oximetro_de_pulso"
   },
   {
     "entidad": "HIDALGO",
@@ -1185,11 +1265,27 @@
   },
   {
     "entidad": "HIDALGO",
+    "clues_imb": "HGIMB003844",
+    "nombre_de_la_unidad": "TULANCINGO",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "cinta_metrica, cubeta_de_acero_inoxidable_y_bolsa, espejos_vaginales"
+  },
+  {
+    "entidad": "HIDALGO",
+    "clues_imb": "HGIMB003844",
+    "nombre_de_la_unidad": "TULANCINGO",
+    "consultorio": 2,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "bascula_electronica_con_estadimetro, bote_sanitario_con_pedal, caja_portalaminilla_de_plastico_con_separadores"
+  },
+  {
+    "entidad": "HIDALGO",
     "clues_imb": "HGIMB004783",
     "nombre_de_la_unidad": "LUZ DEL CARMEN",
     "consultorio": 1,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "bote_sanitario_con_pedal, caja_portalaminilla_de_plastico_con_separadores"
+    "n_faltantes": 1,
+    "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores"
   },
   {
     "entidad": "HIDALGO",
@@ -1401,6 +1497,110 @@
   },
   {
     "entidad": "MEXICO",
+    "clues_imb": "MCIMB002080",
+    "nombre_de_la_unidad": "JOSÉ MA.MORELOS Y PAVÓN",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "termometro_de_vastago"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002080",
+    "nombre_de_la_unidad": "JOSÉ MA.MORELOS Y PAVÓN",
+    "consultorio": 2,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "otoscopio, porta_rollo_para_papel_kraft_o_sabanas"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002080",
+    "nombre_de_la_unidad": "JOSÉ MA.MORELOS Y PAVÓN",
+    "consultorio": 3,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "contenedor_rigido_para_rpbi"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002080",
+    "nombre_de_la_unidad": "JOSÉ MA.MORELOS Y PAVÓN",
+    "consultorio": 4,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "mesa_universal_para_exploracion, otoscopio, porta_rollo_para_papel_kraft_o_sabanas"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002080",
+    "nombre_de_la_unidad": "JOSÉ MA.MORELOS Y PAVÓN",
+    "consultorio": 5,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "otoscopio, oximetro_de_pulso"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002080",
+    "nombre_de_la_unidad": "JOSÉ MA.MORELOS Y PAVÓN",
+    "consultorio": 6,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "bascula_pesabebes_electronica, mesa_universal_para_exploracion, porta_cubeta_rodable_con_protector_de_hule, termometro_de_vastago"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002104",
+    "nombre_de_la_unidad": "AMPLIACIÓN TULPETLAC",
+    "consultorio": 2,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "banco_giratorio, equipo_de_computo, otoscopio"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002104",
+    "nombre_de_la_unidad": "AMPLIACIÓN TULPETLAC",
+    "consultorio": 3,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "banco_de_altura, banco_giratorio, equipo_de_computo, oximetro_de_pulso"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002104",
+    "nombre_de_la_unidad": "AMPLIACIÓN TULPETLAC",
+    "consultorio": 5,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "banco_de_altura, equipo_de_computo, lavabo"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002104",
+    "nombre_de_la_unidad": "AMPLIACIÓN TULPETLAC",
+    "consultorio": 6,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "lampara_de_examinacion_de_pie_rodable, martillo_percusor, termometro_digital, torundera_con_tapa_de_acero_inoxidable"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002104",
+    "nombre_de_la_unidad": "AMPLIACIÓN TULPETLAC",
+    "consultorio": 7,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "estetoscopio_pinard_o_doppler_fetal_portatil, lampara_de_examinacion_de_pie_rodable, paquetes_refrigerantes_para_termo"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002104",
+    "nombre_de_la_unidad": "AMPLIACIÓN TULPETLAC",
+    "consultorio": 8,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "espejos_vaginales, termometro_digital"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002121",
+    "nombre_de_la_unidad": "SAN JUAN IXHUATEPEC",
+    "consultorio": 6,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "lavabo, martillo_percusor, mesa_pasteur, oximetro_de_pulso"
+  },
+  {
+    "entidad": "MEXICO",
     "clues_imb": "MCIMB002145",
     "nombre_de_la_unidad": "HANK GONZÁLEZ",
     "consultorio": 4,
@@ -1414,6 +1614,62 @@
     "consultorio": 4,
     "n_faltantes": 1,
     "preguntas_faltantes": "porta_rollo_para_papel_kraft_o_sabanas"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002430",
+    "nombre_de_la_unidad": "COLONIA CHOCOLINES",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "mesa_pasteur, otoscopio"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002442",
+    "nombre_de_la_unidad": "COLONIA VALLE VERDE",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "bote_sanitario_con_pedal"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002454",
+    "nombre_de_la_unidad": "IXTAPALUCA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "escritorio_medico"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002466",
+    "nombre_de_la_unidad": "ALFREDO DEL MAZO",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "escritorio_medico, esfigmomanometro, mesa_de_mayo_de_acero_inoxidable"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002471",
+    "nombre_de_la_unidad": "COLONIA AYOTLA",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "paquetes_refrigerantes_para_termo, porta_rollo_para_papel_kraft_o_sabanas"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002495",
+    "nombre_de_la_unidad": "EL MOLINITO",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "bote_sanitario_con_pedal, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas, termometro_de_vastago"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002524",
+    "nombre_de_la_unidad": "COATEPEC",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "oximetro_de_pulso"
   },
   {
     "entidad": "MEXICO",
@@ -1921,6 +2177,14 @@
   },
   {
     "entidad": "MEXICO",
+    "clues_imb": "MCIMB006596",
+    "nombre_de_la_unidad": "CEAPS TLALMANALCO EPIGMENIO DE LA PIEDRA",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "charola_de_mayo_de_acero_inoxidable, termometro_digital"
+  },
+  {
+    "entidad": "MEXICO",
     "clues_imb": "MCIMB006683",
     "nombre_de_la_unidad": "LÁZARO CÁRDENAS III",
     "consultorio": 2,
@@ -2017,6 +2281,22 @@
   },
   {
     "entidad": "MEXICO",
+    "clues_imb": "MCIMB008054",
+    "nombre_de_la_unidad": "COLONIA SANTIAGO",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "silla_para_el_paciente"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB008071",
+    "nombre_de_la_unidad": "COLONIA SAN ISIDRO",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "silla_para_el_paciente"
+  },
+  {
+    "entidad": "MEXICO",
     "clues_imb": "MCIMB008375",
     "nombre_de_la_unidad": "SAN CRISTÓBAL HUICHOCHITLAN",
     "consultorio": 3,
@@ -2062,6 +2342,14 @@
     "consultorio": 2,
     "n_faltantes": 1,
     "preguntas_faltantes": "silla_para_el_paciente"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB008870",
+    "nombre_de_la_unidad": "COL. DARÍO MARTÍNEZ",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
   },
   {
     "entidad": "MEXICO",
@@ -2270,6 +2558,14 @@
     "consultorio": 2,
     "n_faltantes": 2,
     "preguntas_faltantes": "martillo_percusor, mesa_pasteur"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB003894",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN JUAN DEL FUERTE",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "banco_giratorio"
   },
   {
     "entidad": "MICHOACAN DE OCAMPO",
@@ -2528,14 +2824,6 @@
     "preguntas_faltantes": "oximetro_de_pulso"
   },
   {
-    "entidad": "OAXACA",
-    "clues_imb": "OCIMB007770",
-    "nombre_de_la_unidad": "C.S.U. SANTA TERESA",
-    "consultorio": 1,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "bascula_electronica_con_estadimetro"
-  },
-  {
     "entidad": "QUINTANA ROO",
     "clues_imb": "QRIMB000066",
     "nombre_de_la_unidad": "CENTRO DE SALUD RURAL DZOYOLA",
@@ -2697,6 +2985,14 @@
   },
   {
     "entidad": "SINALOA",
+    "clues_imb": "SLIMB000801",
+    "nombre_de_la_unidad": "QUILA",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "banco_giratorio, caja_portalaminilla_de_plastico_con_separadores, equipo_de_computo, otoscopio"
+  },
+  {
+    "entidad": "SINALOA",
     "clues_imb": "SLIMB001402",
     "nombre_de_la_unidad": "ISLA DE LA PIEDRA",
     "consultorio": 1,
@@ -2774,6 +3070,22 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "banco_de_altura"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB000062",
+    "nombre_de_la_unidad": "C.S. VILLA QUETZALCOATL",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "silla_para_el_acompanante, sillon_giratorio_de_respaldo_bajo, torundera_con_tapa_de_acero_inoxidable"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB000144",
+    "nombre_de_la_unidad": "C.S. CONSTITUCIÓN",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "lavabo"
   },
   {
     "entidad": "TABASCO",
