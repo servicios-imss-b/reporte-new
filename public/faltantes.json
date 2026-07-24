@@ -2419,17 +2419,25 @@
     "entidad": "MICHOACAN DE OCAMPO",
     "clues_imb": "MNIMB000131",
     "nombre_de_la_unidad": "CENTRO DE SALUD APATZINGÁN",
-    "consultorio": 3,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "esfigmomanometro, estadimetro_pediatrico"
+    "consultorio": 5,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "guarda_de_medicamentos_materiales_o_instrumental"
   },
   {
     "entidad": "MICHOACAN DE OCAMPO",
-    "clues_imb": "MNIMB000580",
-    "nombre_de_la_unidad": "CENTRO DE SALUD SAN AGUSTÍN DEL PULQUE",
-    "consultorio": 1,
-    "n_faltantes": 4,
-    "preguntas_faltantes": "banco_de_altura, bascula_electronica_con_estadimetro, mesa_de_mayo_de_acero_inoxidable, torundera_con_tapa_de_acero_inoxidable"
+    "clues_imb": "MNIMB000131",
+    "nombre_de_la_unidad": "CENTRO DE SALUD APATZINGÁN",
+    "consultorio": 6,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "guarda_de_medicamentos_materiales_o_instrumental, guardarropa_con_perchero"
+  },
+  {
+    "entidad": "MICHOACAN DE OCAMPO",
+    "clues_imb": "MNIMB000131",
+    "nombre_de_la_unidad": "CENTRO DE SALUD APATZINGÁN",
+    "consultorio": 7,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "espejos_vaginales"
   },
   {
     "entidad": "MICHOACAN DE OCAMPO",
@@ -2593,14 +2601,6 @@
   },
   {
     "entidad": "MICHOACAN DE OCAMPO",
-    "clues_imb": "MNIMB002482",
-    "nombre_de_la_unidad": "CENTRO DE SALUD EL LLANO",
-    "consultorio": 1,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "bote_sanitario_con_pedal"
-  },
-  {
-    "entidad": "MICHOACAN DE OCAMPO",
     "clues_imb": "MNIMB003071",
     "nombre_de_la_unidad": "CENTRO DE SALUD VALLE DE LOS MANANTIALES",
     "consultorio": 1,
@@ -2654,6 +2654,22 @@
     "consultorio": 5,
     "n_faltantes": 1,
     "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
+  },
+  {
+    "entidad": "MORELOS",
+    "clues_imb": "MSIMB000584",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL CAPIRI",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores"
+  },
+  {
+    "entidad": "MORELOS",
+    "clues_imb": "MSIMB000700",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TLAHUAPAN",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "tijera_recta"
   },
   {
     "entidad": "MORELOS",
@@ -3294,14 +3310,6 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
-  },
-  {
-    "entidad": "TAMAULIPAS",
-    "clues_imb": "TSIMB001436",
-    "nombre_de_la_unidad": "CENTRO DE SALUD RÍO BRAVO",
-    "consultorio": 1,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "sillon_giratorio_de_respaldo_bajo, termometro_de_vastago"
   },
   {
     "entidad": "TAMAULIPAS",

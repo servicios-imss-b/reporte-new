@@ -5310,6 +5310,26 @@
     "pct_llenado": 94.3
   },
   {
+    "clues_imb": "MNIMB000131",
+    "nombre_de_la_unidad": "CENTRO DE SALUD APATZINGÁN",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 19.093045,
+    "lng": -102.353964,
+    "internet": true,
+    "consultorios": 7.0,
+    "pct_llenado": 93.5
+  },
+  {
+    "clues_imb": "MNIMB000580",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN AGUSTÍN DEL PULQUE",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 19.961585,
+    "lng": -101.073331,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "MNIMB001205",
     "nombre_de_la_unidad": "CENTRO DE SALUD EL AHIJADERO",
     "entidad": "MICHOACAN DE OCAMPO",
@@ -5420,6 +5440,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "MNIMB002366",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CUITZILLO GRANDE",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 19.780921,
+    "lng": -101.117448,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 92.4
+  },
+  {
     "clues_imb": "MNIMB002482",
     "nombre_de_la_unidad": "CENTRO DE SALUD EL LLANO",
     "entidad": "MICHOACAN DE OCAMPO",
@@ -5427,7 +5457,7 @@
     "lng": -100.90007,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MNIMB002914",
@@ -5478,6 +5508,16 @@
     "internet": true,
     "consultorios": 3.0,
     "pct_llenado": 97.2
+  },
+  {
+    "clues_imb": "MSIMB000374",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TETELCINGO",
+    "entidad": "MORELOS",
+    "lat": 18.8709508,
+    "lng": -98.9264095,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "MSIMB000444",
@@ -5540,6 +5580,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "MSIMB000543",
+    "nombre_de_la_unidad": "CENTRO DE SALUD REVOLUCIÓN",
+    "entidad": "MORELOS",
+    "lat": 18.9209123,
+    "lng": -99.1826303,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "MSIMB000555",
     "nombre_de_la_unidad": "CENTRO DE SALUD SATÉLITE",
     "entidad": "MORELOS",
@@ -5550,6 +5600,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "MSIMB000584",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL CAPIRI",
+    "entidad": "MORELOS",
+    "lat": 18.85361,
+    "lng": -99.18988,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "MSIMB000601",
     "nombre_de_la_unidad": "CENTRO DE SALUD TETECALITA",
     "entidad": "MORELOS",
@@ -5558,6 +5618,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MSIMB000700",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TLAHUAPAN",
+    "entidad": "MORELOS",
+    "lat": 18.90311,
+    "lng": -99.17849,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "MSIMB000712",
@@ -5585,6 +5655,26 @@
     "entidad": "MORELOS",
     "lat": 18.87071,
     "lng": -99.18236,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MSIMB000765",
+    "nombre_de_la_unidad": "CENTRO DE SALUD OTILIO MONTAÑO",
+    "entidad": "MORELOS",
+    "lat": 18.9321,
+    "lng": -99.1783,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MSIMB000811",
+    "nombre_de_la_unidad": "CENTRO DE SALUD PANCHIMALCO",
+    "entidad": "MORELOS",
+    "lat": 18.6078,
+    "lng": -99.185,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
@@ -5678,6 +5768,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 92.7
+  },
+  {
+    "clues_imb": "MSIMB002375",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TLATENCHI",
+    "entidad": "MORELOS",
+    "lat": 18.5976,
+    "lng": -99.1868,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "NTIMB000126",
