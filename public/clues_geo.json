@@ -5470,6 +5470,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "MCIMB009874",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LAS BRISAS",
+    "entidad": "MEXICO",
+    "lat": 19.597805,
+    "lng": -98.981763,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "MCIMB010043",
     "nombre_de_la_unidad": "CENTRO DE SALUD DE SANTA CRUZ OCOTITLÁN",
     "entidad": "MEXICO",

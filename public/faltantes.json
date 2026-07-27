@@ -1529,6 +1529,54 @@
   },
   {
     "entidad": "MEXICO",
+    "clues_imb": "MCIMB002063",
+    "nombre_de_la_unidad": "CHAMIZAL",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "oximetro_de_pulso"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002063",
+    "nombre_de_la_unidad": "CHAMIZAL",
+    "consultorio": 2,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "banco_giratorio, mesa_pasteur, mesa_universal_para_exploracion"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002063",
+    "nombre_de_la_unidad": "CHAMIZAL",
+    "consultorio": 3,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "banco_giratorio, bascula_electronica_con_estadimetro, mesa_universal_para_exploracion"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002063",
+    "nombre_de_la_unidad": "CHAMIZAL",
+    "consultorio": 4,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "otoscopio"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002063",
+    "nombre_de_la_unidad": "CHAMIZAL",
+    "consultorio": 5,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "lampara_de_examinacion_de_pie_rodable, mesa_pasteur, mesa_universal_para_exploracion, otoscopio"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002063",
+    "nombre_de_la_unidad": "CHAMIZAL",
+    "consultorio": 6,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "banco_giratorio, mesa_pasteur, otoscopio"
+  },
+  {
+    "entidad": "MEXICO",
     "clues_imb": "MCIMB002080",
     "nombre_de_la_unidad": "JOSÉ MA.MORELOS Y PAVÓN",
     "consultorio": 1,
@@ -1574,6 +1622,54 @@
     "consultorio": 6,
     "n_faltantes": 4,
     "preguntas_faltantes": "bascula_pesabebes_electronica, mesa_universal_para_exploracion, porta_cubeta_rodable_con_protector_de_hule, termometro_de_vastago"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002092",
+    "nombre_de_la_unidad": "SANTA CLARA",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "contenedor_de_toallas_desechables, espejo_vestidor, mesa_para_colocar_bascula_pesabebes"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002092",
+    "nombre_de_la_unidad": "SANTA CLARA",
+    "consultorio": 2,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "contenedor_de_toallas_desechables, estetoscopio_capsula_doble"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002092",
+    "nombre_de_la_unidad": "SANTA CLARA",
+    "consultorio": 3,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "espejo_vestidor, estadimetro_pediatrico, lampara_de_examinacion_de_pie_rodable, mesa_pasteur"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002092",
+    "nombre_de_la_unidad": "SANTA CLARA",
+    "consultorio": 4,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "mesa_pasteur, otoscopio"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002092",
+    "nombre_de_la_unidad": "SANTA CLARA",
+    "consultorio": 5,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "charola_de_mayo_de_acero_inoxidable, contenedor_de_jabon_liquido, mesa_universal_para_exploracion"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002092",
+    "nombre_de_la_unidad": "SANTA CLARA",
+    "consultorio": 6,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido, cubeta_de_acero_inoxidable_y_bolsa, esfigmomanometro"
   },
   {
     "entidad": "MEXICO",
@@ -1638,6 +1734,22 @@
     "consultorio": 4,
     "n_faltantes": 1,
     "preguntas_faltantes": "estetoscopio_pinard_o_doppler_fetal_portatil"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002174",
+    "nombre_de_la_unidad": "SAN AGUSTÍN",
+    "consultorio": 2,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "paquetes_refrigerantes_para_termo, sillon_giratorio_de_respaldo_bajo, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas, tijera_recta"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002174",
+    "nombre_de_la_unidad": "SAN AGUSTÍN",
+    "consultorio": 4,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "cubeta_de_acero_inoxidable_y_bolsa, paquetes_refrigerantes_para_termo, porta_cubeta_rodable_con_protector_de_hule, porta_rollo_para_papel_kraft_o_sabanas"
   },
   {
     "entidad": "MEXICO",
@@ -2430,6 +2542,14 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "termometro_de_vastago"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB009874",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LAS BRISAS",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "porta_cubeta_rodable_con_protector_de_hule"
   },
   {
     "entidad": "MEXICO",
