@@ -77,7 +77,7 @@
     "lng": -112.024870361685,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "BSIMB000066",
@@ -120,6 +120,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "BSIMB000194",
+    "nombre_de_la_unidad": "CENTRO DE SALUD OLACHEA, LA PAZ",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 24.1624993181422,
+    "lng": -110.2922955119,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "BSIMB000206",
     "nombre_de_la_unidad": "CENTRO DE SALUD 8 DE OCTUBRE, LA PAZ",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -130,11 +140,11 @@
     "pct_llenado": 95.8
   },
   {
-    "clues_imb": "BSIMB000276",
-    "nombre_de_la_unidad": "CENTRO DE SALUD LOS BARRILES",
+    "clues_imb": "BSIMB000235",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LÁZARO CÁRDENAS, LA PAZ",
     "entidad": "BAJA CALIFORNIA SUR",
-    "lat": 23.6799599686488,
-    "lng": -109.699109803692,
+    "lat": 24.1460144451659,
+    "lng": -110.282235848649,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
@@ -230,6 +240,26 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "CCIMB000773",
+    "nombre_de_la_unidad": "CENTRO DE SALUD PARAÍSO NUEVO",
+    "entidad": "CAMPECHE",
+    "lat": 18.071103,
+    "lng": -91.103439,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "CCIMB000954",
+    "nombre_de_la_unidad": "CENTRO DE SALUD VENUSTIANO CARRANZA",
+    "entidad": "CAMPECHE",
+    "lat": 18.147854,
+    "lng": -91.0274,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "CCIMB000971",
     "nombre_de_la_unidad": "CENTRO DE SALUD BOLONCHEN DE REJÓN",
     "entidad": "CAMPECHE",
@@ -237,7 +267,7 @@
     "lng": -89.75486,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "CCIMB000983",
@@ -800,6 +830,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "GRIMB000082",
+    "nombre_de_la_unidad": "U-01 COL. BENITO JUÁREZ",
+    "entidad": "GUERRERO",
+    "lat": 16.8845,
+    "lng": -99.8438,
+    "internet": false,
+    "consultorios": 2.0,
+    "pct_llenado": 96.9
+  },
+  {
     "clues_imb": "GRIMB000106",
     "nombre_de_la_unidad": "U-02 COL. GARITA Y PROVID",
     "entidad": "GUERRERO",
@@ -1127,7 +1167,7 @@
     "lng": -100.277349,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "GRIMB001231",
@@ -3830,6 +3870,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "HGIMB003890",
+    "nombre_de_la_unidad": "EJIDO EL PARAÍSO",
+    "entidad": "HIDALGO",
+    "lat": 20.077689,
+    "lng": -98.353168,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "HGIMB004276",
     "nombre_de_la_unidad": "DOS CARLOS PUEBLO NUEVO",
     "entidad": "HIDALGO",
@@ -3838,6 +3888,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "HGIMB004404",
+    "nombre_de_la_unidad": "NICOLÁS BRAVO",
+    "entidad": "HIDALGO",
+    "lat": 20.078365,
+    "lng": -98.356636,
+    "internet": true,
+    "consultorios": 4.0,
+    "pct_llenado": 92.7
   },
   {
     "clues_imb": "HGIMB004783",
@@ -4225,16 +4285,6 @@
     "entidad": "MEXICO",
     "lat": 19.4334,
     "lng": -99.2686,
-    "internet": true,
-    "consultorios": 1.0,
-    "pct_llenado": 95.8
-  },
-  {
-    "clues_imb": "MCIMB003772",
-    "nombre_de_la_unidad": "INDEPENDENCIA",
-    "entidad": "MEXICO",
-    "lat": 19.435,
-    "lng": -99.2503,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
@@ -5438,6 +5488,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "MCIMB011180",
+    "nombre_de_la_unidad": "CEAPS SANTA MARÍA RAYÓN BICENTENARIO",
+    "entidad": "MEXICO",
+    "lat": 19.148379,
+    "lng": -99.58107,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "MCIMB011776",
@@ -6668,6 +6728,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 99.0
+  },
+  {
+    "clues_imb": "PLIMB001804",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO SAN BERNABE TEMOXTITLA",
+    "entidad": "PUEBLA",
+    "lat": 18.9720264073807,
+    "lng": -98.266737101108,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 91.7
   },
   {
     "clues_imb": "QRIMB000054",
@@ -8040,6 +8110,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "TCIMB003632",
+    "nombre_de_la_unidad": "C.S. EMILIANO ZAPATA 2DA. SECCIÓN",
+    "entidad": "TABASCO",
+    "lat": 17.4166,
+    "lng": -91.322,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "TCIMB003644",
     "nombre_de_la_unidad": "C.S. ESPERANZA NORTE",
     "entidad": "TABASCO",
@@ -8095,6 +8175,16 @@
     "entidad": "TABASCO",
     "lat": 17.3041,
     "lng": -91.3535,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB003731",
+    "nombre_de_la_unidad": "C.S. USUMACINTA",
+    "entidad": "TABASCO",
+    "lat": 17.5528,
+    "lng": -91.4934,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8

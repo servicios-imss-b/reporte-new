@@ -25,14 +25,6 @@
   },
   {
     "entidad": "BAJA CALIFORNIA SUR",
-    "clues_imb": "BSIMB000054",
-    "nombre_de_la_unidad": "CENTRO DE SALUD LA POZA GRANDE",
-    "consultorio": 1,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "espejo_vestidor"
-  },
-  {
-    "entidad": "BAJA CALIFORNIA SUR",
     "clues_imb": "BSIMB000071",
     "nombre_de_la_unidad": "CENTRO DE SALUD PUERTO SAN CARLOS",
     "consultorio": 1,
@@ -46,6 +38,14 @@
     "consultorio": 1,
     "n_faltantes": 4,
     "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores, carta_snellen_con_marco, cubeta_de_acero_inoxidable_y_bolsa, espejo_vestidor"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000194",
+    "nombre_de_la_unidad": "CENTRO DE SALUD OLACHEA, LA PAZ",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "otoscopio"
   },
   {
     "entidad": "BAJA CALIFORNIA SUR",
@@ -126,14 +126,6 @@
     "consultorio": 6,
     "n_faltantes": 3,
     "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas, termometro_de_vastago, vaso_contenedor_de_vacunas"
-  },
-  {
-    "entidad": "CAMPECHE",
-    "clues_imb": "CCIMB000971",
-    "nombre_de_la_unidad": "CENTRO DE SALUD BOLONCHEN DE REJÓN",
-    "consultorio": 1,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "lavabo, mesa_de_mayo_de_acero_inoxidable"
   },
   {
     "entidad": "COLIMA",
@@ -318,14 +310,6 @@
     "consultorio": 1,
     "n_faltantes": 2,
     "preguntas_faltantes": "tijera_recta, vaso_contenedor_de_vacunas"
-  },
-  {
-    "entidad": "GUERRERO",
-    "clues_imb": "GRIMB001202",
-    "nombre_de_la_unidad": "R-01 EL GUAYABO",
-    "consultorio": 1,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "banco_giratorio, otoscopio"
   },
   {
     "entidad": "GUERRERO",
@@ -1305,6 +1289,14 @@
   },
   {
     "entidad": "HIDALGO",
+    "clues_imb": "HGIMB004404",
+    "nombre_de_la_unidad": "NICOLÁS BRAVO",
+    "consultorio": 4,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "bote_sanitario_con_pedal, contenedor_de_toallas_desechables, otoscopio"
+  },
+  {
+    "entidad": "HIDALGO",
     "clues_imb": "HGIMB004783",
     "nombre_de_la_unidad": "LUZ DEL CARMEN",
     "consultorio": 1,
@@ -1326,6 +1318,14 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "sillon_giratorio_de_respaldo_bajo"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB001001",
+    "nombre_de_la_unidad": "HIGUERA",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido, espejo_vestidor, estetoscopio_pinard_o_doppler_fetal_portatil, porta_rollo_para_papel_kraft_o_sabanas"
   },
   {
     "entidad": "MEXICO",
@@ -1849,14 +1849,6 @@
   },
   {
     "entidad": "MEXICO",
-    "clues_imb": "MCIMB003953",
-    "nombre_de_la_unidad": "EL SOL",
-    "consultorio": 1,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "contenedor_rigido_para_rpbi"
-  },
-  {
-    "entidad": "MEXICO",
     "clues_imb": "MCIMB003965",
     "nombre_de_la_unidad": "VIRGENCITAS",
     "consultorio": 1,
@@ -1995,9 +1987,17 @@
     "entidad": "MEXICO",
     "clues_imb": "MCIMB004040",
     "nombre_de_la_unidad": "COL.MANANTIALES",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB004040",
+    "nombre_de_la_unidad": "COL.MANANTIALES",
     "consultorio": 4,
-    "n_faltantes": 3,
-    "preguntas_faltantes": "equipo_de_computo, paquetes_refrigerantes_para_termo, tijera_recta"
+    "n_faltantes": 2,
+    "preguntas_faltantes": "paquetes_refrigerantes_para_termo, tijera_recta"
   },
   {
     "entidad": "MEXICO",
@@ -2910,6 +2910,14 @@
     "consultorio": 2,
     "n_faltantes": 1,
     "preguntas_faltantes": "oximetro_de_pulso"
+  },
+  {
+    "entidad": "PUEBLA",
+    "clues_imb": "PLIMB001804",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO SAN BERNABE TEMOXTITLA",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "porta_rollo_para_papel_kraft_o_sabanas, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
   },
   {
     "entidad": "QUINTANA ROO",
