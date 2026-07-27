@@ -57,6 +57,14 @@
   },
   {
     "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000450",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LOMAS DEL SOL, CABO SAN LUCAS",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "estetoscopio_pinard_o_doppler_fetal_portatil, silla_para_el_acompanante, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas, vaso_contenedor_de_vacunas"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
     "clues_imb": "BSIMB000515",
     "nombre_de_la_unidad": "CENTRO DE SALUD EL CARIBE, CABO SAN LUCAS",
     "consultorio": 2,

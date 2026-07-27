@@ -180,6 +180,16 @@
     "pct_llenado": 91.7
   },
   {
+    "clues_imb": "BSIMB000450",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LOMAS DEL SOL, CABO SAN LUCAS",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 22.9159382181282,
+    "lng": -109.928670924197,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
     "clues_imb": "BSIMB000515",
     "nombre_de_la_unidad": "CENTRO DE SALUD EL CARIBE, CABO SAN LUCAS",
     "entidad": "BAJA CALIFORNIA SUR",
