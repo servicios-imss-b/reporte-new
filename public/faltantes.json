@@ -2273,11 +2273,27 @@
   },
   {
     "entidad": "MEXICO",
-    "clues_imb": "MCIMB007074",
-    "nombre_de_la_unidad": "SAN PEDRO TOTOLTEPEC",
-    "consultorio": 1,
+    "clues_imb": "MCIMB006975",
+    "nombre_de_la_unidad": "TOLUCA COLONIA REFORMA",
+    "consultorio": 9,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "paquetes_refrigerantes_para_termo, silla_para_el_acompanante"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB006975",
+    "nombre_de_la_unidad": "TOLUCA COLONIA REFORMA",
+    "consultorio": 10,
     "n_faltantes": 1,
-    "preguntas_faltantes": "escritorio_medico"
+    "preguntas_faltantes": "silla_para_el_acompanante"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB006975",
+    "nombre_de_la_unidad": "TOLUCA COLONIA REFORMA",
+    "consultorio": 11,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "silla_para_el_paciente, termometro_de_vastago"
   },
   {
     "entidad": "MEXICO",
@@ -2305,14 +2321,6 @@
   },
   {
     "entidad": "MEXICO",
-    "clues_imb": "MCIMB008001",
-    "nombre_de_la_unidad": "SANTA MARÍA DE GUADALUPE",
-    "consultorio": 1,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "estadimetro_pediatrico"
-  },
-  {
-    "entidad": "MEXICO",
     "clues_imb": "MCIMB008054",
     "nombre_de_la_unidad": "COLONIA SANTIAGO",
     "consultorio": 1,
@@ -2337,11 +2345,11 @@
   },
   {
     "entidad": "MEXICO",
-    "clues_imb": "MCIMB008672",
-    "nombre_de_la_unidad": "SAN JOSÉ BUENAVISTA",
+    "clues_imb": "MCIMB008602",
+    "nombre_de_la_unidad": "SAUZ PALO GORDO",
     "consultorio": 1,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "torundera_con_tapa_de_acero_inoxidable, vaso_contenedor_de_vacunas"
+    "n_faltantes": 1,
+    "preguntas_faltantes": "mesa_universal_para_exploracion"
   },
   {
     "entidad": "MEXICO",
@@ -2390,6 +2398,22 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "oximetro_de_pulso"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB009565",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LOS HÉROES",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "termometro_digital"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB009582",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LUIS CÓRDOVA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "porta_rollo_para_papel_kraft_o_sabanas"
   },
   {
     "entidad": "MEXICO",
@@ -2854,6 +2878,14 @@
     "consultorio": 12,
     "n_faltantes": 1,
     "preguntas_faltantes": "tijera_recta"
+  },
+  {
+    "entidad": "OAXACA",
+    "clues_imb": "OCIMB005974",
+    "nombre_de_la_unidad": "RAYMUNDO MELENDEZ,COL",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "equipo_de_computo, esfigmomanometro"
   },
   {
     "entidad": "OAXACA",

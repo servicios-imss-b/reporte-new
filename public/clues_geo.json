@@ -3710,6 +3710,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "HGIMB002350",
+    "nombre_de_la_unidad": "LA ALCANTARILLA",
+    "entidad": "HIDALGO",
+    "lat": 20.132681,
+    "lng": -98.727362,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 96.9
+  },
+  {
     "clues_imb": "HGIMB002374",
     "nombre_de_la_unidad": "COLONIA CUBITOS",
     "entidad": "HIDALGO",
@@ -4230,6 +4240,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "MCIMB003784",
+    "nombre_de_la_unidad": "CAPULIN SOLEDAD",
+    "entidad": "MEXICO",
+    "lat": 19.4505,
+    "lng": -99.2587,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "MCIMB003801",
     "nombre_de_la_unidad": "SAN MATEO (LA PRESA)",
     "entidad": "MEXICO",
@@ -4248,6 +4268,16 @@
     "internet": true,
     "consultorios": 3.0,
     "pct_llenado": 94.4
+  },
+  {
+    "clues_imb": "MCIMB003825",
+    "nombre_de_la_unidad": "SAN LORENZO TOTOLINGA",
+    "entidad": "MEXICO",
+    "lat": 19.4596,
+    "lng": -99.2703,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "MCIMB003830",
@@ -4370,6 +4400,16 @@
     "pct_llenado": 91.7
   },
   {
+    "clues_imb": "MCIMB004122",
+    "nombre_de_la_unidad": "LA COLMENA",
+    "entidad": "MEXICO",
+    "lat": 19.6005751,
+    "lng": -99.2926749,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "MCIMB004146",
     "nombre_de_la_unidad": "CAHUACAN 5O. BARRIO",
     "entidad": "MEXICO",
@@ -4467,6 +4507,16 @@
     "lng": -99.007584,
     "internet": true,
     "consultorios": 2.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "MCIMB005382",
+    "nombre_de_la_unidad": "CEAPS TEMAMATLA",
+    "entidad": "MEXICO",
+    "lat": 19.2029604,
+    "lng": -98.8690227,
+    "internet": true,
+    "consultorios": 1.0,
     "pct_llenado": 95.8
   },
   {
@@ -4810,6 +4860,26 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "MCIMB006963",
+    "nombre_de_la_unidad": "NUEVA OXTOTITLAN",
+    "entidad": "MEXICO",
+    "lat": 19.282656,
+    "lng": -99.686114,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 94.4
+  },
+  {
+    "clues_imb": "MCIMB006975",
+    "nombre_de_la_unidad": "TOLUCA COLONIA REFORMA",
+    "entidad": "MEXICO",
+    "lat": 19.293254,
+    "lng": -99.643016,
+    "internet": true,
+    "consultorios": 12.0,
+    "pct_llenado": 93.2
+  },
+  {
     "clues_imb": "MCIMB007021",
     "nombre_de_la_unidad": "SAN ANDRÉS CUEXCONTITLAN",
     "entidad": "MEXICO",
@@ -4827,7 +4897,7 @@
     "lng": -99.571472,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "MCIMB007132",
@@ -4897,7 +4967,7 @@
     "lng": -99.191727,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "MCIMB008030",
@@ -4950,6 +5020,16 @@
     "pct_llenado": 94.8
   },
   {
+    "clues_imb": "MCIMB008351",
+    "nombre_de_la_unidad": "MODERNA DE LA CRUZ",
+    "entidad": "MEXICO",
+    "lat": 19.265384,
+    "lng": -99.656164,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 94.8
+  },
+  {
     "clues_imb": "MCIMB008375",
     "nombre_de_la_unidad": "SAN CRISTÓBAL HUICHOCHITLAN",
     "entidad": "MEXICO",
@@ -4978,6 +5058,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 94.8
+  },
+  {
+    "clues_imb": "MCIMB008416",
+    "nombre_de_la_unidad": "SANTA MARÍA TOTOLTEPEC",
+    "entidad": "MEXICO",
+    "lat": 19.303655,
+    "lng": -99.58704,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "MCIMB008433",
@@ -5070,6 +5160,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "MCIMB008602",
+    "nombre_de_la_unidad": "SAUZ PALO GORDO",
+    "entidad": "MEXICO",
+    "lat": 18.878721,
+    "lng": -100.510839,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "MCIMB008655",
     "nombre_de_la_unidad": "TRAFICO NUEVO",
     "entidad": "MEXICO",
@@ -5097,7 +5197,7 @@
     "lng": -99.232379,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 91.7
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "MCIMB008684",
@@ -5170,6 +5270,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "MCIMB008882",
+    "nombre_de_la_unidad": "COL. SAN JUAN TLALPIZAHUAC",
+    "entidad": "MEXICO",
+    "lat": 19.323437,
+    "lng": -98.949177,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "MCIMB008906",
     "nombre_de_la_unidad": "COL. TEJALPA",
     "entidad": "MEXICO",
@@ -5210,6 +5320,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "MCIMB009010",
+    "nombre_de_la_unidad": "EMILIANO ZAPATA",
+    "entidad": "MEXICO",
+    "lat": 19.274086,
+    "lng": -98.892602,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "MCIMB009220",
     "nombre_de_la_unidad": "C.S. ARA",
     "entidad": "MEXICO",
@@ -5230,11 +5350,51 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "MCIMB009244",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CUATRO VIENTOS",
+    "entidad": "MEXICO",
+    "lat": 19.2971042,
+    "lng": -98.8394468,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "MCIMB009524",
     "nombre_de_la_unidad": "CENTRO DE SALUD NAUCALPAN",
     "entidad": "MEXICO",
     "lat": 19.4706,
     "lng": -99.2386,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "MCIMB009565",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LOS HÉROES",
+    "entidad": "MEXICO",
+    "lat": 19.33143,
+    "lng": -98.87715,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "MCIMB009570",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SANTA BÁRBARA",
+    "entidad": "MEXICO",
+    "lat": 19.295252,
+    "lng": -98.89601,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "MCIMB009582",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LUIS CÓRDOVA",
+    "entidad": "MEXICO",
+    "lat": 19.33593,
+    "lng": -98.92653,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
@@ -5600,6 +5760,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "MSIMB000560",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CUERNAVACA",
+    "entidad": "MORELOS",
+    "lat": 18.9180221,
+    "lng": -99.2327269,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 96.9
+  },
+  {
     "clues_imb": "MSIMB000584",
     "nombre_de_la_unidad": "CENTRO DE SALUD EL CAPIRI",
     "entidad": "MORELOS",
@@ -5608,6 +5778,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "MSIMB000596",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TEPETZINGO",
+    "entidad": "MORELOS",
+    "lat": 18.78357,
+    "lng": -99.18071,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MSIMB000601",
@@ -5645,6 +5825,26 @@
     "entidad": "MORELOS",
     "lat": 18.8879422,
     "lng": -99.1967644,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MSIMB000736",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LOMAS DE JIUTEPEC",
+    "entidad": "MORELOS",
+    "lat": 18.873,
+    "lng": -99.19441,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MSIMB000741",
+    "nombre_de_la_unidad": "CENTRO DE SALUD JARDÍN JUÁREZ",
+    "entidad": "MORELOS",
+    "lat": 18.881,
+    "lng": -99.1445,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
@@ -5768,6 +5968,26 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 92.7
+  },
+  {
+    "clues_imb": "MSIMB002095",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TLALTENANGO",
+    "entidad": "MORELOS",
+    "lat": 18.94169,
+    "lng": -99.2415,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "MSIMB002281",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TEJALPA",
+    "entidad": "MORELOS",
+    "lat": 18.89935,
+    "lng": -99.16439,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "MSIMB002375",
@@ -6206,8 +6426,8 @@
     "lat": 16.5656,
     "lng": -95.0871,
     "internet": true,
-    "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "consultorios": 3.0,
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "OCIMB000893",
@@ -6308,6 +6528,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "OCIMB005974",
+    "nombre_de_la_unidad": "RAYMUNDO MELENDEZ,COL",
+    "entidad": "OAXACA",
+    "lat": 16.5573,
+    "lng": -95.1136,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 91.7
   },
   {
     "clues_imb": "OCIMB006143",
@@ -7788,6 +8018,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB003270",
+    "nombre_de_la_unidad": "C.S. AGUA BLANCA",
+    "entidad": "TABASCO",
+    "lat": 17.4858,
+    "lng": -92.6215,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "TCIMB003620",
