@@ -49,6 +49,14 @@
   },
   {
     "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000305",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN ANTONIO",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "termometro_de_vastago"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
     "clues_imb": "BSIMB000334",
     "nombre_de_la_unidad": "CENTRO DE SALUD CALAFIA",
     "consultorio": 1,
@@ -81,6 +89,22 @@
   },
   {
     "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000684",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LA RIBERA",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "charola_de_mayo_de_acero_inoxidable, contenedor_rigido_para_rpbi, oximetro_de_pulso"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000730",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LEONARDO GASTELUM",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "guardarropa_con_perchero, vaso_contenedor_de_vacunas"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
     "clues_imb": "BSIMB000800",
     "nombre_de_la_unidad": "CENTRO DE SALUD EL CARRIZAL",
     "consultorio": 1,
@@ -89,11 +113,11 @@
   },
   {
     "entidad": "CAMPECHE",
-    "clues_imb": "CCIMB000090",
-    "nombre_de_la_unidad": "CENTRO DE SALUD BETHANIA",
+    "clues_imb": "CCIMB000102",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CASTAMAY",
     "consultorio": 1,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "banco_giratorio, charola_de_mayo_de_acero_inoxidable"
+    "n_faltantes": 1,
+    "preguntas_faltantes": "banco_de_altura"
   },
   {
     "entidad": "CAMPECHE",
@@ -446,14 +470,6 @@
     "consultorio": 1,
     "n_faltantes": 2,
     "preguntas_faltantes": "lampara_de_examinacion_de_pie_rodable, otoscopio"
-  },
-  {
-    "entidad": "GUERRERO",
-    "clues_imb": "GRIMB003022",
-    "nombre_de_la_unidad": "R-01 APETLANCA",
-    "consultorio": 1,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "cinta_metrica, espejo_vestidor"
   },
   {
     "entidad": "GUERRERO",
@@ -1334,14 +1350,6 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "sillon_giratorio_de_respaldo_bajo"
-  },
-  {
-    "entidad": "MEXICO",
-    "clues_imb": "MCIMB001001",
-    "nombre_de_la_unidad": "HIGUERA",
-    "consultorio": 1,
-    "n_faltantes": 4,
-    "preguntas_faltantes": "contenedor_de_jabon_liquido, espejo_vestidor, estetoscopio_pinard_o_doppler_fetal_portatil, porta_rollo_para_papel_kraft_o_sabanas"
   },
   {
     "entidad": "MEXICO",
@@ -2961,6 +2969,14 @@
   },
   {
     "entidad": "MORELOS",
+    "clues_imb": "MSIMB001226",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SANTO DOMINGO OCOTITLÁN",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "carta_snellen_con_marco"
+  },
+  {
+    "entidad": "MORELOS",
     "clues_imb": "MSIMB002083",
     "nombre_de_la_unidad": "CENTRO DE SALUD SANTA MA. AHUACATITLÁN",
     "consultorio": 1,
@@ -3457,6 +3473,22 @@
   },
   {
     "entidad": "TABASCO",
+    "clues_imb": "TCIMB000646",
+    "nombre_de_la_unidad": "C. S. VILLA IGNACIO ALLENDE",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores, porta_cubeta_rodable_con_protector_de_hule, porta_rollo_para_papel_kraft_o_sabanas, silla_para_el_paciente"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB000680",
+    "nombre_de_la_unidad": "CENTRO DE SALUD POBLADO QUINTÍN ARAUZ CENTLA TABASCO",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "mesa_universal_para_exploracion"
+  },
+  {
+    "entidad": "TABASCO",
     "clues_imb": "TCIMB000885",
     "nombre_de_la_unidad": "CESSA TIERRA COLORADA",
     "consultorio": 1,
@@ -3468,8 +3500,8 @@
     "clues_imb": "TCIMB000890",
     "nombre_de_la_unidad": "CESSA MAXIMILIANO DORANTES",
     "consultorio": 1,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "silla_para_el_paciente, torundera_con_tapa_de_acero_inoxidable"
+    "n_faltantes": 1,
+    "preguntas_faltantes": "torundera_con_tapa_de_acero_inoxidable"
   },
   {
     "entidad": "TABASCO",
@@ -3478,6 +3510,14 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "oximetro_de_pulso"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB001223",
+    "nombre_de_la_unidad": "C.S. TIERRA AMARILLA 2DA.",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "estadimetro_pediatrico, estetoscopio_pinard_o_doppler_fetal_portatil, guarda_de_medicamentos_materiales_o_instrumental, vaso_contenedor_de_vacunas"
   },
   {
     "entidad": "TABASCO",
@@ -3561,6 +3601,22 @@
   },
   {
     "entidad": "TABASCO",
+    "clues_imb": "TCIMB004501",
+    "nombre_de_la_unidad": "C.S. HUAPINOL",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "cinta_metrica"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB004501",
+    "nombre_de_la_unidad": "C.S. HUAPINOL",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "sillon_giratorio_de_respaldo_bajo"
+  },
+  {
+    "entidad": "TABASCO",
     "clues_imb": "TCIMB004554",
     "nombre_de_la_unidad": "C.S. COCOYOL",
     "consultorio": 1,
@@ -3574,6 +3630,54 @@
     "consultorio": 1,
     "n_faltantes": 3,
     "preguntas_faltantes": "paquetes_refrigerantes_para_termo, termometro_de_vastago, torundera_con_tapa_de_acero_inoxidable"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB004600",
+    "nombre_de_la_unidad": "C.S. EL ESPINO",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "banco_giratorio, bascula_pesabebes_electronica, equipo_de_computo, mesa_para_colocar_bascula_pesabebes"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB004665",
+    "nombre_de_la_unidad": "CESSA BUENA VISTA ZONA INDIGENA YOKOT´AN",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "bascula_electronica_con_estadimetro, termometro_digital"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB004665",
+    "nombre_de_la_unidad": "CESSA BUENA VISTA ZONA INDIGENA YOKOT´AN",
+    "consultorio": 2,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "bascula_electronica_con_estadimetro, lavabo"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB004706",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON 2 NÚCLEOS BÁSICOS POB. SIMÓN SARLAT, CENTLA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "bote_sanitario_con_pedal"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB004706",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON 2 NÚCLEOS BÁSICOS POB. SIMÓN SARLAT, CENTLA",
+    "consultorio": 2,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "mesa_pasteur, mesa_universal_para_exploracion"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB005126",
+    "nombre_de_la_unidad": "C.S. SAN JOSÉ GAVIOTAS",
+    "consultorio": 4,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "paquetes_refrigerantes_para_termo"
   },
   {
     "entidad": "TAMAULIPAS",

@@ -130,6 +130,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "BSIMB000182",
+    "nombre_de_la_unidad": "CENTRO DE SALUD VILLA ALBERTO A. ALVARADO ARAMBURO",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 27.6438265582216,
+    "lng": -113.388182316175,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "BSIMB000194",
     "nombre_de_la_unidad": "CENTRO DE SALUD OLACHEA, LA PAZ",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -160,6 +170,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "BSIMB000305",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN ANTONIO",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 23.8070605136214,
+    "lng": -110.057817558027,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "BSIMB000310",
     "nombre_de_la_unidad": "CENTRO DE SALUD SAN BARTOLO",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -188,6 +208,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "BSIMB000392",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LA PLAYA",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 23.0621215699858,
+    "lng": -109.66998619816,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "BSIMB000450",
@@ -230,6 +260,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "BSIMB000730",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LEONARDO GASTELUM",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 22.9472190725408,
+    "lng": -109.922692808487,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
     "clues_imb": "BSIMB000771",
     "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS TODOS SANTOS",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -257,7 +297,27 @@
     "lng": -90.366075,
     "internet": true,
     "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "CCIMB000102",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CASTAMAY",
+    "entidad": "CAMPECHE",
+    "lat": 19.83787,
+    "lng": -90.430502,
+    "internet": true,
+    "consultorios": 1.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "CCIMB000126",
+    "nombre_de_la_unidad": "CENTRO DE SALUD IMÍ",
+    "entidad": "CAMPECHE",
+    "lat": 19.875567,
+    "lng": -90.473944,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "CCIMB000184",
@@ -1627,7 +1687,7 @@
     "lng": -99.789302,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "GRIMB003034",
@@ -4050,6 +4110,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "MCIMB001001",
+    "nombre_de_la_unidad": "HIGUERA",
+    "entidad": "MEXICO",
+    "lat": 19.574525,
+    "lng": -99.243759,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 96.9
+  },
+  {
     "clues_imb": "MCIMB001276",
     "nombre_de_la_unidad": "SAN LORENZO CUAUHTENCO",
     "entidad": "MEXICO",
@@ -5140,6 +5210,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "MCIMB008293",
+    "nombre_de_la_unidad": "CALIMAYA NORTE",
+    "entidad": "MEXICO",
+    "lat": 19.167693,
+    "lng": -99.617549,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "MCIMB008346",
     "nombre_de_la_unidad": "CAPULTITLAN",
     "entidad": "MEXICO",
@@ -6108,6 +6188,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "MSIMB001226",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SANTO DOMINGO OCOTITLÁN",
+    "entidad": "MORELOS",
+    "lat": 19.0049,
+    "lng": -99.0338,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "MSIMB002083",
@@ -8000,6 +8090,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "SRIMB001882",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL SOYOPA",
+    "entidad": "SONORA",
+    "lat": 28.7639,
+    "lng": -109.636,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "TCIMB000021",
     "nombre_de_la_unidad": "C.S. EL ÁGUILA",
     "entidad": "TABASCO",
@@ -8130,6 +8230,36 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "TCIMB000680",
+    "nombre_de_la_unidad": "CENTRO DE SALUD POBLADO QUINTÍN ARAUZ CENTLA TABASCO",
+    "entidad": "TABASCO",
+    "lat": 18.322598,
+    "lng": -92.561409,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB000692",
+    "nombre_de_la_unidad": "C.S. RA. TABASQUILLO 1A.",
+    "entidad": "TABASCO",
+    "lat": 18.360619,
+    "lng": -92.722847,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "TCIMB000733",
+    "nombre_de_la_unidad": "C. S. RA. LA MIXTECA 2DA.",
+    "entidad": "TABASCO",
+    "lat": 18.1014875163976,
+    "lng": -92.5816497220008,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "TCIMB000885",
     "nombre_de_la_unidad": "CESSA TIERRA COLORADA",
     "entidad": "TABASCO",
@@ -8140,14 +8270,14 @@
     "pct_llenado": 93.8
   },
   {
-    "clues_imb": "TCIMB000890",
-    "nombre_de_la_unidad": "CESSA MAXIMILIANO DORANTES",
+    "clues_imb": "TCIMB001042",
+    "nombre_de_la_unidad": "C.S. HUASTECA 2DA.",
     "entidad": "TABASCO",
-    "lat": 17.981482,
-    "lng": -92.941408,
-    "internet": true,
+    "lat": 17.792472,
+    "lng": -92.939608,
+    "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 91.7
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "TCIMB001165",
@@ -8158,6 +8288,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB001206",
+    "nombre_de_la_unidad": "C.S. RÍO VIEJO 1RA.",
+    "entidad": "TABASCO",
+    "lat": 17.9523,
+    "lng": -92.9864,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "TCIMB001853",
@@ -8370,6 +8510,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "TCIMB003796",
+    "nombre_de_la_unidad": "C.S. SIMÓN SARLAT (COL CAPORROSA)",
+    "entidad": "TABASCO",
+    "lat": 18.345466,
+    "lng": -92.803768,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "TCIMB003813",
     "nombre_de_la_unidad": "C.S. FRANCISCO VILLA",
     "entidad": "TABASCO",
@@ -8420,6 +8570,26 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "TCIMB004402",
+    "nombre_de_la_unidad": "C.S. RÌO TINTO 1RA.",
+    "entidad": "TABASCO",
+    "lat": 17.900261067083,
+    "lng": -93.0565182179387,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "TCIMB004501",
+    "nombre_de_la_unidad": "C.S. HUAPINOL",
+    "entidad": "TABASCO",
+    "lat": 17.9231,
+    "lng": -92.9111,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 94.8
+  },
+  {
     "clues_imb": "TCIMB004554",
     "nombre_de_la_unidad": "C.S. COCOYOL",
     "entidad": "TABASCO",
@@ -8440,6 +8610,16 @@
     "pct_llenado": 91.7
   },
   {
+    "clues_imb": "TCIMB004665",
+    "nombre_de_la_unidad": "CESSA BUENA VISTA ZONA INDIGENA YOKOT´AN",
+    "entidad": "TABASCO",
+    "lat": 18.14861,
+    "lng": -92.75519,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 91.7
+  },
+  {
     "clues_imb": "TCIMB004694",
     "nombre_de_la_unidad": "CENTRO DE SALUD CON UN NÚCLEO BÁSICO EJ. PARAÍSO EL TINTO, BALANCÁN , TABASCO",
     "entidad": "TABASCO",
@@ -8448,6 +8628,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB004706",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON 2 NÚCLEOS BÁSICOS POB. SIMÓN SARLAT, CENTLA",
+    "entidad": "TABASCO",
+    "lat": 18.341173,
+    "lng": -92.808406,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 92.7
   },
   {
     "clues_imb": "TCIMB004752",
@@ -8470,12 +8660,32 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "TCIMB005126",
+    "nombre_de_la_unidad": "C.S. SAN JOSÉ GAVIOTAS",
+    "entidad": "TABASCO",
+    "lat": 17.9813,
+    "lng": -92.9061,
+    "internet": true,
+    "consultorios": 4.0,
+    "pct_llenado": 90.1
+  },
+  {
     "clues_imb": "TCIMB005336",
     "nombre_de_la_unidad": "CENTRO DE SALUD VILLA PARRILLA",
     "entidad": "TABASCO",
     "lat": 17.9119,
     "lng": -92.9178,
-    "internet": false,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "TCIMB005510",
+    "nombre_de_la_unidad": "C.S. LAGARTERA 2DA.",
+    "entidad": "TABASCO",
+    "lat": 18.0786,
+    "lng": -92.8632,
+    "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
   },
