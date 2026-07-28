@@ -200,6 +200,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "BSIMB000474",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL ZACATAL",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 23.1028362168184,
+    "lng": -109.712673031695,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 91.7
+  },
+  {
     "clues_imb": "BSIMB000515",
     "nombre_de_la_unidad": "CENTRO DE SALUD EL CARIBE, CABO SAN LUCAS",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -227,7 +237,27 @@
     "lng": -110.226701008397,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 92.7
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "BSIMB000800",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL CARRIZAL",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 23.7856286579332,
+    "lng": -110.313024244896,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "CCIMB000090",
+    "nombre_de_la_unidad": "CENTRO DE SALUD BETHANIA",
+    "entidad": "CAMPECHE",
+    "lat": 19.908169,
+    "lng": -90.366075,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
   },
   {
     "clues_imb": "CCIMB000184",
@@ -4190,6 +4220,16 @@
     "pct_llenado": 93.1
   },
   {
+    "clues_imb": "MCIMB002186",
+    "nombre_de_la_unidad": "RUÍZ CORTINES",
+    "entidad": "MEXICO",
+    "lat": 19.6031,
+    "lng": -99.0329,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 94.1
+  },
+  {
     "clues_imb": "MCIMB002191",
     "nombre_de_la_unidad": "SANTA MARÍA CHICONAUTLA",
     "entidad": "MEXICO",
@@ -8060,6 +8100,66 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "TCIMB000535",
+    "nombre_de_la_unidad": "C.S. COL. ÁLVARO OBREGÓN",
+    "entidad": "TABASCO",
+    "lat": 18.389835,
+    "lng": -92.801388,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "TCIMB000540",
+    "nombre_de_la_unidad": "C. S. RA. BENITO JUAREZ",
+    "entidad": "TABASCO",
+    "lat": 18.423373,
+    "lng": -92.803679,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "TCIMB000634",
+    "nombre_de_la_unidad": "C. S. COL GOBERNADOR CRUZ",
+    "entidad": "TABASCO",
+    "lat": 18.434257,
+    "lng": -92.870929,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB000885",
+    "nombre_de_la_unidad": "CESSA TIERRA COLORADA",
+    "entidad": "TABASCO",
+    "lat": 18.0114576147723,
+    "lng": -92.9233856998118,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "TCIMB000890",
+    "nombre_de_la_unidad": "CESSA MAXIMILIANO DORANTES",
+    "entidad": "TABASCO",
+    "lat": 17.981482,
+    "lng": -92.941408,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "TCIMB001165",
+    "nombre_de_la_unidad": "C.S. CORONEL TRACONIS",
+    "entidad": "TABASCO",
+    "lat": 17.9944858,
+    "lng": -92.7948255,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "TCIMB001853",
     "nombre_de_la_unidad": "CENTRO DE SALUD CON DOS NUCLEOS BASICOS CHABLE, EMILIANO ZAPATA, TABASCO",
     "entidad": "TABASCO",
@@ -8290,6 +8390,26 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "TCIMB003924",
+    "nombre_de_la_unidad": "C.S. TORNO LARGO 3RA..",
+    "entidad": "TABASCO",
+    "lat": 17.8975784,
+    "lng": -92.8811826,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "TCIMB004286",
+    "nombre_de_la_unidad": "C.S. PINO SUAREZ",
+    "entidad": "TABASCO",
+    "lat": 18.0322,
+    "lng": -92.9331,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "TCIMB004320",
     "nombre_de_la_unidad": "C.S. EJIDO MIGUEL HIDALGO Y COSTILLA",
     "entidad": "TABASCO",
@@ -8298,6 +8418,26 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "TCIMB004554",
+    "nombre_de_la_unidad": "C.S. COCOYOL",
+    "entidad": "TABASCO",
+    "lat": 18.0082,
+    "lng": -92.6702,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "TCIMB004595",
+    "nombre_de_la_unidad": "C.S. LA CEIBA",
+    "entidad": "TABASCO",
+    "lat": 18.143401,
+    "lng": -92.776257,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 91.7
   },
   {
     "clues_imb": "TCIMB004694",
@@ -8328,6 +8468,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB005336",
+    "nombre_de_la_unidad": "CENTRO DE SALUD VILLA PARRILLA",
+    "entidad": "TABASCO",
+    "lat": 17.9119,
+    "lng": -92.9178,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "TSIMB000094",

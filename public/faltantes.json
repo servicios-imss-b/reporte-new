@@ -65,6 +65,14 @@
   },
   {
     "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000474",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL ZACATAL",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "contenedor_de_toallas_desechables, lampara_de_examinacion_de_pie_rodable"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
     "clues_imb": "BSIMB000515",
     "nombre_de_la_unidad": "CENTRO DE SALUD EL CARIBE, CABO SAN LUCAS",
     "consultorio": 2,
@@ -73,19 +81,19 @@
   },
   {
     "entidad": "BAJA CALIFORNIA SUR",
-    "clues_imb": "BSIMB000771",
-    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS TODOS SANTOS",
+    "clues_imb": "BSIMB000800",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL CARRIZAL",
     "consultorio": 1,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "tijera_recta, torundera_con_tapa_de_acero_inoxidable"
+    "n_faltantes": 1,
+    "preguntas_faltantes": "mesa_de_mayo_de_acero_inoxidable"
   },
   {
-    "entidad": "BAJA CALIFORNIA SUR",
-    "clues_imb": "BSIMB000771",
-    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS TODOS SANTOS",
-    "consultorio": 2,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
+    "entidad": "CAMPECHE",
+    "clues_imb": "CCIMB000090",
+    "nombre_de_la_unidad": "CENTRO DE SALUD BETHANIA",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "banco_giratorio, charola_de_mayo_de_acero_inoxidable"
   },
   {
     "entidad": "CAMPECHE",
@@ -3441,6 +3449,38 @@
   },
   {
     "entidad": "TABASCO",
+    "clues_imb": "TCIMB000535",
+    "nombre_de_la_unidad": "C.S. COL. ÁLVARO OBREGÓN",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "oximetro_de_pulso"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB000885",
+    "nombre_de_la_unidad": "CESSA TIERRA COLORADA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "martillo_percusor"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB000890",
+    "nombre_de_la_unidad": "CESSA MAXIMILIANO DORANTES",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "silla_para_el_paciente, torundera_con_tapa_de_acero_inoxidable"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB001165",
+    "nombre_de_la_unidad": "C.S. CORONEL TRACONIS",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "oximetro_de_pulso"
+  },
+  {
+    "entidad": "TABASCO",
     "clues_imb": "TCIMB001853",
     "nombre_de_la_unidad": "CENTRO DE SALUD CON DOS NUCLEOS BASICOS CHABLE, EMILIANO ZAPATA, TABASCO",
     "consultorio": 1,
@@ -3518,6 +3558,22 @@
     "consultorio": 1,
     "n_faltantes": 2,
     "preguntas_faltantes": "charola_de_mayo_de_acero_inoxidable, mesa_pasteur"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB004554",
+    "nombre_de_la_unidad": "C.S. COCOYOL",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "estetoscopio_pinard_o_doppler_fetal_portatil"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB004595",
+    "nombre_de_la_unidad": "C.S. LA CEIBA",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "paquetes_refrigerantes_para_termo, termometro_de_vastago, torundera_con_tapa_de_acero_inoxidable"
   },
   {
     "entidad": "TAMAULIPAS",
