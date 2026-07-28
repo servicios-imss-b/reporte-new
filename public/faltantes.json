@@ -1345,14 +1345,6 @@
   },
   {
     "entidad": "MEXICO",
-    "clues_imb": "MCIMB000716",
-    "nombre_de_la_unidad": "PALMAR CHICO",
-    "consultorio": 1,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "sillon_giratorio_de_respaldo_bajo"
-  },
-  {
-    "entidad": "MEXICO",
     "clues_imb": "MCIMB001334",
     "nombre_de_la_unidad": "COACALCO",
     "consultorio": 2,
@@ -3473,6 +3465,14 @@
   },
   {
     "entidad": "TABASCO",
+    "clues_imb": "TCIMB000576",
+    "nombre_de_la_unidad": "C. S. VILLA CUAUHTEMOC",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "termometro_digital, tijera_recta, torundera_con_tapa_de_acero_inoxidable"
+  },
+  {
+    "entidad": "TABASCO",
     "clues_imb": "TCIMB000646",
     "nombre_de_la_unidad": "C. S. VILLA IGNACIO ALLENDE",
     "consultorio": 1,
@@ -3502,14 +3502,6 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "torundera_con_tapa_de_acero_inoxidable"
-  },
-  {
-    "entidad": "TABASCO",
-    "clues_imb": "TCIMB001165",
-    "nombre_de_la_unidad": "C.S. CORONEL TRACONIS",
-    "consultorio": 1,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "oximetro_de_pulso"
   },
   {
     "entidad": "TABASCO",

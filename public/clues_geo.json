@@ -4040,6 +4040,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "MCIMB000716",
+    "nombre_de_la_unidad": "PALMAR CHICO",
+    "entidad": "MEXICO",
+    "lat": 18.698814,
+    "lng": -100.368934,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "MCIMB000733",
     "nombre_de_la_unidad": "SAN MARTÍN",
     "entidad": "MEXICO",
@@ -8285,16 +8295,6 @@
     "entidad": "TABASCO",
     "lat": 17.9944858,
     "lng": -92.7948255,
-    "internet": true,
-    "consultorios": 1.0,
-    "pct_llenado": 95.8
-  },
-  {
-    "clues_imb": "TCIMB001206",
-    "nombre_de_la_unidad": "C.S. RÍO VIEJO 1RA.",
-    "entidad": "TABASCO",
-    "lat": 17.9523,
-    "lng": -92.9864,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
