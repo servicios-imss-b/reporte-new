@@ -1729,6 +1729,38 @@
   },
   {
     "entidad": "MEXICO",
+    "clues_imb": "MCIMB002133",
+    "nombre_de_la_unidad": "NUEVA ARAGON",
+    "consultorio": 2,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido, tijera_recta"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002133",
+    "nombre_de_la_unidad": "NUEVA ARAGON",
+    "consultorio": 3,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "contenedor_rigido_para_rpbi"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002133",
+    "nombre_de_la_unidad": "NUEVA ARAGON",
+    "consultorio": 4,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002133",
+    "nombre_de_la_unidad": "NUEVA ARAGON",
+    "consultorio": 6,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "esfigmomanometro"
+  },
+  {
+    "entidad": "MEXICO",
     "clues_imb": "MCIMB002145",
     "nombre_de_la_unidad": "HANK GONZÁLEZ",
     "consultorio": 4,
@@ -1737,11 +1769,91 @@
   },
   {
     "entidad": "MEXICO",
+    "clues_imb": "MCIMB002150",
+    "nombre_de_la_unidad": "HÉROES DE GRANADITAS",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002150",
+    "nombre_de_la_unidad": "HÉROES DE GRANADITAS",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "oximetro_de_pulso"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002150",
+    "nombre_de_la_unidad": "HÉROES DE GRANADITAS",
+    "consultorio": 5,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "contenedor_de_toallas_desechables"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002150",
+    "nombre_de_la_unidad": "HÉROES DE GRANADITAS",
+    "consultorio": 6,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "cinta_metrica, contenedor_rigido_para_rpbi"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002162",
+    "nombre_de_la_unidad": "JARDINES DE SAN GABRIEL",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "mesa_universal_para_exploracion, oximetro_de_pulso, termometro_de_vastago"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002162",
+    "nombre_de_la_unidad": "JARDINES DE SAN GABRIEL",
+    "consultorio": 2,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "termometro_digital, vaso_contenedor_de_vacunas"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002162",
+    "nombre_de_la_unidad": "JARDINES DE SAN GABRIEL",
+    "consultorio": 3,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "lampara_de_examinacion_de_pie_rodable, porta_cubeta_rodable_con_protector_de_hule"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002162",
+    "nombre_de_la_unidad": "JARDINES DE SAN GABRIEL",
+    "consultorio": 4,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "lampara_de_examinacion_de_pie_rodable, oximetro_de_pulso, silla_para_el_acompanante, vaso_contenedor_de_vacunas"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002162",
+    "nombre_de_la_unidad": "JARDINES DE SAN GABRIEL",
+    "consultorio": 6,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "mesa_de_mayo_de_acero_inoxidable, porta_cubeta_rodable_con_protector_de_hule, termometro_digital"
+  },
+  {
+    "entidad": "MEXICO",
     "clues_imb": "MCIMB002174",
     "nombre_de_la_unidad": "SAN AGUSTÍN",
-    "consultorio": 2,
-    "n_faltantes": 4,
-    "preguntas_faltantes": "paquetes_refrigerantes_para_termo, sillon_giratorio_de_respaldo_bajo, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas, tijera_recta"
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "guarda_de_medicamentos_materiales_o_instrumental, tijera_recta"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB002174",
+    "nombre_de_la_unidad": "SAN AGUSTÍN",
+    "consultorio": 3,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "estadimetro_pediatrico, mesa_de_mayo_de_acero_inoxidable, mesa_universal_para_exploracion"
   },
   {
     "entidad": "MEXICO",
@@ -1894,6 +2006,14 @@
     "consultorio": 5,
     "n_faltantes": 1,
     "preguntas_faltantes": "estetoscopio_pinard_o_doppler_fetal_portatil"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB003912",
+    "nombre_de_la_unidad": "ESTADO DE MÉXICO",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "estetoscopio_pinard_o_doppler_fetal_portatil, porta_cubeta_rodable_con_protector_de_hule"
   },
   {
     "entidad": "MEXICO",

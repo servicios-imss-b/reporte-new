@@ -100,6 +100,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "BSIMB000136",
+    "nombre_de_la_unidad": "CENTRO DE SALUD BAHÍA TORTUGAS",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 27.6921309968781,
+    "lng": -114.898584654017,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "BSIMB000153",
     "nombre_de_la_unidad": "CENTRO DE SALUD GUSTAVO DÍAZ ORDAZ",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -4158,6 +4168,26 @@
     "internet": true,
     "consultorios": 5.0,
     "pct_llenado": 93.3
+  },
+  {
+    "clues_imb": "MCIMB002133",
+    "nombre_de_la_unidad": "NUEVA ARAGON",
+    "entidad": "MEXICO",
+    "lat": 19.5039,
+    "lng": -99.0171,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 92.4
+  },
+  {
+    "clues_imb": "MCIMB002150",
+    "nombre_de_la_unidad": "HÉROES DE GRANADITAS",
+    "entidad": "MEXICO",
+    "lat": 19.4911,
+    "lng": -99.0314,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 93.1
   },
   {
     "clues_imb": "MCIMB002191",
