@@ -6000,6 +6000,26 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "MSIMB000403",
+    "nombre_de_la_unidad": "CENTRO DE SALUD BENITO JUÁREZ",
+    "entidad": "MORELOS",
+    "lat": 18.9042979,
+    "lng": -99.2405522,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MSIMB000420",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LAGUNILLA DEL SALTO",
+    "entidad": "MORELOS",
+    "lat": 18.9089,
+    "lng": -99.2454,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "MSIMB000444",
     "nombre_de_la_unidad": "CENTRO DE SALUD OCOTEPEC",
     "entidad": "MORELOS",
@@ -6008,6 +6028,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MSIMB000456",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ALTA VISTA",
+    "entidad": "MORELOS",
+    "lat": 18.9264,
+    "lng": -99.25047,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "MSIMB000473",
@@ -8190,11 +8220,41 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "SRIMB000972",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LOS OLIVOS",
+    "entidad": "SONORA",
+    "lat": 29.031845,
+    "lng": -110.976832,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "SRIMB000984",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LAS MINITAS",
+    "entidad": "SONORA",
+    "lat": 29.0454,
+    "lng": -110.993542,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "SRIMB001083",
     "nombre_de_la_unidad": "CENTRO DE SALUD RURAL PLAN DE AYALA",
     "entidad": "SONORA",
     "lat": 28.5682,
     "lng": -111.555,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "SRIMB001100",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL LA VICTORIA",
+    "entidad": "SONORA",
+    "lat": 29.1235,
+    "lng": -110.53301,
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 100.0
@@ -8380,6 +8440,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "TCIMB000750",
+    "nombre_de_la_unidad": "C. S. EJ CONSTANCIA Y VENECIA",
+    "entidad": "TABASCO",
+    "lat": 18.436362,
+    "lng": -92.821891,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "TCIMB000856",
     "nombre_de_la_unidad": "C.S. COL. CASA BLANCA",
     "entidad": "TABASCO",
@@ -8437,6 +8507,16 @@
     "lng": -92.939608,
     "internet": false,
     "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB001100",
+    "nombre_de_la_unidad": "CESSA LUIS GIL PEREZ",
+    "entidad": "TABASCO",
+    "lat": 17.8770119,
+    "lng": -93.0719598,
+    "internet": false,
+    "consultorios": 3.0,
     "pct_llenado": 95.8
   },
   {
@@ -8545,6 +8625,16 @@
     "entidad": "TABASCO",
     "lat": 17.9464,
     "lng": -92.00204,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB002780",
+    "nombre_de_la_unidad": "C.S. MORELOS",
+    "entidad": "TABASCO",
+    "lat": 17.9214,
+    "lng": -92.5989,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8

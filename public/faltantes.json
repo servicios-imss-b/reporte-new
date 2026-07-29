@@ -2929,6 +2929,14 @@
   },
   {
     "entidad": "MORELOS",
+    "clues_imb": "MSIMB000420",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LAGUNILLA DEL SALTO",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "porta_rollo_para_papel_kraft_o_sabanas"
+  },
+  {
+    "entidad": "MORELOS",
     "clues_imb": "MSIMB000584",
     "nombre_de_la_unidad": "CENTRO DE SALUD EL CAPIRI",
     "consultorio": 1,
@@ -3416,6 +3424,30 @@
     "preguntas_faltantes": "guarda_de_medicamentos_materiales_o_instrumental"
   },
   {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB001025",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LOS NARANJOS",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "carta_snellen_con_marco, martillo_percusor, porta_cubeta_rodable_con_protector_de_hule, vaso_contenedor_de_vacunas"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB001071",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL MIGUEL ALEMÁN",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "torundera_con_tapa_de_acero_inoxidable"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB001071",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL MIGUEL ALEMÁN",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "bote_sanitario_con_pedal"
+  },
+  {
     "entidad": "TABASCO",
     "clues_imb": "TCIMB000045",
     "nombre_de_la_unidad": "C.S. SAN PEDRO",
@@ -3502,6 +3534,14 @@
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "mesa_para_colocar_bascula_pesabebes"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB001100",
+    "nombre_de_la_unidad": "CESSA LUIS GIL PEREZ",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "mesa_de_mayo_de_acero_inoxidable"
   },
   {
     "entidad": "TABASCO",
