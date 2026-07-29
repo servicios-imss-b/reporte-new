@@ -260,6 +260,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "BSIMB000725",
+    "nombre_de_la_unidad": "CENTRO DE SALUD DR. FRANCISCO CARDOZA CARBALLO",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 24.1523332521107,
+    "lng": -110.309359324655,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 95.1
+  },
+  {
     "clues_imb": "BSIMB000730",
     "nombre_de_la_unidad": "CENTRO DE SALUD LEONARDO GASTELUM",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -350,6 +360,36 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "CCIMB000476",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN ANTONIO YAXCHE",
+    "entidad": "CAMPECHE",
+    "lat": 20.113283,
+    "lng": -89.732692,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "CCIMB000493",
+    "nombre_de_la_unidad": "CENTRO DE SALUD XCAN HA",
+    "entidad": "CAMPECHE",
+    "lat": 19.100648,
+    "lng": -89.334012,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "CCIMB000650",
+    "nombre_de_la_unidad": "CENTRO DE SALUD JOSÉFA ORTÍZ DE DOMÍNGUEZ",
+    "entidad": "CAMPECHE",
+    "lat": 18.07003,
+    "lng": -89.1718,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "CCIMB000773",
     "nombre_de_la_unidad": "CENTRO DE SALUD PARAÍSO NUEVO",
     "entidad": "CAMPECHE",
@@ -375,9 +415,9 @@
     "entidad": "CAMPECHE",
     "lat": 20.00376,
     "lng": -89.75486,
-    "internet": true,
-    "consultorios": 1.0,
-    "pct_llenado": 100.0
+    "internet": false,
+    "consultorios": 2.0,
+    "pct_llenado": 96.9
   },
   {
     "clues_imb": "CCIMB000983",
@@ -750,6 +790,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "CSIMB000076",
+    "nombre_de_la_unidad": "BIENES COMUNALES LA LAGUNA",
+    "entidad": "CHIAPAS",
+    "lat": 16.6926,
+    "lng": -91.9519,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "CSIMB000501",
     "nombre_de_la_unidad": "NUEVA CONCORDIA",
     "entidad": "CHIAPAS",
@@ -817,7 +867,7 @@
     "lng": -92.265347,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 94.8
   },
   {
     "clues_imb": "CSIMB002473",
@@ -4540,6 +4590,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "MCIMB003953",
+    "nombre_de_la_unidad": "EL SOL",
+    "entidad": "MEXICO",
+    "lat": 19.430749,
+    "lng": -99.031982,
+    "internet": false,
+    "consultorios": 6.0,
+    "pct_llenado": 94.1
+  },
+  {
     "clues_imb": "MCIMB003965",
     "nombre_de_la_unidad": "VIRGENCITAS",
     "entidad": "MEXICO",
@@ -4557,6 +4617,16 @@
     "lng": -99.0495282,
     "internet": true,
     "consultorios": 7.0,
+    "pct_llenado": 94.3
+  },
+  {
+    "clues_imb": "MCIMB004040",
+    "nombre_de_la_unidad": "COL.MANANTIALES",
+    "entidad": "MEXICO",
+    "lat": 19.377047,
+    "lng": -98.993548,
+    "internet": true,
+    "consultorios": 8.0,
     "pct_llenado": 94.3
   },
   {
@@ -5688,6 +5758,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "MCIMB011962",
+    "nombre_de_la_unidad": "CEAPS SAN ANTONIO LA ISLA LEONARDO BRAVO BICENTENARIO",
+    "entidad": "MEXICO",
+    "lat": 19.163208,
+    "lng": -99.565079,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB012312",
@@ -8100,6 +8180,26 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "SRIMB000231",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL ARIZPE",
+    "entidad": "SONORA",
+    "lat": 30.339788,
+    "lng": -110.165064,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "SRIMB001083",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL PLAN DE AYALA",
+    "entidad": "SONORA",
+    "lat": 28.5682,
+    "lng": -111.555,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "SRIMB001882",
     "nombre_de_la_unidad": "CENTRO DE SALUD RURAL SOYOPA",
     "entidad": "SONORA",
@@ -8230,6 +8330,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "TCIMB000552",
+    "nombre_de_la_unidad": "C. S. EJ BENITO JUAREZ",
+    "entidad": "TABASCO",
+    "lat": 18.450848,
+    "lng": -92.817793,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "TCIMB000634",
     "nombre_de_la_unidad": "C. S. COL GOBERNADOR CRUZ",
     "entidad": "TABASCO",
@@ -8270,11 +8380,51 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "TCIMB000856",
+    "nombre_de_la_unidad": "C.S. COL. CASA BLANCA",
+    "entidad": "TABASCO",
+    "lat": 18.008246,
+    "lng": -92.903103,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "TCIMB000885",
     "nombre_de_la_unidad": "CESSA TIERRA COLORADA",
     "entidad": "TABASCO",
     "lat": 18.0114576147723,
     "lng": -92.9233856998118,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "TCIMB000890",
+    "nombre_de_la_unidad": "CESSA MAXIMILIANO DORANTES",
+    "entidad": "TABASCO",
+    "lat": 17.981482,
+    "lng": -92.941408,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 95.1
+  },
+  {
+    "clues_imb": "TCIMB000926",
+    "nombre_de_la_unidad": "C.S. ANACLETO CANABAL 2DA.",
+    "entidad": "TABASCO",
+    "lat": 17.977272,
+    "lng": -93.022788,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB001013",
+    "nombre_de_la_unidad": "C.S. DOS MONTES",
+    "entidad": "TABASCO",
+    "lat": 17.98525,
+    "lng": -92.825928,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 93.8
@@ -8290,6 +8440,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "TCIMB001124",
+    "nombre_de_la_unidad": "C.S. MEDELLÍN Y PIGUA 2DA.",
+    "entidad": "TABASCO",
+    "lat": 18.04704,
+    "lng": -92.901627,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "TCIMB001165",
     "nombre_de_la_unidad": "C.S. CORONEL TRACONIS",
     "entidad": "TABASCO",
@@ -8298,6 +8458,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "TCIMB001206",
+    "nombre_de_la_unidad": "C.S. RÍO VIEJO 1RA.",
+    "entidad": "TABASCO",
+    "lat": 17.9523,
+    "lng": -92.9864,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 95.1
   },
   {
     "clues_imb": "TCIMB001853",
@@ -8578,6 +8748,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "TCIMB004496",
+    "nombre_de_la_unidad": "C.S. GONZÁLEZ 2DA.",
+    "entidad": "TABASCO",
+    "lat": 17.970035,
+    "lng": -93.092359,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "TCIMB004501",

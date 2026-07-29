@@ -145,6 +145,22 @@
   },
   {
     "entidad": "CAMPECHE",
+    "clues_imb": "CCIMB000493",
+    "nombre_de_la_unidad": "CENTRO DE SALUD XCAN HA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "oximetro_de_pulso"
+  },
+  {
+    "entidad": "CAMPECHE",
+    "clues_imb": "CCIMB000645",
+    "nombre_de_la_unidad": "CENTRO DE SALUD JÓSE MARIA MORELOS Y PAVÓN O CIVALITO",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "banco_de_altura, esfigmomanometro, mesa_de_mayo_de_acero_inoxidable"
+  },
+  {
+    "entidad": "CAMPECHE",
     "clues_imb": "CCIMB000930",
     "nombre_de_la_unidad": "CENTRO  DE SALUD CARMEN ",
     "consultorio": 2,
@@ -262,14 +278,6 @@
     "consultorio": 1,
     "n_faltantes": 3,
     "preguntas_faltantes": "guarda_de_medicamentos_materiales_o_instrumental, oximetro_de_pulso, termometro_de_vastago"
-  },
-  {
-    "entidad": "CHIAPAS",
-    "clues_imb": "CSIMB002461",
-    "nombre_de_la_unidad": "TAPACHULA INDECO CEBADILLA",
-    "consultorio": 1,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "porta_cubeta_rodable_con_protector_de_hule"
   },
   {
     "entidad": "GUERRERO",
@@ -2233,22 +2241,6 @@
   },
   {
     "entidad": "MEXICO",
-    "clues_imb": "MCIMB004040",
-    "nombre_de_la_unidad": "COL.MANANTIALES",
-    "consultorio": 1,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "contenedor_de_jabon_liquido"
-  },
-  {
-    "entidad": "MEXICO",
-    "clues_imb": "MCIMB004040",
-    "nombre_de_la_unidad": "COL.MANANTIALES",
-    "consultorio": 4,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "paquetes_refrigerantes_para_termo, tijera_recta"
-  },
-  {
-    "entidad": "MEXICO",
     "clues_imb": "MCIMB004052",
     "nombre_de_la_unidad": "METROPOLITANA",
     "consultorio": 1,
@@ -3489,6 +3481,14 @@
   },
   {
     "entidad": "TABASCO",
+    "clues_imb": "TCIMB000856",
+    "nombre_de_la_unidad": "C.S. COL. CASA BLANCA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido"
+  },
+  {
+    "entidad": "TABASCO",
     "clues_imb": "TCIMB000885",
     "nombre_de_la_unidad": "CESSA TIERRA COLORADA",
     "consultorio": 1,
@@ -3497,11 +3497,11 @@
   },
   {
     "entidad": "TABASCO",
-    "clues_imb": "TCIMB000890",
-    "nombre_de_la_unidad": "CESSA MAXIMILIANO DORANTES",
+    "clues_imb": "TCIMB001013",
+    "nombre_de_la_unidad": "C.S. DOS MONTES",
     "consultorio": 1,
     "n_faltantes": 1,
-    "preguntas_faltantes": "torundera_con_tapa_de_acero_inoxidable"
+    "preguntas_faltantes": "mesa_para_colocar_bascula_pesabebes"
   },
   {
     "entidad": "TABASCO",
