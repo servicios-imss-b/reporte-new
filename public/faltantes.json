@@ -280,6 +280,54 @@
     "preguntas_faltantes": "guarda_de_medicamentos_materiales_o_instrumental, oximetro_de_pulso, termometro_de_vastago"
   },
   {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB000241",
+    "nombre_de_la_unidad": "C.S.T-II AJUSCO",
+    "consultorio": 2,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido, contenedor_rigido_para_rpbi, cubeta_de_acero_inoxidable_y_bolsa, escritorio_medico"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB000521",
+    "nombre_de_la_unidad": "C.S.T-II NARCISO BASSOLS",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "cubeta_de_acero_inoxidable_y_bolsa"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001600",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-III LOMAS DE PADIERNA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "equipo_de_computo"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001682",
+    "nombre_de_la_unidad": "C.S.T-III PEDREGAL DE LAS ÁGUILAS",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001752",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-II SAN LUIS TLAXIALTEMALCO ",
+    "consultorio": 2,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "esfigmomanometro, mesa_para_colocar_bascula_pesabebes, oximetro_de_pulso"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB003164",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-II SAN MIGUEL XICALCO",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "banco_de_altura, banco_giratorio, equipo_de_computo"
+  },
+  {
     "entidad": "GUERRERO",
     "clues_imb": "GRIMB000106",
     "nombre_de_la_unidad": "U-02 COL. GARITA Y PROVID",
@@ -3425,11 +3473,67 @@
   },
   {
     "entidad": "SONORA",
-    "clues_imb": "SRIMB001025",
-    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LOS NARANJOS",
+    "clues_imb": "SRIMB000045",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL COLONIA MORELOS",
     "consultorio": 1,
-    "n_faltantes": 4,
-    "preguntas_faltantes": "carta_snellen_con_marco, martillo_percusor, porta_cubeta_rodable_con_protector_de_hule, vaso_contenedor_de_vacunas"
+    "n_faltantes": 2,
+    "preguntas_faltantes": "equipo_de_computo, tijera_recta"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB000465",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO OBREGÓN CENTRO",
+    "consultorio": 2,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "cinta_metrica, sillon_giratorio_de_respaldo_bajo"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB000465",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO OBREGÓN CENTRO",
+    "consultorio": 3,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "silla_para_el_acompanante"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB000506",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL CUAUHTÉMOC (CAMPO 5)",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "mesa_universal_para_exploracion, tijera_recta"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB000943",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO SANTA ISABEL",
+    "consultorio": 2,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "lampara_de_examinacion_de_pie_rodable, martillo_percusor"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB000955",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO CIUDAD DE LOS NIÑOS",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "lampara_de_examinacion_de_pie_rodable"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB001042",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LOMAS DE MADRID",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB001042",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LOMAS DE MADRID",
+    "consultorio": 5,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
   },
   {
     "entidad": "SONORA",
@@ -3446,6 +3550,30 @@
     "consultorio": 2,
     "n_faltantes": 1,
     "preguntas_faltantes": "bote_sanitario_con_pedal"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB001696",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL TEPAHUI",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "torundera_con_tapa_de_acero_inoxidable"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB002034",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL YECORA",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "martillo_percusor, mesa_de_mayo_de_acero_inoxidable, mesa_pasteur, mesa_universal_para_exploracion"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB002046",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL MAYCOBA",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "bascula_electronica_con_estadimetro, equipo_de_computo, mesa_para_colocar_bascula_pesabebes"
   },
   {
     "entidad": "TABASCO",
@@ -3550,6 +3678,14 @@
     "consultorio": 1,
     "n_faltantes": 4,
     "preguntas_faltantes": "estadimetro_pediatrico, estetoscopio_pinard_o_doppler_fetal_portatil, guarda_de_medicamentos_materiales_o_instrumental, vaso_contenedor_de_vacunas"
+  },
+  {
+    "entidad": "TABASCO",
+    "clues_imb": "TCIMB001264",
+    "nombre_de_la_unidad": "C.S. LA MANGA 2DA.",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores, lampara_de_examinacion_de_pie_rodable, mesa_de_mayo_de_acero_inoxidable"
   },
   {
     "entidad": "TABASCO",

@@ -980,6 +980,36 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "DFIMB000521",
+    "nombre_de_la_unidad": "C.S.T-II NARCISO BASSOLS",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.45408,
+    "lng": -99.05854,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 95.1
+  },
+  {
+    "clues_imb": "DFIMB001600",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-III LOMAS DE PADIERNA",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.29163,
+    "lng": -99.2267499999999,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "DFIMB003164",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-II SAN MIGUEL XICALCO",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.2330673,
+    "lng": -99.162183,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 94.8
+  },
+  {
     "clues_imb": "GRIMB000053",
     "nombre_de_la_unidad": "U-01 COL.JARDIN PALMAS III",
     "entidad": "GUERRERO",
@@ -4260,6 +4290,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "MCIMB001812",
+    "nombre_de_la_unidad": "EMILIANO ZAPATA",
+    "entidad": "MEXICO",
+    "lat": 19.39785,
+    "lng": -98.929523,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "MCIMB001870",
     "nombre_de_la_unidad": "BARRIO FUNDIDORES",
     "entidad": "MEXICO",
@@ -4330,6 +4370,16 @@
     "pct_llenado": 93.3
   },
   {
+    "clues_imb": "MCIMB002075",
+    "nombre_de_la_unidad": "JARDINES DE MORELOS",
+    "entidad": "MEXICO",
+    "lat": 19.5986,
+    "lng": -98.998,
+    "internet": true,
+    "consultorios": 8.0,
+    "pct_llenado": 95.1
+  },
+  {
     "clues_imb": "MCIMB002133",
     "nombre_de_la_unidad": "NUEVA ARAGON",
     "entidad": "MEXICO",
@@ -4368,6 +4418,16 @@
     "internet": true,
     "consultorios": 6.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "MCIMB002203",
+    "nombre_de_la_unidad": "SANTA MARÍA TULPETLAC",
+    "entidad": "MEXICO",
+    "lat": 19.5733,
+    "lng": -99.0424,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "MCIMB002261",
@@ -5740,6 +5800,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "MCIMB011093",
+    "nombre_de_la_unidad": "CSU VISIÓN MUNDIAL, PLAN DE AYALA",
+    "entidad": "MEXICO",
+    "lat": 19.5657,
+    "lng": -99.0696,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 94.8
+  },
+  {
     "clues_imb": "MCIMB011180",
     "nombre_de_la_unidad": "CEAPS SANTA MARÍA RAYÓN BICENTENARIO",
     "entidad": "MEXICO",
@@ -5980,6 +6050,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "MSIMB000333",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CUAUTLIXCO",
+    "entidad": "MORELOS",
+    "lat": 18.8448361,
+    "lng": -98.9388108,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "MSIMB000345",
     "nombre_de_la_unidad": "CENTRO DE SALUD CUAUTLA",
     "entidad": "MORELOS",
@@ -6065,6 +6145,16 @@
     "entidad": "MORELOS",
     "lat": 18.95208,
     "lng": -99.21711,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "MSIMB000502",
+    "nombre_de_la_unidad": "CENTRO DE SALUD PLAN DE AYALA  ",
+    "entidad": "MORELOS",
+    "lat": 18.9312666,
+    "lng": -99.2540271,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
@@ -8210,6 +8300,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "SRIMB000045",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL COLONIA MORELOS",
+    "entidad": "SONORA",
+    "lat": 30.827282,
+    "lng": -109.224617,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
     "clues_imb": "SRIMB000231",
     "nombre_de_la_unidad": "CENTRO DE SALUD RURAL ARIZPE",
     "entidad": "SONORA",
@@ -8218,6 +8318,66 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "SRIMB000465",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO OBREGÓN CENTRO",
+    "entidad": "SONORA",
+    "lat": 27.487064,
+    "lng": -109.939119,
+    "internet": true,
+    "consultorios": 5.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "SRIMB000470",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO BLOCK 410",
+    "entidad": "SONORA",
+    "lat": 27.458042,
+    "lng": -109.924022,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "SRIMB000506",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL CUAUHTÉMOC (CAMPO 5)",
+    "entidad": "SONORA",
+    "lat": 27.4281,
+    "lng": -110.019,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "SRIMB000943",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO SANTA ISABEL",
+    "entidad": "SONORA",
+    "lat": 29.118303,
+    "lng": -110.98538,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 92.7
+  },
+  {
+    "clues_imb": "SRIMB000955",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO CIUDAD DE LOS NIÑOS",
+    "entidad": "SONORA",
+    "lat": 29.0065546,
+    "lng": -110.9211874,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 96.9
+  },
+  {
+    "clues_imb": "SRIMB000960",
+    "nombre_de_la_unidad": null,
+    "entidad": "SONORA",
+    "lat": 29.1292767,
+    "lng": -110.9972253,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
   },
   {
     "clues_imb": "SRIMB000972",
@@ -8240,6 +8400,36 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "SRIMB000996",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO EMILIANO ZAPATA",
+    "entidad": "SONORA",
+    "lat": 29.0493,
+    "lng": -110.963,
+    "internet": true,
+    "consultorios": 4.0,
+    "pct_llenado": 95.3
+  },
+  {
+    "clues_imb": "SRIMB001025",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LOS NARANJOS",
+    "entidad": "SONORA",
+    "lat": 29.077431,
+    "lng": -110.92699,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "SRIMB001042",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LOMAS DE MADRID",
+    "entidad": "SONORA",
+    "lat": 29.13052,
+    "lng": -110.976826,
+    "internet": true,
+    "consultorios": 5.0,
+    "pct_llenado": 99.2
+  },
+  {
     "clues_imb": "SRIMB001083",
     "nombre_de_la_unidad": "CENTRO DE SALUD RURAL PLAN DE AYALA",
     "entidad": "SONORA",
@@ -8260,6 +8450,46 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "SRIMB001672",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL QUIRIEGO",
+    "entidad": "SONORA",
+    "lat": 27.5202,
+    "lng": -109.252,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "SRIMB001684",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL BATACOSA",
+    "entidad": "SONORA",
+    "lat": 27.530212,
+    "lng": -109.402018,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "SRIMB001696",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL TEPAHUI",
+    "entidad": "SONORA",
+    "lat": 27.3953,
+    "lng": -109.183,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "SRIMB001795",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL SAN MIGUEL DE HORCASITAS",
+    "entidad": "SONORA",
+    "lat": 29.4868,
+    "lng": -110.725,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "SRIMB001882",
     "nombre_de_la_unidad": "CENTRO DE SALUD RURAL SOYOPA",
     "entidad": "SONORA",
@@ -8268,6 +8498,26 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "SRIMB002343",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO OBREGÓN SUR",
+    "entidad": "SONORA",
+    "lat": 27.45543,
+    "lng": -109.943213,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "SRIMB002565",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LA FLORESTA",
+    "entidad": "SONORA",
+    "lat": 29.124752,
+    "lng": -111.020876,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 95.1
   },
   {
     "clues_imb": "TCIMB000021",
@@ -8548,6 +8798,16 @@
     "internet": true,
     "consultorios": 3.0,
     "pct_llenado": 95.1
+  },
+  {
+    "clues_imb": "TCIMB001264",
+    "nombre_de_la_unidad": "C.S. LA MANGA 2DA.",
+    "entidad": "TABASCO",
+    "lat": 18.0198544365016,
+    "lng": -92.8697560132843,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
   },
   {
     "clues_imb": "TCIMB001853",
@@ -8868,6 +9128,26 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "TCIMB004566",
+    "nombre_de_la_unidad": "C.S. MIRAFLORES 2DA.",
+    "entidad": "TABASCO",
+    "lat": 17.9039415516503,
+    "lng": -92.7605273314631,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "TCIMB004571",
+    "nombre_de_la_unidad": "C.S. ISMATE Y CHILAPILLA",
+    "entidad": "TABASCO",
+    "lat": 17.965126,
+    "lng": -92.661139,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
   },
   {
     "clues_imb": "TCIMB004595",
