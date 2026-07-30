@@ -65,6 +65,46 @@
   },
   {
     "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000363",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS CABO SAN LUCAS",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "caja_portalaminilla_de_plastico_con_separadores, contenedor_de_toallas_desechables, espejos_vaginales"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000363",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS CABO SAN LUCAS",
+    "consultorio": 2,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "bascula_pesabebes_electronica, esfigmomanometro"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000363",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS CABO SAN LUCAS",
+    "consultorio": 4,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "bascula_electronica_con_estadimetro, bascula_pesabebes_electronica, charola_de_mayo_de_acero_inoxidable"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000363",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS CABO SAN LUCAS",
+    "consultorio": 5,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "bote_sanitario_con_pedal, charola_de_mayo_de_acero_inoxidable"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000363",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS CABO SAN LUCAS",
+    "consultorio": 6,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido, espejos_vaginales, sillon_giratorio_de_respaldo_bajo"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
     "clues_imb": "BSIMB000450",
     "nombre_de_la_unidad": "CENTRO DE SALUD LOMAS DEL SOL, CABO SAN LUCAS",
     "consultorio": 1,
@@ -281,6 +321,14 @@
   },
   {
     "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB000171",
+    "nombre_de_la_unidad": "C.S.T-III DR. GALO SOBERÓN Y PARRA",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "otoscopio, sillon_giratorio_de_respaldo_bajo, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
     "clues_imb": "DFIMB000241",
     "nombre_de_la_unidad": "C.S.T-II AJUSCO",
     "consultorio": 2,
@@ -297,11 +345,75 @@
   },
   {
     "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB000772",
+    "nombre_de_la_unidad": "C.S.T-III DR. LUIS MAZZOTTI GALINDO",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "lampara_de_examinacion_de_pie_rodable, sillon_giratorio_de_respaldo_bajo, tijera_recta"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001134",
+    "nombre_de_la_unidad": "C.S.T-II SAN BARTOLO AMEYALCO",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "sillon_giratorio_de_respaldo_bajo"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001274",
+    "nombre_de_la_unidad": "C.S.T-II LA CASCADA",
+    "consultorio": 1,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "bote_sanitario_con_pedal, mesa_universal_para_exploracion, sillon_giratorio_de_respaldo_bajo"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001286",
+    "nombre_de_la_unidad": "C.S.T-I HERÓN PROAL",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "banco_giratorio, estetoscopio_capsula_doble"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001291",
+    "nombre_de_la_unidad": "C.S.T-I AVE REAL",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "paquetes_refrigerantes_para_termo, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas, termometro_de_vastago, vaso_contenedor_de_vacunas"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001344",
+    "nombre_de_la_unidad": "C.S.T-III DR. EDUARDO JENNER",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "martillo_percusor, porta_cubeta_rodable_con_protector_de_hule"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001356",
+    "nombre_de_la_unidad": "C.S.T-III MINAS DE CRISTO",
+    "consultorio": 2,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido, contenedor_de_toallas_desechables, espejos_vaginales, lavabo"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
     "clues_imb": "DFIMB001600",
     "nombre_de_la_unidad": "CENTRO DE SALUD T-III LOMAS DE PADIERNA",
     "consultorio": 1,
     "n_faltantes": 1,
     "preguntas_faltantes": "equipo_de_computo"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001665",
+    "nombre_de_la_unidad": "C.S.T-III CULTURA MAYA",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "porta_cubeta_rodable_con_protector_de_hule"
   },
   {
     "entidad": "CIUDAD DE MEXICO",
@@ -318,6 +430,86 @@
     "consultorio": 2,
     "n_faltantes": 3,
     "preguntas_faltantes": "esfigmomanometro, mesa_para_colocar_bascula_pesabebes, oximetro_de_pulso"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001764",
+    "nombre_de_la_unidad": "C.S.T-II SANTA CRUZ ACALPIXCA",
+    "consultorio": 3,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "bascula_pesabebes_electronica, mesa_pasteur, silla_para_el_acompanante"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001945",
+    "nombre_de_la_unidad": "C.S.T-III SOLEDAD OROZCO DE ÁVILA CAMACHO",
+    "consultorio": 3,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "escritorio_medico, esfigmomanometro, mesa_de_mayo_de_acero_inoxidable, termometro_de_vastago"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001945",
+    "nombre_de_la_unidad": "C.S.T-III SOLEDAD OROZCO DE ÁVILA CAMACHO",
+    "consultorio": 4,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "contenedor_de_jabon_liquido, estetoscopio_pinard_o_doppler_fetal_portatil, otoscopio, oximetro_de_pulso"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001950",
+    "nombre_de_la_unidad": "C.S.T-III DR. ATANACIO GARZA RÍOS",
+    "consultorio": 5,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "silla_para_el_paciente, tijera_recta"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB001974",
+    "nombre_de_la_unidad": "C.S.T-III DR. JOSÉ MA. RODRÍGUEZ",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "mesa_universal_para_exploracion"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB002131",
+    "nombre_de_la_unidad": "C.S.T-I CUATRO ARBOLES",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "martillo_percusor"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB002172",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-III ROMERO RUBIO",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "banco_giratorio"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB002254",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-III BUENAVISTA",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "cinta_metrica, otoscopio"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB002522",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TII EL PIRU",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "estadimetro_pediatrico, estetoscopio_pinard_o_doppler_fetal_portatil"
+  },
+  {
+    "entidad": "CIUDAD DE MEXICO",
+    "clues_imb": "DFIMB003140",
+    "nombre_de_la_unidad": "C.S. T-II LA CONCHITA",
+    "consultorio": 3,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "otoscopio"
   },
   {
     "entidad": "CIUDAD DE MEXICO",
@@ -1401,6 +1593,14 @@
   },
   {
     "entidad": "MEXICO",
+    "clues_imb": "MCIMB000902",
+    "nombre_de_la_unidad": "CSC/H COLONIA HIGUERA (MOD.MATERNO INFANTIL)",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "sillon_giratorio_de_respaldo_bajo"
+  },
+  {
+    "entidad": "MEXICO",
     "clues_imb": "MCIMB001334",
     "nombre_de_la_unidad": "COACALCO",
     "consultorio": 2,
@@ -2073,14 +2273,6 @@
   },
   {
     "entidad": "MEXICO",
-    "clues_imb": "MCIMB003912",
-    "nombre_de_la_unidad": "ESTADO DE MÉXICO",
-    "consultorio": 1,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "estetoscopio_pinard_o_doppler_fetal_portatil, porta_cubeta_rodable_con_protector_de_hule"
-  },
-  {
-    "entidad": "MEXICO",
     "clues_imb": "MCIMB003924",
     "nombre_de_la_unidad": "LOMA BONITA",
     "consultorio": 1,
@@ -2190,6 +2382,46 @@
     "consultorio": 8,
     "n_faltantes": 3,
     "preguntas_faltantes": "estetoscopio_pinard_o_doppler_fetal_portatil, mesa_universal_para_exploracion, termometro_de_vastago"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB003970",
+    "nombre_de_la_unidad": "BENITO JUÁREZ",
+    "consultorio": 1,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "estetoscopio_capsula_doble, paquetes_refrigerantes_para_termo, porta_cubeta_rodable_con_protector_de_hule, termometro_de_vastago"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB003970",
+    "nombre_de_la_unidad": "BENITO JUÁREZ",
+    "consultorio": 2,
+    "n_faltantes": 4,
+    "preguntas_faltantes": "equipo_de_computo, estadimetro_pediatrico, termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas, termometro_digital"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB003970",
+    "nombre_de_la_unidad": "BENITO JUÁREZ",
+    "consultorio": 3,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "charola_de_mayo_de_acero_inoxidable, sillon_giratorio_de_respaldo_bajo"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB003970",
+    "nombre_de_la_unidad": "BENITO JUÁREZ",
+    "consultorio": 4,
+    "n_faltantes": 3,
+    "preguntas_faltantes": "otoscopio, porta_cubeta_rodable_con_protector_de_hule, porta_rollo_para_papel_kraft_o_sabanas"
+  },
+  {
+    "entidad": "MEXICO",
+    "clues_imb": "MCIMB003970",
+    "nombre_de_la_unidad": "BENITO JUÁREZ",
+    "consultorio": 5,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "estetoscopio_capsula_doble"
   },
   {
     "entidad": "MEXICO",
@@ -3321,6 +3553,14 @@
   },
   {
     "entidad": "QUINTANA ROO",
+    "clues_imb": "QRIMB001273",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL PLAN DE LA NORIA PONIENTE",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "bote_sanitario_con_pedal"
+  },
+  {
+    "entidad": "QUINTANA ROO",
     "clues_imb": "QRIMB001565",
     "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LAS AMÉRICAS",
     "consultorio": 1,
@@ -3465,6 +3705,14 @@
   },
   {
     "entidad": "SAN LUIS POTOSI",
+    "clues_imb": "SPIMB002830",
+    "nombre_de_la_unidad": "C.S. URBANO ANÁHUAC",
+    "consultorio": 2,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "escritorio_medico"
+  },
+  {
+    "entidad": "SAN LUIS POTOSI",
     "clues_imb": "SPIMB003146",
     "nombre_de_la_unidad": "CENTRO DE SALUD VILLA CACTUS",
     "consultorio": 3,
@@ -3518,14 +3766,6 @@
     "consultorio": 2,
     "n_faltantes": 1,
     "preguntas_faltantes": "lampara_de_examinacion_de_pie_rodable"
-  },
-  {
-    "entidad": "SONORA",
-    "clues_imb": "SRIMB001042",
-    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LOMAS DE MADRID",
-    "consultorio": 2,
-    "n_faltantes": 1,
-    "preguntas_faltantes": "termo_congelante_integrado_para_transporte_y_conservacion_de_vacunas"
   },
   {
     "entidad": "SONORA",

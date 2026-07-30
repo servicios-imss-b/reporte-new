@@ -210,6 +210,16 @@
     "pct_llenado": 91.7
   },
   {
+    "clues_imb": "BSIMB000363",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS CABO SAN LUCAS",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 22.8916078443454,
+    "lng": -109.916240908149,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "BSIMB000392",
     "nombre_de_la_unidad": "CENTRO DE SALUD LA PLAYA",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -238,6 +248,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "BSIMB000486",
+    "nombre_de_la_unidad": null,
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 23.090288244469,
+    "lng": -109.704905668787,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
   },
   {
     "clues_imb": "BSIMB000515",
@@ -980,6 +1000,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "DFIMB000171",
+    "nombre_de_la_unidad": "C.S.T-III DR. GALO SOBERÓN Y PARRA",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.472021,
+    "lng": -99.17953,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
     "clues_imb": "DFIMB000521",
     "nombre_de_la_unidad": "C.S.T-II NARCISO BASSOLS",
     "entidad": "CIUDAD DE MEXICO",
@@ -988,6 +1018,66 @@
     "internet": true,
     "consultorios": 3.0,
     "pct_llenado": 95.1
+  },
+  {
+    "clues_imb": "DFIMB000982",
+    "nombre_de_la_unidad": "C.S.T-III DR. RAFAEL CARRILLO",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.3604,
+    "lng": -99.09456,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "DFIMB001122",
+    "nombre_de_la_unidad": "C.S.T-I SAN NICOLÁS TOTOLAPAN",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.298,
+    "lng": -99.2435,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "DFIMB001134",
+    "nombre_de_la_unidad": "C.S.T-II SAN BARTOLO AMEYALCO",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.32739,
+    "lng": -99.2465599999999,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "DFIMB001320",
+    "nombre_de_la_unidad": "C.S.T-III DR. IGNACIO MORONES PRIETO",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.33347027,
+    "lng": -99.2724817138867,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "DFIMB001332",
+    "nombre_de_la_unidad": "C.S.T-III AMPLIACIÓN PRESIDENTES",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.38026,
+    "lng": -99.224896,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "DFIMB001426",
+    "nombre_de_la_unidad": "C.S.T-II AMPLIACIÓN SELENE",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.2852699999999,
+    "lng": -98.99553,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 93.8
   },
   {
     "clues_imb": "DFIMB001600",
@@ -1000,6 +1090,126 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "DFIMB001665",
+    "nombre_de_la_unidad": "C.S.T-III CULTURA MAYA",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.275969,
+    "lng": -99.221917,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "DFIMB001670",
+    "nombre_de_la_unidad": "C.S.T-III DR. JOSÉ CASTRO VILLAGRANA",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.293312,
+    "lng": -99.1666199999999,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "DFIMB001781",
+    "nombre_de_la_unidad": "C.S.T-II SANTA MARÍA NATIVITAS",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.246606,
+    "lng": -99.0943009999999,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "DFIMB001950",
+    "nombre_de_la_unidad": "C.S.T-III DR. ATANACIO GARZA RÍOS",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.41833,
+    "lng": -99.14756,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "DFIMB002131",
+    "nombre_de_la_unidad": "C.S.T-I CUATRO ARBOLES",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.416866,
+    "lng": -99.083959,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "DFIMB002172",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-III ROMERO RUBIO",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.444041,
+    "lng": -99.090418,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "DFIMB002254",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-III BUENAVISTA",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.33199,
+    "lng": -99.0315,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "DFIMB002312",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-III JALALPA EL GRANDE",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.372029,
+    "lng": -99.238574,
+    "internet": true,
+    "consultorios": 5.0,
+    "pct_llenado": 96.7
+  },
+  {
+    "clues_imb": "DFIMB002464",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-II SANTA ROSA XOCHIAC",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.33718,
+    "lng": -99.2794,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 96.9
+  },
+  {
+    "clues_imb": "DFIMB002476",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T I CORPUS CHRISTY ",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.363342,
+    "lng": -99.247528,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "DFIMB002522",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TII EL PIRU",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.381408,
+    "lng": -99.21735,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "DFIMB003140",
+    "nombre_de_la_unidad": "C.S. T-II LA CONCHITA",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.3926694,
+    "lng": -99.2072284,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 97.2
+  },
+  {
     "clues_imb": "DFIMB003164",
     "nombre_de_la_unidad": "CENTRO DE SALUD T-II SAN MIGUEL XICALCO",
     "entidad": "CIUDAD DE MEXICO",
@@ -1008,6 +1218,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 94.8
+  },
+  {
+    "clues_imb": "DFIMB003176",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-II SOLIDARIDAD TETELCO",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.2107522,
+    "lng": -98.9714371,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "GRIMB000053",
@@ -4150,6 +4370,26 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "MCIMB000902",
+    "nombre_de_la_unidad": "CSC/H COLONIA HIGUERA (MOD.MATERNO INFANTIL)",
+    "entidad": "MEXICO",
+    "lat": 19.565107,
+    "lng": -99.243431,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "MCIMB000931",
+    "nombre_de_la_unidad": "LAS COLONIAS",
+    "entidad": "MEXICO",
+    "lat": 19.561734,
+    "lng": -99.2329702,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "MCIMB000943",
     "nombre_de_la_unidad": "SAN MARTÍN DE PORRES",
     "entidad": "MEXICO",
@@ -4188,6 +4428,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "MCIMB000984",
+    "nombre_de_la_unidad": "COL. UNIVERSIDAD AUTONOMA METROPOLITANA",
+    "entidad": "MEXICO",
+    "lat": 19.6059748,
+    "lng": -99.2515397,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "MCIMB000996",
@@ -5710,6 +5960,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "MCIMB009355",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL POTRERO",
+    "entidad": "MEXICO",
+    "lat": 19.5476722,
+    "lng": -99.2371,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "MCIMB009524",
     "nombre_de_la_unidad": "CENTRO DE SALUD NAUCALPAN",
     "entidad": "MEXICO",
@@ -6428,6 +6688,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "MSIMB002276",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CHIPITLAN",
+    "entidad": "MORELOS",
+    "lat": 18.89708,
+    "lng": -99.22907,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MSIMB002281",
@@ -7636,6 +7906,16 @@
     "lat": 19.7157341589151,
     "lng": -88.8663877693052,
     "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 90.6
+  },
+  {
+    "clues_imb": "QRIMB001273",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL PLAN DE LA NORIA PONIENTE",
+    "entidad": "QUINTANA ROO",
+    "lat": 19.3080946157093,
+    "lng": -88.7879629622554,
+    "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
   },
@@ -8286,8 +8566,8 @@
     "lat": 22.132235,
     "lng": -100.954246,
     "internet": true,
-    "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "consultorios": 5.0,
+    "pct_llenado": 94.2
   },
   {
     "clues_imb": "SPIMB003146",
@@ -8420,6 +8700,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "SRIMB001030",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO SAHUARO",
+    "entidad": "SONORA",
+    "lat": 29.101803,
+    "lng": -111.005592,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
+  },
+  {
     "clues_imb": "SRIMB001042",
     "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LOMAS DE MADRID",
     "entidad": "SONORA",
@@ -8427,7 +8717,7 @@
     "lng": -110.976826,
     "internet": true,
     "consultorios": 5.0,
-    "pct_llenado": 99.2
+    "pct_llenado": 99.6
   },
   {
     "clues_imb": "SRIMB001083",
