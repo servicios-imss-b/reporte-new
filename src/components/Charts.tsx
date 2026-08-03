@@ -535,6 +535,14 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
 }) {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const [entidadQuery, setEntidadQuery] = useState('');
+  const [cluesQuery, setCluesQuery] = useState('');
+
+  const normalize = (value: string) =>
+    value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .trim();
 
   const entidadesDisponibles = useMemo(() => {
     const setEntidades = new Set<string>();
@@ -545,27 +553,95 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
     return [...setEntidades].sort((a, b) => a.localeCompare(b, 'es'));
   }, [cluesGeo]);
 
-  const filteredCluesGeo = useMemo(() => {
-    const normalize = (value: string) =>
-      value
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .toLowerCase()
-        .trim();
+  const cluesDisponibles = useMemo(() => {
+    const setClues = new Set<string>();
+    cluesGeo.forEach((item) => {
+      const clues = String(item.clues_imb ?? '').trim();
+      if (clues) setClues.add(clues);
+    });
+    return [...setClues].sort((a, b) => a.localeCompare(b, 'es'));
+  }, [cluesGeo]);
 
-    const query = normalize(entidadQuery);
-    if (!query) return cluesGeo;
+  const suggestedEntidades = useMemo(() => {
+    const clues = normalize(cluesQuery);
+    const entidad = normalize(entidadQuery);
 
-    const entidadExacta = entidadesDisponibles.find((entidad) => normalize(entidad) === query);
-
-    // Si hay match exacto, evita mezclar entidades como "MEXICO" con "CIUDAD DE MEXICO".
-    if (entidadExacta) {
-      const exactaNormalizada = normalize(entidadExacta);
-      return cluesGeo.filter((item) => normalize(item.entidad) === exactaNormalizada);
+    let base = cluesGeo;
+    if (clues) {
+      const cluesExacta = cluesDisponibles.find((item) => normalize(item) === clues);
+      if (cluesExacta) {
+        const cluesExactaNormalizada = normalize(cluesExacta);
+        base = base.filter((item) => normalize(item.clues_imb) === cluesExactaNormalizada);
+      } else {
+        base = base.filter((item) => normalize(item.clues_imb).includes(clues));
+      }
     }
 
-    return cluesGeo.filter((item) => normalize(item.entidad).includes(query));
-  }, [cluesGeo, entidadQuery, entidadesDisponibles]);
+    const setEntidades = new Set<string>();
+    base.forEach((item) => {
+      const ent = String(item.entidad ?? '').trim();
+      if (!ent) return;
+      if (!entidad || normalize(ent).includes(entidad)) setEntidades.add(ent);
+    });
+
+    return [...setEntidades].sort((a, b) => a.localeCompare(b, 'es')).slice(0, 30);
+  }, [cluesGeo, cluesQuery, entidadQuery, cluesDisponibles]);
+
+  const suggestedClues = useMemo(() => {
+    const entidad = normalize(entidadQuery);
+    const clues = normalize(cluesQuery);
+
+    let base = cluesGeo;
+    if (entidad) {
+      const entidadExacta = entidadesDisponibles.find((item) => normalize(item) === entidad);
+      if (entidadExacta) {
+        const exactaNormalizada = normalize(entidadExacta);
+        base = base.filter((item) => normalize(item.entidad) === exactaNormalizada);
+      } else {
+        base = base.filter((item) => normalize(item.entidad).includes(entidad));
+      }
+    }
+
+    const setClues = new Set<string>();
+    base.forEach((item) => {
+      const clue = String(item.clues_imb ?? '').trim();
+      if (!clue) return;
+      if (!clues || normalize(clue).includes(clues)) setClues.add(clue);
+    });
+
+    return [...setClues].sort((a, b) => a.localeCompare(b, 'es')).slice(0, 30);
+  }, [cluesGeo, entidadQuery, cluesQuery, entidadesDisponibles]);
+
+  const filteredCluesGeo = useMemo(() => {
+    const entidad = normalize(entidadQuery);
+    const clues = normalize(cluesQuery);
+
+    let result = cluesGeo;
+
+    if (entidad) {
+      const entidadExacta = entidadesDisponibles.find((item) => normalize(item) === entidad);
+
+      // Si hay match exacto, evita mezclar entidades como "MEXICO" con "CIUDAD DE MEXICO".
+      if (entidadExacta) {
+        const exactaNormalizada = normalize(entidadExacta);
+        result = result.filter((item) => normalize(item.entidad) === exactaNormalizada);
+      } else {
+        result = result.filter((item) => normalize(item.entidad).includes(entidad));
+      }
+    }
+
+    if (clues) {
+      const cluesExacta = cluesDisponibles.find((item) => normalize(item) === clues);
+      if (cluesExacta) {
+        const cluesExactaNormalizada = normalize(cluesExacta);
+        result = result.filter((item) => normalize(item.clues_imb) === cluesExactaNormalizada);
+      } else {
+        result = result.filter((item) => normalize(item.clues_imb).includes(clues));
+      }
+    }
+
+    return result;
+  }, [cluesGeo, entidadQuery, cluesQuery, entidadesDisponibles, cluesDisponibles]);
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
@@ -712,13 +788,35 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
             className="w-full max-w-md rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm text-gray-700 placeholder:text-gray-400 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-100"
           />
           <datalist id="entidades-mapa-list">
-            {entidadesDisponibles.map((ent) => (
+            {suggestedEntidades.map((ent) => (
               <option key={ent} value={ent} />
             ))}
           </datalist>
+
+          <label htmlFor="filtro-clues-mapa" className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+            Filtrar CLUES
+          </label>
+          <input
+            id="filtro-clues-mapa"
+            type="text"
+            value={cluesQuery}
+            onChange={(e) => setCluesQuery(e.target.value)}
+            list="clues-mapa-list"
+            placeholder="Ej. MCIMB001713"
+            className="w-full max-w-xs rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm text-gray-700 placeholder:text-gray-400 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-100"
+          />
+          <datalist id="clues-mapa-list">
+            {suggestedClues.map((clue) => (
+              <option key={clue} value={clue} />
+            ))}
+          </datalist>
+
           <button
             type="button"
-            onClick={() => setEntidadQuery('')}
+            onClick={() => {
+              setEntidadQuery('');
+              setCluesQuery('');
+            }}
             className="rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-100"
           >
             Limpiar
