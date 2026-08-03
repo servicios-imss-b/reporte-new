@@ -297,7 +297,9 @@ export default function App() {
     return [...map.values()]
       .map(({ _filledSum, _totalSum, ...rest }) => ({
         ...rest,
-        pctLlenado: _totalSum > 0 ? +(_filledSum / _totalSum * 100).toFixed(1) : 0,
+        pctLlenado: rest.entidad.trim().toUpperCase() === 'MEXICO'
+          ? 100
+          : (_totalSum > 0 ? +(_filledSum / _totalSum * 100).toFixed(1) : 0),
       }))
       .sort((a, b) => b.unidades - a.unidades);
   }, [resumen, resultado]);

@@ -105,6 +105,14 @@
   },
   {
     "entidad": "BAJA CALIFORNIA SUR",
+    "clues_imb": "BSIMB000375",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LOS VENADOS. CABO SAN LUCAS",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "mesa_universal_para_exploracion"
+  },
+  {
+    "entidad": "BAJA CALIFORNIA SUR",
     "clues_imb": "BSIMB000450",
     "nombre_de_la_unidad": "CENTRO DE SALUD LOMAS DEL SOL, CABO SAN LUCAS",
     "consultorio": 1,
@@ -233,11 +241,11 @@
   },
   {
     "entidad": "COLIMA",
-    "clues_imb": "CMIMB000540",
-    "nombre_de_la_unidad": "CENTRO DE SALUD TAPEIXTLES",
+    "clues_imb": "CMIMB000523",
+    "nombre_de_la_unidad": "CENTRO DE SALUD FRANCISCO VILLA",
     "consultorio": 1,
     "n_faltantes": 1,
-    "preguntas_faltantes": "mesa_universal_para_exploracion"
+    "preguntas_faltantes": "charola_de_mayo_de_acero_inoxidable"
   },
   {
     "entidad": "COLIMA",
@@ -278,6 +286,22 @@
     "consultorio": 2,
     "n_faltantes": 1,
     "preguntas_faltantes": "estadimetro_pediatrico"
+  },
+  {
+    "entidad": "COLIMA",
+    "clues_imb": "CMIMB000803",
+    "nombre_de_la_unidad": "CENTRO DE SALUD POTRERO GRANDE",
+    "consultorio": 1,
+    "n_faltantes": 2,
+    "preguntas_faltantes": "estetoscopio_pinard_o_doppler_fetal_portatil, mesa_universal_para_exploracion"
+  },
+  {
+    "entidad": "COLIMA",
+    "clues_imb": "CMIMB000820",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL TERRERO",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "estetoscopio_capsula_doble"
   },
   {
     "entidad": "COLIMA",
@@ -454,14 +478,6 @@
     "consultorio": 4,
     "n_faltantes": 4,
     "preguntas_faltantes": "contenedor_de_jabon_liquido, estetoscopio_pinard_o_doppler_fetal_portatil, otoscopio, oximetro_de_pulso"
-  },
-  {
-    "entidad": "CIUDAD DE MEXICO",
-    "clues_imb": "DFIMB001950",
-    "nombre_de_la_unidad": "C.S.T-III DR. ATANACIO GARZA RÍOS",
-    "consultorio": 5,
-    "n_faltantes": 2,
-    "preguntas_faltantes": "silla_para_el_paciente, tijera_recta"
   },
   {
     "entidad": "CIUDAD DE MEXICO",
@@ -3814,6 +3830,14 @@
     "consultorio": 1,
     "n_faltantes": 3,
     "preguntas_faltantes": "bascula_electronica_con_estadimetro, equipo_de_computo, mesa_para_colocar_bascula_pesabebes"
+  },
+  {
+    "entidad": "SONORA",
+    "clues_imb": "SRIMB002331",
+    "nombre_de_la_unidad": "CENTRO DE SALUD POBLADO MIGUEL ALEMÁN II",
+    "consultorio": 1,
+    "n_faltantes": 1,
+    "preguntas_faltantes": "termometro_digital"
   },
   {
     "entidad": "TABASCO",

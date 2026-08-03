@@ -100,6 +100,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "BSIMB000100",
+    "nombre_de_la_unidad": "CENTRO DE SALUD VILLA MORELOS",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 24.930765841121,
+    "lng": -111.628823056372,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "BSIMB000136",
     "nombre_de_la_unidad": "CENTRO DE SALUD BAHÍA TORTUGAS",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -128,6 +138,16 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "BSIMB000170",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN IGNACIO",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 27.2805596696538,
+    "lng": -112.89672822761,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
   },
   {
     "clues_imb": "BSIMB000182",
@@ -168,6 +188,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "BSIMB000276",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LOS BARRILES",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 23.6799599686488,
+    "lng": -109.699109803692,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 86.5
   },
   {
     "clues_imb": "BSIMB000305",
@@ -220,6 +250,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "BSIMB000375",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LOS VENADOS. CABO SAN LUCAS",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 22.897349634215,
+    "lng": -109.939262364339,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 93.8
+  },
+  {
     "clues_imb": "BSIMB000392",
     "nombre_de_la_unidad": "CENTRO DE SALUD LA PLAYA",
     "entidad": "BAJA CALIFORNIA SUR",
@@ -238,6 +278,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "BSIMB000462",
+    "nombre_de_la_unidad": "CENTRO DE SALUD LOS CANGREJOS, CABO SAN LUCAS",
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 22.9061251694859,
+    "lng": -109.960753148981,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 86.5
   },
   {
     "clues_imb": "BSIMB000474",
@@ -278,6 +328,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "BSIMB000684",
+    "nombre_de_la_unidad": null,
+    "entidad": "BAJA CALIFORNIA SUR",
+    "lat": 23.5906552895151,
+    "lng": -109.592003723692,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "BSIMB000725",
@@ -370,6 +430,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "CCIMB000225",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ISLA AGUADA",
+    "entidad": "CAMPECHE",
+    "lat": 18.784474,
+    "lng": -91.483871,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "CCIMB000230",
     "nombre_de_la_unidad": "CENTRO DE SALUD EMILIANO ZAPATA",
     "entidad": "CAMPECHE",
@@ -378,6 +448,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "CCIMB000394",
+    "nombre_de_la_unidad": "CENTRO DE SALUD 5 DE FEBRERO",
+    "entidad": "CAMPECHE",
+    "lat": 18.856322,
+    "lng": -90.632,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "CCIMB000476",
@@ -400,6 +480,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "CCIMB000645",
+    "nombre_de_la_unidad": "CENTRO DE SALUD JÓSE MARIA MORELOS Y PAVÓN O CIVALITO",
+    "entidad": "CAMPECHE",
+    "lat": 17.88584,
+    "lng": -89.28457,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "CCIMB000650",
     "nombre_de_la_unidad": "CENTRO DE SALUD JOSÉFA ORTÍZ DE DOMÍNGUEZ",
     "entidad": "CAMPECHE",
@@ -418,6 +508,26 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "CCIMB000843",
+    "nombre_de_la_unidad": "CENTRO DE  SALUD NUEVO PROGRESO",
+    "entidad": "CAMPECHE",
+    "lat": 18.621321,
+    "lng": -92.289503,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
+    "clues_imb": "CCIMB000930",
+    "nombre_de_la_unidad": "CENTRO  DE SALUD CARMEN ",
+    "entidad": "CAMPECHE",
+    "lat": 18.656209,
+    "lng": -91.799124,
+    "internet": false,
+    "consultorios": 6.0,
+    "pct_llenado": 81.2
   },
   {
     "clues_imb": "CCIMB000954",
@@ -510,6 +620,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "CMIMB000296",
+    "nombre_de_la_unidad": "CENTRO DE SALUD REMUDADERO",
+    "entidad": "COLIMA",
+    "lat": 19.4181,
+    "lng": -103.7525,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 83.3
+  },
+  {
     "clues_imb": "CMIMB000325",
     "nombre_de_la_unidad": "CENTRO DE SALUD AGUA ZARCA",
     "entidad": "COLIMA",
@@ -580,6 +700,26 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "CMIMB000511",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ZINACAMITLÁN",
+    "entidad": "COLIMA",
+    "lat": 18.9794,
+    "lng": -103.6961,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "CMIMB000523",
+    "nombre_de_la_unidad": "CENTRO DE SALUD FRANCISCO VILLA",
+    "entidad": "COLIMA",
+    "lat": 19.1292,
+    "lng": -104.3496,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
     "clues_imb": "CMIMB000535",
     "nombre_de_la_unidad": "CENTRO DE SALUD CAMPOS",
     "entidad": "COLIMA",
@@ -597,7 +737,7 @@
     "lng": -104.2821,
     "internet": true,
     "consultorios": 3.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 94.4
   },
   {
     "clues_imb": "CMIMB000576",
@@ -655,7 +795,7 @@
     "entidad": "COLIMA",
     "lat": 19.1271,
     "lng": -104.4171,
-    "internet": false,
+    "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
   },
@@ -728,6 +868,36 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "CMIMB000803",
+    "nombre_de_la_unidad": "CENTRO DE SALUD POTRERO GRANDE",
+    "entidad": "COLIMA",
+    "lat": 19.3136,
+    "lng": -104.0881,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "CMIMB000820",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL TERRERO",
+    "entidad": "COLIMA",
+    "lat": 19.4447,
+    "lng": -103.9501,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "CMIMB000984",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EL SAUCITO",
+    "entidad": "COLIMA",
+    "lat": 18.8658,
+    "lng": -103.8001,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "CMIMB001001",
@@ -810,6 +980,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "CMIMB001450",
+    "nombre_de_la_unidad": "CENTRO DE SALUD MONTITLÁN",
+    "entidad": "COLIMA",
+    "lat": 19.4014,
+    "lng": -103.6211,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "CSIMB000076",
     "nombre_de_la_unidad": "BIENES COMUNALES LA LAGUNA",
     "entidad": "CHIAPAS",
@@ -858,6 +1038,16 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "CSIMB002082",
+    "nombre_de_la_unidad": "CENTRO DE SALUD MACAYO 2A. SECCIÓN",
+    "entidad": "CHIAPAS",
+    "lat": 17.9753,
+    "lng": -93.2749,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "CSIMB002246",
@@ -1010,6 +1200,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "DFIMB000241",
+    "nombre_de_la_unidad": "C.S.T-II AJUSCO",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.319162,
+    "lng": -99.16007,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 86.5
+  },
+  {
     "clues_imb": "DFIMB000521",
     "nombre_de_la_unidad": "C.S.T-II NARCISO BASSOLS",
     "entidad": "CIUDAD DE MEXICO",
@@ -1018,6 +1218,26 @@
     "internet": true,
     "consultorios": 3.0,
     "pct_llenado": 95.1
+  },
+  {
+    "clues_imb": "DFIMB000772",
+    "nombre_de_la_unidad": "C.S.T-III DR. LUIS MAZZOTTI GALINDO",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.41364,
+    "lng": -99.05857,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 85.4
+  },
+  {
+    "clues_imb": "DFIMB000883",
+    "nombre_de_la_unidad": "C.S.T-I APATLACO",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.3797,
+    "lng": -99.11711,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 97.9
   },
   {
     "clues_imb": "DFIMB000982",
@@ -1080,6 +1300,16 @@
     "pct_llenado": 93.8
   },
   {
+    "clues_imb": "DFIMB001455",
+    "nombre_de_la_unidad": "C.S.T-II SAN JOSÉ",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.276,
+    "lng": -98.9961,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "DFIMB001600",
     "nombre_de_la_unidad": "CENTRO DE SALUD T-III LOMAS DE PADIERNA",
     "entidad": "CIUDAD DE MEXICO",
@@ -1110,6 +1340,36 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "DFIMB001682",
+    "nombre_de_la_unidad": "C.S.T-III PEDREGAL DE LAS ÁGUILAS",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.2722049999999,
+    "lng": -99.1756849999999,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 89.6
+  },
+  {
+    "clues_imb": "DFIMB001752",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-II SAN LUIS TLAXIALTEMALCO ",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.2556679999999,
+    "lng": -99.0410769999999,
+    "internet": false,
+    "consultorios": 2.0,
+    "pct_llenado": 84.4
+  },
+  {
+    "clues_imb": "DFIMB001764",
+    "nombre_de_la_unidad": "C.S.T-II SANTA CRUZ ACALPIXCA",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.245777,
+    "lng": -99.0683209999999,
+    "internet": true,
+    "consultorios": 4.0,
+    "pct_llenado": 80.2
+  },
+  {
     "clues_imb": "DFIMB001781",
     "nombre_de_la_unidad": "C.S.T-II SANTA MARÍA NATIVITAS",
     "entidad": "CIUDAD DE MEXICO",
@@ -1120,6 +1380,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "DFIMB001945",
+    "nombre_de_la_unidad": "C.S.T-III SOLEDAD OROZCO DE ÁVILA CAMACHO",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.45866,
+    "lng": -99.13326,
+    "internet": true,
+    "consultorios": 7.0,
+    "pct_llenado": 81.8
+  },
+  {
     "clues_imb": "DFIMB001950",
     "nombre_de_la_unidad": "C.S.T-III DR. ATANACIO GARZA RÍOS",
     "entidad": "CIUDAD DE MEXICO",
@@ -1127,7 +1397,17 @@
     "lng": -99.14756,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 94.4
+  },
+  {
+    "clues_imb": "DFIMB001974",
+    "nombre_de_la_unidad": "C.S.T-III DR. JOSÉ MA. RODRÍGUEZ",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.40426,
+    "lng": -99.13619,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 88.5
   },
   {
     "clues_imb": "DFIMB002131",
@@ -1168,6 +1448,16 @@
     "internet": true,
     "consultorios": 5.0,
     "pct_llenado": 96.7
+  },
+  {
+    "clues_imb": "DFIMB002406",
+    "nombre_de_la_unidad": "CENTRO DE SALUD T-II QUIAHUATLA",
+    "entidad": "CIUDAD DE MEXICO",
+    "lat": 19.2629799999999,
+    "lng": -99.00401,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 83.3
   },
   {
     "clues_imb": "DFIMB002464",
@@ -1460,6 +1750,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "GRIMB000864",
+    "nombre_de_la_unidad": "R-01 SAN BARTOLO",
+    "entidad": "GUERRERO",
+    "lat": 18.220023,
+    "lng": -100.382755,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "GRIMB000876",
     "nombre_de_la_unidad": "R-01 SAN CRISTÓBAL",
     "entidad": "GUERRERO",
@@ -1478,6 +1778,26 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "GRIMB001004",
+    "nombre_de_la_unidad": "R-01 PETLACALANCINGO",
+    "entidad": "GUERRERO",
+    "lat": 17.375291,
+    "lng": -98.491378,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
+  },
+  {
+    "clues_imb": "GRIMB001050",
+    "nombre_de_la_unidad": "R-01 IXCATEOPAN",
+    "entidad": "GUERRERO",
+    "lat": 17.618715,
+    "lng": -98.516283,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "GRIMB001103",
@@ -1720,6 +2040,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "GRIMB001593",
+    "nombre_de_la_unidad": "R-01 SAN ANDRÉS DE LA CRUZ",
+    "entidad": "GUERRERO",
+    "lat": 17.258373,
+    "lng": -100.358188,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
+  },
+  {
     "clues_imb": "GRIMB001605",
     "nombre_de_la_unidad": "R-01 SAN FCO. DEL TIBOR",
     "entidad": "GUERRERO",
@@ -1790,6 +2120,26 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "GRIMB001955",
+    "nombre_de_la_unidad": "R-01 ARENAL DE ALVAREZ",
+    "entidad": "GUERRERO",
+    "lat": 17.1297,
+    "lng": -100.458,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
+    "clues_imb": "GRIMB001960",
+    "nombre_de_la_unidad": "R-01 ARENAL DE GÓMEZ",
+    "entidad": "GUERRERO",
+    "lat": 17.14317,
+    "lng": -100.456704,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
+  },
+  {
     "clues_imb": "GRIMB001972",
     "nombre_de_la_unidad": "R-01 ARENAL DEL CENTRO",
     "entidad": "GUERRERO",
@@ -1828,6 +2178,26 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "GRIMB002124",
+    "nombre_de_la_unidad": "R-01 APIPILULCO",
+    "entidad": "GUERRERO",
+    "lat": 18.191153,
+    "lng": -99.671233,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
+    "clues_imb": "GRIMB002153",
+    "nombre_de_la_unidad": "R-01 XONACATLA",
+    "entidad": "GUERRERO",
+    "lat": 18.247683,
+    "lng": -99.596756,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
   },
   {
     "clues_imb": "GRIMB002223",
@@ -1880,6 +2250,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "GRIMB002515",
+    "nombre_de_la_unidad": "R-01 LOMAS LAS",
+    "entidad": "GUERRERO",
+    "lat": 16.981477,
+    "lng": -100.092899,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "GRIMB002544",
     "nombre_de_la_unidad": "R-01 PAPAYO EL",
     "entidad": "GUERRERO",
@@ -1888,6 +2268,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "GRIMB002556",
+    "nombre_de_la_unidad": "R-01 PLATANILLO",
+    "entidad": "GUERRERO",
+    "lat": 17.064255,
+    "lng": -99.91224,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 83.3
   },
   {
     "clues_imb": "GRIMB002696",
@@ -1918,6 +2308,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "GRIMB002870",
+    "nombre_de_la_unidad": "R-01 TIERRA COLORADA",
+    "entidad": "GUERRERO",
+    "lat": 16.446368,
+    "lng": -98.643857,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
   },
   {
     "clues_imb": "GRIMB002882",
@@ -1958,6 +2358,16 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "GRIMB002923",
+    "nombre_de_la_unidad": "R-01 SAN MARTÍN JOLALPAN",
+    "entidad": "GUERRERO",
+    "lat": 17.72168,
+    "lng": -98.66689,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "GRIMB002952",
@@ -2008,6 +2418,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "GRIMB003051",
+    "nombre_de_la_unidad": "R-01 TLACAQUIPA",
+    "entidad": "GUERRERO",
+    "lat": 18.226983,
+    "lng": -99.872415,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
   },
   {
     "clues_imb": "GRIMB003075",
@@ -2088,6 +2508,16 @@
     "internet": true,
     "consultorios": 3.0,
     "pct_llenado": 97.2
+  },
+  {
+    "clues_imb": "GRIMB003454",
+    "nombre_de_la_unidad": "U-03 COL.SAN MIGUELITO",
+    "entidad": "GUERRERO",
+    "lat": 17.550129,
+    "lng": -99.49335,
+    "internet": true,
+    "consultorios": 4.0,
+    "pct_llenado": 83.3
   },
   {
     "clues_imb": "GRIMB003471",
@@ -2340,6 +2770,66 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "GRIMB003845",
+    "nombre_de_la_unidad": "R-01 MARGARITAS LAS",
+    "entidad": "GUERRERO",
+    "lat": 17.583962,
+    "lng": -100.063961,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
+    "clues_imb": "GRIMB003850",
+    "nombre_de_la_unidad": "R-01 LIMONCITO",
+    "entidad": "GUERRERO",
+    "lat": 17.674388,
+    "lng": -100.040505,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
+    "clues_imb": "GRIMB003862",
+    "nombre_de_la_unidad": "R-01 PUERTO COLORADO",
+    "entidad": "GUERRERO",
+    "lat": 17.588315,
+    "lng": -100.124739,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
+    "clues_imb": "GRIMB003886",
+    "nombre_de_la_unidad": "R-01 COYAHUALCO",
+    "entidad": "GUERRERO",
+    "lat": 17.741048,
+    "lng": -98.566408,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 83.3
+  },
+  {
+    "clues_imb": "GRIMB003944",
+    "nombre_de_la_unidad": "R-01 TLAQUILTEPEC",
+    "entidad": "GUERRERO",
+    "lat": 17.732504,
+    "lng": -98.547253,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 83.3
+  },
+  {
+    "clues_imb": "GRIMB003956",
+    "nombre_de_la_unidad": "R-01 TOTOLAPA",
+    "entidad": "GUERRERO",
+    "lat": 17.864702,
+    "lng": -98.574938,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
+  },
+  {
     "clues_imb": "GRIMB003973",
     "nombre_de_la_unidad": "R-03 CD. HUITZUCO",
     "entidad": "GUERRERO",
@@ -2388,6 +2878,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "GRIMB004043",
+    "nombre_de_la_unidad": "R-01 SAN MIGUEL LAS PALMAS",
+    "entidad": "GUERRERO",
+    "lat": 18.25509,
+    "lng": -99.199637,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "GRIMB004055",
@@ -2440,6 +2940,16 @@
     "pct_llenado": 91.7
   },
   {
+    "clues_imb": "GRIMB004142",
+    "nombre_de_la_unidad": "U-01 COL. CNOP",
+    "entidad": "GUERRERO",
+    "lat": 18.326089,
+    "lng": -99.523879,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 83.3
+  },
+  {
     "clues_imb": "GRIMB004154",
     "nombre_de_la_unidad": "U-02  COL. INSURGENTES",
     "entidad": "GUERRERO",
@@ -2468,6 +2978,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "GRIMB004183",
+    "nombre_de_la_unidad": "R-01 NARANJO EL",
+    "entidad": "GUERRERO",
+    "lat": 18.401147,
+    "lng": -99.534823,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
   },
   {
     "clues_imb": "GRIMB004195",
@@ -2578,6 +3098,16 @@
     "internet": false,
     "consultorios": 2.0,
     "pct_llenado": 94.8
+  },
+  {
+    "clues_imb": "GRIMB004656",
+    "nombre_de_la_unidad": "R-01 MOYOTEPEC DE JUÁREZ",
+    "entidad": "GUERRERO",
+    "lat": 17.332984,
+    "lng": -98.687277,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "GRIMB004661",
@@ -2720,6 +3250,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "GRIMB004813",
+    "nombre_de_la_unidad": "R-01 ANALCO",
+    "entidad": "GUERRERO",
+    "lat": 17.943376,
+    "lng": -99.439955,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "GRIMB004830",
     "nombre_de_la_unidad": "R-01 HUEYTLALPAN",
     "entidad": "GUERRERO",
@@ -2748,6 +3288,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "GRIMB004871",
+    "nombre_de_la_unidad": "R-01 TULA DEL RÍO",
+    "entidad": "GUERRERO",
+    "lat": 17.925209,
+    "lng": -99.359591,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "GRIMB004895",
@@ -2890,6 +3440,16 @@
     "pct_llenado": 91.7
   },
   {
+    "clues_imb": "GRIMB005134",
+    "nombre_de_la_unidad": null,
+    "entidad": "GUERRERO",
+    "lat": 17.873014,
+    "lng": -98.646605,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
+  },
+  {
     "clues_imb": "GRIMB005291",
     "nombre_de_la_unidad": "R-01 IXTLÁHUACATENGO",
     "entidad": "GUERRERO",
@@ -2908,6 +3468,26 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "GRIMB005315",
+    "nombre_de_la_unidad": "R-01 TLANILPA",
+    "entidad": "GUERRERO",
+    "lat": 18.603188,
+    "lng": -99.849441,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
+    "clues_imb": "GRIMB005670",
+    "nombre_de_la_unidad": "R-01 EL CARMEN",
+    "entidad": "GUERRERO",
+    "lat": 16.811258,
+    "lng": -98.759996,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
   },
   {
     "clues_imb": "GRIMB005682",
@@ -2948,6 +3528,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "GRIMB005735",
+    "nombre_de_la_unidad": "R-01 TLAXCALISTLÁHUACA",
+    "entidad": "GUERRERO",
+    "lat": 16.98223,
+    "lng": -98.779631,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
   },
   {
     "clues_imb": "GRIMB005740",
@@ -3090,6 +3680,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "GRIMB005945",
+    "nombre_de_la_unidad": "R-01 PETLACALA",
+    "entidad": "GUERRERO",
+    "lat": 17.76054,
+    "lng": -100.286446,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "GRIMB005950",
     "nombre_de_la_unidad": "R-01 SAN ANTONIO DE LA GAVIA",
     "entidad": "GUERRERO",
@@ -3098,6 +3698,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "GRIMB005962",
+    "nombre_de_la_unidad": "R-01 SAN MIGUELITO",
+    "entidad": "GUERRERO",
+    "lat": 17.878065,
+    "lng": -100.192744,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
   },
   {
     "clues_imb": "GRIMB005974",
@@ -3128,6 +3738,26 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "GRIMB006056",
+    "nombre_de_la_unidad": "R-01 ACAMIXTLA",
+    "entidad": "GUERRERO",
+    "lat": 18.565076,
+    "lng": -99.562709,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 87.5
+  },
+  {
+    "clues_imb": "GRIMB006061",
+    "nombre_de_la_unidad": "R-01 CHICHILA",
+    "entidad": "GUERRERO",
+    "lat": 18.552597,
+    "lng": -99.704728,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
   },
   {
     "clues_imb": "GRIMB006085",
@@ -3190,6 +3820,16 @@
     "pct_llenado": 91.7
   },
   {
+    "clues_imb": "GRIMB006230",
+    "nombre_de_la_unidad": "R-01 LAS ANIMAS",
+    "entidad": "GUERRERO",
+    "lat": 16.970951,
+    "lng": -99.319257,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "GRIMB006242",
     "nombre_de_la_unidad": "R-01 BUENA VISTA",
     "entidad": "GUERRERO",
@@ -3240,6 +3880,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "GRIMB006300",
+    "nombre_de_la_unidad": "R-01 EL LIMON",
+    "entidad": "GUERRERO",
+    "lat": 16.994673,
+    "lng": -99.377867,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
+  },
+  {
     "clues_imb": "GRIMB006312",
     "nombre_de_la_unidad": "R-01 OCOTITLAN",
     "entidad": "GUERRERO",
@@ -3258,6 +3908,16 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "GRIMB006382",
+    "nombre_de_la_unidad": null,
+    "entidad": "GUERRERO",
+    "lat": 17.593098,
+    "lng": -100.797866,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
   },
   {
     "clues_imb": "GRIMB006406",
@@ -3290,6 +3950,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "GRIMB006551",
+    "nombre_de_la_unidad": "R-01 EL PORVENIR",
+    "entidad": "GUERRERO",
+    "lat": 17.532106,
+    "lng": -100.935875,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
+  },
+  {
     "clues_imb": "GRIMB006580",
     "nombre_de_la_unidad": "CENTRO DE SALUD TELOLOAPAN",
     "entidad": "GUERRERO",
@@ -3320,6 +3990,26 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "GRIMB006616",
+    "nombre_de_la_unidad": "R-01 ACATLÁN DE LA CRUZ",
+    "entidad": "GUERRERO",
+    "lat": 18.397024,
+    "lng": -99.940498,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
+    "clues_imb": "GRIMB006633",
+    "nombre_de_la_unidad": "R-01 BUENAVISTA DE GUADALUPE",
+    "entidad": "GUERRERO",
+    "lat": 18.255814,
+    "lng": -100.009929,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "GRIMB006650",
     "nombre_de_la_unidad": "R-01 COATEPEC DE LOS COSTALES",
     "entidad": "GUERRERO",
@@ -3328,6 +4018,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "GRIMB006662",
+    "nombre_de_la_unidad": "R-02 COL. VICENTE GRO.",
+    "entidad": "GUERRERO",
+    "lat": 18.370361,
+    "lng": -99.86094,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
   },
   {
     "clues_imb": "GRIMB006674",
@@ -3378,6 +4078,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "GRIMB006756",
+    "nombre_de_la_unidad": "R-01 TETZILACATLÁN",
+    "entidad": "GUERRERO",
+    "lat": 18.342639,
+    "lng": -99.976165,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
   },
   {
     "clues_imb": "GRIMB006761",
@@ -3480,6 +4190,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "GRIMB006995",
+    "nombre_de_la_unidad": "R-01 ALMOLONGA",
+    "entidad": "GUERRERO",
+    "lat": 17.635467,
+    "lng": -99.296715,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "GRIMB007000",
     "nombre_de_la_unidad": "R-02 ATLIACA",
     "entidad": "GUERRERO",
@@ -3580,6 +4300,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "GRIMB007333",
+    "nombre_de_la_unidad": "R-01 AYOTZINAPA",
+    "entidad": "GUERRERO",
+    "lat": 17.558861,
+    "lng": -98.766601,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "GRIMB007362",
     "nombre_de_la_unidad": "R-01 TENANGO TEPEXI",
     "entidad": "GUERRERO",
@@ -3598,6 +4328,16 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "GRIMB007391",
+    "nombre_de_la_unidad": "R-01 TOTOTEPEC",
+    "entidad": "GUERRERO",
+    "lat": 17.431838,
+    "lng": -98.585963,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
   },
   {
     "clues_imb": "GRIMB007415",
@@ -3620,6 +4360,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "GRIMB007485",
+    "nombre_de_la_unidad": "R-02 SAN JOSÉ POLIUTLA",
+    "entidad": "GUERRERO",
+    "lat": 18.273423,
+    "lng": -100.392097,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "GRIMB007490",
     "nombre_de_la_unidad": "R-01 SANTO NIÑO",
     "entidad": "GUERRERO",
@@ -3640,6 +4390,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "GRIMB007642",
+    "nombre_de_la_unidad": "R-01 CAHUATACHE",
+    "entidad": "GUERRERO",
+    "lat": 17.413798,
+    "lng": -98.532558,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "GRIMB007654",
     "nombre_de_la_unidad": "R-01 CUBA LIBRE",
     "entidad": "GUERRERO",
@@ -3648,6 +4408,16 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "GRIMB007683",
+    "nombre_de_la_unidad": "R-01 SAN NICOLÁS ZOYATLAN",
+    "entidad": "GUERRERO",
+    "lat": 17.462697,
+    "lng": -98.640221,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "GRIMB007765",
@@ -3910,6 +4680,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "GRIMB008832",
+    "nombre_de_la_unidad": "U-01 GUADALUPE VICTORIA",
+    "entidad": "GUERRERO",
+    "lat": 16.863074,
+    "lng": -99.813832,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "GRIMB008960",
     "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS AMPLIADOS OCOTITO",
     "entidad": "GUERRERO",
@@ -3998,6 +4778,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "GRIMB009211",
+    "nombre_de_la_unidad": "CENTRO DE SALUD 24 DE FEBRERO",
+    "entidad": "GUERRERO",
+    "lat": 18.336983,
+    "lng": -99.528265,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 83.3
   },
   {
     "clues_imb": "GRIMB009346",
@@ -4120,6 +4910,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "GRIMB010425",
+    "nombre_de_la_unidad": "R-01 ATZALA DE LA ASUNCIÓN",
+    "entidad": "GUERRERO",
+    "lat": 18.512589,
+    "lng": -99.661715,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
+  },
+  {
     "clues_imb": "GRIMB010466",
     "nombre_de_la_unidad": "CENTRO DE SALUD LOS MAGUEYITOS",
     "entidad": "GUERRERO",
@@ -4128,6 +4928,16 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "HGIMB000530",
+    "nombre_de_la_unidad": "PROGRESO EL DE ATOTONILCO DE TULA",
+    "entidad": "HIDALGO",
+    "lat": 20.020167,
+    "lng": -99.246127,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "HGIMB002316",
@@ -4198,6 +5008,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "HGIMB002403",
+    "nombre_de_la_unidad": "PACHUCA (DR. JESÚS DEL ROSAL)",
+    "entidad": "HIDALGO",
+    "lat": 20.1177517,
+    "lng": -98.730431,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 86.8
   },
   {
     "clues_imb": "HGIMB002456",
@@ -4280,6 +5100,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "HGIMB003844",
+    "nombre_de_la_unidad": "TULANCINGO",
+    "entidad": "HIDALGO",
+    "lat": 20.0923182,
+    "lng": -98.3670238,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 88.5
+  },
+  {
     "clues_imb": "HGIMB003890",
     "nombre_de_la_unidad": "EJIDO EL PARAÍSO",
     "entidad": "HIDALGO",
@@ -4327,7 +5157,7 @@
     "lng": -98.891303,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB000692",
@@ -4337,7 +5167,7 @@
     "lng": -100.382364,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB000716",
@@ -4357,7 +5187,7 @@
     "lng": -100.241371,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB000762",
@@ -4377,7 +5207,17 @@
     "lng": -99.243431,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB000926",
+    "nombre_de_la_unidad": "COL. MÉXICO NUEVO",
+    "entidad": "MEXICO",
+    "lat": 19.5611972,
+    "lng": -99.2646167,
+    "internet": false,
+    "consultorios": 2.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB000931",
@@ -4397,7 +5237,7 @@
     "lng": -99.25008,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB000955",
@@ -4407,7 +5247,7 @@
     "lng": -99.2258833,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB000960",
@@ -4417,7 +5257,7 @@
     "lng": -99.2650823,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB000972",
@@ -4427,7 +5267,7 @@
     "lng": -99.224782,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB000984",
@@ -4437,7 +5277,7 @@
     "lng": -99.2515397,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB000996",
@@ -4447,7 +5287,7 @@
     "lng": -99.2344434,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB001001",
@@ -4457,7 +5297,7 @@
     "lng": -99.243759,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 96.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB001276",
@@ -4467,7 +5307,7 @@
     "lng": -99.630442,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB001334",
@@ -4477,7 +5317,7 @@
     "lng": -99.105177,
     "internet": true,
     "consultorios": 4.0,
-    "pct_llenado": 92.2
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB001346",
@@ -4487,7 +5327,7 @@
     "lng": -99.082791,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 93.4
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB001503",
@@ -4497,7 +5337,7 @@
     "lng": -99.180033,
     "internet": true,
     "consultorios": 5.0,
-    "pct_llenado": 94.2
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB001520",
@@ -4507,7 +5347,17 @@
     "lng": -98.91132,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB001713",
+    "nombre_de_la_unidad": "CEAPS SAN MIGUEL CHAPULTEPEC BICENTENARIO",
+    "entidad": "MEXICO",
+    "lat": 19.203447,
+    "lng": -99.559143,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB001771",
@@ -4517,7 +5367,7 @@
     "lng": -98.929258,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB001783",
@@ -4527,7 +5377,7 @@
     "lng": -98.906634,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 91.7
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB001795",
@@ -4550,6 +5400,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "MCIMB001853",
+    "nombre_de_la_unidad": "COLONIA BARRIO HERREROS",
+    "entidad": "MEXICO",
+    "lat": 19.434465,
+    "lng": -98.942857,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "MCIMB001870",
     "nombre_de_la_unidad": "BARRIO FUNDIDORES",
     "entidad": "MEXICO",
@@ -4557,7 +5417,7 @@
     "lng": -98.951775,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 93.4
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB001882",
@@ -4567,7 +5427,7 @@
     "lng": -98.977075,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 93.4
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB001894",
@@ -4577,7 +5437,7 @@
     "lng": -98.982084,
     "internet": true,
     "consultorios": 5.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002010",
@@ -4587,7 +5447,7 @@
     "lng": -98.985559,
     "internet": true,
     "consultorios": 3.0,
-    "pct_llenado": 94.4
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002022",
@@ -4597,7 +5457,7 @@
     "lng": -99.086368,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002034",
@@ -4607,7 +5467,7 @@
     "lng": -99.0509,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 90.6
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002046",
@@ -4617,7 +5477,27 @@
     "lng": -99.0819,
     "internet": true,
     "consultorios": 5.0,
-    "pct_llenado": 93.3
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002051",
+    "nombre_de_la_unidad": "CIUDAD CUAUHTÉMOC",
+    "entidad": "MEXICO",
+    "lat": 19.6458,
+    "lng": -98.995,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002063",
+    "nombre_de_la_unidad": "CHAMIZAL",
+    "entidad": "MEXICO",
+    "lat": 19.4992,
+    "lng": -99.0565,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002075",
@@ -4627,7 +5507,57 @@
     "lng": -98.998,
     "internet": true,
     "consultorios": 8.0,
-    "pct_llenado": 95.1
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002080",
+    "nombre_de_la_unidad": "JOSÉ MA.MORELOS Y PAVÓN",
+    "entidad": "MEXICO",
+    "lat": 19.5632,
+    "lng": -99.0181,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002092",
+    "nombre_de_la_unidad": "SANTA CLARA",
+    "entidad": "MEXICO",
+    "lat": 19.540106,
+    "lng": -99.067055,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002104",
+    "nombre_de_la_unidad": null,
+    "entidad": "MEXICO",
+    "lat": 19.5707,
+    "lng": -99.0583,
+    "internet": false,
+    "consultorios": 8.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002116",
+    "nombre_de_la_unidad": "EMILIANO ZAPATA",
+    "entidad": "MEXICO",
+    "lat": 19.5197,
+    "lng": -99.0403,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002121",
+    "nombre_de_la_unidad": "SAN JUAN IXHUATEPEC",
+    "entidad": "MEXICO",
+    "lat": 19.5177,
+    "lng": -99.0874,
+    "internet": true,
+    "consultorios": 7.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002133",
@@ -4637,7 +5567,17 @@
     "lng": -99.0171,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 92.4
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002145",
+    "nombre_de_la_unidad": "HANK GONZÁLEZ",
+    "entidad": "MEXICO",
+    "lat": 19.5524,
+    "lng": -99.0734,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002150",
@@ -4647,7 +5587,27 @@
     "lng": -99.0314,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 93.1
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002162",
+    "nombre_de_la_unidad": "JARDINES DE SAN GABRIEL",
+    "entidad": "MEXICO",
+    "lat": 19.5187,
+    "lng": -99.0567,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002174",
+    "nombre_de_la_unidad": "SAN AGUSTÍN",
+    "entidad": "MEXICO",
+    "lat": 19.5328,
+    "lng": -99.0304,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002186",
@@ -4657,7 +5617,7 @@
     "lng": -99.0329,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 94.1
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002191",
@@ -4667,7 +5627,7 @@
     "lng": -99.0007,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002203",
@@ -4677,7 +5637,7 @@
     "lng": -99.0424,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002261",
@@ -4687,7 +5647,7 @@
     "lng": -99.271538,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002430",
@@ -4697,7 +5657,7 @@
     "lng": -98.896102,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 91.7
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002442",
@@ -4707,7 +5667,7 @@
     "lng": -98.914563,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002454",
@@ -4717,7 +5677,17 @@
     "lng": -98.888589,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002466",
+    "nombre_de_la_unidad": "ALFREDO DEL MAZO",
+    "entidad": "MEXICO",
+    "lat": 19.296204,
+    "lng": -98.906671,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002471",
@@ -4727,7 +5697,7 @@
     "lng": -98.9309361,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002483",
@@ -4737,7 +5707,7 @@
     "lng": -98.92448,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002495",
@@ -4747,7 +5717,17 @@
     "lng": -98.92255,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 91.7
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB002500",
+    "nombre_de_la_unidad": "COLONIA TEJOLOTE",
+    "entidad": "MEXICO",
+    "lat": 19.319452,
+    "lng": -98.912201,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002512",
@@ -4757,7 +5737,7 @@
     "lng": -98.910137,
     "internet": true,
     "consultorios": 5.0,
-    "pct_llenado": 94.2
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002524",
@@ -4767,7 +5747,7 @@
     "lng": -98.846888,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB002536",
@@ -4777,7 +5757,7 @@
     "lng": -98.7612381,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003591",
@@ -4787,7 +5767,7 @@
     "lng": -99.631945,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003615",
@@ -4797,7 +5777,7 @@
     "lng": -99.621742,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 92.7
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003755",
@@ -4807,7 +5787,27 @@
     "lng": -99.2686,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB003760",
+    "nombre_de_la_unidad": null,
+    "entidad": "MEXICO",
+    "lat": 19.4578,
+    "lng": -99.2815,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB003772",
+    "nombre_de_la_unidad": "INDEPENDENCIA",
+    "entidad": "MEXICO",
+    "lat": 19.435,
+    "lng": -99.2503,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003784",
@@ -4817,7 +5817,17 @@
     "lng": -99.2587,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB003796",
+    "nombre_de_la_unidad": "SAN FRANCISCO CUAUTLALPAN",
+    "entidad": "MEXICO",
+    "lat": 19.4618,
+    "lng": -99.2239,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003801",
@@ -4827,7 +5837,7 @@
     "lng": -99.279,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003813",
@@ -4837,7 +5847,7 @@
     "lng": -99.2562,
     "internet": true,
     "consultorios": 3.0,
-    "pct_llenado": 94.4
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003825",
@@ -4847,7 +5857,7 @@
     "lng": -99.2703,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003830",
@@ -4857,7 +5867,7 @@
     "lng": -99.2619,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003842",
@@ -4867,7 +5877,17 @@
     "lng": -99.2376,
     "internet": true,
     "consultorios": 4.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB003854",
+    "nombre_de_la_unidad": "OLIMPIADA 68",
+    "entidad": "MEXICO",
+    "lat": 19.4477,
+    "lng": -99.2791,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003883",
@@ -4877,7 +5897,7 @@
     "lng": -99.2843,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003900",
@@ -4887,7 +5907,37 @@
     "lng": -99.041668,
     "internet": true,
     "consultorios": 5.0,
-    "pct_llenado": 91.2
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB003912",
+    "nombre_de_la_unidad": "ESTADO DE MÉXICO",
+    "entidad": "MEXICO",
+    "lat": 19.42399,
+    "lng": -99.0485278,
+    "internet": false,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB003924",
+    "nombre_de_la_unidad": "LOMA BONITA",
+    "entidad": "MEXICO",
+    "lat": 19.374024,
+    "lng": -98.992036,
+    "internet": true,
+    "consultorios": 7.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB003936",
+    "nombre_de_la_unidad": "REFORMA",
+    "entidad": "MEXICO",
+    "lat": 19.374249,
+    "lng": -98.975576,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003941",
@@ -4897,7 +5947,7 @@
     "lng": -99.0498894,
     "internet": true,
     "consultorios": 8.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003953",
@@ -4907,7 +5957,7 @@
     "lng": -99.031982,
     "internet": false,
     "consultorios": 6.0,
-    "pct_llenado": 94.1
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB003965",
@@ -4917,7 +5967,37 @@
     "lng": -99.026256,
     "internet": false,
     "consultorios": 8.0,
-    "pct_llenado": 91.7
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB003970",
+    "nombre_de_la_unidad": "BENITO JUÁREZ",
+    "entidad": "MEXICO",
+    "lat": 19.398772,
+    "lng": -98.98627,
+    "internet": false,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB003982",
+    "nombre_de_la_unidad": "BENITO JUÁREZ III AURORA",
+    "entidad": "MEXICO",
+    "lat": 19.409459,
+    "lng": -98.999724,
+    "internet": true,
+    "consultorios": 7.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB003994",
+    "nombre_de_la_unidad": "COL.IMPULSORA POPULAR AVICOLA",
+    "entidad": "MEXICO",
+    "lat": 19.4808827,
+    "lng": -99.046677,
+    "internet": true,
+    "consultorios": 7.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004006",
@@ -4927,7 +6007,37 @@
     "lng": -99.0495282,
     "internet": true,
     "consultorios": 7.0,
-    "pct_llenado": 94.3
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB004011",
+    "nombre_de_la_unidad": "COL.BENITO JUÁREZ II EL VERGELITO",
+    "entidad": "MEXICO",
+    "lat": 19.4101756,
+    "lng": -99.0062311,
+    "internet": true,
+    "consultorios": 10.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB004023",
+    "nombre_de_la_unidad": "ESPERANZA",
+    "entidad": "MEXICO",
+    "lat": 19.3881109,
+    "lng": -98.9847868,
+    "internet": true,
+    "consultorios": 7.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB004035",
+    "nombre_de_la_unidad": "JARDINES DE GUADALUPE",
+    "entidad": "MEXICO",
+    "lat": 19.477886,
+    "lng": -99.058687,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004040",
@@ -4937,7 +6047,17 @@
     "lng": -98.993548,
     "internet": true,
     "consultorios": 8.0,
-    "pct_llenado": 94.3
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB004052",
+    "nombre_de_la_unidad": "METROPOLITANA",
+    "entidad": "MEXICO",
+    "lat": 19.3936318,
+    "lng": -99.0286204,
+    "internet": false,
+    "consultorios": 12.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004064",
@@ -4947,7 +6067,7 @@
     "lng": -99.030143,
     "internet": true,
     "consultorios": 8.0,
-    "pct_llenado": 90.1
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004081",
@@ -4957,7 +6077,7 @@
     "lng": -99.31382,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004093",
@@ -4967,7 +6087,7 @@
     "lng": -99.2953777,
     "internet": true,
     "consultorios": 5.0,
-    "pct_llenado": 94.2
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004105",
@@ -4977,7 +6097,7 @@
     "lng": -99.3079206,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004110",
@@ -4987,7 +6107,7 @@
     "lng": -99.318856,
     "internet": true,
     "consultorios": 8.0,
-    "pct_llenado": 91.7
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004122",
@@ -4997,7 +6117,7 @@
     "lng": -99.2926749,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004146",
@@ -5007,7 +6127,7 @@
     "lng": -99.4165027,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004163",
@@ -5017,7 +6137,7 @@
     "lng": -99.38435037356781,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004175",
@@ -5027,7 +6147,7 @@
     "lng": -99.423961,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004180",
@@ -5037,7 +6157,7 @@
     "lng": -99.412872,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004221",
@@ -5047,7 +6167,7 @@
     "lng": -99.4658272,
     "internet": true,
     "consultorios": 3.0,
-    "pct_llenado": 94.4
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004245",
@@ -5057,7 +6177,7 @@
     "lng": -99.417143,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004595",
@@ -5067,7 +6187,7 @@
     "lng": -98.986453,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 93.1
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004974",
@@ -5077,7 +6197,7 @@
     "lng": -99.5497401,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB004991",
@@ -5087,7 +6207,7 @@
     "lng": -99.554825,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB005213",
@@ -5097,7 +6217,7 @@
     "lng": -99.007584,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB005382",
@@ -5107,7 +6227,7 @@
     "lng": -98.8690227,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006321",
@@ -5117,7 +6237,7 @@
     "lng": -98.881817,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006333",
@@ -5127,7 +6247,17 @@
     "lng": -98.818662,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB006345",
+    "nombre_de_la_unidad": "SAN BERNARDINO",
+    "entidad": "MEXICO",
+    "lat": 19.477008,
+    "lng": -98.898979,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006374",
@@ -5137,7 +6267,7 @@
     "lng": -98.813557,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006420",
@@ -5147,7 +6277,7 @@
     "lng": -98.878985,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006596",
@@ -5157,7 +6287,7 @@
     "lng": -98.797137,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 91.7
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006613",
@@ -5167,7 +6297,17 @@
     "lng": -98.75784,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB006625",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CARACOLES",
+    "entidad": "MEXICO",
+    "lat": 19.5323806,
+    "lng": -99.0922423,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006630",
@@ -5177,7 +6317,7 @@
     "lng": -99.214954,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006642",
@@ -5187,7 +6327,7 @@
     "lng": -99.166701,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006654",
@@ -5197,7 +6337,7 @@
     "lng": -99.093544,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006666",
@@ -5217,7 +6357,7 @@
     "lng": -99.2002387,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006683",
@@ -5227,7 +6367,7 @@
     "lng": -99.117531,
     "internet": true,
     "consultorios": 5.0,
-    "pct_llenado": 90.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006695",
@@ -5237,7 +6377,7 @@
     "lng": -99.123754,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006700",
@@ -5247,7 +6387,7 @@
     "lng": -99.166275,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006712",
@@ -5257,7 +6397,7 @@
     "lng": -99.223146,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006724",
@@ -5267,7 +6407,7 @@
     "lng": -99.167332,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 94.4
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006736",
@@ -5277,7 +6417,7 @@
     "lng": -99.173782,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006741",
@@ -5287,7 +6427,7 @@
     "lng": -99.173019,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006753",
@@ -5297,7 +6437,7 @@
     "lng": -99.109404,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006765",
@@ -5307,7 +6447,7 @@
     "lng": -99.156358,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006770",
@@ -5317,7 +6457,7 @@
     "lng": -99.093161,
     "internet": false,
     "consultorios": 6.0,
-    "pct_llenado": 94.1
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006782",
@@ -5327,7 +6467,7 @@
     "lng": -99.192917,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006806",
@@ -5337,7 +6477,7 @@
     "lng": -100.372021,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 91.7
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006811",
@@ -5347,7 +6487,7 @@
     "lng": -100.226255,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006823",
@@ -5357,7 +6497,7 @@
     "lng": -100.288138,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006835",
@@ -5367,7 +6507,7 @@
     "lng": -100.411442,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006840",
@@ -5377,7 +6517,7 @@
     "lng": -100.308528,
     "internet": false,
     "consultorios": 2.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006852",
@@ -5387,7 +6527,7 @@
     "lng": -100.2793,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006876",
@@ -5397,7 +6537,7 @@
     "lng": -100.177406,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006881",
@@ -5407,7 +6547,7 @@
     "lng": -100.149504,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006905",
@@ -5417,7 +6557,7 @@
     "lng": -100.303482,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 92.7
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006910",
@@ -5427,7 +6567,7 @@
     "lng": -100.22057,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006922",
@@ -5437,7 +6577,7 @@
     "lng": -100.10693,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006934",
@@ -5447,7 +6587,7 @@
     "lng": -100.318776,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006963",
@@ -5457,7 +6597,7 @@
     "lng": -99.686114,
     "internet": true,
     "consultorios": 6.0,
-    "pct_llenado": 94.4
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB006975",
@@ -5467,7 +6607,7 @@
     "lng": -99.643016,
     "internet": true,
     "consultorios": 12.0,
-    "pct_llenado": 93.2
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB007021",
@@ -5477,7 +6617,7 @@
     "lng": -99.630919,
     "internet": false,
     "consultorios": 4.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB007074",
@@ -5487,7 +6627,7 @@
     "lng": -99.571472,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB007132",
@@ -5497,7 +6637,17 @@
     "lng": -99.657289,
     "internet": true,
     "consultorios": 3.0,
-    "pct_llenado": 93.1
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB007202",
+    "nombre_de_la_unidad": "AMPLIACIÓN BENITO JUÁREZ",
+    "entidad": "MEXICO",
+    "lat": 19.604574,
+    "lng": -99.164959,
+    "internet": true,
+    "consultorios": 10.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB007214",
@@ -5507,7 +6657,7 @@
     "lng": -99.098142,
     "internet": true,
     "consultorios": 5.0,
-    "pct_llenado": 94.2
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB007226",
@@ -5517,7 +6667,27 @@
     "lng": -99.090154,
     "internet": true,
     "consultorios": 5.0,
-    "pct_llenado": 94.2
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB007243",
+    "nombre_de_la_unidad": "VALLE DE BRAVO",
+    "entidad": "MEXICO",
+    "lat": 19.184651,
+    "lng": -100.125453,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB007400",
+    "nombre_de_la_unidad": "LOS ARANA",
+    "entidad": "MEXICO",
+    "lat": 19.709687,
+    "lng": -99.501594,
+    "internet": false,
+    "consultorios": 2.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB007750",
@@ -5527,7 +6697,7 @@
     "lng": -99.794184,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB007774",
@@ -5537,7 +6707,7 @@
     "lng": -99.833558,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB007786",
@@ -5547,7 +6717,7 @@
     "lng": -99.879555,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008001",
@@ -5557,7 +6727,17 @@
     "lng": -99.191727,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB008025",
+    "nombre_de_la_unidad": "TEPOJACO",
+    "entidad": "MEXICO",
+    "lat": 19.644797,
+    "lng": -99.253085,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008030",
@@ -5567,7 +6747,7 @@
     "lng": -99.193814,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008054",
@@ -5587,7 +6767,7 @@
     "lng": -98.9505,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008071",
@@ -5597,7 +6777,7 @@
     "lng": -98.92932,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008293",
@@ -5617,7 +6797,7 @@
     "lng": -99.659662,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008351",
@@ -5627,7 +6807,7 @@
     "lng": -99.656164,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008375",
@@ -5637,7 +6817,7 @@
     "lng": -99.631157,
     "internet": true,
     "consultorios": 3.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008380",
@@ -5647,7 +6827,7 @@
     "lng": -99.625896,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008392",
@@ -5657,7 +6837,7 @@
     "lng": -99.685965,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008416",
@@ -5667,7 +6847,7 @@
     "lng": -99.58704,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008433",
@@ -5677,7 +6857,7 @@
     "lng": -99.600464,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008474",
@@ -5687,7 +6867,7 @@
     "lng": -99.44269,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008515",
@@ -5697,7 +6877,7 @@
     "lng": -100.450116,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008520",
@@ -5707,7 +6887,7 @@
     "lng": -100.429983,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008532",
@@ -5717,7 +6897,7 @@
     "lng": -100.3712,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008544",
@@ -5727,7 +6907,7 @@
     "lng": -100.579096,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008561",
@@ -5737,7 +6917,7 @@
     "lng": -100.339645,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008573",
@@ -5747,7 +6927,7 @@
     "lng": -100.444796,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008585",
@@ -5757,7 +6937,7 @@
     "lng": -100.335705,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008602",
@@ -5767,7 +6947,7 @@
     "lng": -100.510839,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008655",
@@ -5777,7 +6957,7 @@
     "lng": -99.3271472,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008660",
@@ -5787,7 +6967,7 @@
     "lng": -99.080882,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008672",
@@ -5797,7 +6977,7 @@
     "lng": -99.232379,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008684",
@@ -5807,7 +6987,27 @@
     "lng": -99.186028,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB008696",
+    "nombre_de_la_unidad": "CUANALAN",
+    "entidad": "MEXICO",
+    "lat": 19.614314,
+    "lng": -98.917604,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB008701",
+    "nombre_de_la_unidad": "SAN MIGUEL TOTOLCINGO",
+    "entidad": "MEXICO",
+    "lat": 19.614527,
+    "lng": -98.959137,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008713",
@@ -5817,7 +7017,7 @@
     "lng": -98.904739,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008730",
@@ -5827,7 +7027,7 @@
     "lng": -99.325595,
     "internet": false,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008795",
@@ -5837,7 +7037,7 @@
     "lng": -99.011626,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008800",
@@ -5857,7 +7057,7 @@
     "lng": -98.941193,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008870",
@@ -5867,7 +7067,7 @@
     "lng": -98.949087,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008882",
@@ -5877,7 +7077,7 @@
     "lng": -98.949177,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008906",
@@ -5887,7 +7087,7 @@
     "lng": -99.0586,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008935",
@@ -5897,7 +7097,7 @@
     "lng": -98.960814,
     "internet": true,
     "consultorios": 4.0,
-    "pct_llenado": 94.3
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008940",
@@ -5907,7 +7107,7 @@
     "lng": -98.9714536,
     "internet": true,
     "consultorios": 3.0,
-    "pct_llenado": 94.4
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB008952",
@@ -5917,7 +7117,17 @@
     "lng": -98.862065,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB009005",
+    "nombre_de_la_unidad": "LEYES DE REFORMA",
+    "entidad": "MEXICO",
+    "lat": 19.472233,
+    "lng": -98.8815,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB009010",
@@ -5927,7 +7137,7 @@
     "lng": -98.892602,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB009220",
@@ -5937,7 +7147,7 @@
     "lng": -98.88381,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB009232",
@@ -5947,7 +7157,7 @@
     "lng": -98.889552,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB009244",
@@ -5957,7 +7167,7 @@
     "lng": -98.8394468,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB009355",
@@ -5967,7 +7177,7 @@
     "lng": -99.2371,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB009524",
@@ -5977,7 +7187,7 @@
     "lng": -99.2386,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB009565",
@@ -5987,7 +7197,7 @@
     "lng": -98.87715,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB009570",
@@ -5997,7 +7207,7 @@
     "lng": -98.89601,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB009582",
@@ -6007,7 +7217,7 @@
     "lng": -98.92653,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB009693",
@@ -6017,7 +7227,17 @@
     "lng": -99.528882,
     "internet": false,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB009705",
+    "nombre_de_la_unidad": "CEAPS HÉROES TECÁMAC",
+    "entidad": "MEXICO",
+    "lat": 19.626466,
+    "lng": -99.042177,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB009874",
@@ -6030,6 +7250,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "MCIMB010026",
+    "nombre_de_la_unidad": "CENTRO DE SALUD MELCHOR OCAMPO",
+    "entidad": "MEXICO",
+    "lat": 19.333639,
+    "lng": -98.91225,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "MCIMB010043",
     "nombre_de_la_unidad": "CENTRO DE SALUD DE SANTA CRUZ OCOTITLÁN",
     "entidad": "MEXICO",
@@ -6037,7 +7267,17 @@
     "lng": -99.631201,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MCIMB010060",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CON SERVICIOS GERIÁTRICOS SIERRA DE GUADALUPE",
+    "entidad": "MEXICO",
+    "lat": 19.594328,
+    "lng": -99.159131,
+    "internet": true,
+    "consultorios": 4.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB010200",
@@ -6047,7 +7287,7 @@
     "lng": -99.183489,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB010253",
@@ -6057,7 +7297,7 @@
     "lng": -99.280927,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 95.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB011093",
@@ -6067,7 +7307,7 @@
     "lng": -99.0696,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB011180",
@@ -6077,7 +7317,7 @@
     "lng": -99.58107,
     "internet": true,
     "consultorios": 1.0,
-    "pct_llenado": 97.9
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB011776",
@@ -6087,7 +7327,7 @@
     "lng": -98.88949,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 93.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB011962",
@@ -6107,7 +7347,7 @@
     "lng": -99.009253,
     "internet": true,
     "consultorios": 2.0,
-    "pct_llenado": 94.8
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MCIMB012336",
@@ -6117,7 +7357,7 @@
     "lng": -99.552539,
     "internet": false,
     "consultorios": 8.0,
-    "pct_llenado": 94.3
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MNIMB000131",
@@ -6170,6 +7410,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "MNIMB001350",
+    "nombre_de_la_unidad": null,
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 18.118322,
+    "lng": -102.278813,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "MNIMB001432",
     "nombre_de_la_unidad": "CENTRO DE SALUD CLARA CORDOBA",
     "entidad": "MICHOACAN DE OCAMPO",
@@ -6220,6 +7470,26 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "MNIMB001485",
+    "nombre_de_la_unidad": "CENTRO DE SALUD EVA SAMANO ",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 19.729834,
+    "lng": -101.200805,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 82.6
+  },
+  {
+    "clues_imb": "MNIMB001490",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TIERRA Y LIBERTAD",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 19.715793,
+    "lng": -101.222978,
+    "internet": true,
+    "consultorios": 4.0,
+    "pct_llenado": 86.5
+  },
+  {
     "clues_imb": "MNIMB001502",
     "nombre_de_la_unidad": "CENTRO DE SALUD UNIÓN ANTORCHISTA",
     "entidad": "MICHOACAN DE OCAMPO",
@@ -6238,6 +7508,26 @@
     "internet": true,
     "consultorios": 3.0,
     "pct_llenado": 91.0
+  },
+  {
+    "clues_imb": "MNIMB001526",
+    "nombre_de_la_unidad": "CENTRO DE SALUD MORELIA (DR. JUAN MANUEL GONZÁLEZ URUEÑA)",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 19.704945,
+    "lng": -101.1928789,
+    "internet": true,
+    "consultorios": 7.0,
+    "pct_llenado": 85.7
+  },
+  {
+    "clues_imb": "MNIMB001531",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TENENCIA MORELOS",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 19.6457561,
+    "lng": -101.2389402,
+    "internet": true,
+    "consultorios": 4.0,
+    "pct_llenado": 84.9
   },
   {
     "clues_imb": "MNIMB001543",
@@ -6280,6 +7570,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "MNIMB002955",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ARÍO DE RAYÓN",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 20.026326,
+    "lng": -102.348148,
+    "internet": true,
+    "consultorios": 4.0,
+    "pct_llenado": 87.0
+  },
+  {
     "clues_imb": "MNIMB003071",
     "nombre_de_la_unidad": null,
     "entidad": "MICHOACAN DE OCAMPO",
@@ -6290,6 +7590,16 @@
     "pct_llenado": 90.6
   },
   {
+    "clues_imb": "MNIMB003602",
+    "nombre_de_la_unidad": "CENTRO DE SALUD PERIFERICO SATELITE",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 19.732881,
+    "lng": -101.166191,
+    "internet": false,
+    "consultorios": 2.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "MNIMB003894",
     "nombre_de_la_unidad": "CENTRO DE SALUD SAN JUAN DEL FUERTE",
     "entidad": "MICHOACAN DE OCAMPO",
@@ -6298,6 +7608,26 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "MNIMB004010",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ZAMORA VALENCIA",
+    "entidad": "MICHOACAN DE OCAMPO",
+    "lat": 20.0028913,
+    "lng": -102.2928805,
+    "internet": true,
+    "consultorios": 7.0,
+    "pct_llenado": 88.4
+  },
+  {
+    "clues_imb": "MSIMB000304",
+    "nombre_de_la_unidad": "CENTRO DE SALUD CUAUHTÉMOC",
+    "entidad": "MORELOS",
+    "lat": 18.8667,
+    "lng": -98.9257,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MSIMB000321",
@@ -6350,6 +7680,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "MSIMB000415",
+    "nombre_de_la_unidad": "CENTRO DE SALUD COL. EMILIANO ZAPATA",
+    "entidad": "MORELOS",
+    "lat": 18.9112,
+    "lng": -99.2035,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "MSIMB000420",
     "nombre_de_la_unidad": "CENTRO DE SALUD LAGUNILLA DEL SALTO",
     "entidad": "MORELOS",
@@ -6378,6 +7718,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "MSIMB000461",
+    "nombre_de_la_unidad": "CENTRO DE SALUD SAN MIGUEL ACAPANTZINGO",
+    "entidad": "MORELOS",
+    "lat": 18.90403,
+    "lng": -99.22239,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
   },
   {
     "clues_imb": "MSIMB000473",
@@ -6435,6 +7785,16 @@
     "entidad": "MORELOS",
     "lat": 18.969883,
     "lng": -99.20907,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "MSIMB000531",
+    "nombre_de_la_unidad": "CENTRO DE SALUD ANTONIO BARONA",
+    "entidad": "MORELOS",
+    "lat": 18.9493,
+    "lng": -99.19364,
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
@@ -7140,6 +8500,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "OCIMB000246",
+    "nombre_de_la_unidad": "CIUDAD IXTEPEC",
+    "entidad": "OAXACA",
+    "lat": 16.5642,
+    "lng": -95.0987,
+    "internet": true,
+    "consultorios": 6.0,
+    "pct_llenado": 82.6
+  },
+  {
     "clues_imb": "OCIMB000251",
     "nombre_de_la_unidad": "CSU 02 EMILIANO ZAPATA CHEGUIGO",
     "entidad": "OAXACA",
@@ -7178,6 +8548,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "OCIMB001050",
+    "nombre_de_la_unidad": "CSU 12 NUCLEOS BASICOS SALINA CRUZ",
+    "entidad": "OAXACA",
+    "lat": 16.182,
+    "lng": -95.1949,
+    "internet": true,
+    "consultorios": 12.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "OCIMB001062",
@@ -7328,6 +8708,16 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "OCIMB007526",
+    "nombre_de_la_unidad": "PUEBLO NUEVO",
+    "entidad": "OAXACA",
+    "lat": 17.1125,
+    "lng": -96.7525,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
   },
   {
     "clues_imb": "OCIMB007770",
@@ -7610,6 +9000,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "QRIMB000491",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL HUAY-PIX",
+    "entidad": "QUINTANA ROO",
+    "lat": 18.5164540730416,
+    "lng": -88.4282727014566,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
+  },
+  {
     "clues_imb": "QRIMB000503",
     "nombre_de_la_unidad": "CENTRO DE SALUD RURAL MAHAHUAL",
     "entidad": "QUINTANA ROO",
@@ -7628,6 +9028,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "QRIMB000544",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL RAMONAL OPB",
+    "entidad": "QUINTANA ROO",
+    "lat": 18.4172005966684,
+    "lng": -88.5365318476318,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
   },
   {
     "clues_imb": "QRIMB000556",
@@ -7768,6 +9178,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "QRIMB000812",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL MOROCOY",
+    "entidad": "QUINTANA ROO",
+    "lat": 18.6054846323045,
+    "lng": -88.8101306819314,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
   },
   {
     "clues_imb": "QRIMB000870",
@@ -8020,6 +9440,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "QRIMB001541",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL MANUEL CRESENCIO REJÓN",
+    "entidad": "QUINTANA ROO",
+    "lat": 17.9219593439309,
+    "lng": -89.2551862199806,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
+  },
+  {
     "clues_imb": "QRIMB001565",
     "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LAS AMÉRICAS",
     "entidad": "QUINTANA ROO",
@@ -8180,6 +9610,26 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "SLIMB000084",
+    "nombre_de_la_unidad": "LAS GRULLAS MARGEN DERECHO",
+    "entidad": "SINALOA",
+    "lat": 25.8781,
+    "lng": -109.338,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
+  },
+  {
+    "clues_imb": "SLIMB000166",
+    "nombre_de_la_unidad": "BACHOMOBAMPO 2",
+    "entidad": "SINALOA",
+    "lat": 25.7394711287674,
+    "lng": -109.14693714868,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "SLIMB000376",
     "nombre_de_la_unidad": "PASO DEL HUEJOTE",
     "entidad": "SINALOA",
@@ -8188,6 +9638,26 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "SLIMB000586",
+    "nombre_de_la_unidad": "LA ILAMA",
+    "entidad": "SINALOA",
+    "lat": 24.6158017451951,
+    "lng": -106.819002177764,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
+    "clues_imb": "SLIMB000632",
+    "nombre_de_la_unidad": "CULIACÁN (PEMEX)",
+    "entidad": "SINALOA",
+    "lat": 24.7671145327869,
+    "lng": -107.429954267282,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 83.3
   },
   {
     "clues_imb": "SLIMB000690",
@@ -8220,6 +9690,16 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "SLIMB000743",
+    "nombre_de_la_unidad": "CULIACÁNCITO",
+    "entidad": "SINALOA",
+    "lat": 24.8226597524741,
+    "lng": -107.53374083482,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "SLIMB000755",
     "nombre_de_la_unidad": "LA GUAMUCHILERA",
     "entidad": "SINALOA",
@@ -8238,6 +9718,26 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "SLIMB000784",
+    "nombre_de_la_unidad": "OBISPO",
+    "entidad": "SINALOA",
+    "lat": 24.3085159111989,
+    "lng": -107.101590290878,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
+    "clues_imb": "SLIMB000801",
+    "nombre_de_la_unidad": "QUILA",
+    "entidad": "SINALOA",
+    "lat": 24.4218222480003,
+    "lng": -107.217258891667,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "SLIMB000813",
@@ -8280,6 +9780,26 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "SLIMB001810",
+    "nombre_de_la_unidad": "EL SALITRE",
+    "entidad": "SINALOA",
+    "lat": 25.4363207272316,
+    "lng": -108.133155872362,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
+  },
+  {
+    "clues_imb": "SLIMB001846",
+    "nombre_de_la_unidad": "EMILIO ALVAREZ IBARRA(GOLONDRINAS)",
+    "entidad": "SINALOA",
+    "lat": 25.4481871034717,
+    "lng": -108.2579623737,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
+  },
+  {
     "clues_imb": "SLIMB001962",
     "nombre_de_la_unidad": "SINALOA DE LEYVA",
     "entidad": "SINALOA",
@@ -8288,6 +9808,26 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "SLIMB002090",
+    "nombre_de_la_unidad": "RURAL SATAYA",
+    "entidad": "SINALOA",
+    "lat": 24.6297486289285,
+    "lng": -107.654834507294,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
+  },
+  {
+    "clues_imb": "SLIMB002201",
+    "nombre_de_la_unidad": "VALLE DEL JARIPILLO",
+    "entidad": "SINALOA",
+    "lat": 23.2600166104595,
+    "lng": -106.399134100114,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
   },
   {
     "clues_imb": "SLIMB002283",
@@ -8348,6 +9888,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "SLIMB003012",
+    "nombre_de_la_unidad": "CENTRO DE SALUD MOCHIS II",
+    "entidad": "SINALOA",
+    "lat": 25.7967380984252,
+    "lng": -109.02057157468,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "SLIMB003041",
@@ -8570,6 +10120,16 @@
     "pct_llenado": 94.2
   },
   {
+    "clues_imb": "SPIMB002842",
+    "nombre_de_la_unidad": "UMF SOLEDAD DE GRACIANO SÁNCHEZ",
+    "entidad": "SAN LUIS POTOSI",
+    "lat": 22.1824563,
+    "lng": -100.9420065,
+    "internet": true,
+    "consultorios": 5.0,
+    "pct_llenado": 82.5
+  },
+  {
     "clues_imb": "SPIMB003146",
     "nombre_de_la_unidad": "CENTRO DE SALUD VILLA CACTUS",
     "entidad": "SAN LUIS POTOSI",
@@ -8628,6 +10188,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "SRIMB000593",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL CARBO",
+    "entidad": "SONORA",
+    "lat": 29.68189,
+    "lng": -110.957549,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
   },
   {
     "clues_imb": "SRIMB000943",
@@ -8690,6 +10260,16 @@
     "pct_llenado": 95.3
   },
   {
+    "clues_imb": "SRIMB001013",
+    "nombre_de_la_unidad": "CENTRO DE SALUD URBANO DR. DOMINGO OLIVARES",
+    "entidad": "SONORA",
+    "lat": 29.086656,
+    "lng": -110.953357,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 100.0
+  },
+  {
     "clues_imb": "SRIMB001025",
     "nombre_de_la_unidad": "CENTRO DE SALUD URBANO LOS NARANJOS",
     "entidad": "SONORA",
@@ -8718,6 +10298,26 @@
     "internet": true,
     "consultorios": 5.0,
     "pct_llenado": 99.6
+  },
+  {
+    "clues_imb": "SRIMB001066",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL BAHÍA DE KINO",
+    "entidad": "SONORA",
+    "lat": 28.8229,
+    "lng": -111.941,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
+    "clues_imb": "SRIMB001071",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL MIGUEL ALEMÁN",
+    "entidad": "SONORA",
+    "lat": 28.841265,
+    "lng": -111.488975,
+    "internet": true,
+    "consultorios": 4.0,
+    "pct_llenado": 87.0
   },
   {
     "clues_imb": "SRIMB001083",
@@ -8788,6 +10388,36 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "SRIMB002034",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL YECORA",
+    "entidad": "SONORA",
+    "lat": 28.3729,
+    "lng": -108.926,
+    "internet": true,
+    "consultorios": 3.0,
+    "pct_llenado": 84.0
+  },
+  {
+    "clues_imb": "SRIMB002046",
+    "nombre_de_la_unidad": "CENTRO DE SALUD RURAL MAYCOBA",
+    "entidad": "SONORA",
+    "lat": 28.3917,
+    "lng": -108.66,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
+    "clues_imb": "SRIMB002331",
+    "nombre_de_la_unidad": "CENTRO DE SALUD POBLADO MIGUEL ALEMÁN II",
+    "entidad": "SONORA",
+    "lat": 28.849403,
+    "lng": -111.501237,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 93.8
   },
   {
     "clues_imb": "SRIMB002343",
@@ -8900,6 +10530,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "TCIMB000173",
+    "nombre_de_la_unidad": "C.S. LÓPEZ MATEOS",
+    "entidad": "TABASCO",
+    "lat": 17.8827,
+    "lng": -91.2427,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "TCIMB000185",
     "nombre_de_la_unidad": "C.S. EL CHAMIZAL",
     "entidad": "TABASCO",
@@ -8940,6 +10580,26 @@
     "pct_llenado": 100.0
   },
   {
+    "clues_imb": "TCIMB000564",
+    "nombre_de_la_unidad": "C.S. BOCA DE CHILAPA",
+    "entidad": "TABASCO",
+    "lat": 18.238479,
+    "lng": -92.667753,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
+  },
+  {
+    "clues_imb": "TCIMB000576",
+    "nombre_de_la_unidad": "C. S. VILLA CUAUHTEMOC",
+    "entidad": "TABASCO",
+    "lat": 18.40124,
+    "lng": -92.956802,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "TCIMB000634",
     "nombre_de_la_unidad": "C. S. COL GOBERNADOR CRUZ",
     "entidad": "TABASCO",
@@ -8948,6 +10608,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TCIMB000646",
+    "nombre_de_la_unidad": "C. S. VILLA IGNACIO ALLENDE",
+    "entidad": "TABASCO",
+    "lat": 18.382985,
+    "lng": -92.85439,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
   },
   {
     "clues_imb": "TCIMB000680",
@@ -8968,6 +10638,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 100.0
+  },
+  {
+    "clues_imb": "TCIMB000721",
+    "nombre_de_la_unidad": "C. S. EJ LA SABANAS",
+    "entidad": "TABASCO",
+    "lat": 18.442225,
+    "lng": -92.887224,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 83.3
   },
   {
     "clues_imb": "TCIMB000733",
@@ -8998,6 +10678,16 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "TCIMB000861",
+    "nombre_de_la_unidad": "CESSA GAVIOTAS",
+    "entidad": "TABASCO",
+    "lat": 17.982823,
+    "lng": -92.918858,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 83.3
   },
   {
     "clues_imb": "TCIMB000885",
@@ -9038,6 +10728,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "TCIMB001030",
+    "nombre_de_la_unidad": "C.S. GUINEO 1RA.",
+    "entidad": "TABASCO",
+    "lat": 17.927084,
+    "lng": -93.024869,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 83.3
   },
   {
     "clues_imb": "TCIMB001042",
@@ -9090,6 +10790,16 @@
     "pct_llenado": 95.1
   },
   {
+    "clues_imb": "TCIMB001223",
+    "nombre_de_la_unidad": "C.S. TIERRA AMARILLA 2DA.",
+    "entidad": "TABASCO",
+    "lat": 18.0828,
+    "lng": -92.8923,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 87.5
+  },
+  {
     "clues_imb": "TCIMB001264",
     "nombre_de_la_unidad": "C.S. LA MANGA 2DA.",
     "entidad": "TABASCO",
@@ -9118,6 +10828,16 @@
     "internet": false,
     "consultorios": 1.0,
     "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "TCIMB001940",
+    "nombre_de_la_unidad": "C.S. COL. FRANCISCO RUEDA",
+    "entidad": "TABASCO",
+    "lat": 17.829555,
+    "lng": -93.933888,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 87.5
   },
   {
     "clues_imb": "TCIMB001952",
@@ -9180,6 +10900,36 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "TCIMB002565",
+    "nombre_de_la_unidad": "C.S. MONTE GRANDE",
+    "entidad": "TABASCO",
+    "lat": 17.9349,
+    "lng": -92.2638,
+    "internet": true,
+    "consultorios": 2.0,
+    "pct_llenado": 85.4
+  },
+  {
+    "clues_imb": "TCIMB002570",
+    "nombre_de_la_unidad": "C.S. PLAYA LARGA",
+    "entidad": "TABASCO",
+    "lat": 17.9365,
+    "lng": -91.8099,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
+  },
+  {
+    "clues_imb": "TCIMB002594",
+    "nombre_de_la_unidad": "C.S. TORNO LARGO 2A B",
+    "entidad": "TABASCO",
+    "lat": 17.918,
+    "lng": -92.0169,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
+  },
+  {
     "clues_imb": "TCIMB002780",
     "nombre_de_la_unidad": "C.S. MORELOS",
     "entidad": "TABASCO",
@@ -9198,6 +10948,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 97.9
+  },
+  {
+    "clues_imb": "TCIMB003603",
+    "nombre_de_la_unidad": "C.S. BENITO JUÁREZ 1RA. SECCIÓN",
+    "entidad": "TABASCO",
+    "lat": 17.4553611,
+    "lng": -91.2320833,
+    "internet": false,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "TCIMB003620",
@@ -9448,6 +11208,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 91.7
+  },
+  {
+    "clues_imb": "TCIMB004600",
+    "nombre_de_la_unidad": "C.S. EL ESPINO",
+    "entidad": "TABASCO",
+    "lat": 18.2508628771573,
+    "lng": -92.833523832017,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
   },
   {
     "clues_imb": "TCIMB004665",
@@ -9910,6 +11680,16 @@
     "pct_llenado": 97.9
   },
   {
+    "clues_imb": "TSIMB001733",
+    "nombre_de_la_unidad": "CENTRO DE SALUD COL. ENRIQUE CÁRDENAS GONZÁLEZ.",
+    "entidad": "TAMAULIPAS",
+    "lat": 22.299578,
+    "lng": -97.853221,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
+  },
+  {
     "clues_imb": "TSIMB001750",
     "nombre_de_la_unidad": "CENTRO DE SALUD COL. MORELOS",
     "entidad": "TAMAULIPAS",
@@ -9918,6 +11698,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 95.8
+  },
+  {
+    "clues_imb": "TSIMB001786",
+    "nombre_de_la_unidad": "CENTRO DE SALUD TANCOL",
+    "entidad": "TAMAULIPAS",
+    "lat": 22.303957,
+    "lng": -97.893621,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
   },
   {
     "clues_imb": "TSIMB001820",
@@ -10078,6 +11868,16 @@
     "internet": true,
     "consultorios": 2.0,
     "pct_llenado": 90.6
+  },
+  {
+    "clues_imb": "TSIMB003256",
+    "nombre_de_la_unidad": "CENTRO DE SALUD COL. FRANCISCO VILLA",
+    "entidad": "TAMAULIPAS",
+    "lat": 22.267367,
+    "lng": -97.825329,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 85.4
   },
   {
     "clues_imb": "TSIMB003314",
@@ -10260,6 +12060,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "VZIMB001135",
+    "nombre_de_la_unidad": "COSOLEACAQUE COL. DÍAZ ORDAZ",
+    "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+    "lat": 18.0095,
+    "lng": -94.5574,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "VZIMB001164",
     "nombre_de_la_unidad": "CANTICAS",
     "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
@@ -10360,6 +12170,16 @@
     "pct_llenado": 95.8
   },
   {
+    "clues_imb": "VZIMB002774",
+    "nombre_de_la_unidad": "MEDELLIN DE BRAVO",
+    "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+    "lat": 19.0591,
+    "lng": -96.1558,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 89.6
+  },
+  {
     "clues_imb": "VZIMB002786",
     "nombre_de_la_unidad": "JUAN DE ALFARO",
     "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
@@ -10368,6 +12188,16 @@
     "internet": true,
     "consultorios": 1.0,
     "pct_llenado": 93.8
+  },
+  {
+    "clues_imb": "VZIMB002815",
+    "nombre_de_la_unidad": "RANCHO DEL PADRE",
+    "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+    "lat": 19.0635,
+    "lng": -96.1749,
+    "internet": true,
+    "consultorios": 1.0,
+    "pct_llenado": 81.2
   },
   {
     "clues_imb": "VZIMB002861",

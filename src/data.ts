@@ -51,11 +51,13 @@ async function fetchBaseMeta(): Promise<{ cluesTotal: number; entidadesEsperadas
 }
 
 function toCellValue(value: unknown): CellValue {
+  if (typeof value === 'number' && Number.isNaN(value)) return 0;
   if (value === null || value === undefined || value === '') return null;
   const text = String(value).trim();
   const low = text.toLowerCase();
   if (low === 'true') return true;
   if (low === 'false') return false;
+  if (low === 'nan') return 0;
   const asNumber = Number(text);
   if (!Number.isNaN(asNumber) && text !== '') return asNumber;
   return text;

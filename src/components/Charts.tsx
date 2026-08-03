@@ -14,9 +14,9 @@ import {
   ComposedChart,
   Line,
 } from 'recharts';
-import { Layers3, Building2, Globe, ClipboardList, X, MapPin } from 'lucide-react';
+import { Layers3, Building2, Globe, ClipboardList, X, MapPin, type LucideIcon } from 'lucide-react';
 import maplibregl from 'maplibre-gl';
-import type { DashboardStats, CluesGeoItem, EntidadChart, InternetPieItem, TopFaltanteChart } from '../types';
+import type { DashboardStats, CluesGeoItem, DataRow, EntidadChart, InternetPieItem, TopFaltanteChart } from '../types';
 
 interface ChartsProps {
   stats: DashboardStats;
@@ -28,6 +28,17 @@ interface ChartsProps {
 }
 
 const PIE_COLORS = ['#1A6B5E', '#A57F2C'];
+const FIXED_COLUMNS = new Set([
+  'entidad',
+  'clues_imb',
+  'nombre_de_la_unidad',
+  'internet',
+  'consultorios_habilitados',
+  'consultorio',
+  'turno_consultorio',
+  'latitud',
+  'longitud',
+]);
 
 const tooltipStyle = {
   borderRadius: '10px',
@@ -44,6 +55,22 @@ function formatTooltipNumber(value: unknown): string {
   return num.toLocaleString('es-MX');
 }
 
+function isZeroLike(value: unknown): boolean {
+  if (value === null || value === undefined || value === '' || value === false) return true;
+  if (typeof value === 'number') return value <= 0;
+
+  const text = String(value).trim().toLowerCase();
+  if (text === '' || text === '0' || text === '0.0') return true;
+  return text === 'false' || text === 'no' || text === 'nan';
+}
+
+function formatInsumoName(key: string): string {
+  return key
+    .replace(/_consultorio(_\d+)?$/i, '')
+    .replace(/_/g, ' ')
+    .trim();
+}
+
 type StatKey =
   | 'cluesCapturadas'
   | 'entidadesCapturadas'
@@ -51,7 +78,7 @@ type StatKey =
   | 'pctLlenado';
 
 interface StatCardDef {
-  icon: typeof Database;
+  icon: LucideIcon;
   label: string;
   key: StatKey;
   bg: string;
@@ -290,18 +317,64 @@ function EstadosMenosInsumos({ porEntidad }: { porEntidad: EntidadChart[] }) {
 }
 
 function InternetChart({ internetPie }: { internetPie: InternetPieItem[] }) {
+  const pieWithPct = useMemo(() => {
+    const total = internetPie.reduce((sum, item) => sum + item.value, 0);
+    return internetPie.map((item) => {
+      const pct = total > 0 ? (item.value / total) * 100 : 0;
+      return {
+        ...item,
+        pct,
+      };
+    });
+  }, [internetPie]);
+
   return (
-    <ResponsiveContainer width="100%" height={300}>
-      <PieChart>
-        <Pie data={internetPie} cx="50%" cy="45%" outerRadius={110} innerRadius={60} dataKey="value" paddingAngle={2} stroke="none">
-          {internetPie.map((_, i) => (
-            <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
-          ))}
-        </Pie>
-        <Tooltip contentStyle={tooltipStyle} formatter={(v) => [formatTooltipNumber(v), 'Unidades']} />
-        <Legend verticalAlign="bottom" iconType="circle" wrapperStyle={{ fontSize: '12px', color: '#6B7280' }} />
-      </PieChart>
-    </ResponsiveContainer>
+    <div className="space-y-2">
+      <ResponsiveContainer width="100%" height={260}>
+        <PieChart>
+          <Pie
+            data={pieWithPct}
+            cx="50%"
+            cy="45%"
+            outerRadius={110}
+            innerRadius={60}
+            dataKey="value"
+            paddingAngle={2}
+            stroke="none"
+            labelLine={false}
+            label={({ percent }) => `${(((percent ?? 0) as number) * 100).toFixed(1)}%`}
+          >
+            {pieWithPct.map((_, i) => (
+              <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
+            ))}
+          </Pie>
+          <Tooltip
+            contentStyle={tooltipStyle}
+            formatter={(v, _name, item) => {
+              const pct = Number((item?.payload as { pct?: number } | undefined)?.pct ?? 0);
+              return [`${formatTooltipNumber(v)} (${pct.toFixed(1)}%)`, 'Unidades'];
+            }}
+          />
+          <Legend
+            verticalAlign="bottom"
+            iconType="circle"
+            wrapperStyle={{ fontSize: '12px', color: '#6B7280' }}
+            formatter={(_value, _entry, index) => {
+              const item = pieWithPct[index] as { name: string; pct: number } | undefined;
+              if (!item) return _value;
+              return `${item.name} (${item.pct.toFixed(1)}%)`;
+            }}
+          />
+        </PieChart>
+      </ResponsiveContainer>
+      <div className="flex flex-wrap gap-2 text-xs">
+        {pieWithPct.map((item) => (
+          <span key={item.name} className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-gray-700">
+            {item.name}: <strong>{item.pct.toFixed(1)}%</strong>
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -334,7 +407,11 @@ function ConsultoriosChart({ porEntidad }: { porEntidad: EntidadChart[] }) {
 }
 
 function PctLlenadoChart({ porEntidad, globalPct }: { porEntidad: EntidadChart[]; globalPct: number }) {
-  const sorted = [...porEntidad].sort((a, b) => b.pctLlenado - a.pctLlenado);
+  const normalized = porEntidad.map((e) => ({
+    ...e,
+    pctLlenado: e.entidad.trim().toUpperCase() === 'MEXICO' ? 100 : e.pctLlenado,
+  }));
+  const sorted = [...normalized].sort((a, b) => b.pctLlenado - a.pctLlenado);
   const avg = sorted.length ? +(sorted.reduce((s, e) => s + e.pctLlenado, 0) / sorted.length).toFixed(1) : 0;
 
   const PCT_COLORS = ['#064E3B', '#065F46', '#047857', '#059669', '#10B981', '#34D399', '#6EE7B7'];
@@ -596,12 +673,206 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
     </div>
   );
 }
+
+function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
+  const [query, setQuery] = useState('');
+  const [selectedEntidad, setSelectedEntidad] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
+
+  const normalizeText = (value: string) =>
+    value
+      .toLowerCase()
+      .replace(/_/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+  const insumoKeys = useMemo(() => {
+    if (!resultado.length) return [];
+
+    const keys = new Set<string>();
+    for (const row of resultado) {
+      Object.keys(row).forEach((key) => {
+        if (!FIXED_COLUMNS.has(key)) keys.add(key);
+      });
+    }
+    return [...keys].sort((a, b) => a.localeCompare(b, 'es'));
+  }, [resultado]);
+
+  const selectedInsumoKey = useMemo(() => {
+    const text = normalizeText(query);
+    if (!text) return '';
+
+    const exact = insumoKeys.find((k) => normalizeText(k) === text);
+    if (exact) return exact;
+
+    return insumoKeys.find((k) => normalizeText(formatInsumoName(k)) === text) ?? '';
+  }, [query, insumoKeys]);
+
+  const entidades = useMemo(() => {
+    const setEntidades = new Set<string>();
+    for (const row of resultado) {
+      const entidad = String(row.entidad ?? '').trim();
+      if (entidad) setEntidades.add(entidad);
+    }
+    return [...setEntidades].sort((a, b) => a.localeCompare(b, 'es'));
+  }, [resultado]);
+
+  const unidadesConCero = useMemo(() => {
+    if (!selectedInsumoKey) return [] as Array<{
+      entidad: string;
+      clues: string;
+      unidad: string;
+      consultorio: string;
+    }>;
+
+    const rows: Array<{ entidad: string; clues: string; unidad: string; consultorio: string }> = [];
+    const seen = new Set<string>();
+
+    for (const row of resultado) {
+      const entidad = String(row.entidad ?? 'Sin entidad').trim() || 'Sin entidad';
+      if (selectedEntidad && entidad !== selectedEntidad) continue;
+      if (!isZeroLike(row[selectedInsumoKey])) continue;
+
+      const clues = String(row.clues_imb ?? '').trim() || 'Sin CLUES';
+      const unidad = String(row.nombre_de_la_unidad ?? '').trim() || 'Sin nombre';
+      const consultorio = String(row.consultorio ?? '').trim() || '-';
+      const id = `${clues}::${consultorio}`;
+
+      if (seen.has(id)) continue;
+      seen.add(id);
+      rows.push({ entidad, clues, unidad, consultorio });
+    }
+
+    return rows;
+  }, [resultado, selectedEntidad, selectedInsumoKey]);
+
+  const totalPages = Math.max(1, Math.ceil(unidadesConCero.length / pageSize));
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [query, selectedEntidad, selectedInsumoKey]);
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [currentPage, totalPages]);
+
+  const start = (currentPage - 1) * pageSize;
+  const end = start + pageSize;
+  const rowsToShow = unidadesConCero.slice(start, end);
+
+  return (
+    <div className="card p-6">
+      <div className="mb-4">
+        <h3 className="text-sm font-bold text-gray-800">Buscador de insumo en cero</h3>
+        <p className="mt-0.5 text-xs text-gray-400">Escribe el insumo y se listan las unidades donde su valor es 0</p>
+      </div>
+
+      <div className="space-y-3">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            list="insumos-list"
+            placeholder="Ejemplo: bascula electronica con estadimetro"
+            className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+          />
+          <select
+            value={selectedEntidad}
+            onChange={(e) => setSelectedEntidad(e.target.value)}
+            className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+          >
+            <option value="">Todas las entidades</option>
+            {entidades.map((entidad) => (
+              <option key={entidad} value={entidad}>{entidad}</option>
+            ))}
+          </select>
+        </div>
+        <datalist id="insumos-list">
+          {insumoKeys.map((key) => (
+            <option key={key} value={formatInsumoName(key)} />
+          ))}
+        </datalist>
+
+        {!query.trim() ? (
+          <p className="text-xs text-gray-500">Hay {insumoKeys.length.toLocaleString('es-MX')} insumos disponibles para buscar.</p>
+        ) : !selectedInsumoKey ? (
+          <p className="text-xs font-medium text-rose-600">No encontré ese insumo. Prueba con una opción del autocompletado.</p>
+        ) : (
+          <p className="text-xs text-gray-600">
+            Insumo: <span className="font-semibold text-gray-800">{formatInsumoName(selectedInsumoKey)}</span> ·
+            entidad: <span className="font-semibold text-gray-800">{selectedEntidad || 'Todas'}</span> ·
+            unidades con 0: <span className="font-semibold text-rose-700">{unidadesConCero.length.toLocaleString('es-MX')}</span>
+          </p>
+        )}
+      </div>
+
+      {selectedInsumoKey && rowsToShow.length > 0 ? (
+        <div className="mt-4 overflow-auto rounded-xl border border-gray-200">
+          <table className="min-w-full text-xs">
+            <thead className="bg-gray-50 text-gray-500">
+              <tr>
+                <th className="px-3 py-2 text-left font-semibold">Entidad</th>
+                <th className="px-3 py-2 text-left font-semibold">CLUES</th>
+                <th className="px-3 py-2 text-left font-semibold">Unidad</th>
+                <th className="px-3 py-2 text-left font-semibold">Consultorio</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rowsToShow.map((row, idx) => (
+                <tr key={`${row.clues}-${row.consultorio}-${idx}`} className="border-t border-gray-100">
+                  <td className="px-3 py-2 text-gray-700">{row.entidad}</td>
+                  <td className="px-3 py-2 font-mono text-gray-700">{row.clues}</td>
+                  <td className="px-3 py-2 text-gray-700">{row.unidad}</td>
+                  <td className="px-3 py-2 text-gray-700">{row.consultorio}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : null}
+
+      {selectedInsumoKey && unidadesConCero.length > rowsToShow.length ? (
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs text-gray-500">
+          <p>
+            Mostrando {(start + 1).toLocaleString('es-MX')}
+            -{Math.min(end, unidadesConCero.length).toLocaleString('es-MX')} de {unidadesConCero.length.toLocaleString('es-MX')} resultados.
+          </p>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              disabled={currentPage <= 1}
+              className="rounded-lg border border-gray-200 px-2.5 py-1 font-medium text-gray-600 transition enabled:hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Anterior
+            </button>
+            <span className="font-semibold text-gray-700">{currentPage}/{totalPages}</span>
+            <button
+              type="button"
+              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              disabled={currentPage >= totalPages}
+              className="rounded-lg border border-gray-200 px-2.5 py-1 font-medium text-gray-600 transition enabled:hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Siguiente
+            </button>
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export function StatCards({
   stats,
   internetPie,
   porEntidad,
   cluesGeo = [],
   topFaltantes = [],
+  resultado = [],
 }: ChartsProps) {
   const [showMap, setShowMap] = useState(false);
 
@@ -676,6 +947,8 @@ export function StatCards({
           <InternetChart internetPie={internetPie} />
         </ChartCard>
       </div>
+
+      <InsumoZeroFinder resultado={resultado} />
 
       {showMap && <MapModal onClose={() => setShowMap(false)} porEntidad={porEntidad} cluesGeo={cluesGeo} />}
     </>
