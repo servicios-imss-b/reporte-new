@@ -14,9 +14,10 @@ import {
   ComposedChart,
   Line,
 } from 'recharts';
-import { Layers3, Building2, Globe, ClipboardList, X, MapPin, type LucideIcon } from 'lucide-react';
+import { Layers3, Building2, Globe, ClipboardList, X, MapPin, Download, type LucideIcon } from 'lucide-react';
 import maplibregl from 'maplibre-gl';
 import type { DashboardStats, CluesGeoItem, DataRow, EntidadChart, InternetPieItem, TopFaltanteChart } from '../types';
+import { exportarExcel } from '../exportExcel';
 
 interface ChartsProps {
   stats: DashboardStats;
@@ -763,6 +764,32 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
   const end = start + pageSize;
   const rowsToShow = unidadesConCero.slice(start, end);
 
+  const handleExport = () => {
+    if (!selectedInsumoKey || unidadesConCero.length === 0) return;
+
+    const out = unidadesConCero.map((row) => ({
+      Entidad: row.entidad,
+      CLUES: row.clues,
+      Unidad: row.unidad,
+      Consultorio: row.consultorio,
+      Insumo: formatInsumoName(selectedInsumoKey),
+      Valor: 0,
+    }));
+
+    const entidadSlug = (selectedEntidad || 'todas')
+      .toLowerCase()
+      .replace(/\s+/g, '_')
+      .replace(/[^a-z0-9_]/g, '');
+
+    const insumoSlug = formatInsumoName(selectedInsumoKey)
+      .toLowerCase()
+      .replace(/\s+/g, '_')
+      .replace(/[^a-z0-9_]/g, '')
+      .slice(0, 40);
+
+    exportarExcel(out, `insumos_en_cero_${entidadSlug}_${insumoSlug}`, 'Insumos en cero');
+  };
+
   return (
     <div className="card p-6">
       <div className="mb-4">
@@ -808,6 +835,18 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
             unidades con 0: <span className="font-semibold text-rose-700">{unidadesConCero.length.toLocaleString('es-MX')}</span>
           </p>
         )}
+      </div>
+
+      <div className="mt-3 flex justify-end">
+        <button
+          type="button"
+          onClick={handleExport}
+          disabled={!selectedInsumoKey || unidadesConCero.length === 0}
+          className="flex items-center gap-2 rounded-lg bg-imss-green px-3 py-2 text-xs font-semibold text-white shadow-sm transition-colors enabled:hover:bg-imss-green-mid disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          <Download className="h-3.5 w-3.5" />
+          Descargar Excel
+        </button>
       </div>
 
       {selectedInsumoKey && rowsToShow.length > 0 ? (
