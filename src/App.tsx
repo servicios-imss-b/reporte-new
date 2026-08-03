@@ -142,7 +142,9 @@ export default function App() {
       setResultado(tablas.resultado);
       setResumen(tablas.resumen);
       setResumenEntidad(tablas.resumenEntidad);
-      setFaltantes(tablas.faltantes);
+      setFaltantes(
+        tablas.faltantes.filter((row) => toText(row.entidad).toUpperCase() !== 'MEXICO')
+      );
       setCluesGeo(tablas.cluesGeo);
 
       const updatedFromScript = parseDateValue(tablas.baseMeta.scriptLastRunAt);

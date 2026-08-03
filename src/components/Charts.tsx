@@ -514,8 +514,7 @@ function CardModal({
 
 /* ─── Mapa Modal ─── */
 
-function buildPopupHTML(clues: string, nombre: string, entidad: string, internet: number, consultorios: number, pct: number) {
-  const color = internet === 1 ? '#0d9488' : '#d97706';
+function buildPopupHTML(clues: string, nombre: string, entidad: string, consultorios: number, pct: number) {
   return `<div style="font-family:system-ui;padding:4px 0;min-width:200px">
     <div style="font-size:11px;font-weight:700;color:#065f46;margin-bottom:3px">${clues}</div>
     <div style="font-size:12px;font-weight:600;color:#111827;margin-bottom:2px;line-height:1.3">${nombre}</div>
@@ -526,7 +525,6 @@ function buildPopupHTML(clues: string, nombre: string, entidad: string, internet
       <div><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#9ca3af">Consultorios</div>
         <div style="font-size:16px;font-weight:900;color:#374151">${consultorios}</div></div>
     </div>
-    <div style="font-size:11px;color:${color};font-weight:600">${internet === 1 ? '● Con internet' : '● Sin internet'}</div>
   </div>`;
 }
 
@@ -536,7 +534,38 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
   cluesGeo?: CluesGeoItem[];
 }) {
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const cluesGeoRef = useRef(cluesGeo);
+  const [entidadQuery, setEntidadQuery] = useState('');
+
+  const entidadesDisponibles = useMemo(() => {
+    const setEntidades = new Set<string>();
+    cluesGeo.forEach((item) => {
+      const entidad = String(item.entidad ?? '').trim();
+      if (entidad) setEntidades.add(entidad);
+    });
+    return [...setEntidades].sort((a, b) => a.localeCompare(b, 'es'));
+  }, [cluesGeo]);
+
+  const filteredCluesGeo = useMemo(() => {
+    const normalize = (value: string) =>
+      value
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+
+    const query = normalize(entidadQuery);
+    if (!query) return cluesGeo;
+
+    const entidadExacta = entidadesDisponibles.find((entidad) => normalize(entidad) === query);
+
+    // Si hay match exacto, evita mezclar entidades como "MEXICO" con "CIUDAD DE MEXICO".
+    if (entidadExacta) {
+      const exactaNormalizada = normalize(entidadExacta);
+      return cluesGeo.filter((item) => normalize(item.entidad) === exactaNormalizada);
+    }
+
+    return cluesGeo.filter((item) => normalize(item.entidad).includes(query));
+  }, [cluesGeo, entidadQuery, entidadesDisponibles]);
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
@@ -550,8 +579,8 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
     map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
     map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
 
-    if (cluesGeoRef.current.length > 0) {
-      const data = cluesGeoRef.current;
+    if (filteredCluesGeo.length > 0) {
+      const data = filteredCluesGeo;
       const addLayers = () => {
         if (map.getSource('clues')) return;
         map.addSource('clues', {
@@ -565,7 +594,6 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
                 clues_imb: u.clues_imb,
                 nombre: u.nombre_de_la_unidad,
                 entidad: u.entidad,
-                internet: u.internet ? 1 : 0,
                 consultorios: Math.round(u.consultorios ?? 0),
                 pct_llenado: u.pct_llenado ?? 0,
               },
@@ -575,14 +603,24 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
 
         map.addLayer({ id: 'clues-halo', type: 'circle', source: 'clues', paint: {
           'circle-radius': 9,
-          'circle-color': ['case', ['==', ['get', 'internet'], 1], '#14b8a6', '#f59e0b'],
+          'circle-color': '#2563eb',
           'circle-opacity': 0.18, 'circle-stroke-width': 0,
         }});
         map.addLayer({ id: 'clues-circles', type: 'circle', source: 'clues', paint: {
           'circle-radius': 5,
-          'circle-color': ['case', ['==', ['get', 'internet'], 1], '#0d9488', '#d97706'],
+          'circle-color': '#1d4ed8',
           'circle-stroke-width': 1.5, 'circle-stroke-color': '#ffffff', 'circle-opacity': 0.95,
         }});
+
+        if (data.length === 1) {
+          map.jumpTo({ center: [data[0].lng, data[0].lat], zoom: 8.5 });
+        } else {
+          const bounds = new maplibregl.LngLatBounds();
+          data.forEach((u) => bounds.extend([u.lng, u.lat]));
+          if (!bounds.isEmpty()) {
+            map.fitBounds(bounds, { padding: 40, maxZoom: 9 });
+          }
+        }
 
         const popup = new maplibregl.Popup({ closeButton: false, offset: 10, maxWidth: '280px' });
         map.on('mouseenter', 'clues-circles', (e) => {
@@ -593,7 +631,7 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
           popup.setLngLat(e.lngLat)
             .setHTML(buildPopupHTML(
               String(p['clues_imb']), String(p['nombre']), String(p['entidad']),
-              Number(p['internet']), Number(p['consultorios']), Number(p['pct_llenado'])
+              Number(p['consultorios']), Number(p['pct_llenado'])
             ))
             .addTo(map);
         });
@@ -616,9 +654,10 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
     else map.on('load', removeCityLabels);
 
     return () => map.remove();
-  }, []);
+  }, [filteredCluesGeo]);
 
   const total = porEntidad.reduce((s, e) => s + e.unidades, 0);
+  const totalFiltrado = filteredCluesGeo.length;
   const avg = porEntidad.length ? Math.round(total / porEntidad.length) : 0;
   const topEstado = [...porEntidad].sort((a, b) => b.unidades - a.unidades)[0];
 
@@ -658,6 +697,37 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
           </button>
         </div>
 
+        {/* Filtro */}
+        <div className="flex items-center gap-3 border-b border-gray-100 bg-gray-50 px-6 py-3">
+          <label htmlFor="filtro-entidad-mapa" className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+            Filtrar entidad
+          </label>
+          <input
+            id="filtro-entidad-mapa"
+            type="text"
+            value={entidadQuery}
+            onChange={(e) => setEntidadQuery(e.target.value)}
+            list="entidades-mapa-list"
+            placeholder="Ej. MEXICO, CHIAPAS, OAXACA..."
+            className="w-full max-w-md rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm text-gray-700 placeholder:text-gray-400 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-100"
+          />
+          <datalist id="entidades-mapa-list">
+            {entidadesDisponibles.map((ent) => (
+              <option key={ent} value={ent} />
+            ))}
+          </datalist>
+          <button
+            type="button"
+            onClick={() => setEntidadQuery('')}
+            className="rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-100"
+          >
+            Limpiar
+          </button>
+          <span className="ml-auto text-xs font-semibold text-gray-500">
+            Mostrando {totalFiltrado.toLocaleString('es-MX')} unidades
+          </span>
+        </div>
+
         {/* Mapa */}
         <div className="relative flex-1 overflow-hidden">
           <div ref={mapContainerRef} className="absolute inset-0" />
@@ -666,8 +736,7 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
         {/* Footer */}
         <div className="flex items-center gap-5 border-t border-gray-100 bg-gray-50 px-6 py-2.5 text-xs text-gray-500">
           <span className="font-semibold text-gray-600">Leyenda:</span>
-          <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-teal-500" />Con internet</span>
-          <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-amber-400" />Sin internet</span>
+          <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-blue-600" />Unidad de salud</span>
           <span className="ml-auto text-gray-400">Pasa el cursor sobre un punto para ver detalles</span>
         </div>
       </div>
