@@ -39,6 +39,13 @@ function isZeroValue(value: unknown): boolean {
   return text === '' || text === '0' || text === '0.0' || text === 'false' || text === 'no' || text === 'nan';
 }
 
+function normalizeInsumoLabel(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function excelSerialToDate(serial: number): Date {
   // Excel epoch: Dec 30, 1899 = day 0; JS epoch: Jan 1, 1970 = day 25569
   return new Date((serial - 25569) * 86400 * 1000);
@@ -264,12 +271,26 @@ export default function App() {
 
     const total = consultoriosLlenados.length;
 
-    return [...countsByItem.entries()]
-      .map(([item, consultorios]) => ({
-        item: item.replace(/_consultorio(_\d+)?$/i, '').replaceAll('_', ' ').trim(),
-        faltantes: consultorios.size,
-        pct: total > 0 ? (consultorios.size / total) * 100 : 0,
-      }))
+    const selectedKeyByLabel = new Map<string, string>();
+    const sortedKeys = [...countsByItem.keys()].sort((a, b) => a.localeCompare(b, 'es'));
+
+    for (const key of sortedKeys) {
+      const label = key.replace(/_consultorio(_\d+)?$/i, '').replaceAll('_', ' ').trim();
+      const normalized = normalizeInsumoLabel(label);
+      if (!selectedKeyByLabel.has(normalized)) {
+        selectedKeyByLabel.set(normalized, key);
+      }
+    }
+
+    return [...selectedKeyByLabel.values()]
+      .map((itemKey) => {
+        const consultorios = countsByItem.get(itemKey) ?? new Set<string>();
+        return {
+          item: itemKey.replace(/_consultorio(_\d+)?$/i, '').replaceAll('_', ' ').trim(),
+          faltantes: consultorios.size,
+          pct: total > 0 ? (consultorios.size / total) * 100 : 0,
+        };
+      })
       .sort((a, b) => b.faltantes - a.faltantes)
       .slice(0, 20);
   }, [resultado]);
