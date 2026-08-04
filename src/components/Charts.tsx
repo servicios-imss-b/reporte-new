@@ -73,10 +73,10 @@ function formatInsumoName(key: string): string {
 }
 
 type StatKey =
-  | 'cluesCapturadas'
+  | 'insumosConRegistro'
   | 'entidadesCapturadas'
   | 'promedioCerosPorConsultorio'
-  | 'insumosCriticos';
+  | 'registrosSinInsumos';
 
 interface StatCardDef {
   icon: LucideIcon;
@@ -93,8 +93,8 @@ interface StatCardDef {
 const STAT_CARDS: StatCardDef[] = [
   {
     icon: Layers3,
-    label: 'COBERTURA CLUES',
-    key: 'cluesCapturadas',
+    label: 'COBERTURA DE CONSULTORIOS',
+    key: 'insumosConRegistro',
     bg: 'bg-emerald-50',
     iconBg: 'bg-emerald-100',
     iconColor: 'text-emerald-600',
@@ -123,8 +123,8 @@ const STAT_CARDS: StatCardDef[] = [
   },
   {
     icon: AlertTriangle,
-    label: 'INSUMOS CRITICOS',
-    key: 'insumosCriticos',
+    label: 'REGISTROS SIN INSUMOS',
+    key: 'registrosSinInsumos',
     bg: 'bg-teal-50',
     iconBg: 'bg-teal-100',
     iconColor: 'text-teal-600',
@@ -327,7 +327,7 @@ function EstadosMenosInsumos({ resultado = [] }: { resultado?: DataRow[] }) {
 
   return (
     <div className="space-y-3">
-      <p className="text-xs text-gray-400">Estados con mayor cantidad de insumos en 0 (de mayor a menor, excluye MEXICO)</p>
+      <p className="text-xs text-gray-400">Estados con menos insumos (ordenados de menor a mayor cobertura)</p>
       <ResponsiveContainer width="100%" height={290}>
         <BarChart data={data} layout="vertical" margin={{ top: 0, right: 48, left: 4, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" horizontal={false} />
@@ -1258,10 +1258,27 @@ export function StatCards({
 }: ChartsProps) {
   const [showMap, setShowMap] = useState(false);
 
+  const consultorioCoverage = useMemo(() => {
+    const entidadesConConsultorios = Math.max(1, stats.baseEntidadesEsperadas);
+    const totalConsultorios = porEntidad.reduce((sum, item) => sum + item.consultoriosHabilitados, 0);
+    const consultoriosLevantados = porEntidad.reduce((sum, item) => sum + item.consultoriosLevantados, 0);
+    const promedioConsultoriosPorEntidad = entidadesConConsultorios > 0
+      ? totalConsultorios / entidadesConConsultorios
+      : 0;
+
+    return {
+      entidadesConConsultorios,
+      totalConsultorios,
+      consultoriosLevantados,
+      promedioConsultoriosPorEntidad,
+    };
+  }, [porEntidad, stats.baseEntidadesEsperadas]);
+
   const infraestructuraMetrics = useMemo(() => {
-    const consultorios = new Map<string, boolean>();
-    const ceroPorInsumo = new Map<string, Set<string>>();
+    const consultorios = new Map<string, { hasZero: boolean; hasRegistro: boolean }>();
     let totalCeros = 0;
+    let totalCamposInsumo = 0;
+    let camposConRegistro = 0;
 
     for (const row of resultado) {
       const consultorioNum = Number(row.consultorio ?? 0);
@@ -1269,56 +1286,70 @@ export function StatCards({
 
       const clues = String(row.clues_imb ?? row.clues ?? '').trim() || 'Sin CLUES';
       const consultorioId = `${clues}::${consultorioNum}`;
-      const previo = consultorios.get(consultorioId) ?? false;
+      const previo = consultorios.get(consultorioId) ?? { hasZero: false, hasRegistro: false };
 
-      let hasZero = previo;
+      let hasZero = previo.hasZero;
+      let hasRegistro = previo.hasRegistro;
       for (const [key, value] of Object.entries(row)) {
         if (FIXED_COLUMNS.has(key)) continue;
-        if (!isZeroLike(value)) continue;
+        totalCamposInsumo += 1;
+
+        if (!isZeroLike(value)) {
+          camposConRegistro += 1;
+          hasRegistro = true;
+          continue;
+        }
 
         totalCeros += 1;
         hasZero = true;
-        if (!ceroPorInsumo.has(key)) ceroPorInsumo.set(key, new Set<string>());
-        ceroPorInsumo.get(key)?.add(consultorioId);
       }
 
-      consultorios.set(consultorioId, hasZero);
+      consultorios.set(consultorioId, { hasZero, hasRegistro });
     }
 
     const totalConsultorios = consultorios.size;
-    const consultoriosSinInsumo = Array.from(consultorios.values()).filter(Boolean).length;
+    const consultoriosConRegistro = Array.from(consultorios.values()).filter((item) => item.hasRegistro).length;
+    const consultoriosSinInsumo = Array.from(consultorios.values()).filter((item) => item.hasZero).length;
     const pctConsultoriosSinInsumo = totalConsultorios > 0
       ? (consultoriosSinInsumo / totalConsultorios) * 100
       : 0;
+    const pctConsultoriosConRegistro = totalConsultorios > 0
+      ? (consultoriosConRegistro / totalConsultorios) * 100
+      : 0;
     const promedioCerosPorConsultorio = totalConsultorios > 0 ? totalCeros / totalConsultorios : 0;
-
-    const totalInsumosEvaluados = ceroPorInsumo.size;
-    const insumosCriticos = Array.from(ceroPorInsumo.values()).filter(
-      (ids) => totalConsultorios > 0 && (ids.size / totalConsultorios) >= 0.3,
-    ).length;
+    const pctInsumosConRegistro = totalCamposInsumo > 0
+      ? (camposConRegistro / totalCamposInsumo) * 100
+      : 0;
 
     return {
       totalConsultorios,
+      consultoriosConRegistro,
       consultoriosSinInsumo,
       pctConsultoriosSinInsumo,
+      pctConsultoriosConRegistro,
       totalCeros,
       promedioCerosPorConsultorio,
-      totalInsumosEvaluados,
-      insumosCriticos,
+      totalCamposInsumo,
+      camposConRegistro,
+      pctInsumosConRegistro,
     };
   }, [resultado]);
 
   const values: Record<StatKey, { value: number; expected?: number; helper?: string }> = {
-    cluesCapturadas: { value: stats.cluesCapturadas, expected: stats.baseCluesEsperadas, helper: `${stats.consultoriosTotales.toLocaleString('es-MX')} consultorios registrados` },
+    insumosConRegistro: {
+      value: consultorioCoverage.consultoriosLevantados,
+      expected: consultorioCoverage.totalConsultorios,
+      helper: `${consultorioCoverage.entidadesConConsultorios.toLocaleString('es-MX')} entidades · promedio ${consultorioCoverage.promedioConsultoriosPorEntidad.toFixed(1)} consultorios por entidad`,
+    },
     entidadesCapturadas: { value: stats.entidadesCapturadas, expected: stats.baseEntidadesEsperadas },
     promedioCerosPorConsultorio: {
       value: Number(infraestructuraMetrics.promedioCerosPorConsultorio.toFixed(1)),
-      helper: `${infraestructuraMetrics.totalCeros.toLocaleString('es-MX')} registros en 0`,
+      helper: `${infraestructuraMetrics.totalCeros.toLocaleString('es-MX')} registros sin insumos`,
     },
-    insumosCriticos: {
-      value: infraestructuraMetrics.insumosCriticos,
-      expected: infraestructuraMetrics.totalInsumosEvaluados,
-      helper: 'Con 0 en al menos 30% de consultorios',
+    registrosSinInsumos: {
+      value: infraestructuraMetrics.totalCeros,
+      expected: infraestructuraMetrics.totalCamposInsumo,
+      helper: `${(100 - infraestructuraMetrics.pctInsumosConRegistro).toFixed(1)}% de registros sin insumos`,
     },
   };
 
@@ -1376,7 +1407,7 @@ export function StatCards({
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
-        <ChartCard title="Estados con más insumos en 0" subtitle="Top estados con mayor cantidad de insumos en 0 en consultorios levantados (excluye MEXICO)">
+        <ChartCard title="Estados con menos insumos" subtitle="Top estados con menor cobertura de insumos en consultorios levantados">
           <EstadosMenosInsumos resultado={resultado} />
         </ChartCard>
       </div>
