@@ -6,7 +6,16 @@ import { DataTable } from './components/DataTable';
 import { cargarTablasFormulario } from './data';
 import type { DashboardStats, DataRow, EntidadChart, InternetPieItem, TopFaltanteChart, CluesGeoItem } from './types';
 
-type DataTabKey = 'cruda' | 'clues' | 'estado' | 'faltantes';
+type DataTabKey =
+  | 'cruda'
+  | 'clues'
+  | 'estado'
+  | 'faltantes'
+  | 'tabla_avance'
+  | 'tabla_entidades'
+  | 'tabla_unidades'
+  | 'faltantes_por_estado'
+  | 'tabla_faltantes_por_estado';
 type MainTabKey = 'infraestructura' | 'avance' | 'pendientes';
 
 function toText(value: unknown): string {
@@ -132,7 +141,6 @@ function formatCellValue(value: unknown, key?: string): string {
 }
 
 export default function App() {
-  const [avanceEmbedVersion] = useState(() => Date.now());
   const [mainTab, setMainTab] = useState<MainTabKey>('infraestructura');
   const [dataTab, setDataTab] = useState<DataTabKey>('clues');
   const [crudaUnlocked, setCrudaUnlocked] = useState(false);
@@ -383,9 +391,67 @@ export default function App() {
     { key: 'clues', label: 'Por CLUES', icon: Building2, count: resultado.length },
     { key: 'estado', label: 'Por Estado', icon: Layers3, count: resumenEntidad.length },
     { key: 'faltantes', label: 'Faltantes', icon: AlertTriangle, count: faltantes.length },
+    { key: 'tabla_avance', label: 'Tabla avance', icon: Gauge, count: tablaAvance.length },
+    { key: 'tabla_entidades', label: 'Tabla entidades', icon: Building2, count: tablaEntidades.length },
+    { key: 'tabla_unidades', label: 'Tabla unidades', icon: Layers3, count: tablaUnidadesAvance.length },
+    { key: 'faltantes_por_estado', label: 'Faltantes por estados', icon: AlertTriangle, count: 0 },
+    { key: 'tabla_faltantes_por_estado', label: 'Tabla faltantes por estados', icon: FileSearch, count: faltantes.length },
   ];
 
   const dataTabs = allDataTabs.filter(({ key }) => key !== 'cruda' || crudaUnlocked);
+
+  const faltantesPorEstadoRows = useMemo<DataRow[]>(() => {
+    const grouped = new Map<
+      string,
+      {
+        entidad: string;
+        filas: number;
+        clues: Set<string>;
+        consultorios: Set<string>;
+      }
+    >();
+
+    for (const row of faltantes) {
+      const entidad = toText(row.entidad) || 'Sin entidad';
+      const key = normalizeKey(entidad);
+      const clues = toText(row.clues || row.clues_imb);
+      const consultorioId = `${clues}::${toText(row.consultorio)}`;
+
+      if (!grouped.has(key)) {
+        grouped.set(key, {
+          entidad,
+          filas: 0,
+          clues: new Set<string>(),
+          consultorios: new Set<string>(),
+        });
+      }
+
+      const agg = grouped.get(key);
+      if (!agg) continue;
+
+      agg.filas += 1;
+      if (clues) agg.clues.add(clues);
+      if (consultorioId !== '::') agg.consultorios.add(consultorioId);
+    }
+
+    return Array.from(grouped.values())
+      .map((item) => ({
+        entidad: item.entidad,
+        faltantes: item.filas,
+        clues_unicas: item.clues.size,
+        consultorios_unicos: item.consultorios.size,
+      }))
+      .sort((a, b) => toNumber(b.faltantes) - toNumber(a.faltantes));
+  }, [faltantes]);
+
+  const dataTabsWithCounts = useMemo(
+    () => allDataTabs.map((tab) => (
+      tab.key === 'faltantes_por_estado'
+        ? { ...tab, count: faltantesPorEstadoRows.length }
+        : tab
+    )),
+    [allDataTabs, faltantesPorEstadoRows.length],
+  );
 
   const avanceRows = useMemo<DataRow[]>(() => {
     return porEntidad.map((row) => ({
@@ -585,14 +651,6 @@ export default function App() {
                 <div className="space-y-4">
                   <AvanceSummaryCards summary={avanceSummary} />
 
-                  <div className="card overflow-hidden p-0">
-                    <iframe
-                      title="Tablero de avance"
-                      src={`${import.meta.env.BASE_URL}informe--de-ang/index.html?v=${avanceEmbedVersion}`}
-                      className="h-[82vh] w-full border-0"
-                    />
-                  </div>
-
                   <AvanceCharts
                     porEntidad={porEntidad}
                     globalPct={stats.pctLlenado}
@@ -602,7 +660,9 @@ export default function App() {
 
                   <div className="space-y-4">
                     <div className="flex flex-wrap gap-2">
-                      {dataTabs.map(({ key, label, icon: Icon, count }) => (
+                      {dataTabsWithCounts
+                        .filter(({ key }) => key !== 'cruda' || crudaUnlocked)
+                        .map(({ key, label, icon: Icon, count }) => (
                         <button
                           key={key}
                           onClick={() => setDataTab(key)}
@@ -659,6 +719,56 @@ export default function App() {
                         exportSheetName="Faltantes"
                         data={faltantes}
                         columns={tableColumns(faltantes, false)}
+                        exportColumns={tableColumns(faltantes, true)}
+                      />
+                    )}
+
+                    {dataTab === 'tabla_avance' && (
+                      <DataTable<DataRow>
+                        exportFileName="tabla_avance"
+                        exportSheetName="Tabla Avance"
+                        data={tablaAvance}
+                        columns={tableColumns(tablaAvance, true)}
+                        exportColumns={tableColumns(tablaAvance, true)}
+                      />
+                    )}
+
+                    {dataTab === 'tabla_entidades' && (
+                      <DataTable<DataRow>
+                        exportFileName="tabla_entidades"
+                        exportSheetName="Tabla Entidades"
+                        data={tablaEntidades}
+                        columns={tableColumns(tablaEntidades, true)}
+                        exportColumns={tableColumns(tablaEntidades, true)}
+                      />
+                    )}
+
+                    {dataTab === 'tabla_unidades' && (
+                      <DataTable<DataRow>
+                        exportFileName="tabla_unidades"
+                        exportSheetName="Tabla Unidades"
+                        data={tablaUnidadesAvance}
+                        columns={tableColumns(tablaUnidadesAvance, true)}
+                        exportColumns={tableColumns(tablaUnidadesAvance, true)}
+                      />
+                    )}
+
+                    {dataTab === 'faltantes_por_estado' && (
+                      <DataTable<DataRow>
+                        exportFileName="faltantes_por_estados"
+                        exportSheetName="Faltantes por estados"
+                        data={faltantesPorEstadoRows}
+                        columns={tableColumns(faltantesPorEstadoRows, true)}
+                        exportColumns={tableColumns(faltantesPorEstadoRows, true)}
+                      />
+                    )}
+
+                    {dataTab === 'tabla_faltantes_por_estado' && (
+                      <DataTable<DataRow>
+                        exportFileName="tabla_faltantes_por_estados"
+                        exportSheetName="Tabla faltantes por estados"
+                        data={faltantes}
+                        columns={tableColumns(faltantes, true)}
                         exportColumns={tableColumns(faltantes, true)}
                       />
                     )}

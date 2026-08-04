@@ -14,7 +14,7 @@ import {
   ComposedChart,
   Line,
 } from 'recharts';
-import { Layers3, Building2, Globe, ClipboardList, X, MapPin, Download, type LucideIcon } from 'lucide-react';
+import { Layers3, Building2, Globe, ClipboardList, AlertTriangle, X, MapPin, Download, type LucideIcon } from 'lucide-react';
 import maplibregl from 'maplibre-gl';
 import type { DashboardStats, CluesGeoItem, DataRow, EntidadChart, InternetPieItem, TopFaltanteChart } from '../types';
 import { exportarExcel } from '../exportExcel';
@@ -75,8 +75,8 @@ function formatInsumoName(key: string): string {
 type StatKey =
   | 'cluesCapturadas'
   | 'entidadesCapturadas'
-  | 'unidadesInternet'
-  | 'pctLlenado';
+  | 'promedioCerosPorConsultorio'
+  | 'insumosCriticos';
 
 interface StatCardDef {
   icon: LucideIcon;
@@ -113,8 +113,8 @@ const STAT_CARDS: StatCardDef[] = [
   },
   {
     icon: Globe,
-    label: 'UNIDADES CON INTERNET',
-    key: 'unidadesInternet',
+    label: 'PROMEDIO DE INSUMOS EN 0',
+    key: 'promedioCerosPorConsultorio',
     bg: 'bg-rose-50',
     iconBg: 'bg-rose-100',
     iconColor: 'text-rose-600',
@@ -122,15 +122,14 @@ const STAT_CARDS: StatCardDef[] = [
     border: 'border-rose-200',
   },
   {
-    icon: ClipboardList,
-    label: '% LLENADO FORMULARIO',
-    key: 'pctLlenado',
+    icon: AlertTriangle,
+    label: 'INSUMOS CRITICOS',
+    key: 'insumosCriticos',
     bg: 'bg-teal-50',
     iconBg: 'bg-teal-100',
     iconColor: 'text-teal-600',
     valueColor: 'text-teal-700',
     border: 'border-teal-200',
-    isPercent: true,
   },
 ];
 
@@ -281,44 +280,123 @@ function CluesChart({ porEntidad }: { porEntidad: EntidadChart[] }) {
   );
 }
 
-function EstadosMenosInsumos({ porEntidad }: { porEntidad: EntidadChart[] }) {
-  const sorted = [...porEntidad].sort((a, b) => a.pctLlenado - b.pctLlenado);
-  const bottom = sorted.slice(0, 10);
+function EstadosMenosInsumos({ resultado = [] }: { resultado?: DataRow[] }) {
+  const isMexicoEntidad = (value: string) => {
+    const normalized = value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim()
+      .toUpperCase();
+    return normalized === 'MEXICO';
+  };
 
-  // Colores de rojo → ámbar → verde según posición
-  const COLORS = ['#dc2626', '#ef4444', '#f97316', '#fb923c', '#f59e0b',
-                  '#eab308', '#84cc16', '#22c55e', '#16a34a', '#15803d'];
+  const data = useMemo(() => {
+    const byEntidad = new Map<string, { entidad: string; cero: number; total: number }>();
 
-  const data = bottom.map((e, i) => ({
-    entidad: e.entidad.length > 18 ? e.entidad.slice(0, 18) + '.' : e.entidad,
-    entidadFull: e.entidad,
-    pct: e.pctLlenado,
-    fill: COLORS[Math.min(i, COLORS.length - 1)],
-  }));
+    for (const row of resultado) {
+      const consultorio = Number(row.consultorio ?? 0);
+      if (Number.isNaN(consultorio) || consultorio <= 0) continue;
+
+      const entidad = String(row.entidad ?? 'Sin entidad').trim() || 'Sin entidad';
+      if (isMexicoEntidad(entidad)) continue;
+      if (!byEntidad.has(entidad)) {
+        byEntidad.set(entidad, { entidad, cero: 0, total: 0 });
+      }
+
+      const agg = byEntidad.get(entidad);
+      if (!agg) continue;
+
+      for (const [key, value] of Object.entries(row)) {
+        if (FIXED_COLUMNS.has(key)) continue;
+        agg.total += 1;
+        if (isZeroLike(value)) agg.cero += 1;
+      }
+    }
+
+    return Array.from(byEntidad.values())
+      .map((item, i) => ({
+        entidad: item.entidad.length > 18 ? item.entidad.slice(0, 18) + '.' : item.entidad,
+        entidadFull: item.entidad,
+        cero: item.cero,
+        pctCero: item.total > 0 ? (item.cero / item.total) * 100 : 0,
+        fill: ['#7F1D1D', '#991B1B', '#B91C1C', '#DC2626', '#EF4444', '#F97316', '#FB923C', '#F59E0B', '#FBBF24', '#FCD34D'][Math.min(i, 9)],
+      }))
+      .sort((a, b) => b.cero - a.cero)
+      .slice(0, 10);
+  }, [resultado]);
 
   return (
     <div className="space-y-3">
-      <p className="text-xs text-gray-400">Estados con menor porcentaje de insumos reportados (peor a mejor)</p>
+      <p className="text-xs text-gray-400">Estados con mayor cantidad de insumos en 0 (de mayor a menor, excluye MEXICO)</p>
       <ResponsiveContainer width="100%" height={290}>
         <BarChart data={data} layout="vertical" margin={{ top: 0, right: 48, left: 4, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" horizontal={false} />
-          <XAxis type="number" tickFormatter={(v) => `${v}%`} tick={{ fontSize: 11, fill: '#9CA3AF' }} domain={[0, 100]} />
+          <XAxis type="number" tick={{ fontSize: 11, fill: '#9CA3AF' }} />
           <YAxis type="category" dataKey="entidad" tick={{ fontSize: 10, fill: '#6B7280' }} width={120} />
           <Tooltip
             contentStyle={tooltipStyle}
             labelFormatter={(_label, payload) =>
               (payload?.[0] as { payload?: { entidadFull?: string } } | undefined)?.payload?.entidadFull ?? _label
             }
-            formatter={(v: unknown) => [`${v}%`, '% insumos llenados']}
+            formatter={(v: unknown, _name: unknown, item: unknown) => {
+              const payload = (item as { payload?: { pctCero?: number } } | undefined)?.payload;
+              const pct = Number(payload?.pctCero ?? 0).toFixed(1);
+              return [`${formatTooltipNumber(v)} (${pct}%)`, 'Insumos en 0'];
+            }}
             cursor={{ fill: '#FEF2F2' }}
           />
-          <Bar dataKey="pct" radius={[0, 4, 4, 0]}>
+          <Bar dataKey="cero" radius={[0, 4, 4, 0]}>
             {data.map((entry, i) => (
               <Cell key={i} fill={entry.fill} />
             ))}
           </Bar>
         </BarChart>
       </ResponsiveContainer>
+    </div>
+  );
+}
+
+function EstadosMenosInsumosTable({ porEntidad }: { porEntidad: EntidadChart[] }) {
+  const rows = useMemo(() => {
+    return [...porEntidad]
+      .sort((a, b) => a.pctLlenado - b.pctLlenado)
+      .slice(0, 10)
+      .map((item) => ({
+        entidad: item.entidad,
+        pctLlenado: item.pctLlenado,
+        unidades: item.unidades,
+        consultoriosLevantados: item.consultoriosLevantados,
+      }));
+  }, [porEntidad]);
+
+  if (!rows.length) {
+    return <p className="text-sm text-gray-500">Sin datos para mostrar.</p>;
+  }
+
+  return (
+    <div className="overflow-hidden rounded-xl border border-gray-200">
+      <div className="max-h-[420px] overflow-auto">
+        <table className="min-w-full divide-y divide-gray-200 text-sm">
+          <thead className="sticky top-0 z-10 bg-gray-50">
+            <tr>
+              <th className="px-3 py-2 text-left text-[11px] font-bold uppercase tracking-wide text-gray-500">Estado</th>
+              <th className="px-3 py-2 text-right text-[11px] font-bold uppercase tracking-wide text-gray-500">% insumos llenados</th>
+              <th className="px-3 py-2 text-right text-[11px] font-bold uppercase tracking-wide text-gray-500">Unidades</th>
+              <th className="px-3 py-2 text-right text-[11px] font-bold uppercase tracking-wide text-gray-500">Consultorios levantados</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100 bg-white">
+            {rows.map((row) => (
+              <tr key={row.entidad} className="hover:bg-gray-50">
+                <td className="px-3 py-2 font-semibold text-gray-800">{row.entidad}</td>
+                <td className="px-3 py-2 text-right font-bold text-amber-700">{row.pctLlenado.toFixed(1)}%</td>
+                <td className="px-3 py-2 text-right text-gray-700">{row.unidades.toLocaleString('es-MX')}</td>
+                <td className="px-3 py-2 text-right text-gray-700">{row.consultoriosLevantados.toLocaleString('es-MX')}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
@@ -948,6 +1026,8 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
         totalConsultorios: 0,
         consultoriosConInsumo: 0,
         consultoriosSinInsumo: 0,
+        pctConInsumo: 0,
+        pctSinInsumo: 0,
         data: [] as Array<{ name: string; value: number; color: string }>,
       };
     }
@@ -974,11 +1054,15 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
       if (flags.hasZero) consultoriosSinInsumo += 1;
     });
     const consultoriosConInsumo = Math.max(0, totalConsultorios - consultoriosSinInsumo);
+    const pctConInsumo = totalConsultorios > 0 ? (consultoriosConInsumo / totalConsultorios) * 100 : 0;
+    const pctSinInsumo = totalConsultorios > 0 ? (consultoriosSinInsumo / totalConsultorios) * 100 : 0;
 
     return {
       totalConsultorios,
       consultoriosConInsumo,
       consultoriosSinInsumo,
+      pctConInsumo,
+      pctSinInsumo,
       data: [
         { name: 'Consultorios que si tienen', value: consultoriosConInsumo, color: '#1A6B5E' },
         { name: 'Consultorios que no tienen', value: consultoriosSinInsumo, color: '#A57F2C' },
@@ -1054,7 +1138,7 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
           <p className="text-xs text-gray-600">
             Insumo: <span className="font-semibold text-gray-800">{formatInsumoName(selectedInsumoKey)}</span> ·
             entidad: <span className="font-semibold text-gray-800">{selectedEntidad || 'Todas'}</span> ·
-            consultorios con al menos un 0: <span className="font-semibold text-rose-700">{donutCoverage.consultoriosSinInsumo.toLocaleString('es-MX')}</span>
+            consultorio sin insumo: <span className="font-semibold text-rose-700">{donutCoverage.consultoriosSinInsumo.toLocaleString('es-MX')}</span>
           </p>
         )}
       </div>
@@ -1084,7 +1168,7 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
             <p className="text-xs text-gray-500">No hay consultorios para el filtro seleccionado.</p>
           ) : (
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center">
-              <div className="h-72 md:h-80">
+              <div className="relative h-72 md:h-80">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
@@ -1094,6 +1178,8 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
                       innerRadius={84}
                       outerRadius={130}
                       paddingAngle={2}
+                      labelLine={false}
+                      label={({ percent }) => `${(((percent ?? 0) as number) * 100).toFixed(1)}%`}
                     >
                       {donutCoverage.data.map((slice) => (
                         <Cell key={slice.name} fill={slice.color} />
@@ -1103,6 +1189,11 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
                     <Legend verticalAlign="bottom" height={26} wrapperStyle={{ fontSize: '11px', color: '#6B7280' }} />
                   </PieChart>
                 </ResponsiveContainer>
+                <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center pb-6">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Cobertura</p>
+                  <p className="text-2xl font-black text-emerald-700">{donutCoverage.pctConInsumo.toFixed(1)}%</p>
+                  <p className="text-[11px] text-gray-500">con insumo</p>
+                </div>
               </div>
 
               <div className="space-y-4">
@@ -1122,6 +1213,7 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
                   <p className="mt-1 text-xs font-medium text-gray-500">
                     {donutCoverage.consultoriosConInsumo.toLocaleString('es-MX')} de {donutCoverage.totalConsultorios.toLocaleString('es-MX')}
                   </p>
+                  <p className="mt-1 text-xs font-semibold text-emerald-700">{donutCoverage.pctConInsumo.toFixed(1)}%</p>
                 </article>
 
                 <article className="group relative overflow-hidden rounded-2xl border border-amber-200 bg-amber-50 p-5 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg">
@@ -1140,6 +1232,7 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
                   <p className="mt-1 text-xs font-medium text-gray-500">
                     {donutCoverage.consultoriosSinInsumo.toLocaleString('es-MX')} de {donutCoverage.totalConsultorios.toLocaleString('es-MX')}
                   </p>
+                  <p className="mt-1 text-xs font-semibold text-amber-700">{donutCoverage.pctSinInsumo.toFixed(1)}%</p>
                 </article>
 
                 <p className="text-xs text-gray-500">
@@ -1165,11 +1258,68 @@ export function StatCards({
 }: ChartsProps) {
   const [showMap, setShowMap] = useState(false);
 
+  const infraestructuraMetrics = useMemo(() => {
+    const consultorios = new Map<string, boolean>();
+    const ceroPorInsumo = new Map<string, Set<string>>();
+    let totalCeros = 0;
+
+    for (const row of resultado) {
+      const consultorioNum = Number(row.consultorio ?? 0);
+      if (Number.isNaN(consultorioNum) || consultorioNum <= 0) continue;
+
+      const clues = String(row.clues_imb ?? row.clues ?? '').trim() || 'Sin CLUES';
+      const consultorioId = `${clues}::${consultorioNum}`;
+      const previo = consultorios.get(consultorioId) ?? false;
+
+      let hasZero = previo;
+      for (const [key, value] of Object.entries(row)) {
+        if (FIXED_COLUMNS.has(key)) continue;
+        if (!isZeroLike(value)) continue;
+
+        totalCeros += 1;
+        hasZero = true;
+        if (!ceroPorInsumo.has(key)) ceroPorInsumo.set(key, new Set<string>());
+        ceroPorInsumo.get(key)?.add(consultorioId);
+      }
+
+      consultorios.set(consultorioId, hasZero);
+    }
+
+    const totalConsultorios = consultorios.size;
+    const consultoriosSinInsumo = Array.from(consultorios.values()).filter(Boolean).length;
+    const pctConsultoriosSinInsumo = totalConsultorios > 0
+      ? (consultoriosSinInsumo / totalConsultorios) * 100
+      : 0;
+    const promedioCerosPorConsultorio = totalConsultorios > 0 ? totalCeros / totalConsultorios : 0;
+
+    const totalInsumosEvaluados = ceroPorInsumo.size;
+    const insumosCriticos = Array.from(ceroPorInsumo.values()).filter(
+      (ids) => totalConsultorios > 0 && (ids.size / totalConsultorios) >= 0.3,
+    ).length;
+
+    return {
+      totalConsultorios,
+      consultoriosSinInsumo,
+      pctConsultoriosSinInsumo,
+      totalCeros,
+      promedioCerosPorConsultorio,
+      totalInsumosEvaluados,
+      insumosCriticos,
+    };
+  }, [resultado]);
+
   const values: Record<StatKey, { value: number; expected?: number; helper?: string }> = {
     cluesCapturadas: { value: stats.cluesCapturadas, expected: stats.baseCluesEsperadas, helper: `${stats.consultoriosTotales.toLocaleString('es-MX')} consultorios registrados` },
     entidadesCapturadas: { value: stats.entidadesCapturadas, expected: stats.baseEntidadesEsperadas },
-    unidadesInternet: { value: stats.unidadesInternet, expected: stats.baseCluesEsperadas },
-    pctLlenado: { value: stats.pctLlenado },
+    promedioCerosPorConsultorio: {
+      value: Number(infraestructuraMetrics.promedioCerosPorConsultorio.toFixed(1)),
+      helper: `${infraestructuraMetrics.totalCeros.toLocaleString('es-MX')} registros en 0`,
+    },
+    insumosCriticos: {
+      value: infraestructuraMetrics.insumosCriticos,
+      expected: infraestructuraMetrics.totalInsumosEvaluados,
+      helper: 'Con 0 en al menos 30% de consultorios',
+    },
   };
 
   return (
@@ -1226,8 +1376,8 @@ export function StatCards({
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
-        <ChartCard title="Unidades con y sin internet" subtitle="Distribución de conectividad sobre el total de CLUES esperadas">
-          <InternetChart internetPie={internetPie} />
+        <ChartCard title="Estados con más insumos en 0" subtitle="Top estados con mayor cantidad de insumos en 0 en consultorios levantados (excluye MEXICO)">
+          <EstadosMenosInsumos resultado={resultado} />
         </ChartCard>
       </div>
 
