@@ -199,10 +199,21 @@ function activatePanel(panelId, button) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   const panel = document.getElementById(panelId);
-  if (panel) panel.classList.add('active');
+  if (panel) {
+    panel.classList.add('active');
+    panel.classList.remove('panel-enter');
+    // Forzar reflow para reiniciar animacion al cambiar pestana.
+    void panel.offsetWidth;
+    panel.classList.add('panel-enter');
+  }
   if (button) button.classList.add('active');
 
   if (panelId === 'panel-graficas') {
+    document.querySelectorAll('.chart-card').forEach((card) => {
+      card.classList.remove('card-enter');
+      void card.offsetWidth;
+      card.classList.add('card-enter');
+    });
     setTimeout(() => {
       document.querySelectorAll('.chart').forEach(el => Plotly.Plots.resize(el));
     }, 120);
@@ -381,50 +392,59 @@ function applyDashboardTheme(figure, figureId = '') {
   themed.layout.xaxis = axisTheme(themed.layout.xaxis);
   themed.layout.yaxis = axisTheme(themed.layout.yaxis);
 
-  const isPctStyleFigure = figureId === 'fig_avance' || figureId === 'fig_cascada';
-  if (isPctStyleFigure) {
-    themed.layout.bargap = 0.22;
-    themed.layout.bargroupgap = 0.08;
-    themed.layout.barcornerradius = 4;
-  }
+  themed.layout.bargap = 0.22;
+  themed.layout.bargroupgap = 0.08;
+  themed.layout.barcornerradius = 4;
 
   themed.data = (themed.data || []).map((trace, idx) => {
     const next = { ...trace };
     const color = DASHBOARD_COLORWAY[idx % DASHBOARD_COLORWAY.length];
 
-    const inferValuesForSemaforo = () => {
-      const vals = Array.isArray(next.y) ? next.y : Array.isArray(next.x) ? next.x : [];
-      return vals.map((v) => Number(v));
+    const parseNumeric = (raw) => {
+      if (typeof raw === 'number') return Number.isFinite(raw) ? raw : NaN;
+      const text = String(raw ?? '').trim();
+      if (!text) return NaN;
+      const normalized = text.replace(/[^\d.-]/g, '');
+      if (!normalized || normalized === '-' || normalized === '.' || normalized === '-.') {
+        return NaN;
+      }
+      const parsed = Number(normalized);
+      return Number.isFinite(parsed) ? parsed : NaN;
     };
 
-    const semaforoColorByValue = (v) => {
-      if (!Number.isFinite(v)) return color;
-      if (v >= 90) return SEMAFORO.ok;
-      if (v >= 80) return SEMAFORO.warning;
-      return SEMAFORO.alert;
+    const inferValuesForSemaforo = () => {
+      const yValues = Array.isArray(next.y)
+        ? next.y
+        : Array.isArray(next.y?._inputArray)
+          ? next.y._inputArray
+          : [];
+      const xValues = Array.isArray(next.x)
+        ? next.x
+        : Array.isArray(next.x?._inputArray)
+          ? next.x._inputArray
+          : [];
+      const vals = yValues.length ? yValues : xValues;
+      return vals.map((v) => parseNumeric(v));
     };
 
     if (next.type === 'bar') {
       const values = inferValuesForSemaforo();
-      const colorByBar = isPctStyleFigure
-        ? values.map((_, rank) => getRankColor(rank, values.length))
-        : values.some((v) => Number.isFinite(v))
-          ? values.map((v) => semaforoColorByValue(v))
-          : color;
+      const lengthForBars = values.length || (Array.isArray(next.x) ? next.x.length : Array.isArray(next.y) ? next.y.length : 0);
+      const colorByBar = lengthForBars > 0
+        ? Array.from({ length: lengthForBars }, (_, rank) => getRankColor(rank, lengthForBars))
+        : color;
 
       const existingMarker = next.marker || {};
 
       next.marker = {
         ...existingMarker,
         color: colorByBar,
-        line: { color: '#ffffff', width: isPctStyleFigure ? 1 : 1.2 },
+        line: { color: '#ffffff', width: 1 },
         opacity: 0.94,
       };
 
-      if (isPctStyleFigure) {
-        next.textposition = next.orientation === 'h' ? 'outside' : 'auto';
-        next.cliponaxis = false;
-      }
+      next.textposition = next.orientation === 'h' ? 'outside' : 'auto';
+      next.cliponaxis = false;
 
       if (!next.hovertemplate) {
         next.hovertemplate = '%{x}<br><b>%{y}</b><extra></extra>';
@@ -481,12 +501,14 @@ function renderGraphs() {
     const baseFigure = item.figure || {};
     const figure = enrichFigureWithMissingClues(item, baseFigure, cluesLookup);
     const themedFigure = applyDashboardTheme(figure, item.id || '');
-    const finalLayout = themedFigure.layout || {};
+    const UNIFIED_CHART_HEIGHT = 360;
+    const finalLayout = {
+      ...(themedFigure.layout || {}),
+      height: UNIFIED_CHART_HEIGHT,
+    };
 
-    if (typeof themedFigure?.layout?.height === 'number') {
-      el.style.height = `${themedFigure.layout.height}px`;
-      card.style.minHeight = `${Math.max(themedFigure.layout.height + 20, 180)}px`;
-    }
+    el.style.height = `${UNIFIED_CHART_HEIGHT}px`;
+    card.style.minHeight = `${UNIFIED_CHART_HEIGHT + 44}px`;
 
     Plotly.react(chartId, themedFigure.data || [], finalLayout, {
       responsive: true,

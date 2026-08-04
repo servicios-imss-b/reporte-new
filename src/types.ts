@@ -23,6 +23,9 @@ export interface TablasFormulario {
   resultado: DataRow[];
   resumen: DataRow[];
   resumenEntidad: DataRow[];
+  tablaAvance: DataRow[];
+  tablaEntidades: DataRow[];
+  tablaUnidadesAvance: DataRow[];
   cluesGeo: CluesGeoItem[];
   faltantes: DataRow[];
 }

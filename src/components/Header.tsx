@@ -1,7 +1,21 @@
 
 const LOGO_URL = 'https://imssbienestar.gob.mx/assets/img/imb_b.svg';
 
-export function Header({ onLogoClick }: { onLogoClick?: () => void }) {
+export function Header({
+  onLogoClick,
+  eyebrow,
+  title,
+  subtitle,
+}: {
+  onLogoClick?: () => void;
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+}) {
+
+  const resolvedEyebrow = eyebrow ?? 'Panel Principal';
+  const resolvedTitle = title ?? 'Reporte de Infraestructura y Materiales Hospitalarios';
+  const resolvedSubtitle = subtitle ?? 'Consulta, visualiza y exporta la base cruda y sus agregados por CLUES y por Estado.';
 
   return (
     <>
@@ -27,11 +41,12 @@ export function Header({ onLogoClick }: { onLogoClick?: () => void }) {
 
       <div className="border-b border-gray-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-gray-400">{resolvedEyebrow}</p>
           <h1 className="max-w-3xl text-3xl font-black leading-tight tracking-tight text-imss-green sm:text-4xl lg:text-5xl">
-            Reporte de Infraestructura y Materiales Hospitalarios
+            {resolvedTitle}
           </h1>
           <p className="mt-2 max-w-xl text-base text-gray-500">
-            Consulta, visualiza y exporta la base cruda y sus agregados por CLUES y por Estado.
+            {resolvedSubtitle}
           </p>
         </div>
       </div>

@@ -134,6 +134,12 @@ const STAT_CARDS: StatCardDef[] = [
   },
 ];
 
+function pct2Digits(value: number): string {
+  const rounded = Math.round(Number(value) || 0);
+  if (rounded >= 100) return `${rounded}%`;
+  return `${String(rounded).padStart(2, '0')}%`;
+}
+
 function pctLabel(actual: number, expected: number): string {
   if (expected <= 0) return '0.0%';
   return `${((actual / expected) * 100).toFixed(1)}%`;
@@ -915,6 +921,48 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
     return rows;
   }, [resultado, selectedEntidad, selectedInsumoKey]);
 
+  const donutCoverage = useMemo(() => {
+    if (!selectedInsumoKey) {
+      return {
+        totalClues: 0,
+        cluesConInsumo: 0,
+        cluesSinInsumo: 0,
+        data: [] as Array<{ name: string; value: number; color: string }>,
+      };
+    }
+
+    const cluesHasInsumo = new Map<string, boolean>();
+
+    for (const row of resultado) {
+      const entidad = String(row.entidad ?? 'Sin entidad').trim() || 'Sin entidad';
+      if (selectedEntidad && entidad !== selectedEntidad) continue;
+
+      const clues = String(row.clues_imb ?? '').trim();
+      if (!clues) continue;
+
+      const hasValue = !isZeroLike(row[selectedInsumoKey]);
+      const prev = cluesHasInsumo.get(clues) ?? false;
+      cluesHasInsumo.set(clues, prev || hasValue);
+    }
+
+    const totalClues = cluesHasInsumo.size;
+    let cluesConInsumo = 0;
+    cluesHasInsumo.forEach((hasInsumo) => {
+      if (hasInsumo) cluesConInsumo += 1;
+    });
+    const cluesSinInsumo = Math.max(0, totalClues - cluesConInsumo);
+
+    return {
+      totalClues,
+      cluesConInsumo,
+      cluesSinInsumo,
+      data: [
+        { name: 'CLUES que si tienen', value: cluesConInsumo, color: '#1A6B5E' },
+        { name: 'CLUES que no tienen', value: cluesSinInsumo, color: '#A57F2C' },
+      ],
+    };
+  }, [resultado, selectedEntidad, selectedInsumoKey]);
+
   const totalPages = Math.max(1, Math.ceil(unidadesConCero.length / pageSize));
 
   useEffect(() => {
@@ -1015,6 +1063,58 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
           Descargar Excel
         </button>
       </div>
+
+      {selectedInsumoKey ? (
+        <div className="mt-4 rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-4">
+          <div className="mb-2">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Cobertura CLUES por insumo y estado</p>
+            <p className="text-sm font-bold text-gray-800">
+              {formatInsumoName(selectedInsumoKey)} · {selectedEntidad || 'Todas las entidades'}
+            </p>
+          </div>
+
+          {donutCoverage.totalClues === 0 ? (
+            <p className="text-xs text-gray-500">No hay CLUES para el filtro seleccionado.</p>
+          ) : (
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:items-center">
+              <div className="h-56">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={donutCoverage.data}
+                      dataKey="value"
+                      nameKey="name"
+                      innerRadius={62}
+                      outerRadius={92}
+                      paddingAngle={2}
+                    >
+                      {donutCoverage.data.map((slice) => (
+                        <Cell key={slice.name} fill={slice.color} />
+                      ))}
+                    </Pie>
+                    <Tooltip contentStyle={tooltipStyle} formatter={(v: unknown) => [formatTooltipNumber(v), 'CLUES']} />
+                    <Legend verticalAlign="bottom" height={26} wrapperStyle={{ fontSize: '11px', color: '#6B7280' }} />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+
+              <div className="space-y-3 text-sm">
+                <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-600">CLUES que si tienen</p>
+                  <p className="text-2xl font-black text-emerald-700">{donutCoverage.cluesConInsumo.toLocaleString('es-MX')}</p>
+                </div>
+                <div className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-amber-600">CLUES que no tienen</p>
+                  <p className="text-2xl font-black text-amber-700">{donutCoverage.cluesSinInsumo.toLocaleString('es-MX')}</p>
+                </div>
+                <p className="text-xs text-gray-500">
+                  Total CLUES consideradas: <span className="font-semibold text-gray-700">{donutCoverage.totalClues.toLocaleString('es-MX')}</span>
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+      ) : null}
 
       {selectedInsumoKey && rowsToShow.length > 0 ? (
         <div className="mt-4 overflow-auto rounded-xl border border-gray-200">
@@ -1126,12 +1226,6 @@ export function StatCards({
 
       {/* Gráficas siempre visibles */}
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <ChartCard title="Cobertura CLUES por entidad" subtitle="Unidades capturadas y % llenado del formulario por estado">
-          <CluesChart porEntidad={porEntidad} />
-        </ChartCard>
-        <ChartCard title="% de llenado por estado" subtitle="Porcentaje de campos respondidos sobre el total esperado">
-          <PctLlenadoChart porEntidad={porEntidad} globalPct={stats.pctLlenado} />
-        </ChartCard>
         <ChartCard title="Top 20 insumos más frecuentes que faltan" subtitle="Frecuencia de faltantes por equipo/material en consultorios levantados (por consultorio)">
           <ResponsiveContainer width="100%" height={520}>
             <BarChart data={topFaltantes} layout="vertical" margin={{ top: 0, right: 16, left: 8, bottom: 0 }}>
@@ -1158,6 +1252,267 @@ export function StatCards({
 
       {showMap && <MapModal onClose={() => setShowMap(false)} porEntidad={porEntidad} cluesGeo={cluesGeo} />}
     </>
+  );
+}
+
+export function AvanceSummaryCards({
+  summary,
+}: {
+  summary: {
+    unidadesConRegistro: number;
+    totalUnidades: number;
+    estadosConRegistro: number;
+    totalEstados: number;
+    pctEntidades: number;
+    entidadesAl100: number;
+    unidadesCompletas: number;
+    pctUnidadesCompletas: number;
+  };
+}) {
+  const cards = [
+    {
+      icon: Layers3,
+      label: 'Unidades con al menos un registro',
+      value: summary.unidadesConRegistro.toLocaleString('es-MX'),
+      detail: `de ${summary.totalUnidades.toLocaleString('es-MX')} unidades totales (${pct2Digits((summary.unidadesConRegistro / Math.max(summary.totalUnidades, 1)) * 100)})`,
+      bg: 'bg-emerald-50',
+      iconBg: 'bg-emerald-100',
+      iconColor: 'text-emerald-600',
+      valueColor: 'text-emerald-700',
+      border: 'border-emerald-200',
+    },
+    {
+      icon: Building2,
+      label: 'Estados que han llenado al menos una unidad',
+      value: summary.estadosConRegistro.toLocaleString('es-MX'),
+      detail: `de ${summary.totalEstados.toLocaleString('es-MX')} estados totales`,
+      bg: 'bg-amber-50',
+      iconBg: 'bg-amber-100',
+      iconColor: 'text-amber-600',
+      valueColor: 'text-amber-700',
+      border: 'border-amber-200',
+    },
+    {
+      icon: Globe,
+      label: 'Porcentaje de entidades que ya llenaron',
+      value: pct2Digits(summary.pctEntidades),
+      detail: `${summary.entidadesAl100.toLocaleString('es-MX')} de ${summary.totalEstados.toLocaleString('es-MX')} entidades al 100%`,
+      bg: 'bg-rose-50',
+      iconBg: 'bg-rose-100',
+      iconColor: 'text-rose-600',
+      valueColor: 'text-rose-700',
+      border: 'border-rose-200',
+    },
+    {
+      icon: ClipboardList,
+      label: 'Unidades que ya llenaron completo',
+      value: pct2Digits(summary.pctUnidadesCompletas),
+      detail: `${summary.unidadesCompletas.toLocaleString('es-MX')} de ${summary.totalUnidades.toLocaleString('es-MX')} unidades totales`,
+      bg: 'bg-teal-50',
+      iconBg: 'bg-teal-100',
+      iconColor: 'text-teal-600',
+      valueColor: 'text-teal-700',
+      border: 'border-teal-200',
+    },
+  ];
+
+  return (
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      {cards.map((card) => (
+        <article
+          key={card.label}
+          className={`group relative overflow-hidden rounded-2xl border p-5 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg ${card.border} ${card.bg}`}
+        >
+          <div className="absolute -right-4 -top-4 opacity-10 transition-transform duration-500 group-hover:scale-125 group-hover:opacity-20">
+            <card.icon className="h-20 w-20" />
+          </div>
+          <div className="relative mb-3 flex items-start justify-between">
+            <div
+              className={`flex h-10 w-10 items-center justify-center rounded-xl transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110 ${card.iconBg} ${card.iconColor}`}
+            >
+              <card.icon className="h-5 w-5" strokeWidth={2.2} />
+            </div>
+          </div>
+          <p className="relative mb-1 text-[10px] font-bold uppercase tracking-widest opacity-70">
+            <span className="text-gray-500">{card.label}</span>
+          </p>
+          <p className={`relative text-3xl font-black tabular-nums ${card.valueColor}`}>{card.value}</p>
+          <p className="mt-1 text-xs text-gray-500">{card.detail}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+export function AvanceCharts({
+  porEntidad,
+  globalPct,
+  avancePorEntidad,
+  tablaEntidades,
+}: {
+  porEntidad: EntidadChart[];
+  globalPct: number;
+  avancePorEntidad: Array<{
+    entidad: string;
+    totalUnidades: number;
+    unidadesRespondieron: number;
+    porcentaje: number;
+  }>;
+  tablaEntidades: Array<{
+    entidad?: string;
+    consultorios?: number;
+    respondidas?: number;
+    esperadas?: number;
+    porcentaje?: number;
+  }>;
+}) {
+  void globalPct;
+  const sortedAvance = [...avancePorEntidad].sort((a, b) => b.porcentaje - a.porcentaje);
+  const totalEsperadas = sortedAvance.reduce((sum, item) => sum + item.totalUnidades, 0);
+  const totalRespondieron = sortedAvance.reduce((sum, item) => sum + item.unidadesRespondieron, 0);
+  const globalAvance = totalEsperadas > 0 ? +((totalRespondieron / totalEsperadas) * 100).toFixed(1) : 0;
+  const avgAvance = sortedAvance.length
+    ? +(sortedAvance.reduce((sum, item) => sum + item.porcentaje, 0) / sortedAvance.length).toFixed(1)
+    : 0;
+
+  const maxAvance = sortedAvance[0]?.porcentaje ?? 0;
+  const minAvance = sortedAvance[sortedAvance.length - 1]?.porcentaje ?? 0;
+
+  const avanceData = sortedAvance.map((row) => ({
+    entidad: row.entidad.length > 12 ? row.entidad.slice(0, 12) + '.' : row.entidad,
+    entidadFull: row.entidad,
+    pct: row.porcentaje,
+    unidadesRespondieron: row.unidadesRespondieron,
+    totalUnidades: row.totalUnidades,
+  }));
+
+  const llenadoConsultorioData = [...tablaEntidades]
+    .map((row) => ({
+      entidadFull: String(row.entidad ?? '').trim(),
+      entidad: String(row.entidad ?? '').trim().length > 18
+        ? `${String(row.entidad ?? '').trim().slice(0, 18)}.`
+        : String(row.entidad ?? '').trim(),
+      pct: Number(row.porcentaje ?? 0),
+      respondidas: Number(row.respondidas ?? 0),
+      esperadas: Number(row.esperadas ?? 0),
+      consultorios: Number(row.consultorios ?? 0),
+    }))
+    .filter((row) => row.entidadFull)
+    .sort((a, b) => b.pct - a.pct)
+    .slice(0, 20);
+
+  return (
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:items-start">
+      <div className="space-y-4">
+        <ChartCard
+          title="Cobertura CLUES por entidad mayor al 80 %"
+          subtitle="Unidades capturadas y % llenado del formulario por estado"
+          className="h-full"
+        >
+          <CluesChart porEntidad={porEntidad} />
+        </ChartCard>
+
+        <ChartCard
+          title="Avance por entidad sobre unidades"
+          subtitle="Porcentaje de unidades que respondieron respecto al total esperado"
+          className="h-full"
+        >
+          <div className="space-y-4">
+            <div className="flex gap-8 border-b border-gray-100 pb-3">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Global</p>
+                <p className="text-2xl font-black text-teal-700">{globalAvance.toFixed(1)}%</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Promedio por estado</p>
+                <p className="text-2xl font-black text-amber-600">{avgAvance}%</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Mayor avance</p>
+                <p className="text-2xl font-black text-emerald-700">{maxAvance.toFixed(1)}%</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Menor avance</p>
+                <p className="text-2xl font-black text-rose-600">{minAvance.toFixed(1)}%</p>
+              </div>
+            </div>
+
+            <ResponsiveContainer width="100%" height={290}>
+              <BarChart data={avanceData} margin={{ top: 4, right: 16, left: 0, bottom: 55 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" vertical={false} />
+                <XAxis dataKey="entidad" angle={-35} textAnchor="end" tick={{ fontSize: 10, fill: '#9CA3AF' }} height={65} />
+                <YAxis tickFormatter={(v) => `${v}%`} tick={{ fontSize: 11, fill: '#9CA3AF' }} domain={[0, 100]} />
+                <Tooltip
+                  contentStyle={tooltipStyle}
+                  labelFormatter={(_label, payload) =>
+                    (payload?.[0] as { payload?: { entidadFull?: string } } | undefined)?.payload?.entidadFull ?? _label
+                  }
+                  formatter={(v: unknown, _name: unknown, item: unknown) => {
+                    const payload = (item as { payload?: { unidadesRespondieron?: number; totalUnidades?: number } } | undefined)?.payload;
+                    const respondieron = Number(payload?.unidadesRespondieron ?? 0).toLocaleString('es-MX');
+                    const esperadas = Number(payload?.totalUnidades ?? 0).toLocaleString('es-MX');
+                    return [`${v}% (${respondieron}/${esperadas})`, '% avance'];
+                  }}
+                  cursor={{ fill: '#F0FDFA' }}
+                />
+                <Bar dataKey="pct" name="% avance" radius={[4, 4, 0, 0]}>
+                  {avanceData.map((_, i) => {
+                    const PCT_COLORS = ['#064E3B', '#065F46', '#047857', '#059669', '#10B981', '#34D399', '#6EE7B7'];
+                    const t = avanceData.length > 1 ? i / (avanceData.length - 1) : 0;
+                    const color = PCT_COLORS[Math.min(Math.floor(t * (PCT_COLORS.length - 1)), PCT_COLORS.length - 1)];
+                    return <Cell key={i} fill={color} />;
+                  })}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </ChartCard>
+      </div>
+
+      <div className="space-y-4">
+        <ChartCard
+          title="% de llenado por estado mayor al 80%"
+          subtitle="Porcentaje de campos respondidos sobre el total esperado"
+          className="h-full"
+        >
+          <PctLlenadoChart porEntidad={porEntidad} globalPct={globalPct} />
+        </ChartCard>
+
+        <ChartCard
+          title="Llenado de consultorio por entidad"
+          subtitle="Top entidades por porcentaje de llenado (fuente: tabla_entidades)"
+          className="h-full"
+        >
+          <ResponsiveContainer width="100%" height={520}>
+            <BarChart data={llenadoConsultorioData} layout="vertical" margin={{ top: 0, right: 16, left: 8, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" horizontal={false} />
+              <XAxis
+                type="number"
+                tick={{ fontSize: 11, fill: '#9CA3AF' }}
+                tickFormatter={(v) => `${v}%`}
+                domain={[0, 100]}
+              />
+              <YAxis type="category" dataKey="entidad" tick={{ fontSize: 10, fill: '#6B7280' }} width={180} />
+              <Tooltip
+                contentStyle={tooltipStyle}
+                labelFormatter={(_label, payload) =>
+                  (payload?.[0] as { payload?: { entidadFull?: string } } | undefined)?.payload?.entidadFull ?? _label
+                }
+                formatter={(v: unknown, _name: unknown, item: unknown) => {
+                  const payload = (item as { payload?: { respondidas?: number; esperadas?: number; consultorios?: number } } | undefined)?.payload;
+                  const respondidas = Number(payload?.respondidas ?? 0).toLocaleString('es-MX');
+                  const esperadas = Number(payload?.esperadas ?? 0).toLocaleString('es-MX');
+                  const consultorios = Number(payload?.consultorios ?? 0).toLocaleString('es-MX');
+                  return [`${v}% | ${respondidas}/${esperadas} | ${consultorios} consultorios`, 'Llenado'];
+                }}
+                cursor={{ fill: '#F9FAFB' }}
+              />
+              <Bar dataKey="pct" fill="#A57F2C" radius={[0, 4, 4, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </ChartCard>
+      </div>
+    </div>
   );
 }
 

@@ -50,6 +50,50 @@ async function fetchBaseMeta(): Promise<{ cluesTotal: number; entidadesEsperadas
   };
 }
 
+async function fetchTableroAvanceTables(): Promise<{
+  tablaAvance: DataRow[];
+  tablaEntidades: DataRow[];
+  tablaUnidadesAvance: DataRow[];
+}> {
+  const ts = Date.now();
+  try {
+    const response = await fetch(`${import.meta.env.BASE_URL}informe--de-ang/data.js?_cb=${ts}`);
+    if (!response.ok) return { tablaAvance: [], tablaEntidades: [], tablaUnidadesAvance: [] };
+
+    const raw = (await response.text()).trim();
+    const prefix = 'window.DASHBOARD_DATA =';
+    if (!raw.startsWith(prefix)) return { tablaAvance: [], tablaEntidades: [], tablaUnidadesAvance: [] };
+
+    const jsonText = raw.slice(prefix.length).trim().replace(/;\s*$/, '');
+    const parsed = JSON.parse(jsonText) as {
+      tables?: {
+        tabla_avance?: { rows?: Record<string, unknown>[] };
+        tabla_entidades?: { rows?: Record<string, unknown>[] };
+        tabla_unidades?: { rows?: Record<string, unknown>[] };
+      };
+    };
+
+    const toRows = (rows: unknown): DataRow[] => {
+      if (!Array.isArray(rows)) return [];
+      return rows.map((row) => {
+        const normalized: DataRow = {};
+        Object.entries((row as Record<string, unknown>) || {}).forEach(([key, value]) => {
+          normalized[key] = toCellValue(value);
+        });
+        return normalized;
+      });
+    };
+
+    return {
+      tablaAvance: toRows(parsed?.tables?.tabla_avance?.rows),
+      tablaEntidades: toRows(parsed?.tables?.tabla_entidades?.rows),
+      tablaUnidadesAvance: toRows(parsed?.tables?.tabla_unidades?.rows),
+    };
+  } catch {
+    return { tablaAvance: [], tablaEntidades: [], tablaUnidadesAvance: [] };
+  }
+}
+
 function toCellValue(value: unknown): CellValue {
   if (typeof value === 'number' && Number.isNaN(value)) return 0;
   if (value === null || value === undefined || value === '') return null;
@@ -76,23 +120,38 @@ async function fetchDataRows(filename: string): Promise<DataRow[]> {
 }
 
 export async function cargarTablasFormulario(): Promise<{ tablas: TablasFormulario; fetchedAt: Date }> {
-  const [baseClues, baseMeta, cluesGeo, resultado, resumen, resumenEntidad, faltantes] = await Promise.all([
+  const [
+    baseClues,
+    baseMeta,
+    cluesGeo,
+    baseAn,
+    resultado,
+    resumen,
+    resumenEntidad,
+    tableroAvanceTables,
+    faltantes,
+  ] = await Promise.all([
     fetchBaseClues(),
     fetchBaseMeta(),
     fetchCluesGeo(),
+    fetchDataRows('base_an.json'),
     fetchDataRows('resultado.json'),
     fetchDataRows('resumen.json'),
     fetchDataRows('resumen_entidad.json'),
+    fetchTableroAvanceTables(),
     fetchDataRows('faltantes.json'),
   ]);
 
   const tablas: TablasFormulario = {
     baseClues,
     baseMeta,
-    baseAn: [],
+    baseAn,
     resultado,
     resumen,
     resumenEntidad,
+    tablaAvance: tableroAvanceTables.tablaAvance,
+    tablaEntidades: tableroAvanceTables.tablaEntidades,
+    tablaUnidadesAvance: tableroAvanceTables.tablaUnidadesAvance,
     cluesGeo,
     faltantes,
   };

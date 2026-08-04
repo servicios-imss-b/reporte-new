@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Database, Building2, Layers3, AlertTriangle, LayoutGrid, Gauge, FileSearch } from 'lucide-react';
 import { Header } from './components/Header';
-import { Charts, StatCards } from './components/Charts';
+import { AvanceCharts, AvanceSummaryCards, StatCards } from './components/Charts';
 import { DataTable } from './components/DataTable';
 import { cargarTablasFormulario } from './data';
 import type { DashboardStats, DataRow, EntidadChart, InternetPieItem, TopFaltanteChart, CluesGeoItem } from './types';
@@ -12,6 +12,10 @@ type MainTabKey = 'infraestructura' | 'avance' | 'pendientes';
 function toText(value: unknown): string {
   if (value === null || value === undefined) return '';
   return String(value).trim();
+}
+
+function normalizeKey(value: unknown): string {
+  return toText(value).toUpperCase();
 }
 
 function toNumber(value: unknown): number {
@@ -130,6 +134,9 @@ export default function App() {
   const [resultado, setResultado] = useState<DataRow[]>([]);
   const [resumen, setResumen] = useState<DataRow[]>([]);
   const [resumenEntidad, setResumenEntidad] = useState<DataRow[]>([]);
+  const [tablaAvance, setTablaAvance] = useState<DataRow[]>([]);
+  const [tablaEntidades, setTablaEntidades] = useState<DataRow[]>([]);
+  const [tablaUnidadesAvance, setTablaUnidadesAvance] = useState<DataRow[]>([]);
   const [faltantes, setFaltantes] = useState<DataRow[]>([]);
   const [cluesGeo, setCluesGeo] = useState<CluesGeoItem[]>([]);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
@@ -145,6 +152,9 @@ export default function App() {
       setResultado(tablas.resultado);
       setResumen(tablas.resumen);
       setResumenEntidad(tablas.resumenEntidad);
+      setTablaAvance(tablas.tablaAvance);
+      setTablaEntidades(tablas.tablaEntidades);
+      setTablaUnidadesAvance(tablas.tablaUnidadesAvance);
       setFaltantes(
         tablas.faltantes.filter((row) => toText(row.entidad).toUpperCase() !== 'MEXICO')
       );
@@ -350,6 +360,103 @@ export default function App() {
     }));
   }, [porEntidad]);
 
+  const avancePorEntidad = useMemo(() => {
+    if (tablaAvance.length > 0) {
+      return tablaAvance
+        .map((row) => ({
+          entidad: toText(row.entidad),
+          totalUnidades: toNumber(row.total_unidades),
+          unidadesRespondieron: toNumber(row.unidades_respondieron),
+          porcentaje: toNumber(row.porcentaje),
+        }))
+        .filter((row) => row.entidad)
+        .sort((a, b) => b.porcentaje - a.porcentaje);
+    }
+
+    const esperadasByEntidad = new Map<string, { entidad: string; clues: Set<string> }>();
+    const respondidasByEntidad = new Map<string, { entidad: string; clues: Set<string> }>();
+
+    for (const row of baseAn) {
+      const tipoRegistro = toText(row.tipo_registro).toLowerCase();
+      if (tipoRegistro && tipoRegistro !== 'unidad') continue;
+
+      const entidad = toText(row.entidad);
+      const clues = toText(row.clues_imb || row.clues);
+      if (!entidad || !clues) continue;
+
+      const key = normalizeKey(entidad);
+      if (!esperadasByEntidad.has(key)) {
+        esperadasByEntidad.set(key, { entidad, clues: new Set<string>() });
+      }
+      esperadasByEntidad.get(key)?.clues.add(clues);
+    }
+
+    for (const row of resumen) {
+      const entidad = toText(row.entidad);
+      const clues = toText(row.clues_imb || row.clues);
+      if (!entidad || !clues) continue;
+
+      const key = normalizeKey(entidad);
+      if (!respondidasByEntidad.has(key)) {
+        respondidasByEntidad.set(key, { entidad, clues: new Set<string>() });
+      }
+      respondidasByEntidad.get(key)?.clues.add(clues);
+    }
+
+    const allKeys = new Set<string>([
+      ...Array.from(esperadasByEntidad.keys()),
+      ...Array.from(respondidasByEntidad.keys()),
+    ]);
+
+    return Array.from(allKeys).map((key) => {
+      const expected = esperadasByEntidad.get(key);
+      const captured = respondidasByEntidad.get(key);
+      const totalUnidades = expected?.clues.size ?? 0;
+      const unidadesRespondieronRaw = captured?.clues.size ?? 0;
+      const unidadesRespondieron = Math.min(unidadesRespondieronRaw, totalUnidades || unidadesRespondieronRaw);
+
+      return {
+        entidad: captured?.entidad ?? expected?.entidad ?? key,
+        totalUnidades,
+        unidadesRespondieron,
+        porcentaje: totalUnidades > 0
+          ? +((unidadesRespondieron / totalUnidades) * 100).toFixed(1)
+          : 0,
+      };
+    }).sort((a, b) => b.porcentaje - a.porcentaje);
+  }, [baseAn, resumen, tablaAvance]);
+
+  const avanceSummary = useMemo(() => {
+    const totalEstados = tablaAvance.length;
+    const estadosConRegistro = tablaAvance.reduce((sum, row) => sum + (toNumber(row.unidades_respondieron) > 0 ? 1 : 0), 0);
+    const totalUnidades = tablaAvance.reduce((sum, row) => sum + toNumber(row.total_unidades), 0);
+    const unidadesConRegistro = tablaAvance.reduce((sum, row) => sum + toNumber(row.unidades_respondieron), 0);
+
+    const unidadesCompletas = tablaUnidadesAvance.reduce(
+      (sum, row) => sum + (toNumber(row.porcentaje) >= 100 ? 1 : 0),
+      0,
+    );
+
+    const entidadesAl100 = tablaAvance.reduce(
+      (sum, row) => sum + (toNumber(row.porcentaje) >= 100 ? 1 : 0),
+      0,
+    );
+
+    const pctEntidades = totalEstados > 0 ? (entidadesAl100 / totalEstados) * 100 : 0;
+    const pctUnidadesCompletas = totalUnidades > 0 ? (unidadesCompletas / totalUnidades) * 100 : 0;
+
+    return {
+      unidadesConRegistro,
+      totalUnidades,
+      estadosConRegistro,
+      totalEstados,
+      pctEntidades,
+      entidadesAl100,
+      unidadesCompletas,
+      pctUnidadesCompletas,
+    };
+  }, [tablaAvance, tablaUnidadesAvance]);
+
   const pendingSummary = useMemo(() => {
     const cluesSet = new Set<string>();
     const entidadSet = new Set<string>();
@@ -377,9 +484,38 @@ export default function App() {
     { key: 'pendientes', label: 'Informe de clues pendientes', icon: FileSearch },
   ];
 
+  const headerContent = useMemo(() => {
+    if (mainTab === 'avance') {
+      return {
+        eyebrow: 'Panel de Seguimiento',
+        title: 'Tablero de Avance',
+        subtitle: 'Visualiza indicadores, gráficas y tablas de avance por entidad y unidad.',
+      };
+    }
+
+    if (mainTab === 'pendientes') {
+      return {
+        eyebrow: 'Panel de Seguimiento',
+        title: 'Informe de CLUES Pendientes',
+        subtitle: 'Consulta el seguimiento de unidades y registros pendientes por completar.',
+      };
+    }
+
+    return {
+      eyebrow: 'Panel Principal',
+      title: 'Reporte de Infraestructura y Materiales Hospitalarios',
+      subtitle: 'Consulta, visualiza y exporta la base cruda y sus agregados por CLUES y por Estado.',
+    };
+  }, [mainTab]);
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header onLogoClick={handleLogoClick} />
+      <Header
+        onLogoClick={handleLogoClick}
+        eyebrow={headerContent.eyebrow}
+        title={headerContent.title}
+        subtitle={headerContent.subtitle}
+      />
 
       <main className="mx-auto max-w-7xl space-y-8 px-4 py-8 sm:px-6 lg:px-8">
         {loading ? (
@@ -410,6 +546,8 @@ export default function App() {
 
               {mainTab === 'avance' && (
                 <div className="space-y-4">
+                  <AvanceSummaryCards summary={avanceSummary} />
+
                   <div className="card overflow-hidden p-0">
                     <iframe
                       title="Tablero de avance"
@@ -417,6 +555,13 @@ export default function App() {
                       className="h-[82vh] w-full border-0"
                     />
                   </div>
+
+                  <AvanceCharts
+                    porEntidad={porEntidad}
+                    globalPct={stats.pctLlenado}
+                    avancePorEntidad={avancePorEntidad}
+                    tablaEntidades={tablaEntidades}
+                  />
 
                   <div className="space-y-4">
                     <div className="flex flex-wrap gap-2">

@@ -161,10 +161,10 @@ body {
   border-radius: 16px;
   padding: 1rem;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
-  animation: rise .35s ease;
 }
 
 .panel.active { display: block; }
+.panel.panel-enter { animation: rise .35s ease; }
 
 .grid {
   display: grid;
@@ -181,6 +181,8 @@ body {
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
 }
+
+.chart-card.card-enter { animation: rise .4s ease; }
 
 .chart {
   width: 100%;

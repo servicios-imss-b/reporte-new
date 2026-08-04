@@ -199,10 +199,21 @@ function activatePanel(panelId, button) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   const panel = document.getElementById(panelId);
-  if (panel) panel.classList.add('active');
+  if (panel) {
+    panel.classList.add('active');
+    panel.classList.remove('panel-enter');
+    // Forzar reflow para reiniciar animacion al cambiar pestana.
+    void panel.offsetWidth;
+    panel.classList.add('panel-enter');
+  }
   if (button) button.classList.add('active');
 
   if (panelId === 'panel-graficas') {
+    document.querySelectorAll('.chart-card').forEach((card) => {
+      card.classList.remove('card-enter');
+      void card.offsetWidth;
+      card.classList.add('card-enter');
+    });
     setTimeout(() => {
       document.querySelectorAll('.chart').forEach(el => Plotly.Plots.resize(el));
     }, 120);
@@ -312,6 +323,15 @@ function getRankColor(index, total) {
 function applyDashboardTheme(figure, figureId = '') {
   const themed = JSON.parse(JSON.stringify(figure || {}));
   const baseLayout = themed.layout || {};
+  const avanceRows = data.tables?.tabla_avance?.rows || [];
+  const entidadesRows = data.tables?.tabla_entidades?.rows || [];
+
+  const pctByEntidadAvance = new Map(
+    avanceRows.map((r) => [String(r.entidad || '').trim().toUpperCase(), Number(r.porcentaje || 0)])
+  );
+  const pctByEntidadEntidades = new Map(
+    entidadesRows.map((r) => [String(r.entidad || '').trim().toUpperCase(), Number(r.porcentaje || 0)])
+  );
 
   themed.layout = {
     ...baseLayout,
@@ -392,9 +412,31 @@ function applyDashboardTheme(figure, figureId = '') {
     const next = { ...trace };
     const color = DASHBOARD_COLORWAY[idx % DASHBOARD_COLORWAY.length];
 
+    const parseNumeric = (raw) => {
+      if (typeof raw === 'number') return Number.isFinite(raw) ? raw : NaN;
+      const text = String(raw ?? '').trim();
+      if (!text) return NaN;
+      const normalized = text.replace(/[^\d.-]/g, '');
+      if (!normalized || normalized === '-' || normalized === '.' || normalized === '-.') {
+        return NaN;
+      }
+      const parsed = Number(normalized);
+      return Number.isFinite(parsed) ? parsed : NaN;
+    };
+
     const inferValuesForSemaforo = () => {
-      const vals = Array.isArray(next.y) ? next.y : Array.isArray(next.x) ? next.x : [];
-      return vals.map((v) => Number(v));
+      const yValues = Array.isArray(next.y)
+        ? next.y
+        : Array.isArray(next.y?._inputArray)
+          ? next.y._inputArray
+          : [];
+      const xValues = Array.isArray(next.x)
+        ? next.x
+        : Array.isArray(next.x?._inputArray)
+          ? next.x._inputArray
+          : [];
+      const vals = yValues.length ? yValues : xValues;
+      return vals.map((v) => parseNumeric(v));
     };
 
     const semaforoColorByValue = (v) => {
@@ -406,10 +448,32 @@ function applyDashboardTheme(figure, figureId = '') {
 
     if (next.type === 'bar') {
       const values = inferValuesForSemaforo();
-      const colorByBar = isPctStyleFigure
-        ? values.map((_, rank) => getRankColor(rank, values.length))
-        : values.some((v) => Number.isFinite(v))
-          ? values.map((v) => semaforoColorByValue(v))
+      const hasNumericValues = values.some((v) => Number.isFinite(v));
+      const textValues = Array.isArray(next.text) ? next.text.map((v) => parseNumeric(v)) : [];
+      const hasTextNumericValues = textValues.some((v) => Number.isFinite(v));
+      const semaforoBase = hasNumericValues ? values : textValues;
+
+      let semanticPctValues = [];
+      if (isPctStyleFigure && figureId === 'fig_avance' && Array.isArray(next.x)) {
+        semanticPctValues = next.x.map((entidad) => {
+          const key = String(entidad || '').trim().toUpperCase();
+          return Number(pctByEntidadAvance.get(key));
+        });
+      }
+      if (isPctStyleFigure && figureId === 'fig_cascada' && Array.isArray(next.y)) {
+        semanticPctValues = next.y.map((entidad) => {
+          const key = String(entidad || '').trim().toUpperCase();
+          return Number(pctByEntidadEntidades.get(key));
+        });
+      }
+      const hasSemanticPctValues = semanticPctValues.some((v) => Number.isFinite(v));
+
+      const colorByBar = hasSemanticPctValues
+        ? semanticPctValues.map((v) => semaforoColorByValue(v))
+        : (hasNumericValues || hasTextNumericValues)
+        ? semaforoBase.map((v) => semaforoColorByValue(v))
+        : isPctStyleFigure
+          ? values.map((_, rank) => getRankColor(rank, values.length))
           : color;
 
       const existingMarker = next.marker || {};
