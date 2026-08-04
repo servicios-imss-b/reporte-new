@@ -851,8 +851,11 @@ function MapModal({ onClose, porEntidad, cluesGeo = [] }: {
 function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
   const [query, setQuery] = useState('');
   const [selectedEntidad, setSelectedEntidad] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
+
+  const getCluesId = (row: DataRow): string => {
+    const clues = String(row.clues_imb ?? row.clues ?? '').trim();
+    return clues || 'Sin CLUES';
+  };
 
   const normalizeText = (value: string) =>
     value
@@ -908,7 +911,7 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
       if (selectedEntidad && entidad !== selectedEntidad) continue;
       if (!isZeroLike(row[selectedInsumoKey])) continue;
 
-      const clues = String(row.clues_imb ?? '').trim() || 'Sin CLUES';
+      const clues = getCluesId(row);
       const unidad = String(row.nombre_de_la_unidad ?? '').trim() || 'Sin nombre';
       const consultorio = String(row.consultorio ?? '').trim() || '-';
       const id = `${clues}::${consultorio}`;
@@ -924,60 +927,45 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
   const donutCoverage = useMemo(() => {
     if (!selectedInsumoKey) {
       return {
-        totalClues: 0,
-        cluesConInsumo: 0,
-        cluesSinInsumo: 0,
+        totalConsultorios: 0,
+        consultoriosConInsumo: 0,
+        consultoriosSinInsumo: 0,
         data: [] as Array<{ name: string; value: number; color: string }>,
       };
     }
 
-    const cluesHasInsumo = new Map<string, boolean>();
+    const consultorioFlags = new Map<string, { hasZero: boolean }>();
 
     for (const row of resultado) {
       const entidad = String(row.entidad ?? 'Sin entidad').trim() || 'Sin entidad';
       if (selectedEntidad && entidad !== selectedEntidad) continue;
 
-      const clues = String(row.clues_imb ?? '').trim();
-      if (!clues) continue;
+      const clues = getCluesId(row);
+      const consultorio = String(row.consultorio ?? '').trim() || '-';
+      const consultorioId = `${clues}::${consultorio}`;
 
-      const hasValue = !isZeroLike(row[selectedInsumoKey]);
-      const prev = cluesHasInsumo.get(clues) ?? false;
-      cluesHasInsumo.set(clues, prev || hasValue);
+      const hasZero = isZeroLike(row[selectedInsumoKey]);
+      const prev = consultorioFlags.get(consultorioId) ?? { hasZero: false };
+      consultorioFlags.set(consultorioId, { hasZero: prev.hasZero || hasZero });
     }
 
-    const totalClues = cluesHasInsumo.size;
-    let cluesConInsumo = 0;
-    cluesHasInsumo.forEach((hasInsumo) => {
-      if (hasInsumo) cluesConInsumo += 1;
+    const totalConsultorios = consultorioFlags.size;
+    let consultoriosSinInsumo = 0;
+    consultorioFlags.forEach((flags) => {
+      if (flags.hasZero) consultoriosSinInsumo += 1;
     });
-    const cluesSinInsumo = Math.max(0, totalClues - cluesConInsumo);
+    const consultoriosConInsumo = Math.max(0, totalConsultorios - consultoriosSinInsumo);
 
     return {
-      totalClues,
-      cluesConInsumo,
-      cluesSinInsumo,
+      totalConsultorios,
+      consultoriosConInsumo,
+      consultoriosSinInsumo,
       data: [
-        { name: 'CLUES que si tienen', value: cluesConInsumo, color: '#1A6B5E' },
-        { name: 'CLUES que no tienen', value: cluesSinInsumo, color: '#A57F2C' },
+        { name: 'Consultorios que si tienen', value: consultoriosConInsumo, color: '#1A6B5E' },
+        { name: 'Consultorios que no tienen', value: consultoriosSinInsumo, color: '#A57F2C' },
       ],
     };
   }, [resultado, selectedEntidad, selectedInsumoKey]);
-
-  const totalPages = Math.max(1, Math.ceil(unidadesConCero.length / pageSize));
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [query, selectedEntidad, selectedInsumoKey]);
-
-  useEffect(() => {
-    if (currentPage > totalPages) {
-      setCurrentPage(totalPages);
-    }
-  }, [currentPage, totalPages]);
-
-  const start = (currentPage - 1) * pageSize;
-  const end = start + pageSize;
-  const rowsToShow = unidadesConCero.slice(start, end);
 
   const handleExport = () => {
     if (!selectedInsumoKey || unidadesConCero.length === 0) return;
@@ -1047,7 +1035,7 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
           <p className="text-xs text-gray-600">
             Insumo: <span className="font-semibold text-gray-800">{formatInsumoName(selectedInsumoKey)}</span> ·
             entidad: <span className="font-semibold text-gray-800">{selectedEntidad || 'Todas'}</span> ·
-            unidades con 0: <span className="font-semibold text-rose-700">{unidadesConCero.length.toLocaleString('es-MX')}</span>
+            consultorios con al menos un 0: <span className="font-semibold text-rose-700">{donutCoverage.consultoriosSinInsumo.toLocaleString('es-MX')}</span>
           </p>
         )}
       </div>
@@ -1067,48 +1055,76 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
       {selectedInsumoKey ? (
         <div className="mt-4 rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-4">
           <div className="mb-2">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Cobertura CLUES por insumo y estado</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Cobertura CLUES-consultorio por insumo y estado</p>
             <p className="text-sm font-bold text-gray-800">
               {formatInsumoName(selectedInsumoKey)} · {selectedEntidad || 'Todas las entidades'}
             </p>
           </div>
 
-          {donutCoverage.totalClues === 0 ? (
-            <p className="text-xs text-gray-500">No hay CLUES para el filtro seleccionado.</p>
+          {donutCoverage.totalConsultorios === 0 ? (
+            <p className="text-xs text-gray-500">No hay consultorios para el filtro seleccionado.</p>
           ) : (
-            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:items-center">
-              <div className="h-56">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center">
+              <div className="h-72 md:h-80">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
                       data={donutCoverage.data}
                       dataKey="value"
                       nameKey="name"
-                      innerRadius={62}
-                      outerRadius={92}
+                      innerRadius={84}
+                      outerRadius={130}
                       paddingAngle={2}
                     >
                       {donutCoverage.data.map((slice) => (
                         <Cell key={slice.name} fill={slice.color} />
                       ))}
                     </Pie>
-                    <Tooltip contentStyle={tooltipStyle} formatter={(v: unknown) => [formatTooltipNumber(v), 'CLUES']} />
+                    <Tooltip contentStyle={tooltipStyle} formatter={(v: unknown) => [formatTooltipNumber(v), 'Consultorios']} />
                     <Legend verticalAlign="bottom" height={26} wrapperStyle={{ fontSize: '11px', color: '#6B7280' }} />
                   </PieChart>
                 </ResponsiveContainer>
               </div>
 
-              <div className="space-y-3 text-sm">
-                <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-600">CLUES que si tienen</p>
-                  <p className="text-2xl font-black text-emerald-700">{donutCoverage.cluesConInsumo.toLocaleString('es-MX')}</p>
-                </div>
-                <div className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-amber-600">CLUES que no tienen</p>
-                  <p className="text-2xl font-black text-amber-700">{donutCoverage.cluesSinInsumo.toLocaleString('es-MX')}</p>
-                </div>
+              <div className="space-y-4">
+                <article className="group relative overflow-hidden rounded-2xl border border-emerald-200 bg-emerald-50 p-5 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg">
+                  <div className="absolute -right-4 -top-4 opacity-10 transition-transform duration-500 group-hover:scale-125 group-hover:opacity-20">
+                    <Layers3 className="h-20 w-20" />
+                  </div>
+                  <div className="relative mb-3 flex items-start justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110">
+                      <Layers3 className="h-5 w-5" strokeWidth={2.2} />
+                    </div>
+                  </div>
+                  <p className="relative mb-1 text-[10px] font-bold uppercase tracking-widest opacity-70">
+                    <span className="text-gray-500">CONSULTORIOS QUE SI TIENEN</span>
+                  </p>
+                  <p className="relative text-3xl font-black tabular-nums text-emerald-700">{donutCoverage.consultoriosConInsumo.toLocaleString('es-MX')}</p>
+                  <p className="mt-1 text-xs font-medium text-gray-500">
+                    {donutCoverage.consultoriosConInsumo.toLocaleString('es-MX')} de {donutCoverage.totalConsultorios.toLocaleString('es-MX')}
+                  </p>
+                </article>
+
+                <article className="group relative overflow-hidden rounded-2xl border border-amber-200 bg-amber-50 p-5 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg">
+                  <div className="absolute -right-4 -top-4 opacity-10 transition-transform duration-500 group-hover:scale-125 group-hover:opacity-20">
+                    <Building2 className="h-20 w-20" />
+                  </div>
+                  <div className="relative mb-3 flex items-start justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-600 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110">
+                      <Building2 className="h-5 w-5" strokeWidth={2.2} />
+                    </div>
+                  </div>
+                  <p className="relative mb-1 text-[10px] font-bold uppercase tracking-widest opacity-70">
+                    <span className="text-gray-500">CONSULTORIOS QUE NO TIENEN</span>
+                  </p>
+                  <p className="relative text-3xl font-black tabular-nums text-amber-700">{donutCoverage.consultoriosSinInsumo.toLocaleString('es-MX')}</p>
+                  <p className="mt-1 text-xs font-medium text-gray-500">
+                    {donutCoverage.consultoriosSinInsumo.toLocaleString('es-MX')} de {donutCoverage.totalConsultorios.toLocaleString('es-MX')}
+                  </p>
+                </article>
+
                 <p className="text-xs text-gray-500">
-                  Total CLUES consideradas: <span className="font-semibold text-gray-700">{donutCoverage.totalClues.toLocaleString('es-MX')}</span>
+                  Total consultorios considerados: <span className="font-semibold text-gray-700">{donutCoverage.totalConsultorios.toLocaleString('es-MX')}</span>
                 </p>
               </div>
             </div>
@@ -1116,58 +1132,6 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
         </div>
       ) : null}
 
-      {selectedInsumoKey && rowsToShow.length > 0 ? (
-        <div className="mt-4 overflow-auto rounded-xl border border-gray-200">
-          <table className="min-w-full text-xs">
-            <thead className="bg-gray-50 text-gray-500">
-              <tr>
-                <th className="px-3 py-2 text-left font-semibold">Entidad</th>
-                <th className="px-3 py-2 text-left font-semibold">CLUES</th>
-                <th className="px-3 py-2 text-left font-semibold">Unidad</th>
-                <th className="px-3 py-2 text-left font-semibold">Consultorio</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rowsToShow.map((row, idx) => (
-                <tr key={`${row.clues}-${row.consultorio}-${idx}`} className="border-t border-gray-100">
-                  <td className="px-3 py-2 text-gray-700">{row.entidad}</td>
-                  <td className="px-3 py-2 font-mono text-gray-700">{row.clues}</td>
-                  <td className="px-3 py-2 text-gray-700">{row.unidad}</td>
-                  <td className="px-3 py-2 text-gray-700">{row.consultorio}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ) : null}
-
-      {selectedInsumoKey && unidadesConCero.length > rowsToShow.length ? (
-        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs text-gray-500">
-          <p>
-            Mostrando {(start + 1).toLocaleString('es-MX')}
-            -{Math.min(end, unidadesConCero.length).toLocaleString('es-MX')} de {unidadesConCero.length.toLocaleString('es-MX')} resultados.
-          </p>
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-              disabled={currentPage <= 1}
-              className="rounded-lg border border-gray-200 px-2.5 py-1 font-medium text-gray-600 transition enabled:hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              Anterior
-            </button>
-            <span className="font-semibold text-gray-700">{currentPage}/{totalPages}</span>
-            <button
-              type="button"
-              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-              disabled={currentPage >= totalPages}
-              className="rounded-lg border border-gray-200 px-2.5 py-1 font-medium text-gray-600 transition enabled:hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              Siguiente
-            </button>
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 }
