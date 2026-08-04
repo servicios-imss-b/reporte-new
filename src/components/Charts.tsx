@@ -1337,9 +1337,8 @@ export function StatCards({
 
   const values: Record<StatKey, { value: number; expected?: number; helper?: string }> = {
     insumosConRegistro: {
-      value: consultorioCoverage.consultoriosLevantados,
-      expected: consultorioCoverage.totalConsultorios,
-      helper: `${consultorioCoverage.entidadesConConsultorios.toLocaleString('es-MX')} entidades · promedio ${consultorioCoverage.promedioConsultoriosPorEntidad.toFixed(1)} consultorios por entidad`,
+      value: consultorioCoverage.totalConsultorios,
+      helper: 'Total de consultorios',
     },
     entidadesCapturadas: { value: stats.entidadesCapturadas, expected: stats.baseEntidadesEsperadas },
     promedioCerosPorConsultorio: {
