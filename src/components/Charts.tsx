@@ -853,8 +853,24 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
   const [selectedEntidad, setSelectedEntidad] = useState('');
 
   const getCluesId = (row: DataRow): string => {
-    const clues = String(row.clues_imb ?? row.clues ?? '').trim();
+    const clues = String(row.clues_imb || row.clues || '').trim();
     return clues || 'Sin CLUES';
+  };
+
+  const getConsultorioId = (row: DataRow): string => {
+    const clues = getCluesId(row);
+    const rawConsultorio = row.consultorio;
+    const numericConsultorio = Number(rawConsultorio);
+    const consultorio = Number.isNaN(numericConsultorio)
+      ? String(rawConsultorio ?? '').trim() || '-'
+      : String(numericConsultorio);
+
+    return `${clues}::${consultorio}`;
+  };
+
+  const isConsultorioLlenado = (row: DataRow): boolean => {
+    const value = Number(row.consultorio ?? 0);
+    return !Number.isNaN(value) && value > 0;
   };
 
   const normalizeText = (value: string) =>
@@ -907,6 +923,8 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
     const seen = new Set<string>();
 
     for (const row of resultado) {
+      if (!isConsultorioLlenado(row)) continue;
+
       const entidad = String(row.entidad ?? 'Sin entidad').trim() || 'Sin entidad';
       if (selectedEntidad && entidad !== selectedEntidad) continue;
       if (!isZeroLike(row[selectedInsumoKey])) continue;
@@ -914,7 +932,7 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
       const clues = getCluesId(row);
       const unidad = String(row.nombre_de_la_unidad ?? '').trim() || 'Sin nombre';
       const consultorio = String(row.consultorio ?? '').trim() || '-';
-      const id = `${clues}::${consultorio}`;
+      const id = getConsultorioId(row);
 
       if (seen.has(id)) continue;
       seen.add(id);
@@ -937,12 +955,13 @@ function InsumoZeroFinder({ resultado = [] }: { resultado?: DataRow[] }) {
     const consultorioFlags = new Map<string, { hasZero: boolean }>();
 
     for (const row of resultado) {
+      if (!isConsultorioLlenado(row)) continue;
+
       const entidad = String(row.entidad ?? 'Sin entidad').trim() || 'Sin entidad';
       if (selectedEntidad && entidad !== selectedEntidad) continue;
 
       const clues = getCluesId(row);
-      const consultorio = String(row.consultorio ?? '').trim() || '-';
-      const consultorioId = `${clues}::${consultorio}`;
+      const consultorioId = getConsultorioId(row);
 
       const hasZero = isZeroLike(row[selectedInsumoKey]);
       const prev = consultorioFlags.get(consultorioId) ?? { hasZero: false };

@@ -32,6 +32,13 @@ function isMissingValue(value: unknown): boolean {
   return text === '' || text === 'false' || text === 'no' || text === '0' || text === 'nan';
 }
 
+function isZeroValue(value: unknown): boolean {
+  if (value === null || value === undefined || value === '' || value === false) return true;
+  if (typeof value === 'number') return value <= 0;
+  const text = toText(value).toLowerCase();
+  return text === '' || text === '0' || text === '0.0' || text === 'false' || text === 'no' || text === 'nan';
+}
+
 function excelSerialToDate(serial: number): Date {
   // Excel epoch: Dec 30, 1899 = day 0; JS epoch: Jan 1, 1970 = day 25569
   return new Date((serial - 25569) * 86400 * 1000);
@@ -235,24 +242,33 @@ export default function App() {
 
     if (!resultado.length) return [];
 
-    const counts = new Map<string, number>();
+    const consultoriosLlenados = resultado.filter((row) => toNumber(row.consultorio) > 0);
+    const consultorioId = (row: DataRow) => {
+      const clues = toText(row.clues_imb || row.clues) || 'Sin CLUES';
+      const consultorio = toText(row.consultorio) || '-';
+      return `${clues}::${consultorio}`;
+    };
 
-    for (const row of resultado) {
+    const countsByItem = new Map<string, Set<string>>();
+
+    for (const row of consultoriosLlenados) {
+      const id = consultorioId(row);
       for (const [key, value] of Object.entries(row)) {
         if (fixedCols.has(key)) continue;
-        if (isMissingValue(value)) {
-          counts.set(key, (counts.get(key) ?? 0) + 1);
+        if (isZeroValue(value)) {
+          if (!countsByItem.has(key)) countsByItem.set(key, new Set<string>());
+          countsByItem.get(key)?.add(id);
         }
       }
     }
 
-    const total = resultado.length;
+    const total = consultoriosLlenados.length;
 
-    return [...counts.entries()]
-      .map(([item, faltantes]) => ({
+    return [...countsByItem.entries()]
+      .map(([item, consultorios]) => ({
         item: item.replace(/_consultorio(_\d+)?$/i, '').replaceAll('_', ' ').trim(),
-        faltantes,
-        pct: total > 0 ? (faltantes / total) * 100 : 0,
+        faltantes: consultorios.size,
+        pct: total > 0 ? (consultorios.size / total) * 100 : 0,
       }))
       .sort((a, b) => b.faltantes - a.faltantes)
       .slice(0, 20);
