@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Database, Building2, Layers3, AlertTriangle } from 'lucide-react';
+import { Database, Building2, Layers3, AlertTriangle, LayoutGrid, Gauge, FileSearch } from 'lucide-react';
 import { Header } from './components/Header';
 import { Charts, StatCards } from './components/Charts';
 import { DataTable } from './components/DataTable';
 import { cargarTablasFormulario } from './data';
 import type { DashboardStats, DataRow, EntidadChart, InternetPieItem, TopFaltanteChart, CluesGeoItem } from './types';
 
-type TabKey = 'cruda' | 'clues' | 'estado' | 'faltantes';
+type DataTabKey = 'cruda' | 'clues' | 'estado' | 'faltantes';
+type MainTabKey = 'infraestructura' | 'avance' | 'pendientes';
 
 function toText(value: unknown): string {
   if (value === null || value === undefined) return '';
@@ -113,7 +114,9 @@ function formatCellValue(value: unknown, key?: string): string {
 }
 
 export default function App() {
-  const [tab, setTab] = useState<TabKey>('clues');
+  const [avanceEmbedVersion] = useState(() => Date.now());
+  const [mainTab, setMainTab] = useState<MainTabKey>('infraestructura');
+  const [dataTab, setDataTab] = useState<DataTabKey>('clues');
   const [crudaUnlocked, setCrudaUnlocked] = useState(false);
   const [logoClickCount, setLogoClickCount] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -328,14 +331,51 @@ export default function App() {
     });
   };
 
-  const allTabs: { key: TabKey; label: string; icon: typeof Database; count: number }[] = [
+  const allDataTabs: { key: DataTabKey; label: string; icon: typeof Database; count: number }[] = [
     { key: 'cruda', label: 'Base Cruda', icon: Database, count: baseAn.length },
     { key: 'clues', label: 'Por CLUES', icon: Building2, count: resultado.length },
     { key: 'estado', label: 'Por Estado', icon: Layers3, count: resumenEntidad.length },
     { key: 'faltantes', label: 'Faltantes', icon: AlertTriangle, count: faltantes.length },
   ];
 
-  const tabs = allTabs.filter(({ key }) => key !== 'cruda' || crudaUnlocked);
+  const dataTabs = allDataTabs.filter(({ key }) => key !== 'cruda' || crudaUnlocked);
+
+  const avanceRows = useMemo<DataRow[]>(() => {
+    return porEntidad.map((row) => ({
+      entidad: row.entidad,
+      unidades: row.unidades,
+      consultorios_habilitados: row.consultoriosHabilitados,
+      consultorios_levantados: row.consultoriosLevantados,
+      porcentaje_llenado: row.pctLlenado,
+    }));
+  }, [porEntidad]);
+
+  const pendingSummary = useMemo(() => {
+    const cluesSet = new Set<string>();
+    const entidadSet = new Set<string>();
+    const consultorioSet = new Set<string>();
+
+    for (const row of faltantes) {
+      const clues = toText(row.clues || row.clues_imb);
+      const entidad = toText(row.entidad);
+      const consultorio = `${toText(row.clues || row.clues_imb)}::${toText(row.consultorio)}`;
+      if (clues) cluesSet.add(clues);
+      if (entidad) entidadSet.add(entidad);
+      if (consultorio && consultorio !== '::') consultorioSet.add(consultorio);
+    }
+
+    return {
+      cluesUnicas: cluesSet.size,
+      entidades: entidadSet.size,
+      consultorios: consultorioSet.size,
+    };
+  }, [faltantes]);
+
+  const mainTabs: { key: MainTabKey; label: string; icon: typeof LayoutGrid }[] = [
+    { key: 'infraestructura', label: 'Infraestructura y Materiales', icon: LayoutGrid },
+    { key: 'avance', label: 'Tablero de avance', icon: Gauge },
+    { key: 'pendientes', label: 'Informe de clues pendientes', icon: FileSearch },
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -348,70 +388,103 @@ export default function App() {
           <div className="card border-imss-wine/30 bg-imss-wine/5 p-8 text-imss-wine">Error: {error}</div>
         ) : (
           <>
-            <StatCards stats={stats} internetPie={internetPie} porEntidad={porEntidad} topFaltantes={topFaltantes} cluesGeo={cluesGeo} resultado={resultado} />
-
             <div className="space-y-4">
               <div className="flex flex-wrap gap-2">
-                {tabs.map(({ key, label, icon: Icon, count }) => (
+                {mainTabs.map(({ key, label, icon: Icon }) => (
                   <button
                     key={key}
-                    onClick={() => setTab(key)}
+                    onClick={() => setMainTab(key)}
                     className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
-                      tab === key ? 'tab-active' : 'tab-inactive'
+                      mainTab === key ? 'tab-active' : 'tab-inactive'
                     }`}
                   >
                     <Icon className="h-4 w-4" />
                     {label}
-                    <span
-                      className={`ml-1 rounded-md px-1.5 py-0.5 text-xs tabular-nums ${
-                        tab === key ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-500'
-                      }`}
-                    >
-                      {count}
-                    </span>
                   </button>
                 ))}
               </div>
 
-              {tab === 'cruda' && (
-                <DataTable<DataRow>
-                  exportFileName="base_cruda"
-                  exportSheetName="Base Cruda"
-                  data={baseAn}
-                  columns={tableColumns(baseAn, false)}
-                  exportColumns={tableColumns(baseAn, true)}
-                />
+              {mainTab === 'infraestructura' && (
+                <StatCards stats={stats} internetPie={internetPie} porEntidad={porEntidad} topFaltantes={topFaltantes} cluesGeo={cluesGeo} resultado={resultado} />
               )}
 
-              {tab === 'clues' && (
-                <DataTable<DataRow>
-                  exportFileName="por_clues"
-                  exportSheetName="Por CLUES"
-                  data={resultado}
-                  columns={tableColumns(resultado, false)}
-                  exportColumns={tableColumns(resultado, true)}
-                />
+              {mainTab === 'avance' && (
+                <div className="space-y-4">
+                  <div className="card overflow-hidden p-0">
+                    <iframe
+                      title="Tablero de avance"
+                      src={`${import.meta.env.BASE_URL}informe--de-ang/index.html?v=${avanceEmbedVersion}`}
+                      className="h-[82vh] w-full border-0"
+                    />
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                      {dataTabs.map(({ key, label, icon: Icon, count }) => (
+                        <button
+                          key={key}
+                          onClick={() => setDataTab(key)}
+                          className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
+                            dataTab === key ? 'tab-active' : 'tab-inactive'
+                          }`}
+                        >
+                          <Icon className="h-4 w-4" />
+                          {label}
+                          <span
+                            className={`ml-1 rounded-md px-1.5 py-0.5 text-xs tabular-nums ${
+                              dataTab === key ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-500'
+                            }`}
+                          >
+                            {count}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {dataTab === 'cruda' && (
+                      <DataTable<DataRow>
+                        exportFileName="base_cruda"
+                        exportSheetName="Base Cruda"
+                        data={baseAn}
+                        columns={tableColumns(baseAn, false)}
+                        exportColumns={tableColumns(baseAn, true)}
+                      />
+                    )}
+
+                    {dataTab === 'clues' && (
+                      <DataTable<DataRow>
+                        exportFileName="por_clues"
+                        exportSheetName="Por CLUES"
+                        data={resultado}
+                        columns={tableColumns(resultado, false)}
+                        exportColumns={tableColumns(resultado, true)}
+                      />
+                    )}
+
+                    {dataTab === 'estado' && (
+                      <DataTable<DataRow>
+                        exportFileName="por_estado"
+                        exportSheetName="Por Estado"
+                        data={resumenEntidad}
+                        columns={tableColumns(resumenEntidad, false)}
+                        exportColumns={tableColumns(resumenEntidad, true)}
+                      />
+                    )}
+
+                    {dataTab === 'faltantes' && (
+                      <DataTable<DataRow>
+                        exportFileName="faltantes"
+                        exportSheetName="Faltantes"
+                        data={faltantes}
+                        columns={tableColumns(faltantes, false)}
+                        exportColumns={tableColumns(faltantes, true)}
+                      />
+                    )}
+                  </div>
+                </div>
               )}
 
-              {tab === 'estado' && (
-                <DataTable<DataRow>
-                  exportFileName="por_estado"
-                  exportSheetName="Por Estado"
-                  data={resumenEntidad}
-                  columns={tableColumns(resumenEntidad, false)}
-                  exportColumns={tableColumns(resumenEntidad, true)}
-                />
-              )}
-
-              {tab === 'faltantes' && (
-                <DataTable<DataRow>
-                  exportFileName="faltantes"
-                  exportSheetName="Faltantes"
-                  data={faltantes}
-                  columns={tableColumns(faltantes, false)}
-                  exportColumns={tableColumns(faltantes, true)}
-                />
-              )}
+              {mainTab === 'pendientes' && <div className="card min-h-[240px]" />}
             </div>
 
           </>
