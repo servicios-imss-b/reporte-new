@@ -1258,22 +1258,6 @@ export function StatCards({
 }: ChartsProps) {
   const [showMap, setShowMap] = useState(false);
 
-  const consultorioCoverage = useMemo(() => {
-    const entidadesConConsultorios = Math.max(1, stats.baseEntidadesEsperadas);
-    const totalConsultorios = porEntidad.reduce((sum, item) => sum + item.consultoriosHabilitados, 0);
-    const consultoriosLevantados = porEntidad.reduce((sum, item) => sum + item.consultoriosLevantados, 0);
-    const promedioConsultoriosPorEntidad = entidadesConConsultorios > 0
-      ? totalConsultorios / entidadesConConsultorios
-      : 0;
-
-    return {
-      entidadesConConsultorios,
-      totalConsultorios,
-      consultoriosLevantados,
-      promedioConsultoriosPorEntidad,
-    };
-  }, [porEntidad, stats.baseEntidadesEsperadas]);
-
   const infraestructuraMetrics = useMemo(() => {
     const consultorios = new Map<string, { hasZero: boolean; hasRegistro: boolean }>();
     let totalCeros = 0;
@@ -1337,7 +1321,7 @@ export function StatCards({
 
   const values: Record<StatKey, { value: number; expected?: number; helper?: string }> = {
     insumosConRegistro: {
-      value: consultorioCoverage.totalConsultorios,
+      value: stats.consultoriosTotales,
       helper: 'Total de consultorios',
     },
     entidadesCapturadas: { value: stats.entidadesCapturadas, expected: stats.baseEntidadesEsperadas },
