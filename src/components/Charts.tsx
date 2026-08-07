@@ -11,6 +11,7 @@ import {
   Pie,
   Cell,
   Legend,
+  LabelList,
   ComposedChart,
   Line,
 } from 'recharts';
@@ -321,7 +322,7 @@ function EstadosMenosInsumos({ resultado = [] }: { resultado?: DataRow[] }) {
         pctCero: item.total > 0 ? (item.cero / item.total) * 100 : 0,
         fill: ['#7F1D1D', '#991B1B', '#B91C1C', '#DC2626', '#EF4444', '#F97316', '#FB923C', '#F59E0B', '#FBBF24', '#FCD34D'][Math.min(i, 9)],
       }))
-      .sort((a, b) => b.cero - a.cero)
+      .sort((a, b) => (b.pctCero - a.pctCero) || (b.cero - a.cero))
       .slice(0, 10);
   }, [resultado]);
 
@@ -329,7 +330,7 @@ function EstadosMenosInsumos({ resultado = [] }: { resultado?: DataRow[] }) {
     <div className="space-y-3">
       <p className="text-xs text-gray-400">Estados con menos insumos (ordenados de menor a mayor cobertura)</p>
       <ResponsiveContainer width="100%" height={290}>
-        <BarChart data={data} layout="vertical" margin={{ top: 0, right: 48, left: 4, bottom: 0 }}>
+        <BarChart data={data} layout="vertical" margin={{ top: 0, right: 72, left: 4, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" horizontal={false} />
           <XAxis type="number" tick={{ fontSize: 11, fill: '#9CA3AF' }} />
           <YAxis type="category" dataKey="entidad" tick={{ fontSize: 10, fill: '#6B7280' }} width={120} />
@@ -349,6 +350,12 @@ function EstadosMenosInsumos({ resultado = [] }: { resultado?: DataRow[] }) {
             {data.map((entry, i) => (
               <Cell key={i} fill={entry.fill} />
             ))}
+            <LabelList
+              dataKey="pctCero"
+              position="right"
+              formatter={(value: number) => `${Number(value || 0).toFixed(1)}%`}
+              style={{ fill: '#7F1D1D', fontSize: 11, fontWeight: 700 }}
+            />
           </Bar>
         </BarChart>
       </ResponsiveContainer>
