@@ -398,8 +398,6 @@ export default function App() {
     { key: 'tabla_faltantes_por_estado', label: 'Tabla faltantes por estados', icon: FileSearch, count: faltantes.length },
   ];
 
-  const dataTabs = allDataTabs.filter(({ key }) => key !== 'cruda' || crudaUnlocked);
-
   const faltantesPorEstadoRows = useMemo<DataRow[]>(() => {
     const grouped = new Map<
       string,
@@ -657,12 +655,15 @@ export default function App() {
                     avancePorEntidad={avancePorEntidad}
                     tablaEntidades={tablaEntidades}
                   />
+                </div>
+              )}
 
-                  <div className="space-y-4">
-                    <div className="flex flex-wrap gap-2">
-                      {dataTabsWithCounts
-                        .filter(({ key }) => key !== 'cruda' || crudaUnlocked)
-                        .map(({ key, label, icon: Icon, count }) => (
+              {mainTab === 'pendientes' && (
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-2">
+                    {dataTabsWithCounts
+                      .filter(({ key }) => key !== 'cruda' || crudaUnlocked)
+                      .map(({ key, label, icon: Icon, count }) => (
                         <button
                           key={key}
                           onClick={() => setDataTab(key)}
@@ -681,8 +682,9 @@ export default function App() {
                           </span>
                         </button>
                       ))}
-                    </div>
+                  </div>
 
+                  <div className="space-y-4">
                     {dataTab === 'cruda' && (
                       <DataTable<DataRow>
                         exportFileName="base_cruda"
@@ -775,8 +777,6 @@ export default function App() {
                   </div>
                 </div>
               )}
-
-              {mainTab === 'pendientes' && <div className="card min-h-[240px]" />}
             </div>
 
           </>
