@@ -22,11 +22,12 @@ from io import StringIO
 
 # Esta es la hoja del formulario legado de infraestructura, no la hoja del
 # cuestionario directivo/regional configurada en apps-script/Code.gs.
+#-------------------------------google sheets---------------------------
 sheet_id = "1maRNGDuU9rEFWZLgMdhJS1waAnJxl6ENntm-nyD0tq8"
 gid = "1765182479"
 
 url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid={gid}"
-
+#------------------------------google sheets------------------------------
 # Descargar el CSV de respuestas del formulario legado a base_an.csv.
 response = requests.get(url, timeout=30)
 response.raise_for_status()
