@@ -1,6 +1,18 @@
+"""Genera las tablas y graficas del reporte legado de infraestructura.
+
+Este script no carga las preguntas ni las respuestas del nuevo cuestionario
+directivo/regional. Sus entradas son una hoja antigua de infraestructura,
+archivos locales de unidades y el catalogo institucional de CLUES. Sus salidas
+incluyen data.js para el dashboard, tablas Excel e index.html si hace falta.
+
+Para el cuestionario nuevo, revisar src/data/questions.ts y apps-script/Code.gs
+en el repositorio cuestionario-hospitales.
+"""
+
 import pandas as pd
 import os 
 usuario = os.getlogin() 
+# Fuentes locales del reporte legado; estas rutas dependen del equipo/usuario.
 base = pd.read_excel(fr"C:\Users\{usuario}\Downloads\nuevo-f\formulario-ang\bases\UnidadesIMB_CS!_v2.xlsx",sheet_name="Sheet 1")
 clues = pd.read_parquet(fr"C:\Users\{usuario}\IMSS-BIENESTAR\División de Procesamiento de información - Repositorio de Datos\CLUES\clues.parquet")
 import pandas as pd
@@ -8,12 +20,14 @@ import requests
 import pandas as pd
 from io import StringIO
 
+# Esta es la hoja del formulario legado de infraestructura, no la hoja del
+# cuestionario directivo/regional configurada en apps-script/Code.gs.
 sheet_id = "1maRNGDuU9rEFWZLgMdhJS1waAnJxl6ENntm-nyD0tq8"
 gid = "1765182479"
 
 url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid={gid}"
 
-# Descargar el archivo
+# Descargar el CSV de respuestas del formulario legado a base_an.csv.
 response = requests.get(url, timeout=30)
 response.raise_for_status()
 
@@ -457,6 +471,8 @@ import json
 from datetime import datetime
 from plotly.utils import PlotlyJSONEncoder
 
+# data.js lo consume reporte-new/src/data.ts; las tablas Excel se generan en
+# este directorio para descarga/uso institucional.
 base_dir = Path(__file__).resolve().parent
 salida_data = base_dir / "data.js"
 html_origen = base_dir / "reporte_interactivo.html"
