@@ -1,795 +1,553 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Database, Building2, Layers3, AlertTriangle, LayoutGrid, Gauge, FileSearch } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { BarChart3, Building2, ClipboardList, HelpCircle, Layers3, TableProperties, Users } from 'lucide-react';
 import { Header } from './components/Header';
-import { AvanceCharts, AvanceSummaryCards, StatCards } from './components/Charts';
+import { QuestionDistributionChart, ReportCharts } from './components/Charts';
 import { DataTable } from './components/DataTable';
-import { cargarTablasFormulario } from './data';
-import type { DashboardStats, DataRow, EntidadChart, InternetPieItem, TopFaltanteChart, CluesGeoItem } from './types';
+import { cargarReporte } from './data';
+import type { QuestionSummary, ReportData } from './types';
 
-type DataTabKey =
-  | 'cruda'
-  | 'clues'
-  | 'estado'
-  | 'faltantes'
-  | 'tabla_avance'
-  | 'tabla_entidades'
-  | 'tabla_unidades'
-  | 'faltantes_por_estado'
-  | 'tabla_faltantes_por_estado';
-type MainTabKey = 'infraestructura' | 'avance' | 'pendientes';
-
-function toText(value: unknown): string {
-  if (value === null || value === undefined) return '';
-  return String(value).trim();
-}
-
-function normalizeKey(value: unknown): string {
-  return toText(value).toUpperCase();
-}
-
-function toNumber(value: unknown): number {
-  const num = Number(value);
-  return Number.isNaN(num) ? 0 : num;
-}
-
-function isMissingValue(value: unknown): boolean {
-  if (value === null || value === undefined || value === '') return true;
-  if (typeof value === 'boolean') return value === false;
-  if (typeof value === 'number') return value <= 0;
-
-  const text = toText(value).toLowerCase();
-  return text === '' || text === 'false' || text === 'no' || text === '0' || text === 'nan';
-}
-
-function isZeroValue(value: unknown): boolean {
-  if (value === null || value === undefined || value === '' || value === false) return true;
-  if (typeof value === 'number') return value <= 0;
-  const text = toText(value).toLowerCase();
-  return text === '' || text === '0' || text === '0.0' || text === 'false' || text === 'no' || text === 'nan';
-}
-
-function normalizeInsumoLabel(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function excelSerialToDate(serial: number): Date {
-  // Excel epoch: Dec 30, 1899 = day 0; JS epoch: Jan 1, 1970 = day 25569
-  return new Date((serial - 25569) * 86400 * 1000);
-}
-
-function parseDateValue(value: unknown): Date | null {
-  if (value === null || value === undefined || value === '') return null;
-
-  if (typeof value === 'number') {
-    if (value > 25569 && value < 73050) {
-      const d = excelSerialToDate(value);
-      return Number.isNaN(d.getTime()) ? null : d;
-    }
-    return null;
-  }
-
-  const text = toText(value);
-  if (!text) return null;
-
-  const nativeDate = new Date(text);
-  if (!Number.isNaN(nativeDate.getTime())) return nativeDate;
-
-  const mxFormat = text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
-  if (!mxFormat) return null;
-
-  const day = Number(mxFormat[1]);
-  const month = Number(mxFormat[2]);
-  const year = Number(mxFormat[3]);
-  const hour = Number(mxFormat[4] ?? 0);
-  const minute = Number(mxFormat[5] ?? 0);
-  const second = Number(mxFormat[6] ?? 0);
-
-  const parsed = new Date(year, month - 1, day, hour, minute, second);
-  return Number.isNaN(parsed.getTime()) ? null : parsed;
-}
-
-function inferDataUpdatedAt(rows: DataRow[]): Date | null {
-  let latest: Date | null = null;
-
-  for (const row of rows) {
-    for (const [key, value] of Object.entries(row)) {
-      if (!/fecha/i.test(key)) continue;
-      const parsed = parseDateValue(value);
-      if (!parsed) continue;
-
-      if (!latest || parsed.getTime() > latest.getTime()) {
-        latest = parsed;
-      }
-    }
-  }
-
-  return latest;
-}
-
-function formatLastUpdateLabel(date: Date): string {
-  const months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = months[date.getMonth()];
-  const year = date.getFullYear();
-  const hour24 = date.getHours();
-  const hour12 = hour24 % 12 === 0 ? 12 : hour24 % 12;
-  const minute = String(date.getMinutes()).padStart(2, '0');
-  const ampm = hour24 >= 12 ? 'p.m.' : 'a.m.';
-  return `${day} ${month} ${year}, ${String(hour12).padStart(2, '0')}:${minute} ${ampm}`;
-}
-
-function formatCellValue(value: unknown, key?: string): string {
-  if (value === null || value === undefined || value === '') return '-';
-  if (typeof value === 'boolean') return value ? 'Si' : 'No';
-  if (typeof value === 'number') {
-    // Detecta serial de fecha Excel en columnas cuyo nombre contiene 'fecha'
-    if (key && /fecha/i.test(key) && value > 25569 && value < 73050) {
-      const d = excelSerialToDate(value);
-      const pad = (n: number) => String(n).padStart(2, '0');
-      return `${d.getDate()}/${pad(d.getMonth() + 1)}/${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
-    }
-    return Number.isInteger(value) ? String(value) : value.toFixed(2);
-  }
-
-  const text = String(value).trim();
-  if (text.toLowerCase() === 'true') return 'Si';
-  if (text.toLowerCase() === 'false') return 'No';
-  return text;
-}
+type MainTab = 'dashboard' | 'resumen' | 'bases';
+type BaseSection = 'estatal' | 'unidad';
+type BaseTab = 'calificacion' | 'formacion' | 'preguntas';
+type ReportTableRow = Record<string, string | number>;
 
 export default function App() {
-  const [mainTab, setMainTab] = useState<MainTabKey>('infraestructura');
-  const [dataTab, setDataTab] = useState<DataTabKey>('clues');
-  const [crudaUnlocked, setCrudaUnlocked] = useState(false);
-  const [logoClickCount, setLogoClickCount] = useState(0);
+  const [report, setReport] = useState<ReportData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [baseAn, setBaseAn] = useState<DataRow[]>([]);
-  const [baseClues, setBaseClues] = useState<string[]>([]);
-  const [baseMeta, setBaseMeta] = useState<{ cluesTotal: number; entidadesEsperadas: number }>({
-    cluesTotal: 0,
-    entidadesEsperadas: 0,
-  });
-  const [resultado, setResultado] = useState<DataRow[]>([]);
-  const [resumen, setResumen] = useState<DataRow[]>([]);
-  const [resumenEntidad, setResumenEntidad] = useState<DataRow[]>([]);
-  const [tablaAvance, setTablaAvance] = useState<DataRow[]>([]);
-  const [tablaEntidades, setTablaEntidades] = useState<DataRow[]>([]);
-  const [tablaUnidadesAvance, setTablaUnidadesAvance] = useState<DataRow[]>([]);
-  const [faltantes, setFaltantes] = useState<DataRow[]>([]);
-  const [cluesGeo, setCluesGeo] = useState<CluesGeoItem[]>([]);
-  const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
+  const [mainTab, setMainTab] = useState<MainTab>('dashboard');
+  const [dashboardTab, setDashboardTab] = useState<'general' | 'preguntas'>('general');
+  const [baseSection, setBaseSection] = useState<BaseSection>('estatal');
+  const [baseTab, setBaseTab] = useState<BaseTab>('calificacion');
+  const questionPivot = report ? buildQuestionPivot(report, baseSection) : { rows: [], columns: [] };
 
-  async function load() {
-    try {
-      setLoading(true);
-      setError(null);
-      const { tablas } = await cargarTablasFormulario();
-      setBaseClues(tablas.baseClues);
-      setBaseMeta(tablas.baseMeta);
-      setBaseAn(tablas.baseAn);
-      setResultado(tablas.resultado);
-      setResumen(tablas.resumen);
-      setResumenEntidad(tablas.resumenEntidad);
-      setTablaAvance(tablas.tablaAvance);
-      setTablaEntidades(tablas.tablaEntidades);
-      setTablaUnidadesAvance(tablas.tablaUnidadesAvance);
-      setFaltantes(
-        tablas.faltantes.filter((row) => toText(row.entidad).toUpperCase() !== 'MEXICO')
-      );
-      setCluesGeo(tablas.cluesGeo);
-
-      const updatedFromScript = parseDateValue(tablas.baseMeta.scriptLastRunAt);
-      setLastUpdate(updatedFromScript ?? inferDataUpdatedAt(tablas.baseAn));
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Ocurrio un error al cargar datos');
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => { load(); }, []);
-
-  const lastUpdateLabel = useMemo(() => {
-    if (!lastUpdate) return 'Sin actualizacion';
-    return formatLastUpdateLabel(lastUpdate);
-  }, [lastUpdate]);
-
-  const stats = useMemo<DashboardStats>(() => {
-    // baseAn ya no se usa — los datos vienen de resumen y resultado directamente
-    const cluesCapturadas = new Set<string>();
-    const entidadesCapturadas = new Set<string>();
-    const cluesConInternet = new Set<string>();
-
-    for (const row of resumen) {
-      const clues = toText(row.clues_imb);
-      const entidad = toText(row.entidad);
-      if (clues) cluesCapturadas.add(clues);
-      if (entidad) entidadesCapturadas.add(entidad);
-
-      const internet = toText(row.internet).toLowerCase();
-      if (clues && (internet === 'true' || internet === '1' || internet === 'si')) cluesConInternet.add(clues);
-    }
-
-    const denominadorClues = baseMeta.cluesTotal > 0 ? baseMeta.cluesTotal : baseClues.length;
-    const denominadorEntidades = baseMeta.entidadesEsperadas > 0 ? baseMeta.entidadesEsperadas : entidadesCapturadas.size;
-
-    return {
-      registrosBase: resumen.length,
-      registrosUnidad: resumen.length,
-      registrosRespuesta: resultado.length,
-      baseCluesEsperadas: denominadorClues,
-      baseEntidadesEsperadas: denominadorEntidades,
-      cluesCapturadas: cluesCapturadas.size,
-      entidadesCapturadas: entidadesCapturadas.size,
-      unidadesInternet: cluesConInternet.size,
-      consultoriosTotales: resumen.reduce((s, r) => s + toNumber(r.consultorio), 0),
-      pctLlenado: (() => {
-        const FIXED = new Set(['entidad', 'clues_imb', 'nombre_de_la_unidad', 'internet', 'consultorios_habilitados', 'consultorio', 'turno_consultorio', 'latitud', 'longitud']);
-        let filled = 0, total = 0;
-        for (const row of resultado) {
-          for (const [key, value] of Object.entries(row)) {
-            if (FIXED.has(key)) continue;
-            total++;
-            if (value !== null && value !== undefined && value !== '' && value !== 0 && value !== false) filled++;
-          }
-        }
-        return total > 0 ? +(filled / total * 100).toFixed(1) : 0;
-      })(),
-    };
-  }, [baseClues, baseMeta, resultado, resumen]);
-
-  const topFaltantes = useMemo<TopFaltanteChart[]>(() => {
-    const fixedCols = new Set([
-      'entidad',
-      'clues_imb',
-      'nombre_de_la_unidad',
-      'internet',
-      'consultorios_habilitados',
-      'consultorio',
-      'turno_consultorio',
-      'latitud',
-      'longitud',
-    ]);
-
-    if (!resultado.length) return [];
-
-    const consultoriosLlenados = resultado.filter((row) => toNumber(row.consultorio) > 0);
-    const consultorioId = (row: DataRow) => {
-      const clues = toText(row.clues_imb || row.clues) || 'Sin CLUES';
-      const consultorio = toText(row.consultorio) || '-';
-      return `${clues}::${consultorio}`;
-    };
-
-    const countsByItem = new Map<string, Set<string>>();
-
-    for (const row of consultoriosLlenados) {
-      const id = consultorioId(row);
-      for (const [key, value] of Object.entries(row)) {
-        if (fixedCols.has(key)) continue;
-        if (isZeroValue(value)) {
-          if (!countsByItem.has(key)) countsByItem.set(key, new Set<string>());
-          countsByItem.get(key)?.add(id);
-        }
-      }
-    }
-
-    const total = consultoriosLlenados.length;
-
-    const selectedKeyByLabel = new Map<string, string>();
-    const sortedKeys = [...countsByItem.keys()].sort((a, b) => a.localeCompare(b, 'es'));
-
-    for (const key of sortedKeys) {
-      const label = key.replace(/_consultorio(_\d+)?$/i, '').replaceAll('_', ' ').trim();
-      const normalized = normalizeInsumoLabel(label);
-      if (!selectedKeyByLabel.has(normalized)) {
-        selectedKeyByLabel.set(normalized, key);
-      }
-    }
-
-    return [...selectedKeyByLabel.values()]
-      .map((itemKey) => {
-        const consultorios = countsByItem.get(itemKey) ?? new Set<string>();
-        return {
-          item: itemKey.replace(/_consultorio(_\d+)?$/i, '').replaceAll('_', ' ').trim(),
-          faltantes: consultorios.size,
-          pct: total > 0 ? (consultorios.size / total) * 100 : 0,
-        };
+  useEffect(() => {
+    cargarReporte()
+      .then(setReport)
+      .catch((err: unknown) => {
+        setError(err instanceof Error ? err.message : 'No se pudo cargar el reporte.');
       })
-      .sort((a, b) => b.faltantes - a.faltantes)
-      .slice(0, 20);
-  }, [resultado]);
-
-  const internetPie = useMemo<InternetPieItem[]>(() => {
-    const conInternet = stats.unidadesInternet;
-    // Referente a las unidades capturadas (506), no al total esperado
-    const sinInternet = Math.max(0, stats.cluesCapturadas - conInternet);
-    return [
-      { name: 'Con Internet', value: conInternet },
-      { name: 'Sin Internet', value: sinInternet },
-    ];
-  }, [stats]);
-
-  const porEntidad = useMemo<EntidadChart[]>(() => {
-    const FIXED_COLS = new Set(['entidad', 'clues_imb', 'nombre_de_la_unidad', 'internet', 'consultorios_habilitados', 'consultorio', 'turno_consultorio']);
-
-    const map = new Map<string, EntidadChart & { _filledSum: number; _totalSum: number }>();
-
-    for (const row of resumen) {
-      const entidad = toText(row.entidad) || 'Sin entidad';
-      if (!map.has(entidad)) {
-        map.set(entidad, {
-          entidad,
-          unidades: 0,
-          consultoriosHabilitados: 0,
-          consultoriosLevantados: 0,
-          pctLlenado: 0,
-          _filledSum: 0,
-          _totalSum: 0,
-        });
-      }
-
-      const agg = map.get(entidad);
-      if (!agg) continue;
-
-      agg.unidades += 1;
-      agg.consultoriosHabilitados += toNumber(row.consultorios_habilitados);
-      agg.consultoriosLevantados += toNumber(row.consultorio);
-    }
-
-    for (const row of resultado) {
-      const entidad = toText(row.entidad) || 'Sin entidad';
-      const agg = map.get(entidad);
-      if (!agg) continue;
-
-      for (const [key, value] of Object.entries(row)) {
-        if (FIXED_COLS.has(key)) continue;
-        agg._totalSum += 1;
-        if (value !== null && value !== undefined && value !== '' && value !== 0 && value !== false) {
-          agg._filledSum += 1;
-        }
-      }
-    }
-
-    return [...map.values()]
-      .map(({ _filledSum, _totalSum, ...rest }) => ({
-        ...rest,
-        pctLlenado: rest.entidad.trim().toUpperCase() === 'MEXICO'
-          ? 100
-          : (_totalSum > 0 ? +(_filledSum / _totalSum * 100).toFixed(1) : 0),
-      }))
-      .sort((a, b) => b.unidades - a.unidades);
-  }, [resumen, resultado]);
-
-  const tableColumns = (rows: DataRow[], includeFechaRegistro = true) => {
-    if (!rows.length) return [];
-    return Object.keys(rows[0])
-      .filter((key) => includeFechaRegistro || key !== 'fecha_registro')
-      .map((key) => ({
-      key,
-      label: key,
-      render: (row: DataRow) => formatCellValue(row[key], key),
-      }));
-  };
-
-  const handleLogoClick = () => {
-    setLogoClickCount((prev) => {
-      const next = prev + 1;
-      if (next >= 6) {
-        setCrudaUnlocked(true);
-        return 0;
-      }
-      return next;
-    });
-  };
-
-  const allDataTabs: { key: DataTabKey; label: string; icon: typeof Database; count: number }[] = [
-    { key: 'cruda', label: 'Base Cruda', icon: Database, count: baseAn.length },
-    { key: 'clues', label: 'Por CLUES', icon: Building2, count: resultado.length },
-    { key: 'estado', label: 'Por Estado', icon: Layers3, count: resumenEntidad.length },
-    { key: 'faltantes', label: 'Faltantes', icon: AlertTriangle, count: faltantes.length },
-    { key: 'tabla_avance', label: 'Tabla avance', icon: Gauge, count: tablaAvance.length },
-    { key: 'tabla_entidades', label: 'Tabla entidades', icon: Building2, count: tablaEntidades.length },
-    { key: 'tabla_unidades', label: 'Tabla unidades', icon: Layers3, count: tablaUnidadesAvance.length },
-    { key: 'faltantes_por_estado', label: 'Faltantes por estados', icon: AlertTriangle, count: 0 },
-    { key: 'tabla_faltantes_por_estado', label: 'Tabla faltantes por estados', icon: FileSearch, count: faltantes.length },
-  ];
-
-  const faltantesPorEstadoRows = useMemo<DataRow[]>(() => {
-    const grouped = new Map<
-      string,
-      {
-        entidad: string;
-        filas: number;
-        clues: Set<string>;
-        consultorios: Set<string>;
-      }
-    >();
-
-    for (const row of faltantes) {
-      const entidad = toText(row.entidad) || 'Sin entidad';
-      const key = normalizeKey(entidad);
-      const clues = toText(row.clues || row.clues_imb);
-      const consultorioId = `${clues}::${toText(row.consultorio)}`;
-
-      if (!grouped.has(key)) {
-        grouped.set(key, {
-          entidad,
-          filas: 0,
-          clues: new Set<string>(),
-          consultorios: new Set<string>(),
-        });
-      }
-
-      const agg = grouped.get(key);
-      if (!agg) continue;
-
-      agg.filas += 1;
-      if (clues) agg.clues.add(clues);
-      if (consultorioId !== '::') agg.consultorios.add(consultorioId);
-    }
-
-    return Array.from(grouped.values())
-      .map((item) => ({
-        entidad: item.entidad,
-        faltantes: item.filas,
-        clues_unicas: item.clues.size,
-        consultorios_unicos: item.consultorios.size,
-      }))
-      .sort((a, b) => toNumber(b.faltantes) - toNumber(a.faltantes));
-  }, [faltantes]);
-
-  const dataTabsWithCounts = useMemo(
-    () => allDataTabs.map((tab) => (
-      tab.key === 'faltantes_por_estado'
-        ? { ...tab, count: faltantesPorEstadoRows.length }
-        : tab
-    )),
-    [allDataTabs, faltantesPorEstadoRows.length],
-  );
-
-  const avanceRows = useMemo<DataRow[]>(() => {
-    return porEntidad.map((row) => ({
-      entidad: row.entidad,
-      unidades: row.unidades,
-      consultorios_habilitados: row.consultoriosHabilitados,
-      consultorios_levantados: row.consultoriosLevantados,
-      porcentaje_llenado: row.pctLlenado,
-    }));
-  }, [porEntidad]);
-
-  const avancePorEntidad = useMemo(() => {
-    if (tablaAvance.length > 0) {
-      return tablaAvance
-        .map((row) => ({
-          entidad: toText(row.entidad),
-          totalUnidades: toNumber(row.total_unidades),
-          unidadesRespondieron: toNumber(row.unidades_respondieron),
-          porcentaje: toNumber(row.porcentaje),
-        }))
-        .filter((row) => row.entidad)
-        .sort((a, b) => b.porcentaje - a.porcentaje);
-    }
-
-    const esperadasByEntidad = new Map<string, { entidad: string; clues: Set<string> }>();
-    const respondidasByEntidad = new Map<string, { entidad: string; clues: Set<string> }>();
-
-    for (const row of baseAn) {
-      const tipoRegistro = toText(row.tipo_registro).toLowerCase();
-      if (tipoRegistro && tipoRegistro !== 'unidad') continue;
-
-      const entidad = toText(row.entidad);
-      const clues = toText(row.clues_imb || row.clues);
-      if (!entidad || !clues) continue;
-
-      const key = normalizeKey(entidad);
-      if (!esperadasByEntidad.has(key)) {
-        esperadasByEntidad.set(key, { entidad, clues: new Set<string>() });
-      }
-      esperadasByEntidad.get(key)?.clues.add(clues);
-    }
-
-    for (const row of resumen) {
-      const entidad = toText(row.entidad);
-      const clues = toText(row.clues_imb || row.clues);
-      if (!entidad || !clues) continue;
-
-      const key = normalizeKey(entidad);
-      if (!respondidasByEntidad.has(key)) {
-        respondidasByEntidad.set(key, { entidad, clues: new Set<string>() });
-      }
-      respondidasByEntidad.get(key)?.clues.add(clues);
-    }
-
-    const allKeys = new Set<string>([
-      ...Array.from(esperadasByEntidad.keys()),
-      ...Array.from(respondidasByEntidad.keys()),
-    ]);
-
-    return Array.from(allKeys).map((key) => {
-      const expected = esperadasByEntidad.get(key);
-      const captured = respondidasByEntidad.get(key);
-      const totalUnidades = expected?.clues.size ?? 0;
-      const unidadesRespondieronRaw = captured?.clues.size ?? 0;
-      const unidadesRespondieron = Math.min(unidadesRespondieronRaw, totalUnidades || unidadesRespondieronRaw);
-
-      return {
-        entidad: captured?.entidad ?? expected?.entidad ?? key,
-        totalUnidades,
-        unidadesRespondieron,
-        porcentaje: totalUnidades > 0
-          ? +((unidadesRespondieron / totalUnidades) * 100).toFixed(1)
-          : 0,
-      };
-    }).sort((a, b) => b.porcentaje - a.porcentaje);
-  }, [baseAn, resumen, tablaAvance]);
-
-  const avanceSummary = useMemo(() => {
-    const totalEstados = tablaAvance.length;
-    const estadosConRegistro = tablaAvance.reduce((sum, row) => sum + (toNumber(row.unidades_respondieron) > 0 ? 1 : 0), 0);
-    const totalUnidades = tablaAvance.reduce((sum, row) => sum + toNumber(row.total_unidades), 0);
-    const unidadesConRegistro = tablaAvance.reduce((sum, row) => sum + toNumber(row.unidades_respondieron), 0);
-
-    const unidadesCompletas = tablaUnidadesAvance.reduce(
-      (sum, row) => sum + (toNumber(row.porcentaje) >= 100 ? 1 : 0),
-      0,
-    );
-
-    const entidadesAl100 = tablaAvance.reduce(
-      (sum, row) => sum + (toNumber(row.porcentaje) >= 100 ? 1 : 0),
-      0,
-    );
-
-    const pctEntidades = totalEstados > 0 ? (entidadesAl100 / totalEstados) * 100 : 0;
-    const pctUnidadesCompletas = totalUnidades > 0 ? (unidadesCompletas / totalUnidades) * 100 : 0;
-
-    return {
-      unidadesConRegistro,
-      totalUnidades,
-      estadosConRegistro,
-      totalEstados,
-      pctEntidades,
-      entidadesAl100,
-      unidadesCompletas,
-      pctUnidadesCompletas,
-    };
-  }, [tablaAvance, tablaUnidadesAvance]);
-
-  const pendingSummary = useMemo(() => {
-    const cluesSet = new Set<string>();
-    const entidadSet = new Set<string>();
-    const consultorioSet = new Set<string>();
-
-    for (const row of faltantes) {
-      const clues = toText(row.clues || row.clues_imb);
-      const entidad = toText(row.entidad);
-      const consultorio = `${toText(row.clues || row.clues_imb)}::${toText(row.consultorio)}`;
-      if (clues) cluesSet.add(clues);
-      if (entidad) entidadSet.add(entidad);
-      if (consultorio && consultorio !== '::') consultorioSet.add(consultorio);
-    }
-
-    return {
-      cluesUnicas: cluesSet.size,
-      entidades: entidadSet.size,
-      consultorios: consultorioSet.size,
-    };
-  }, [faltantes]);
-
-  const mainTabs: { key: MainTabKey; label: string; icon: typeof LayoutGrid }[] = [
-    { key: 'infraestructura', label: 'Infraestructura y Materiales', icon: LayoutGrid },
-    { key: 'avance', label: 'Tablero de avance', icon: Gauge },
-    { key: 'pendientes', label: 'Informe de clues pendientes', icon: FileSearch },
-  ];
-
-  const headerContent = useMemo(() => {
-    if (mainTab === 'avance') {
-      return {
-        eyebrow: 'Panel de Seguimiento',
-        title: 'Tablero de Avance',
-        subtitle: 'Visualiza indicadores, gráficas y tablas de avance por entidad y unidad.',
-      };
-    }
-
-    if (mainTab === 'pendientes') {
-      return {
-        eyebrow: 'Panel de Seguimiento',
-        title: 'Informe de CLUES Pendientes',
-        subtitle: 'Consulta el seguimiento de unidades y registros pendientes por completar.',
-      };
-    }
-
-    return {
-      eyebrow: 'Panel Principal',
-      title: 'Reporte de Infraestructura y Materiales Hospitalarios',
-      subtitle: 'Consulta, visualiza y exporta la base cruda y sus agregados por CLUES y por Estado.',
-    };
-  }, [mainTab]);
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Header
-        onLogoClick={handleLogoClick}
-        eyebrow={headerContent.eyebrow}
-        title={headerContent.title}
-        subtitle={headerContent.subtitle}
+        eyebrow="Encuesta hospitalaria"
+        title="Reporte de situación hospitalaria"
+        subtitle="Resultados agregados por pregunta, CLUES y entidad. Las respuestas individuales no se muestran."
       />
 
-      <main className="mx-auto max-w-7xl space-y-8 px-4 py-8 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-7xl space-y-6 px-4 py-8 sm:px-6 lg:px-8">
         {loading ? (
-          <div className="card p-10 text-center text-gray-500">Cargando script y construyendo tablas...</div>
+          <div className="card p-10 text-center text-gray-500">Cargando respuestas de la encuesta...</div>
         ) : error ? (
-          <div className="card border-imss-wine/30 bg-imss-wine/5 p-8 text-imss-wine">Error: {error}</div>
-        ) : (
+          <div role="alert" className="card border-red-200 bg-red-50 p-6 text-red-800">{error}</div>
+        ) : report ? (
           <>
-            <div className="space-y-4">
-              <div className="flex flex-wrap gap-2">
-                {mainTabs.map(({ key, label, icon: Icon }) => (
-                  <button
-                    key={key}
-                    onClick={() => setMainTab(key)}
-                    className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
-                      mainTab === key ? 'tab-active' : 'tab-inactive'
-                    }`}
-                  >
-                    <Icon className="h-4 w-4" />
-                    {label}
-                  </button>
-                ))}
-              </div>
+            <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="Resumen general">
+              <SummaryCard icon={Users} label="Respuestas" value={report.totalResponses} tone="emerald" />
+              <SummaryCard icon={Building2} label="Entidades" value={report.entities.length} tone="gold" />
+              <SummaryCard icon={Building2} label="CLUES" value={report.cluesReports.length} tone="teal" />
+              <SummaryCard icon={ClipboardList} label="Preguntas con datos" value={report.questions.length} tone="teal" />
+            </section>
+            <nav className="flex flex-wrap gap-2 border-b border-gray-200 pb-4" aria-label="Secciones del reporte">
+              <MainTabButton
+                active={mainTab === 'dashboard'}
+                icon={BarChart3}
+                label="Tablero"
+                onClick={() => setMainTab('dashboard')}
+              />
+              <MainTabButton
+                active={mainTab === 'resumen'}
+                icon={HelpCircle}
+                label="Resumen"
+                onClick={() => setMainTab('resumen')}
+              />
+              <MainTabButton
+                active={mainTab === 'bases'}
+                icon={TableProperties}
+                label="Bases"
+                onClick={() => setMainTab('bases')}
+              />
+            </nav>
 
-              {mainTab === 'infraestructura' && (
-                <StatCards stats={stats} internetPie={internetPie} porEntidad={porEntidad} topFaltantes={topFaltantes} cluesGeo={cluesGeo} resultado={resultado} />
-              )}
-
-              {mainTab === 'avance' && (
-                <div className="space-y-4">
-                  <AvanceSummaryCards summary={avanceSummary} />
-
-                  <AvanceCharts
-                    porEntidad={porEntidad}
-                    globalPct={stats.pctLlenado}
-                    avancePorEntidad={avancePorEntidad}
-                    tablaEntidades={tablaEntidades}
-                  />
-                </div>
-              )}
-
-              {mainTab === 'pendientes' && (
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    {dataTabsWithCounts
-                      .filter(({ key }) => key !== 'cruda' || crudaUnlocked)
-                      .map(({ key, label, icon: Icon, count }) => (
-                        <button
-                          key={key}
-                          onClick={() => setDataTab(key)}
-                          className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
-                            dataTab === key ? 'tab-active' : 'tab-inactive'
-                          }`}
-                        >
-                          <Icon className="h-4 w-4" />
-                          {label}
-                          <span
-                            className={`ml-1 rounded-md px-1.5 py-0.5 text-xs tabular-nums ${
-                              dataTab === key ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-500'
-                            }`}
-                          >
-                            {count}
-                          </span>
-                        </button>
-                      ))}
-                  </div>
-
-                  <div className="space-y-4">
-                    {dataTab === 'cruda' && (
-                      <DataTable<DataRow>
-                        exportFileName="base_cruda"
-                        exportSheetName="Base Cruda"
-                        data={baseAn}
-                        columns={tableColumns(baseAn, false)}
-                        exportColumns={tableColumns(baseAn, true)}
-                      />
-                    )}
-
-                    {dataTab === 'clues' && (
-                      <DataTable<DataRow>
-                        exportFileName="por_clues"
-                        exportSheetName="Por CLUES"
-                        data={resultado}
-                        columns={tableColumns(resultado, false)}
-                        exportColumns={tableColumns(resultado, true)}
-                      />
-                    )}
-
-                    {dataTab === 'estado' && (
-                      <DataTable<DataRow>
-                        exportFileName="por_estado"
-                        exportSheetName="Por Estado"
-                        data={resumenEntidad}
-                        columns={tableColumns(resumenEntidad, false)}
-                        exportColumns={tableColumns(resumenEntidad, true)}
-                      />
-                    )}
-
-                    {dataTab === 'faltantes' && (
-                      <DataTable<DataRow>
-                        exportFileName="faltantes"
-                        exportSheetName="Faltantes"
-                        data={faltantes}
-                        columns={tableColumns(faltantes, false)}
-                        exportColumns={tableColumns(faltantes, true)}
-                      />
-                    )}
-
-                    {dataTab === 'tabla_avance' && (
-                      <DataTable<DataRow>
-                        exportFileName="tabla_avance"
-                        exportSheetName="Tabla Avance"
-                        data={tablaAvance}
-                        columns={tableColumns(tablaAvance, true)}
-                        exportColumns={tableColumns(tablaAvance, true)}
-                      />
-                    )}
-
-                    {dataTab === 'tabla_entidades' && (
-                      <DataTable<DataRow>
-                        exportFileName="tabla_entidades"
-                        exportSheetName="Tabla Entidades"
-                        data={tablaEntidades}
-                        columns={tableColumns(tablaEntidades, true)}
-                        exportColumns={tableColumns(tablaEntidades, true)}
-                      />
-                    )}
-
-                    {dataTab === 'tabla_unidades' && (
-                      <DataTable<DataRow>
-                        exportFileName="tabla_unidades"
-                        exportSheetName="Tabla Unidades"
-                        data={tablaUnidadesAvance}
-                        columns={tableColumns(tablaUnidadesAvance, true)}
-                        exportColumns={tableColumns(tablaUnidadesAvance, true)}
-                      />
-                    )}
-
-                    {dataTab === 'faltantes_por_estado' && (
-                      <DataTable<DataRow>
-                        exportFileName="faltantes_por_estados"
-                        exportSheetName="Faltantes por estados"
-                        data={faltantesPorEstadoRows}
-                        columns={tableColumns(faltantesPorEstadoRows, true)}
-                        exportColumns={tableColumns(faltantesPorEstadoRows, true)}
-                      />
-                    )}
-
-                    {dataTab === 'tabla_faltantes_por_estado' && (
-                      <DataTable<DataRow>
-                        exportFileName="tabla_faltantes_por_estados"
-                        exportSheetName="Tabla faltantes por estados"
-                        data={faltantes}
-                        columns={tableColumns(faltantes, true)}
-                        exportColumns={tableColumns(faltantes, true)}
-                      />
-                    )}
+            {mainTab === 'dashboard' ? (
+              <>
+                <nav aria-label="Vistas del tablero" className="flex flex-wrap gap-2">
+                  <BaseTabButton active={dashboardTab === 'general'} onClick={() => setDashboardTab('general')}>Calificación general</BaseTabButton>
+                  <BaseTabButton active={dashboardTab === 'preguntas'} onClick={() => setDashboardTab('preguntas')}>Gráficos de preguntas</BaseTabButton>
+                </nav>
+                {dashboardTab === 'general' ? <ReportCharts report={report} /> : <QuestionSummaryCards report={report} />}
+              </>
+            ) : mainTab === 'resumen' ? (
+              <QuestionSummaryCards key="resumen" report={report} summary />
+            ) : (
+              <section className="card overflow-hidden">
+                <div className="border-b border-gray-100 bg-gradient-to-r from-emerald-50 via-white to-amber-50 px-5 py-5 sm:px-6">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-imss-green shadow-sm">
+                      <Layers3 className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <h2 className="text-base font-bold text-imss-green">Bases agregadas</h2>
+                      <p className="mt-0.5 text-xs text-gray-500">
+                        Tablas resumidas por respuesta; no se muestran filas individuales.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              )}
-            </div>
+                <div className="space-y-4 p-4 sm:p-6">
+                  <div className="flex flex-wrap gap-2 border-b border-gray-100 pb-4" aria-label="Nivel de bases">
+                    <BaseTabButton
+                      active={baseSection === 'estatal'}
+                      onClick={() => {
+                        setBaseSection('estatal');
+                        setBaseTab('calificacion');
+                      }}
+                    >
+                      Estatal
+                    </BaseTabButton>
+                    <BaseTabButton
+                      active={baseSection === 'unidad'}
+                      onClick={() => {
+                        setBaseSection('unidad');
+                        setBaseTab('calificacion');
+                      }}
+                    >
+                      Unidad hospitalaria
+                    </BaseTabButton>
+                  </div>
 
+                  <div className="flex flex-wrap gap-2" aria-label="Tablas agregadas">
+                    <BaseTabButton active={baseTab === 'calificacion'} onClick={() => setBaseTab('calificacion')}>
+                      {baseSection === 'estatal' ? 'Calificación por entidad' : 'Calificación por CLUES'}
+                    </BaseTabButton>
+                    {baseSection === 'estatal' ? (
+                      <BaseTabButton active={baseTab === 'formacion'} onClick={() => setBaseTab('formacion')}>
+                        Formación y calificación
+                      </BaseTabButton>
+                    ) : null}
+                    <BaseTabButton active={baseTab === 'preguntas'} onClick={() => setBaseTab('preguntas')}>
+                      Respuestas por pregunta
+                    </BaseTabButton>
+                  </div>
+
+                  {baseTab === 'calificacion' && baseSection === 'unidad' ? (
+                    <DataTable<ReportTableRow>
+                      title="Calificación por CLUES"
+                      data={report.cluesReports.map(({ clues, hospital, entity, total, ratingDistribution }) => ({
+                        CLUES: clues,
+                        Hospital: hospital,
+                        Entidad: entity,
+                        Respuestas: total,
+                        Buena: ratingDistribution.Buena,
+                        Regular: ratingDistribution.Regular,
+                        Mala: ratingDistribution.Mala,
+                        'Distribución (%)': ratingDistributionText(ratingDistribution, total),
+                      }))}
+                      columns={tableColumns(['CLUES', 'Hospital', 'Entidad', 'Respuestas', 'Buena', 'Regular', 'Mala', 'Distribución (%)'])}
+                      exportFileName="calificacion_por_clues"
+                      exportSheetName="Calificacion por CLUES"
+                    />
+                  ) : baseTab === 'calificacion' ? (
+                    <DataTable<ReportTableRow>
+                      title="Calificación por entidad federativa"
+                      data={report.entityRatings.map(({ entity, total, ratings }) => ({
+                        Entidad: entity,
+                        Respuestas: total,
+                        Buena: ratings.Buena,
+                        Regular: ratings.Regular,
+                        Mala: ratings.Mala,
+                        'Distribución (%)': ratingDistributionText(ratings, total),
+                      }))}
+                      columns={tableColumns(['Entidad', 'Respuestas', 'Buena', 'Regular', 'Mala', 'Distribución (%)'])}
+                      exportFileName="calificacion_por_entidad"
+                      exportSheetName="Calificacion entidad"
+                    />
+                  ) : baseTab === 'formacion' && baseSection === 'estatal' ? (
+                    <DataTable<ReportTableRow>
+                      title="Formación y calificación"
+                      data={report.formationRatings.map((row) => ({
+                        Formación: row.formation,
+                        Respuestas: row.total,
+                        Buena: row.Buena,
+                        Regular: row.Regular,
+                        Mala: row.Mala,
+                        'Distribución (%)': ratingDistributionText(row, row.total),
+                      }))}
+                      columns={tableColumns(['Formación', 'Respuestas', 'Buena', 'Regular', 'Mala', 'Distribución (%)'])}
+                      exportFileName="formacion_y_calificacion"
+                      exportSheetName="Formacion y calificacion"
+                    />
+                  ) : (
+                    <DataTable<ReportTableRow>
+                      title={baseSection === 'estatal'
+                        ? 'Respuestas por pregunta · estatal'
+                        : 'Respuestas por pregunta · unidad'}
+                      data={questionPivot.rows}
+                      columns={tableColumns(questionPivot.columns)}
+                      exportFileName={baseSection === 'estatal'
+                        ? 'respuestas_por_pregunta_estatal'
+                        : 'respuestas_por_pregunta_unidad'}
+                      exportSheetName="Respuestas por pregunta"
+                    />
+                  )}
+                </div>
+              </section>
+            )}
           </>
-        )}
+        ) : null}
       </main>
-
-      <footer className="border-t border-gray-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs text-gray-400">
-            IMSS Bienestar · Reporte Interno de Infraestructura de Materiales Hospitalarios · Documento de uso institucional
-          </p>
-        </div>
-      </footer>
     </div>
   );
+}
+
+function QuestionSummaryCards({ report, summary = false }: { report: ReportData; summary?: boolean }) {
+  const [chartTab, setChartTab] = useState<'barras' | 'donas'>('barras');
+  const [entity, setEntity] = useState('');
+  const [clues, setClues] = useState('');
+  const [questionName, setQuestionName] = useState('');
+  const units = report.cluesReports.filter((unit) => !entity || unit.entity === entity);
+  const unit = units.find((item) => item.clues === clues);
+  const entityReport = report.entityRatings.find((item) => item.entity === entity);
+  const questions: QuestionSummary[] = unit?.questions ?? entityReport?.questions ?? report.questions;
+  const selected = questions.find((item) => item.question === questionName);
+  const visibleQuestions = selected ? [selected] : questions;
+  const colors = ['#1A6B5E', '#A57F2C', '#4778A8', '#9F3A38', '#8064A2', '#49A7A0', '#DE8054', '#758B47'];
+
+  if (questions.length === 0) {
+    return <div className="card p-10 text-center text-gray-500">No hay respuestas por pregunta para mostrar.</div>;
+  }
+
+  return (
+    <section aria-label="Resumen de respuestas por pregunta" className="space-y-5">
+      <div className="card border-emerald-100 bg-gradient-to-r from-emerald-50 via-white to-amber-50 p-5 sm:p-6">
+        <div className="flex items-start gap-3">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-imss-green shadow-sm">
+            <HelpCircle className="h-5 w-5" aria-hidden="true" />
+          </span>
+          <div>
+            <h2 className="font-['Montserrat'] text-lg font-bold text-slate-900">{summary ? 'Resumen' : 'Gráficos de preguntas'}</h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Escoge un Estado, después una CLUES y luego la Pregunta para abrir su tarjeta interactiva.
+            </p>
+          </div>
+        </div>
+      </div>
+      {!summary ? <nav aria-label="Tipo de gráficas por pregunta" className="flex flex-wrap gap-2">
+        <BaseTabButton active={chartTab === 'barras'} onClick={() => setChartTab('barras')}>Explorador de respuestas</BaseTabButton>
+        <BaseTabButton active={chartTab === 'donas'} onClick={() => setChartTab('donas')}>Gráficos de donas</BaseTabButton>
+      </nav> : null}
+      <div className="flex flex-wrap gap-2">
+        <BaseTabButton active={!selected} onClick={() => setQuestionName('')}>Todas las Preguntas</BaseTabButton>
+        <button type="button" className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-bold text-imss-green" onClick={() => { setEntity(''); setClues(''); setQuestionName(''); }}>
+          Restablecer a general
+        </button>
+      </div>
+      <div className="rounded-2xl border border-slate-200 bg-gradient-to-r from-slate-50 via-emerald-50 to-slate-50 p-5">
+        <h3 className="mb-4 text-xs font-bold uppercase tracking-wider text-emerald-950">Diagrama de selección guiada</h3>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <label className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <span className="mb-3 block text-sm font-bold text-imss-green">1 · Escoger Estado</span>
+            <select aria-label="Escoger Estado" value={entity} onChange={(event) => { setEntity(event.target.value); setClues(''); }} className="w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-xs font-semibold">
+              <option value="">Todas las entidades (general)</option>
+              {report.entities.map((name) => <option key={name} value={name}>{name}</option>)}
+            </select>
+          </label>
+          <label className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <span className="mb-3 block text-sm font-bold text-imss-green">2 · Escoger CLUES</span>
+            <select aria-label="Escoger CLUES" value={clues} onChange={(event) => setClues(event.target.value)} className="w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-xs font-semibold">
+              <option value="">{entity ? `Todas las unidades de ${entity}` : 'Todas las unidades (general)'}</option>
+              {units.map((item) => <option key={item.clues} value={item.clues}>[{item.clues}] {item.hospital}</option>)}
+            </select>
+            <span className="mt-2 block text-xs text-slate-500">{units.length} unidades disponibles</span>
+          </label>
+          <label className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <span className="mb-3 block text-sm font-bold text-imss-green">3 · Escoger Pregunta</span>
+            <select aria-label="Escoger Pregunta" value={selected?.question ?? ''} onChange={(event) => setQuestionName(event.target.value)} className="w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-xs font-semibold">
+              <option value="">Todas las preguntas</option>
+              {questions.map((item) => <option key={item.question} value={item.question}>{item.question}</option>)}
+            </select>
+          </label>
+        </div>
+      </div>
+      <p className="text-sm font-semibold text-slate-600">{unit ? `${unit.clues} · ${unit.hospital}` : entity || 'Total general'}</p>
+      {!summary && chartTab === 'donas' ? (
+        <div>
+          <h3 className="font-['Montserrat'] text-lg font-bold text-slate-900">Distribución institucional por variables clave</h3>
+          <p className="mt-1 text-xs text-slate-500">Distribución de respuestas con total central y leyenda por variable.</p>
+        </div>
+      ) : null}
+      <div className={!selected ? `grid grid-cols-1 gap-5 ${chartTab === 'donas' && !summary ? 'md:grid-cols-2 xl:grid-cols-3' : 'xl:grid-cols-2'}` : 'space-y-5'}>
+        {visibleQuestions.map((question) => {
+          const answers = [...question.answers].sort((a, b) => b.value - a.value);
+          const maxCount = Math.max(...answers.map((answer) => answer.value), 1);
+
+          return (
+            summary ? (
+              <article key={question.question} className="card min-w-0 p-5 sm:p-6">
+                <div className="mb-4 flex items-start justify-between gap-3 border-b border-slate-100 pb-4">
+                  <h3 className="font-['Montserrat'] text-base font-bold text-slate-900">{question.question}</h3>
+                  <span className="shrink-0 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 font-mono text-xs text-emerald-800">{question.total} {question.total === 1 ? 'respuesta' : 'respuestas'}</span>
+                </div>
+                <div className="space-y-2">
+                  {answers.map((answer) => (
+                    <div key={answer.name} className="flex items-start justify-between gap-3 rounded-xl bg-slate-50 px-3 py-2 text-sm">
+                      <span className="text-slate-800">{answer.name}</span>
+                      <span className="shrink-0 font-mono text-xs">
+                        <strong className="text-slate-900">{answer.value}</strong>
+                        {!unit ? <span className="ml-2 text-slate-500">({percent(answer.value, question.total).toFixed(1)}%)</span> : null}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ) : <div key={question.question} className={chartTab === 'barras' ? 'grid min-w-0 grid-cols-1 items-start gap-5' : 'min-w-0'}>
+              <QuestionDistributionChart title={question.question} question={question} tone="emerald" compact={chartTab === 'donas'} />
+              {chartTab === 'barras' ? (
+            <article className="card min-w-0 p-5 transition-all hover:border-emerald-200 sm:p-6">
+              <div className="mb-5 flex items-start justify-between gap-3">
+                <h3 className="font-['Montserrat'] text-base font-bold leading-snug text-slate-900">
+                  {question.question}
+                </h3>
+                <span className="shrink-0 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-800">
+                  {question.total.toLocaleString('es-MX')} resp.
+                </span>
+              </div>
+              <div className="space-y-3">
+                {answers.map((answer, index) => {
+                  const rate = question.total > 0 ? (answer.value / question.total) * 100 : 0;
+                  return (
+                    <div key={answer.name} className="rounded-xl border border-transparent px-3 py-3 transition-colors hover:border-slate-100 hover:bg-slate-50/80">
+                      <div className="mb-2 flex items-start justify-between gap-3 text-xs">
+                        <span className="flex min-w-0 items-start gap-2 font-semibold text-slate-800">
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-200 text-[10px] font-bold text-slate-700">
+                            {index + 1}
+                          </span>
+                          <span>{answer.name}</span>
+                        </span>
+                        <span className="shrink-0 font-mono">
+                          <strong className="text-sm text-slate-900">{answer.value.toLocaleString('es-MX')}</strong>
+                          {!unit ? <span className="ml-2 text-slate-500">({rate.toFixed(1)}%)</span> : null}
+                        </span>
+                      </div>
+                      <div className="h-4 w-full overflow-hidden rounded-lg border border-slate-200/50 bg-slate-100 p-0.5">
+                        <div
+                          className="h-full min-w-1 rounded-md transition-all duration-500"
+                          style={{
+                            width: `${Math.max(answer.value > 0 ? 4 : 0, (answer.value / maxCount) * 100)}%`,
+                            backgroundColor: colors[index % colors.length],
+                          }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="mt-4 border-t border-slate-100 pt-3 text-xs text-slate-500">
+                Total de respuestas válidas: <strong className="text-slate-800">{question.total.toLocaleString('es-MX')}</strong>
+              </div>
+            </article>
+              ) : null}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function SummaryCard({
+  icon: Icon,
+  label,
+  value,
+  tone,
+}: {
+  icon: typeof BarChart3;
+  label: string;
+  value: number;
+  tone: 'emerald' | 'gold' | 'teal';
+}) {
+  const tones = {
+    emerald: {
+      card: 'border-emerald-200 bg-emerald-50',
+      icon: 'bg-emerald-100 text-emerald-700',
+      number: 'text-emerald-800',
+    },
+    gold: {
+      card: 'border-amber-200 bg-amber-50',
+      icon: 'bg-amber-100 text-amber-700',
+      number: 'text-amber-800',
+    },
+    teal: {
+      card: 'border-teal-200 bg-teal-50',
+      icon: 'bg-teal-100 text-teal-700',
+      number: 'text-teal-800',
+    },
+  }[tone];
+
+  return (
+    <div className={`group relative overflow-hidden rounded-2xl border p-5 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg ${tones.card}`}>
+      <div className="absolute -right-4 -top-4 opacity-[0.08] transition-transform duration-500 group-hover:scale-125 group-hover:opacity-[0.14]">
+        <Icon className={`h-20 w-20 ${tones.number}`} aria-hidden="true" />
+      </div>
+      <div className="relative mb-3">
+        <span className={`flex h-10 w-10 items-center justify-center rounded-xl ${tones.icon}`}>
+          <Icon className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
+        </span>
+      </div>
+      <div className="relative">
+        <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500">{label}</p>
+        <p className={`mt-1 text-3xl font-black tabular-nums ${tones.number}`}>
+          {value.toLocaleString('es-MX')}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function MainTabButton({
+  active,
+  icon: Icon,
+  label,
+  onClick,
+}: {
+  active: boolean;
+  icon: typeof BarChart3;
+  label: string;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={active}
+      onClick={onClick}
+      className={`flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition-all ${
+        active
+          ? 'border-imss-green bg-imss-green text-white shadow-md'
+          : 'border-gray-200 bg-white text-gray-600 hover:border-emerald-200 hover:bg-emerald-50 hover:text-imss-green'
+      }`}
+    >
+      <Icon className="h-4 w-4" aria-hidden="true" />
+      {label}
+    </button>
+  );
+}
+
+function BaseTabButton({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: string;
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={active}
+      onClick={onClick}
+      className={`rounded-xl px-4 py-2 text-xs font-bold transition-all sm:text-sm ${
+        active
+          ? 'bg-imss-green text-white shadow-md'
+          : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
+function tableColumns(keys: string[]) {
+  return keys.map((key) => ({
+    key,
+    label: key,
+    render: (row: ReportTableRow) => {
+      const value = row[key];
+      if (key === 'Distribución (%)') {
+        return (
+          <span className="inline-flex items-center gap-1 font-mono text-[11px] font-semibold">
+            {(['Buena', 'Regular', 'Mala'] as const).map((rating, index) => (
+              <span key={rating} className="inline-flex items-center gap-1">
+                {index > 0 ? <span aria-hidden="true" className="text-slate-300">/</span> : null}
+                <span
+                  className={rating === 'Buena' ? 'text-emerald-700' : rating === 'Regular' ? 'text-amber-700' : 'text-rose-700'}
+                  title={rating}
+                  aria-label={`${rating}: ${percent(Number(row[rating]), Number(row.Respuestas))}%`}
+                >
+                  {percent(Number(row[rating]), Number(row.Respuestas))}%
+                </span>
+              </span>
+            ))}
+          </span>
+        );
+      }
+      return typeof value === 'number' && key.endsWith('(%)')
+        ? `${value.toFixed(1)}%`
+        : String(value ?? '');
+    },
+  }));
+}
+
+function percent(value: number, total: number): number {
+  return total > 0 ? Number(((value / total) * 100).toFixed(1)) : 0;
+}
+
+function ratingDistributionText(
+  ratings: { Buena: number; Regular: number; Mala: number },
+  total: number,
+): string {
+  return `${percent(ratings.Buena, total)}% / ${percent(ratings.Regular, total)}% / ${percent(ratings.Mala, total)}%`;
+}
+
+function buildQuestionPivot(report: ReportData, section: BaseSection): {
+  rows: ReportTableRow[];
+  columns: string[];
+} {
+  const groups: Array<{ identifiers: ReportTableRow; questions: ReportData['questions'] }> = section === 'estatal'
+    ? [
+        {
+          identifiers: { Entidad: 'Total general' },
+          questions: report.questions,
+        },
+        ...report.entityRatings.map((item) => ({
+          identifiers: { Entidad: item.entity },
+          questions: item.questions,
+        })),
+      ]
+    : report.cluesReports.map((item) => ({
+        identifiers: { CLUES: item.clues, Hospital: item.hospital, Entidad: item.entity },
+        questions: item.questions,
+      }));
+  const identifiers = section === 'estatal' ? ['Entidad'] : ['CLUES', 'Hospital', 'Entidad'];
+  const questions = [...new Set(groups.flatMap((group) => group.questions.map((question) => question.question)))];
+  const rows = groups.map((group) => {
+    const row: ReportTableRow = { ...group.identifiers };
+    const questionByName = new Map(group.questions.map((question) => [question.question, question]));
+
+    for (const questionName of questions) {
+      const question = questionByName.get(questionName);
+      if (section === 'unidad') {
+        row[questionName] = question?.answers.map(({ name }) => name).join(' | ') ?? '';
+        continue;
+      }
+      row[questionName] = question
+        ? `${question.total.toLocaleString('es-MX')} ${question.total === 1 ? 'respuesta' : 'respuestas'} · ${
+            question.answers
+              .map(({ name, value }) => {
+                const percentageText = percent(value, question.total);
+                const showPercentage = section === 'estatal' || percentageText !== 100;
+                return `${name}: ${value.toLocaleString('es-MX')}${showPercentage ? ` (${percentageText.toFixed(1)}%)` : ''}`;
+              })
+              .join(' | ')
+          }`
+        : '';
+    }
+
+    return row;
+  });
+
+  return { rows, columns: [...identifiers, ...questions] };
 }

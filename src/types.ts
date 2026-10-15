@@ -1,68 +1,50 @@
-export type CellValue = string | number | boolean | null;
-export type DataRow = Record<string, CellValue>;
+export type Rating = 'Buena' | 'Mala' | 'Regular';
+export type RatingCounts = Record<Rating, number>;
 
-export interface CluesGeoItem {
-  clues_imb: string;
-  nombre_de_la_unidad: string;
-  entidad: string;
-  lat: number;
-  lng: number;
-  internet: boolean;
-  consultorios?: number;
-  pct_llenado?: number;
-}
-
-export interface TablasFormulario {
-  baseClues: string[];
-  baseMeta: {
-    cluesTotal: number;
-    entidadesEsperadas: number;
-    scriptLastRunAt?: string;
-  };
-  baseAn: DataRow[];
-  resultado: DataRow[];
-  resumen: DataRow[];
-  resumenEntidad: DataRow[];
-  tablaAvance: DataRow[];
-  tablaEntidades: DataRow[];
-  tablaUnidadesAvance: DataRow[];
-  cluesGeo: CluesGeoItem[];
-  faltantes: DataRow[];
-}
-
-export interface DashboardStats {
-  registrosBase: number;
-  registrosUnidad: number;
-  registrosRespuesta: number;
-  baseCluesEsperadas: number;
-  baseEntidadesEsperadas: number;
-  cluesCapturadas: number;
-  entidadesCapturadas: number;
-  unidadesInternet: number;
-  pctLlenado: number;
-  consultoriosTotales: number;
-}
-
-export interface TopUnidadChart {
-  clues: string;
-  total: number;
-}
-
-export interface TopFaltanteChart {
-  item: string;
-  faltantes: number;
-  pct: number;
-}
-
-export interface InternetPieItem {
+export interface AnswerCount {
   name: string;
   value: number;
 }
 
-export interface EntidadChart {
-  entidad: string;
-  unidades: number;
-  consultoriosHabilitados: number;
-  consultoriosLevantados: number;
-  pctLlenado: number;
+export interface QuestionSummary {
+  question: string;
+  total: number;
+  answers: AnswerCount[];
+}
+
+export interface FormationRating {
+  formation: string;
+  total: number;
+  Buena: number;
+  Mala: number;
+  Regular: number;
+}
+
+export interface EntityRating {
+  entity: string;
+  total: number;
+  ratings: RatingCounts;
+  formationRatings: FormationRating[];
+  questions: QuestionSummary[];
+}
+
+export interface CluesReport {
+  clues: string;
+  hospital: string;
+  entity: string;
+  total: number;
+  ratingDistribution: RatingCounts;
+  formationRatings: FormationRating[];
+  questions: QuestionSummary[];
+}
+
+export interface ReportData {
+  generatedAt: string;
+  totalResponses: number;
+  entities: string[];
+  ratingDistribution: RatingCounts;
+  formationRatings: FormationRating[];
+  entityRatings: EntityRating[];
+  cluesReports: CluesReport[];
+  questions: QuestionSummary[];
 }

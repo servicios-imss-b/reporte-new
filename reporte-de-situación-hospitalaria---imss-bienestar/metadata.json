@@ -1,0 +1,6 @@
+{
+  "name": "Reporte de Situación Hospitalaria - IMSS Bienestar",
+  "description": "Tablero y reporte institucional de la encuesta hospitalaria IMSS Bienestar con datos agregados por pregunta, CLUES y entidad.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
