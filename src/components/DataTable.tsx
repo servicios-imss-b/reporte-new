@@ -14,6 +14,7 @@ interface DataTableProps<T extends object> {
   columns: Column<T>[];
   exportColumns?: Column<T>[];
   title?: string;
+  description?: string;
   exportFileName: string;
   exportSheetName: string;
 }
@@ -25,6 +26,7 @@ export function DataTable<T extends object>({
   columns,
   exportColumns,
   title,
+  description,
   exportFileName,
   exportSheetName,
 }: DataTableProps<T>) {
@@ -86,7 +88,9 @@ export function DataTable<T extends object>({
           <h3 className="font-['Montserrat'] text-sm font-bold text-slate-900">
             {title ?? 'Resultados agregados'} ({sorted.length} registros)
           </h3>
-          <p className="mt-0.5 text-xs text-slate-500">Datos agregados, sin mostrar respuestas individuales</p>
+          <p className="mt-0.5 text-xs text-slate-500">
+            {description ?? 'Datos agregados, sin mostrar respuestas individuales'}
+          </p>
         </div>
       </div>
       <div className="flex items-center border-b border-slate-100 bg-white p-4">

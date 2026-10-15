@@ -7,8 +7,6 @@ import { cargarReporte } from './data';
 import type { QuestionSummary, ReportData } from './types';
 
 type MainTab = 'dashboard' | 'resumen' | 'bases';
-type BaseSection = 'estatal' | 'unidad';
-type BaseTab = 'calificacion' | 'formacion' | 'preguntas';
 type ReportTableRow = Record<string, string | number>;
 
 export default function App() {
@@ -17,9 +15,8 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const [mainTab, setMainTab] = useState<MainTab>('dashboard');
   const [dashboardTab, setDashboardTab] = useState<'general' | 'preguntas'>('general');
-  const [baseSection, setBaseSection] = useState<BaseSection>('estatal');
-  const [baseTab, setBaseTab] = useState<BaseTab>('calificacion');
-  const questionPivot = report ? buildQuestionPivot(report, baseSection) : { rows: [], columns: [] };
+  const [rawSupabaseRows, setRawSupabaseRows] = useState<ReportTableRow[]>([]);
+  const [rawSupabaseError, setRawSupabaseError] = useState('');
 
   useEffect(() => {
     cargarReporte()
@@ -28,6 +25,36 @@ export default function App() {
         setError(err instanceof Error ? err.message : 'No se pudo cargar el reporte.');
       })
       .finally(() => setLoading(false));
+  }, []);
+
+  useEffect(() => {
+    const handleSupabaseRows = (event: MessageEvent) => {
+      if (window.parent === window || event.source !== window.parent || event.origin !== window.location.origin) return;
+      if (event.data?.type !== 'supabase-relational-data') return;
+
+      const rows = Array.isArray(event.data.rows)
+        ? event.data.rows.flatMap((value: unknown) => {
+            if (!value || typeof value !== 'object' || Array.isArray(value)) return [];
+            const row: ReportTableRow = {};
+            Object.entries(value as Record<string, unknown>).forEach(([key, cell]) => {
+              row[key] = typeof cell === 'number' ? cell : cell === null || cell === undefined ? '' : String(cell);
+            });
+            return [row];
+          })
+        : [];
+
+      setRawSupabaseRows(rows);
+      setRawSupabaseError(typeof event.data.error === 'string' ? event.data.error : '');
+    };
+
+    window.addEventListener('message', handleSupabaseRows);
+    if (window.parent === window) {
+      setRawSupabaseError('Accede desde la aplicación principal para cargar la base de Supabase.');
+    } else {
+      window.parent.postMessage({ type: 'reporte-new-ready' }, window.location.origin);
+    }
+
+    return () => window.removeEventListener('message', handleSupabaseRows);
   }, []);
 
   return (
@@ -83,118 +110,14 @@ export default function App() {
             ) : mainTab === 'resumen' ? (
               <QuestionSummaryCards key="resumen" report={report} summary />
             ) : (
-              <section className="card overflow-hidden">
-                <div className="border-b border-gray-100 bg-gradient-to-r from-emerald-50 via-white to-amber-50 px-5 py-5 sm:px-6">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-imss-green shadow-sm">
-                      <Layers3 className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    <div>
-                      <h2 className="text-base font-bold text-imss-green">Bases agregadas</h2>
-                      <p className="mt-0.5 text-xs text-gray-500">
-                        Tablas resumidas por respuesta; no se muestran filas individuales.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4 p-4 sm:p-6">
-                  <div className="flex flex-wrap gap-2 border-b border-gray-100 pb-4" aria-label="Nivel de bases">
-                    <BaseTabButton
-                      active={baseSection === 'estatal'}
-                      onClick={() => {
-                        setBaseSection('estatal');
-                        setBaseTab('calificacion');
-                      }}
-                    >
-                      Estatal
-                    </BaseTabButton>
-                    <BaseTabButton
-                      active={baseSection === 'unidad'}
-                      onClick={() => {
-                        setBaseSection('unidad');
-                        setBaseTab('calificacion');
-                      }}
-                    >
-                      Unidad hospitalaria
-                    </BaseTabButton>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2" aria-label="Tablas agregadas">
-                    <BaseTabButton active={baseTab === 'calificacion'} onClick={() => setBaseTab('calificacion')}>
-                      {baseSection === 'estatal' ? 'Calificación por entidad' : 'Calificación por CLUES'}
-                    </BaseTabButton>
-                    {baseSection === 'estatal' ? (
-                      <BaseTabButton active={baseTab === 'formacion'} onClick={() => setBaseTab('formacion')}>
-                        Formación y calificación
-                      </BaseTabButton>
-                    ) : null}
-                    <BaseTabButton active={baseTab === 'preguntas'} onClick={() => setBaseTab('preguntas')}>
-                      Respuestas por pregunta
-                    </BaseTabButton>
-                  </div>
-
-                  {baseTab === 'calificacion' && baseSection === 'unidad' ? (
-                    <DataTable<ReportTableRow>
-                      title="Calificación por CLUES"
-                      data={report.cluesReports.map(({ clues, hospital, entity, total, ratingDistribution }) => ({
-                        CLUES: clues,
-                        Hospital: hospital,
-                        Entidad: entity,
-                        Respuestas: total,
-                        Buena: ratingDistribution.Buena,
-                        Regular: ratingDistribution.Regular,
-                        Mala: ratingDistribution.Mala,
-                        'Distribución (%)': ratingDistributionText(ratingDistribution, total),
-                      }))}
-                      columns={tableColumns(['CLUES', 'Hospital', 'Entidad', 'Respuestas', 'Buena', 'Regular', 'Mala', 'Distribución (%)'])}
-                      exportFileName="calificacion_por_clues"
-                      exportSheetName="Calificacion por CLUES"
-                    />
-                  ) : baseTab === 'calificacion' ? (
-                    <DataTable<ReportTableRow>
-                      title="Calificación por entidad federativa"
-                      data={report.entityRatings.map(({ entity, total, ratings }) => ({
-                        Entidad: entity,
-                        Respuestas: total,
-                        Buena: ratings.Buena,
-                        Regular: ratings.Regular,
-                        Mala: ratings.Mala,
-                        'Distribución (%)': ratingDistributionText(ratings, total),
-                      }))}
-                      columns={tableColumns(['Entidad', 'Respuestas', 'Buena', 'Regular', 'Mala', 'Distribución (%)'])}
-                      exportFileName="calificacion_por_entidad"
-                      exportSheetName="Calificacion entidad"
-                    />
-                  ) : baseTab === 'formacion' && baseSection === 'estatal' ? (
-                    <DataTable<ReportTableRow>
-                      title="Formación y calificación"
-                      data={report.formationRatings.map((row) => ({
-                        Formación: row.formation,
-                        Respuestas: row.total,
-                        Buena: row.Buena,
-                        Regular: row.Regular,
-                        Mala: row.Mala,
-                        'Distribución (%)': ratingDistributionText(row, row.total),
-                      }))}
-                      columns={tableColumns(['Formación', 'Respuestas', 'Buena', 'Regular', 'Mala', 'Distribución (%)'])}
-                      exportFileName="formacion_y_calificacion"
-                      exportSheetName="Formacion y calificacion"
-                    />
-                  ) : (
-                    <DataTable<ReportTableRow>
-                      title={baseSection === 'estatal'
-                        ? 'Respuestas por pregunta · estatal'
-                        : 'Respuestas por pregunta · unidad'}
-                      data={questionPivot.rows}
-                      columns={tableColumns(questionPivot.columns)}
-                      exportFileName={baseSection === 'estatal'
-                        ? 'respuestas_por_pregunta_estatal'
-                        : 'respuestas_por_pregunta_unidad'}
-                      exportSheetName="Respuestas por pregunta"
-                    />
-                  )}
-                </div>
-              </section>
+              <DataTable<ReportTableRow>
+                title="Base cruda"
+                description={rawSupabaseError || 'Una fila por respuesta, ordenada por fecha del formulario y pregunta.'}
+                data={rawSupabaseRows}
+                columns={tableColumns(Object.keys(rawSupabaseRows[0] ?? {}))}
+                exportFileName="base_cruda_supabase"
+                exportSheetName="Base cruda"
+              />
             )}
           </>
         ) : null}
@@ -495,59 +418,3 @@ function percent(value: number, total: number): number {
   return total > 0 ? Number(((value / total) * 100).toFixed(1)) : 0;
 }
 
-function ratingDistributionText(
-  ratings: { Buena: number; Regular: number; Mala: number },
-  total: number,
-): string {
-  return `${percent(ratings.Buena, total)}% / ${percent(ratings.Regular, total)}% / ${percent(ratings.Mala, total)}%`;
-}
-
-function buildQuestionPivot(report: ReportData, section: BaseSection): {
-  rows: ReportTableRow[];
-  columns: string[];
-} {
-  const groups: Array<{ identifiers: ReportTableRow; questions: ReportData['questions'] }> = section === 'estatal'
-    ? [
-        {
-          identifiers: { Entidad: 'Total general' },
-          questions: report.questions,
-        },
-        ...report.entityRatings.map((item) => ({
-          identifiers: { Entidad: item.entity },
-          questions: item.questions,
-        })),
-      ]
-    : report.cluesReports.map((item) => ({
-        identifiers: { CLUES: item.clues, Hospital: item.hospital, Entidad: item.entity },
-        questions: item.questions,
-      }));
-  const identifiers = section === 'estatal' ? ['Entidad'] : ['CLUES', 'Hospital', 'Entidad'];
-  const questions = [...new Set(groups.flatMap((group) => group.questions.map((question) => question.question)))];
-  const rows = groups.map((group) => {
-    const row: ReportTableRow = { ...group.identifiers };
-    const questionByName = new Map(group.questions.map((question) => [question.question, question]));
-
-    for (const questionName of questions) {
-      const question = questionByName.get(questionName);
-      if (section === 'unidad') {
-        row[questionName] = question?.answers.map(({ name }) => name).join(' | ') ?? '';
-        continue;
-      }
-      row[questionName] = question
-        ? `${question.total.toLocaleString('es-MX')} ${question.total === 1 ? 'respuesta' : 'respuestas'} · ${
-            question.answers
-              .map(({ name, value }) => {
-                const percentageText = percent(value, question.total);
-                const showPercentage = section === 'estatal' || percentageText !== 100;
-                return `${name}: ${value.toLocaleString('es-MX')}${showPercentage ? ` (${percentageText.toFixed(1)}%)` : ''}`;
-              })
-              .join(' | ')
-          }`
-        : '';
-    }
-
-    return row;
-  });
-
-  return { rows, columns: [...identifiers, ...questions] };
-}
