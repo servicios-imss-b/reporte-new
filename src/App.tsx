@@ -17,6 +17,8 @@ export default function App() {
   const [dashboardTab, setDashboardTab] = useState<'general' | 'preguntas'>('general');
   const [rawSupabaseRows, setRawSupabaseRows] = useState<ReportTableRow[]>([]);
   const [rawSupabaseError, setRawSupabaseError] = useState('');
+  const [selectedProgram, setSelectedProgram] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
 
   useEffect(() => {
     cargarReporte()
@@ -26,6 +28,15 @@ export default function App() {
       })
       .finally(() => setLoading(false));
   }, []);
+
+  const programOptions = [...new Set(rawSupabaseRows.map((row) => String(row.programa ?? '').trim()).filter(Boolean))]
+    .sort((left, right) => left.localeCompare(right, 'es'));
+  const yearOptions = [...new Set(rawSupabaseRows.map((row) => String(row.anio ?? '').trim()).filter(Boolean))]
+    .sort((left, right) => left.localeCompare(right, 'es', { numeric: true }));
+  const filteredSupabaseRows = rawSupabaseRows.filter((row) =>
+    (!selectedProgram || String(row.programa ?? '') === selectedProgram)
+    && (!selectedYear || String(row.anio ?? '') === selectedYear)
+  );
 
   useEffect(() => {
     const handleSupabaseRows = (event: MessageEvent) => {
@@ -110,14 +121,40 @@ export default function App() {
             ) : mainTab === 'resumen' ? (
               <QuestionSummaryCards key="resumen" report={report} summary />
             ) : (
-              <DataTable<ReportTableRow>
-                title="Base cruda"
-                description={rawSupabaseError || 'Una fila por respuesta, ordenada por fecha del formulario y pregunta.'}
-                data={rawSupabaseRows}
-                columns={tableColumns(Object.keys(rawSupabaseRows[0] ?? {}))}
-                exportFileName="base_cruda_supabase"
-                exportSheetName="Base cruda"
-              />
+              <section className="space-y-4">
+                <div className="flex flex-wrap items-end gap-3">
+                  <label className="grid gap-1 text-xs font-semibold text-slate-700">
+                    Programa
+                    <select
+                      value={selectedProgram}
+                      onChange={(event) => setSelectedProgram(event.target.value)}
+                      className="min-w-48 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+                    >
+                      <option value="">Todos los programas</option>
+                      {programOptions.map((program) => <option key={program} value={program}>{program}</option>)}
+                    </select>
+                  </label>
+                  <label className="grid gap-1 text-xs font-semibold text-slate-700">
+                    Año
+                    <select
+                      value={selectedYear}
+                      onChange={(event) => setSelectedYear(event.target.value)}
+                      className="min-w-36 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+                    >
+                      <option value="">Todos los años</option>
+                      {yearOptions.map((year) => <option key={year} value={year}>{year}</option>)}
+                    </select>
+                  </label>
+                </div>
+                <DataTable<ReportTableRow>
+                  title="Base cruda"
+                  description={rawSupabaseError || 'Una fila por respuesta, ordenada por fecha del formulario y pregunta.'}
+                  data={filteredSupabaseRows}
+                  columns={tableColumns(Object.keys(rawSupabaseRows[0] ?? {}))}
+                  exportFileName="base_cruda_supabase"
+                  exportSheetName="Base cruda"
+                />
+              </section>
             )}
           </>
         ) : null}
