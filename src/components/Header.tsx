@@ -16,10 +16,12 @@ export function Header({
   const resolvedEyebrow = eyebrow ?? 'Panel Principal';
   const resolvedTitle = title ?? 'Reporte de Infraestructura y Materiales Hospitalarios';
   const resolvedSubtitle = subtitle ?? 'Consulta, visualiza y exporta la base cruda y sus agregados por CLUES y por Estado.';
+  // Dentro del formulario, su encabezado con logo queda encima de este.
+  const embedded = window.parent !== window;
 
   return (
     <>
-      <nav className="sticky top-0 z-30 border-b border-gray-200 bg-white">
+      {!embedded ? <nav className="sticky top-0 z-30 border-b border-gray-200 bg-white">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <img
@@ -37,10 +39,10 @@ export function Header({
           <div className="flex items-center gap-2">
           </div>
         </div>
-      </nav>
+      </nav> : null}
 
       <div className="border-b border-gray-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${embedded ? 'pb-10 pt-28' : 'py-10'}`}>
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-gray-400">{resolvedEyebrow}</p>
           <h1 className="max-w-3xl text-3xl font-black leading-tight tracking-tight text-imss-green sm:text-4xl lg:text-5xl">
             {resolvedTitle}

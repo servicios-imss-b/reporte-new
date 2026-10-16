@@ -235,11 +235,13 @@ export function QuestionAnswersChart({ questions }: { questions: QuestionSummary
 
 export function QuestionDistributionChart({
   title,
+  subtitle,
   question,
   tone,
   compact = false,
 }: {
   title: string;
+  subtitle?: string;
   question?: QuestionSummary;
   tone: 'emerald' | 'gold' | 'teal' | 'rose';
   compact?: boolean;
@@ -256,7 +258,7 @@ export function QuestionDistributionChart({
   return (
     <ChartCard
       title={title}
-      subtitle={question.question}
+      subtitle={subtitle ?? question.question}
       tone={tone}
       badge={`${intFormatter.format(question.total)} respuestas`}
     >
@@ -361,6 +363,108 @@ function EntityRatingChart({ report }: { report: ReportData }) {
         />
       </div>
     </ChartCard>
+  );
+}
+
+// Debe coincidir con las claves y años del selector del cuestionario.
+const PROGRAM_KEYS = ['S313', 'E001', 'U013', 'S200', 'U313', 'E003', 'E004', 'E006'];
+const PROGRAM_YEARS = ['2024', '2025'];
+
+export function completionStats(rows: Array<Record<string, string | number>>) {
+  const answered = new Set(rows.map((row) => `${String(row.programa ?? '').trim().toUpperCase()}|${String(row.anio ?? '').trim()}`));
+  const expected = PROGRAM_KEYS.length * PROGRAM_YEARS.length;
+  const done = PROGRAM_KEYS.reduce((sum, key) => sum + PROGRAM_YEARS.filter((year) => answered.has(`${key}|${year}`)).length, 0);
+  return { done, expected, percent: expected > 0 ? (done / expected) * 100 : 0 };
+}
+
+export function CompletionCharts({ rows, error }: { rows: Array<Record<string, string | number>>; error?: string }) {
+  const [selectedKey, setSelectedKey] = useState('');
+  const answered = new Set(rows
+    .map((row) => `${String(row.programa ?? '').trim().toUpperCase()}|${String(row.anio ?? '').trim()}`)
+    .filter((pair) => !pair.startsWith('|') && !pair.endsWith('|')));
+  const keys = selectedKey ? [selectedKey] : PROGRAM_KEYS;
+  const byKey = keys.map((key) => {
+    const years = PROGRAM_YEARS.map((year) => ({ year, done: answered.has(`${key}|${year}`) }));
+    const done = years.filter((item) => item.done).length;
+    return { key, years, done, percent: (done / PROGRAM_YEARS.length) * 100 };
+  });
+  const expected = keys.length * PROGRAM_YEARS.length;
+  const done = byKey.reduce((sum, item) => sum + item.done, 0);
+  const progress = expected > 0 ? (done / expected) * 100 : 0;
+  const pieData = [
+    { name: 'Resueltos', value: done, color: '#1A6B5E' },
+    { name: 'Pendientes', value: expected - done, color: '#CBD5E1' },
+  ];
+
+  return (
+    <div className="space-y-5">
+      {error ? <div role="alert" className="card border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{error}</div> : null}
+      <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
+        <ChartCard
+          title="Avance general por clave y año"
+          subtitle={`100% = cada clave con su cuestionario ${PROGRAM_YEARS.join(' y ')} resuelto.`}
+          tone="gold"
+          badge={`${done} de ${expected}`}
+        >
+          <label className="block max-w-sm">
+            <span className="mb-1.5 block text-xs font-semibold text-gray-600">Clave del programa</span>
+            <select
+              value={selectedKey}
+              onChange={(event) => setSelectedKey(event.target.value)}
+              className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-700 shadow-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+            >
+              <option value="">Todas las claves</option>
+              {PROGRAM_KEYS.map((key) => <option key={key} value={key}>{key}</option>)}
+            </select>
+          </label>
+          <ResponsiveContainer width="100%" height={290}>
+            <PieChart>
+              <Pie data={pieData} dataKey="value" nameKey="name" cx="50%" cy="46%" innerRadius={67} outerRadius={104} paddingAngle={2} stroke="none">
+                {pieData.map((item) => <Cell key={item.name} fill={item.color} />)}
+              </Pie>
+              <Tooltip
+                contentStyle={tooltipStyle}
+                formatter={(value, name) => [`${value} cuestionarios (${percentage(Number(value), expected)})`, name]}
+              />
+              <Legend verticalAlign="bottom" iconType="circle" wrapperStyle={{ fontSize: '12px' }} />
+              <text x="50%" y="43%" textAnchor="middle" className="fill-gray-500" fontSize="12">Avance</text>
+              <text x="50%" y="51%" textAnchor="middle" className="fill-gray-900" fontSize="24" fontWeight="800">
+                {progress.toFixed(1)}%
+              </text>
+            </PieChart>
+          </ResponsiveContainer>
+        </ChartCard>
+
+        <ChartCard title="Avance por clave" subtitle="Cada clave vale 50% por año resuelto." tone="emerald">
+          <div className="space-y-3">
+            {byKey.map((item) => (
+              <div key={item.key} className="rounded-xl px-3 py-2 hover:bg-slate-50">
+                <div className="mb-2 flex items-center justify-between gap-3 text-xs">
+                  <span className="font-mono text-sm font-bold text-slate-900">{item.key}</span>
+                  <span className="flex items-center gap-1.5">
+                    {item.years.map(({ year, done: isDone }) => (
+                      <span
+                        key={year}
+                        className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${isDone ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-500'}`}
+                      >
+                        {year} {isDone ? '✓' : 'pendiente'}
+                      </span>
+                    ))}
+                    <strong className="ml-2 w-12 text-right font-mono text-sm text-slate-900">{item.percent.toFixed(0)}%</strong>
+                  </span>
+                </div>
+                <div className="h-4 w-full overflow-hidden rounded-lg border border-slate-200/50 bg-slate-100 p-0.5">
+                  <div
+                    className="h-full rounded-md transition-all duration-500"
+                    style={{ width: `${item.percent}%`, backgroundColor: item.percent === 100 ? '#1A6B5E' : '#A57F2C' }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </ChartCard>
+      </div>
+    </div>
   );
 }
 
