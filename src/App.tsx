@@ -18,6 +18,8 @@ export default function App() {
   const [dashboardTab, setDashboardTab] = useState<'general' | 'preguntas'>('general');
   const [rawSupabaseRows, setRawSupabaseRows] = useState<ReportTableRow[]>([]);
   const [rawSupabaseError, setRawSupabaseError] = useState('');
+  const [updatedAt, setUpdatedAt] = useState('');
+  const [refreshing, setRefreshing] = useState(false);
   const [selectedProgram, setSelectedProgram] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
   const [baseTab, setBaseTab] = useState<'cruda' | 'preguntas' | 'p37'>('cruda');
@@ -92,6 +94,8 @@ export default function App() {
 
       setRawSupabaseRows(rows);
       setRawSupabaseError(typeof event.data.error === 'string' ? event.data.error : '');
+      if (typeof event.data.updatedAt === 'string') setUpdatedAt(event.data.updatedAt);
+      setRefreshing(false);
     };
 
     window.addEventListener('message', handleSupabaseRows);
@@ -113,6 +117,27 @@ export default function App() {
       />
 
       <main className="mx-auto max-w-7xl space-y-6 px-4 py-8 sm:px-6 lg:px-8">
+        {window.parent !== window ? (
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-xs text-emerald-900">
+            <span className="flex items-center gap-2">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-600" aria-hidden="true" />
+              Datos en tiempo real · se actualizan cada 30 segundos
+              {updatedAt ? <> · Última actualización: <strong>{new Date(updatedAt).toLocaleTimeString('es-MX')}</strong></> : null}
+            </span>
+            <button
+              type="button"
+              disabled={refreshing}
+              onClick={() => {
+                setRefreshing(true);
+                window.setTimeout(() => setRefreshing(false), 15_000);
+                window.parent.postMessage({ type: 'reporte-new-refresh' }, window.location.origin);
+              }}
+              className="rounded-lg bg-imss-green px-3 py-1.5 font-semibold text-white hover:opacity-90 disabled:opacity-60"
+            >
+              {refreshing ? 'Actualizando...' : 'Actualizar ahora'}
+            </button>
+          </div>
+        ) : null}
         {loading ? (
           <div className="card p-10 text-center text-gray-500">Cargando respuestas de la encuesta...</div>
         ) : error ? (
