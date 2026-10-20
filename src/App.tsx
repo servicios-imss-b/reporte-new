@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BarChart3, ClipboardList, FolderOpen, HelpCircle, Percent, TableProperties, Users } from 'lucide-react';
+import { BarChart3, ClipboardList, Download, FolderOpen, HelpCircle, Percent, TableProperties, Users } from 'lucide-react';
 import { Header } from './components/Header';
 import { CompletionCharts, QuestionDistributionChart, completionStats } from './components/Charts';
 import { DataTable } from './components/DataTable';
@@ -399,9 +399,11 @@ const FORM_COLUMNS: Array<[string, string]> = [
   ['programa', 'Programa'],
   ['anio', 'Año'],
   ['estado', 'Estado'],
+  ['titular_nombre', 'Titular de contraseña'],
+  ['titular_correo', 'Correo del titular'],
   ['usuario_nombre', 'Capturista'],
   ['usuario_puesto', 'Puesto'],
-  ['usuario_correo', 'Correo'],
+  ['usuario_correo', 'Correo del capturista'],
   ['usuario_telefono', 'Teléfono'],
   ['usuario_entidad', 'Entidad / dependencia'],
   ['fecha_captura', 'Fecha de captura'],
@@ -462,9 +464,11 @@ const QUESTION_TABLE_COLUMNS: Array<[string, string]> = [
   ['programa', 'Programa'],
   ['anio', 'Año'],
   ['estado', 'Estado'],
+  ['titular_nombre', 'Titular de contraseña'],
+  ['titular_correo', 'Correo del titular'],
   ['usuario_nombre', 'Capturista'],
   ['usuario_puesto', 'Puesto'],
-  ['usuario_correo', 'Correo'],
+  ['usuario_correo', 'Correo del capturista'],
   ['usuario_telefono', 'Teléfono'],
   ['usuario_entidad', 'Entidad'],
 ];
@@ -590,6 +594,10 @@ function Matrix37List({ rows, program, year, error }: { rows: ReportTableRow[]; 
                 const municipal = String(items[0].nivel ?? '') === 'Municipal' || filled.some((item) => item.clave_municipio);
                 const bySex = String(items[0].forma ?? '') === 'Desagregada por sexo';
                 const columns: Array<[string, string]> = [
+                  ['titular_nombre', 'Titular de contraseña'],
+                  ['titular_correo', 'Correo del titular'],
+                  ['usuario_nombre', 'Capturista'],
+                  ['usuario_correo', 'Correo del capturista'],
                   ...(municipal ? [['llave', 'Llave'] as [string, string]] : []),
                   ['clave_entidad', 'Clave'],
                   ['entidad', 'Entidad'],
@@ -630,12 +638,17 @@ const FILE_COLUMNS = [
   ['programa', 'Programa'],
   ['anio', 'Año'],
   ['folio', 'Folio'],
+  ['titular_nombre', 'Titular de contraseña'],
+  ['titular_correo', 'Correo del titular'],
+  ['usuario_nombre', 'Capturista'],
+  ['usuario_correo', 'Correo del capturista'],
   ['nombre', 'Archivo'],
   ['extension', 'Tipo'],
   ['tamanio', 'Tamaño'],
   ['estado', 'Estado'],
   ['fecha_carga', 'Fecha de carga'],
   ['ruta', 'Enlace'],
+  ['descarga', 'Descargar'],
 ].map(([key, label]) => ({
   key,
   label,
@@ -645,6 +658,11 @@ const FILE_COLUMNS = [
       return /^https:\/\//i.test(value)
         ? <a href={value} target="_blank" rel="noopener noreferrer" className="font-semibold text-imss-green underline">Abrir en Drive</a>
         : <span className="text-slate-400">Sin enlace</span>;
+    }
+    if (key === 'descarga') {
+      return /^https:\/\//i.test(value)
+        ? <a href={value} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-imss-green underline"><Download className="h-3.5 w-3.5" />Descargar</a>
+        : <span className="text-slate-400">No disponible</span>;
     }
     if (key === 'tamanio') {
       const bytes = Number(value);
@@ -669,16 +687,22 @@ function buildFileRows(rows: ReportTableRow[]) {
       list = [];
     }
     for (const file of Array.isArray(list) ? list : []) {
+      const driveFileId = String(file.almacenamiento_id ?? file.driveFileId ?? '').trim();
       files.push({
         programa: String(row.programa ?? ''),
         anio: String(row.anio ?? ''),
         folio: String(row.folio ?? ''),
+        titular_nombre: String(row.titular_nombre ?? ''),
+        titular_correo: String(row.titular_correo ?? ''),
+        usuario_nombre: String(row.usuario_nombre ?? ''),
+        usuario_correo: String(row.usuario_correo ?? ''),
         nombre: String(file.nombre ?? ''),
         extension: String(file.extension ?? ''),
         tamanio: Number(file.tamanio ?? 0),
         estado: String(file.estado ?? ''),
         fecha_carga: String(file.fecha_carga ?? ''),
         ruta: String(file.ruta ?? ''),
+        descarga: driveFileId ? `https://drive.google.com/uc?export=download&id=${encodeURIComponent(driveFileId)}` : '',
       });
     }
   }
@@ -691,6 +715,10 @@ const QUESTION_37_COLUMNS = [
   ['apoyo', 'Apoyo'],
   ['nivel', 'Nivel geográfico (36)'],
   ['forma', 'Forma de reporte (37)'],
+  ['titular_nombre', 'Titular de contraseña'],
+  ['titular_correo', 'Correo del titular'],
+  ['usuario_nombre', 'Capturista'],
+  ['usuario_correo', 'Correo del capturista'],
   ['llave', 'Llave'],
   ['clave_entidad', 'Clave entidad'],
   ['entidad', 'Entidad'],
@@ -702,12 +730,21 @@ const QUESTION_37_COLUMNS = [
 ].map(([key, label]) => ({ key, label, render: (row: ReportTableRow) => String(row[key] ?? '') }));
 
 function buildQuestion37Rows(rows: ReportTableRow[], catalog: Map<string, GeographicRow>) {
-  const apoyos = new Map<string, { programa: string; anio: string; apoyo: number; answers: Record<string, string> }>();
+  const apoyos = new Map<string, { programa: string; anio: string; apoyo: number; titular_nombre: string; titular_correo: string; usuario_nombre: string; usuario_correo: string; answers: Record<string, string> }>();
   for (const row of rows) {
     const match = String(row.pregunta_id ?? '').match(/^(24|36|37|37\.1)__apoyo_(\d+)$/);
     if (!match) continue;
     const key = `${row.formulario_id || row.folio}|${match[2]}`;
-    const apoyo = apoyos.get(key) ?? { programa: String(row.programa ?? ''), anio: String(row.anio ?? ''), apoyo: Number(match[2]) + 1, answers: {} };
+    const apoyo = apoyos.get(key) ?? {
+      programa: String(row.programa ?? ''),
+      anio: String(row.anio ?? ''),
+      apoyo: Number(match[2]) + 1,
+      titular_nombre: String(row.titular_nombre ?? ''),
+      titular_correo: String(row.titular_correo ?? ''),
+      usuario_nombre: String(row.usuario_nombre ?? ''),
+      usuario_correo: String(row.usuario_correo ?? ''),
+      answers: {},
+    };
     apoyo.answers[match[1]] = String(row.respuesta ?? '');
     apoyos.set(key, apoyo);
   }
@@ -719,6 +756,10 @@ function buildQuestion37Rows(rows: ReportTableRow[], catalog: Map<string, Geogra
       const base = {
         programa: apoyo.programa,
         anio: apoyo.anio,
+        titular_nombre: apoyo.titular_nombre,
+        titular_correo: apoyo.titular_correo,
+        usuario_nombre: apoyo.usuario_nombre,
+        usuario_correo: apoyo.usuario_correo,
         apoyo: `${apoyo.apoyo}. ${apoyo.answers['24'] ?? ''}`.trim(),
         nivel: apoyo.answers['36'] ?? '',
         forma: apoyo.answers['37'] ?? '',
