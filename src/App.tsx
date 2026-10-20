@@ -18,7 +18,6 @@ export default function App() {
   const [dashboardTab, setDashboardTab] = useState<'general' | 'preguntas'>('general');
   const [rawSupabaseRows, setRawSupabaseRows] = useState<ReportTableRow[]>([]);
   const [rawSupabaseError, setRawSupabaseError] = useState('');
-  const [updatedAt, setUpdatedAt] = useState('');
   const [refreshing, setRefreshing] = useState(false);
   const [selectedProgram, setSelectedProgram] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
@@ -94,7 +93,6 @@ export default function App() {
 
       setRawSupabaseRows(rows);
       setRawSupabaseError(typeof event.data.error === 'string' ? event.data.error : '');
-      if (typeof event.data.updatedAt === 'string') setUpdatedAt(event.data.updatedAt);
       setRefreshing(false);
     };
 
@@ -118,12 +116,7 @@ export default function App() {
 
       <main className="mx-auto max-w-7xl space-y-6 px-4 py-8 sm:px-6 lg:px-8">
         {window.parent !== window ? (
-          <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-xs text-emerald-900">
-            <span className="flex items-center gap-2">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-600" aria-hidden="true" />
-              Datos en tiempo real · se actualizan cada 30 segundos
-              {updatedAt ? <> · Última actualización: <strong>{new Date(updatedAt).toLocaleTimeString('es-MX')}</strong></> : null}
-            </span>
+          <div className="flex justify-end rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-xs text-emerald-900">
             <button
               type="button"
               disabled={refreshing}
